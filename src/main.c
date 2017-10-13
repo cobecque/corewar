@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 18:56:18 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/13 23:10:22 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/13 23:56:06 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,15 @@ int		main(int argc, char **argv)
 				file = init_file(file, line);
 				size += ft_strlen(line);
 			}
-			printf("%s\n", line);
+			printf(CN_BLU, line);
 			free(line);
 		}
 		close(fd);
 	}
-	ft_try_it(file, name, comment, size);
+//	ft_try_it(file, name, comment, size);
 	return (0);
 }
-
+/*
 char	*ft_calcul(char *line)
 {
 	char	*new;
@@ -73,7 +73,7 @@ char	*ft_calcul(char *line)
 	i = 0;
 	if (!(new = (char *)malloc(sizeof(char) * 5)))
 		return (NULL);
-	if (ft_str
+	if (
 }
 
 void	ft_try_it(t_file *file, char *name, char *comment, int size)
@@ -116,4 +116,4 @@ void	ft_try_it(t_file *file, char *name, char *comment, int size)
 		}
 		ft_printf("%s\n", res);
 	}
-}
+}*/

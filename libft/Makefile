@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/17 17:21:49 by cobecque          #+#    #+#              #
-#    Updated: 2017/10/10 17:48:03 by cobecque         ###   ########.fr        #
+#    Updated: 2017/10/12 03:28:56 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRC_NAME = ft_isascii.c\
 		   ft_iswhitespace.c\
 		   ft_lstiter.c\
 		   ft_lstmap.c\
-		   ft_pow.c\
 		   ft_memchr.c\
 		   ft_putnbr_fd.c\
 		   ft_strcmp.c\
@@ -65,6 +64,8 @@ SRC_NAME = ft_isascii.c\
 		   ft_putendl_fd.c\
 		   ft_strchr.c\
 		   ft_strequ.c\
+		   ft_long_itoa.c\
+		   ft_strrev.c\
 		   ft_strmap.c\
 		   ft_strnew.c\
 		   ft_strtrim.c\
@@ -80,7 +81,7 @@ SRC_NAME = ft_isascii.c\
 		   gnl/get_next_line.c
 
 SRC_DIR = ./src
-OBJ_DIR = ./obj
+OBJ_DIR = ./src/printf/obj
 
 SRC_PATH = $(addprefix $(SRC_DIR)/,$(SRC_NAME))
 OBJ_PATH = $(addprefix $(OBJ_DIR)/,$(SRC_NAME:.c=.o))
@@ -89,7 +90,8 @@ CC = gcc
 FLAGS = -Wall -Werror -Wextra
 
 all :
-	@mkdir -p obj
+	@mkdir -p ./src/printf/obj
+	@mkdir -p ./src/printf/obj/gnl
 	@$(MAKE) $(NAME)
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
@@ -100,11 +102,9 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
 $(NAME): $(OBJ_PATH)
 	@ar -q $(NAME) $(OBJ_PATH) 2>/dev/null
 	@printf $(C_CYA) "        [ ✔ ] compiled -> $(NAME)"
-#	@$(GCC) -c $(SRC) /gnl/get_next_line.c -I libft.h -I gnl/
-#	@ar -q $(NAME) $(OBJ) get_next_line.o
 
 clean :
-	@rm -rf ./obj
+	@rm -rf $(OBJ_DIR)
 	@/bin/rm -f $(OBJ_PATH)
 
 fclean : clean

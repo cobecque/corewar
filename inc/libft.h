@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 17:26:51 by cobecque          #+#    #+#             */
-/*   Updated: 2017/09/17 05:57:33 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/12 03:09:03 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 
 typedef struct	s_list
 {
@@ -24,7 +27,6 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-double			ft_pow(double x, double y);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
@@ -57,6 +59,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(const char *s, int fd);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_strnew(size_t size);
+char			*ft_strrev(char const *s);
 char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strdup(const char *src);
@@ -64,6 +67,7 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			*ft_itoa(int n);
+char			*ft_long_itoa(long n);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
 char			*ft_strcat(char *s1, const char *s2);
@@ -89,5 +93,6 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 int				ft_iswhitespace(char c);
 int				get_next_line(int fd, char **line);
+int				ft_pow(int x, int y);
 
 #endif

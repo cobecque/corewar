@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2017/10/10 18:56:54 by cobecque         ###   ########.fr        #
+#    Updated: 2017/10/12 03:21:53 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,17 @@
 NAME = corewar
 
 INC_NAME = ./inc
+LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
 SRC_NAME = main.c
 
 LIB_DIR = ./libft
+LIBP_DIR = ./libft/src/printf
 SRC_DIR = ./src
 OBJ_DIR = ./mdr
 
 LIB_PATH = $(addprefix $(LIB_DIR)/,$(LIB_NAME))
+LIBP_PATH = $(addprefix $(LIBP_DIR)/,$(LIBP_NAME))
 SRC_PATH = $(addprefix $(SRC_DIR)/,$(SRC_NAME))
 OBJ_PATH = $(addprefix $(OBJ_DIR)/,$(SRC_NAME:.c=.o))
 
@@ -30,10 +33,10 @@ CC = gcc
 FLAGS = -Wall -Werror -Wextra
 
 all :
-	@printf $(CN_YEL) "=== ->  Compil libs  <- ==="
-	@make -C $(LIB_DIR)
+	@printf $(CN_MAG) "=== ->  Compil all libs  <- ==="
+	@make -C $(LIBP_DIR)
 	@printf "\n"
-	@printf $(CN_YEL) "=== ->  Compil lem-in  <- ==="
+	@printf $(CN_YEL) "=== ->  Compil corewar  <- ==="
 	@mkdir -p mdr
 	@$(MAKE) $(NAME)
 
@@ -42,13 +45,13 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
 	@printf $(C_BLU) "        [ ✔ ] $<"
 
 $(NAME): $(OBJ_PATH)
-	@$(CC) $(FLAGS) $(OBJ_PATH) $(LIB_PATH) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ_PATH) $(LIB_PATH) $(LIBP_PATH) -o $(NAME)
 	@printf $(C_CYA) "        [ ✔ ] compiled → $(NAME)"
 	@printf "\n"
 
 clean :
 	@printf "\n"
-	@make clean -C $(LIB_DIR)
+	@make clean -C $(LIBP_DIR)
 	@/bin/rm -f $(OBJ_PATH)
 	@rm -rf ./mdr
 	@printf $(C_RED) " [ ✔ ] deleted objects path"
@@ -56,7 +59,7 @@ clean :
 
 fclean : clean
 	@printf "\n"
-	@rm -f $(LIB_PATH)
+	@rm -f $(LIBP_PATH)
 	@/bin/rm -f $(NAME)
 	@printf $(C_RED) " [ ✔ ] deleted binary file → $(NAME)"
 	@printf "\n"

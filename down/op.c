@@ -6,13 +6,13 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 23:00:41 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/13 23:10:26 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/14 02:46:24 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "op.h"
 
-typedef struct		s_op
+/*typedef struct		s_op
 {
 	char	*line;
 	int		nb;
@@ -23,7 +23,7 @@ typedef struct		s_op
 	int		x;
 	int		y;
 }					t_op;
-
+*/
 t_op    op_tab[17] =
 {
 	{"live", 1, {T_DIR}, 1, 10, "alive", 0, 0},

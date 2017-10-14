@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 18:56:18 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/13 23:56:06 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/14 03:23:02 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		main(int argc, char **argv)
 				file = init_file(file, line);
 				size += ft_strlen(line);
 			}
-			printf(CN_BLU, line);
+			printf(C_BLU"%s\n"FC_ALL, line);
 			free(line);
 		}
 		close(fd);
@@ -71,16 +71,14 @@ char	*ft_calcul(char *line)
 	t_op	op_tab;
 
 	i = 0;
-	if (!(new = (char *)malloc(sizeof(char) * 5)))
-		return (NULL);
-	if (
+	new = ft_look(line);
+
 }
 
 void	ft_try_it(t_file *file, char *name, char *comment, int size)
 {
 	header_t	header;
 	t_file		*tmp;
-	char		*res;
 	char		*octet;
 	int			i;
 
@@ -96,24 +94,15 @@ void	ft_try_it(t_file *file, char *name, char *comment, int size)
 			i++;
 		tmp = tmp->next;
 	}
-	if (res = (char *)malloc(sizeof(char) * (i * 4) + 1))
+	tmp = file;
+	i = 0;
+	while (tmp != NULL)
 	{
-		tmp = file;
-		i = 0;
-		while (tmp != NULL)
+		if (tmp->line != NULL)
 		{
-			if (tmp->line != NULL)
-			{
-				octet = ft_calcul(tmp->line);
-				printf("%s\n", octet);
-				if (i == 0)
-					res = ft_strcpy(octet);
-				else
-					res = ft_strcat(res, octet);
-				i++;
-			}
-			tmp = tmp->next;
+			octet = ft_calcul(tmp->line);
+			printf(CN_RED, octet);
 		}
-		ft_printf("%s\n", res);
+		tmp = tmp->next;
 	}
 }*/

@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2017/10/12 03:21:53 by cobecque         ###   ########.fr        #
+#    Updated: 2017/10/20 19:34:38 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ NAME = corewar
 INC_NAME = ./inc
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
-SRC_NAME = main.c
+SRC_NAME = main.c	op.c	struct.c	encodage.c	function_supp.c\
+		   function_ocp.c	function_param.c
 
 LIB_DIR = ./libft
 LIBP_DIR = ./libft/src/printf

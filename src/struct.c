@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   second.c                                           :+:      :+:    :+:   */
+/*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/14 00:15:25 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/14 02:45:14 by cobecque         ###   ########.fr       */
+/*   Created: 2017/10/20 15:49:00 by cobecque          #+#    #+#             */
+/*   Updated: 2017/10/20 19:40:39 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-char	*ft_calcul(char *line, t_op op_tab)
+t_file		*init_file(t_file *file, char *line)
 {
-	char	*new;
-	int		i;
-	int		j;
+	t_file	*tmp;
+	t_file	*new;
 
-	i = 0;
-	j = 0;
-	if (!(new = (char *)malloc(sizeof(char) * ft_strlen(line))))
+	tmp = file;
+	if (!(new = (t_file *)malloc(sizeof(t_file))))
 		return (NULL);
-	while (i < 17)
-	{
-		if (ft_strstr(line, op_tab[i].line))
-	}
+	new->line = ft_strdup(line);
+	new->code = NULL;
+	new->label = NULL;
+	new->inst = NULL;
+	new->next = NULL;
+	if (!tmp)
+		return (new);
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
+	return (file);
 }

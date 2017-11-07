@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 19:38:15 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/21 16:54:53 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/22 22:57:07 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strcat(char *s1, const char *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	while (s1[i] != '\0')
 		i++;
 	while (s2[j] != '\0')

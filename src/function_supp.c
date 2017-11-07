@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 16:30:54 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/20 20:35:33 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/26 01:50:43 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char		*search_instruction(char *line, char *label, t_file *file)
 
 	i = 0;
 	op_code = ft_strdup(line);
-	if (label != NULL)
+	if (label != NULL && line != NULL)
 		op_code = ft_strsub(line, ft_strlen(label) + 1, ft_strlen(line) - ft_strlen(label) - 1);
 	while (op_code[i] != '\0' && (op_code[i] == ' ' || op_code[i] == '\t'))
 		i++;
@@ -34,7 +34,7 @@ char		*search_instruction(char *line, char *label, t_file *file)
 	i = 0;
 	while (i < 17)
 	{
-		if (ft_strcmp(op_code, g_op_tab[i].name) == 0)
+		if (op_code != NULL && g_op_tab[i].name != NULL && ft_strcmp(op_code, g_op_tab[i].name) == 0)
 		{
 			op_code = ft_conv_op_code(g_op_tab[i].op_code);
 			break;
@@ -48,19 +48,21 @@ char		*cut_line(char *line, char *label)
 {
 	int		i;
 	int		j;
+	char	*new;
 
 	i = 0;
+	new = ft_strdup(line);
 	if (label != NULL)
-		line = ft_strsub(line, ft_strlen(label) + 1, ft_strlen(line) * ft_strlen(label) - 1);
-	while (line[i] != '\0' && (line[i] == ' ' || line[i] == '\t'))
+		new = ft_strsub(new, ft_strlen(label) + 1, ft_strlen(new) * ft_strlen(label) - 1);
+	while (new[i] != '\0' && (new[i] == ' ' || new[i] == '\t'))
 		i++;
 	j = i;
-	while (line[i] != '\0' && line[i] != ' ' && line[i] != '\t')
+	while (new[i] != '\0' && new[i] != ' ' && new[i] != '\t')
 		i++;
-	while (line[i] != '\0' && (line[i] == ' ' || line[i] == '\t'))
+	while (new[i] != '\0' && (new[i] == ' ' || new[i] == '\t'))
 		i++;
-	line = ft_strsub(line, i, ft_strlen(line) - i);
-	return (line);
+	new = ft_strsub(new, i, ft_strlen(new) - i);
+	return (new);
 }
 
 char		*ft_conv_op_code(int op_code)
@@ -85,7 +87,7 @@ char		*ft_conv_op_code(int op_code)
 			op_code /= 16;
 		}
 		if (reste > 9)
-			tmp[i] = reste - 10 + 'A';
+			tmp[i] = reste - 10 + 'a';
 		else
 			tmp[i] = reste + 48;
 		i++;

@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 18:00:37 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/21 16:47:11 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/26 01:52:33 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char		*ft_calc_ocp(char *line)
 {
 	char	*binary;
+	char	*new;
 	int		i;
 	int		j;
 
@@ -22,37 +23,42 @@ char		*ft_calc_ocp(char *line)
 	i = 0;
 	if (!(binary = (char *)malloc(sizeof(char) * 9)))
 		return (NULL);
-	*binary = '\0';
-	while (line[i] != '\0')
+	new = ft_strdup(line);
+	binary = ft_strcpy(binary, "\0");
+	while (new[i] != '\0')
 	{
-		if (j != 0 && line[i - 1] != ',')
+		if (j != 0 && new[i - 1] != ',')
 		{
-			while (line[i] != '\0' && line[i] != ',')
+			while (new[i] != '\0' && new[i] != ',')
 				i++;
-			i++;
+			if (new[i] != '\0')
+				i++;
 		}
-		if (line[i] == 'r')
+		if (new[i] == 'r')
 		{
 			binary = ft_strcat(binary, "01");
 			j += 2;
 		}
-		else if (line[i] == '%')
+		else if (new[i] == '%')
 		{
 			binary = ft_strcat(binary, "10");
 			j += 2;
 		}
-		else if (line[i] != ',' && line[i] != '\n' && line[i] != '\0')
+		else if (new[i] != ',' && new[i] != '\n' && new[i] != '\0' && new[i] != ' ' && new[i] != '\t')
 		{
 			binary = ft_strcat(binary, "11");
 			j += 2;
 		}
-		i++;
+		if (new[i] != '\0')
+			i++;
 	}
 	while (j < 8)
 	{
 		binary[j] = '0';
 		j++;
 	}
+	binary[j] = '\0';
+	free(new);
 	binary = conv_hex(binary);
 	return (binary);
 }
@@ -71,6 +77,11 @@ char		*conv_hex(char *binary)
 	if (!(res = (char *)malloc(sizeof(char) * 5)))
 		return (NULL);
 	j = binary_to_decimal(binary);
+	if (j == 0)
+	{
+		res = ft_strdup("0x00 0x00");
+		return (res);
+	}
 	while (j > 0)
 	{
 		if (j < 16)
@@ -106,8 +117,8 @@ char		*conv_hex(char *binary)
 		j++;
 	}
 	res[j] = '\0';
+	free(tmp);
 	if (ft_strcmp(res, "0x") == 0)
 		res = ft_strdup("0x00");
-	ft_printf("hex = %s\n", res);
 	return (res);
 }

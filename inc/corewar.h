@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 18:53:50 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/20 19:55:30 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/29 08:39:53 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_file
 	char			*line;
 	char			*code;
 	char			*label;
+	char			**param;
 	char			*inst;
 	struct s_file	*next;
 }					t_file;
@@ -76,17 +77,25 @@ t_file				*ft_label(t_file *file);
 t_file				*ft_ocp(t_file *file);
 t_file				*ft_instruction(t_file *file);
 t_file				*ft_parametre(t_file *file);
+t_file				*file_param(t_file *file);
+t_file				*ft_spec_param(t_file *file);
 char				*search_instruction(char *line, char *label, t_file *file);
 char				*ft_conv_op_code(int op_code);
 char				*cut_line(char *line, char *label);
 char				*ft_hex(char *tmp, int j);
 char				*ft_calc_ocp(char *line);
 char				*conv_hex(char *binary);
-char				*ft_two_octet(char *str, int bol, int l);
+char				*ft_two_octet(char *str, int bol, int l, char pa);
 char				*ft_x_octet(t_file *file, char *str, int bol, int l);
 char				*ft_calc_para(char *line, t_file *file);
 char				*ft_binary(char *line);
+char				*search_spec(char *code, t_file *file, int nb);
 void				ft_asm(t_file *file, char *name, char *comment);
 int					ft_is_label(char *label);
+int					ft_is_spec(char *code);
+int					ft_label_signed(t_file *file, char *line, char *label);
+int					label_pos(t_file *file, char *label, char *code);
+int					label_neg(t_file *file, char *label, char *code);
+int					ft_nb_octet(char *inst);
 
 #endif

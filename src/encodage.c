@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 16:19:51 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/20 21:12:58 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/26 07:41:50 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_file		*ft_ocp(t_file *file)
 	tmp = file;
 	while (tmp != NULL)
 	{
-		if (tmp->inst != NULL && ft_strcmp(tmp->inst, "live") != 0 && ft_strcmp(tmp->inst, "zjmp") != 0)
+		if (tmp->inst != NULL && ft_strcmp(tmp->inst, "live") != 0 && ft_strcmp(tmp->inst, "zjmp") != 0 && ft_strcmp(tmp->inst, "lfork") != 0  && ft_strcmp(tmp->inst, "fork") != 0)
 		{
 			if (tmp->line != NULL && tmp->code != NULL)
 			{
@@ -63,9 +63,27 @@ t_file		*ft_parametre(t_file *file)
 		if (tmp->line != NULL && tmp->code != NULL && tmp->inst != NULL)
 		{
 			code = ft_calc_para(tmp->line, tmp);
-			tmp->code = ft_strcat(tmp->code, code);
-			ft_printf(C_YEL"%s\n"FC_ALL, tmp->code);
+			if (code != NULL)
+				tmp->code = ft_strcat(tmp->code, code);
+			free(code);
 		}
+		tmp = tmp->next;
+	}
+	return (file);
+}
+
+t_file		*ft_spec_param(t_file *file)
+{
+	t_file	*tmp;
+	int		i;
+
+	tmp = file;
+	i = 0;
+	while (tmp != NULL)
+	{
+		if (tmp->line != NULL && tmp->code != NULL)
+			tmp->code = search_spec(tmp->code, file, i);
+		i++;
 		tmp = tmp->next;
 	}
 	return (file);

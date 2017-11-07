@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 16:47:32 by cobecque          #+#    #+#             */
-/*   Updated: 2017/09/20 09:58:30 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/22 23:26:54 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 			i = len + start;
 			while (start < i)
 			{
-				*new = s[start];
-				new++;
+				*ptr = s[start];
+				ptr++;
 				start++;
 			}
-			*new = '\0';
-			return (ptr);
+			*ptr = '\0';
+			return (new);
 		}
 		return (NULL);
 	}

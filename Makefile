@@ -6,19 +6,20 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2017/10/20 19:34:38 by cobecque         ###   ########.fr        #
+#    Updated: 2017/10/23 19:04:02 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY:all clean fclean re
 
-NAME = corewar
+NAME = asm
 
 INC_NAME = ./inc
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
 SRC_NAME = main.c	op.c	struct.c	encodage.c	function_supp.c\
-		   function_ocp.c	function_param.c
+		   function_ocp.c	function_param.c	function_spec.c\
+		   function_label.c
 
 LIB_DIR = ./libft
 LIBP_DIR = ./libft/src/printf
@@ -31,7 +32,7 @@ SRC_PATH = $(addprefix $(SRC_DIR)/,$(SRC_NAME))
 OBJ_PATH = $(addprefix $(OBJ_DIR)/,$(SRC_NAME:.c=.o))
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
 
 all :
 	@printf $(CN_MAG) "=== ->  Compil all libs  <- ==="

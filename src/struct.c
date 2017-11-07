@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 15:49:00 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/20 19:40:39 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/22 18:51:09 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,18 @@ t_file		*init_file(t_file *file, char *line)
 	tmp = file;
 	if (!(new = (t_file *)malloc(sizeof(t_file))))
 		return (NULL);
-	new->line = ft_strdup(line);
+	if (line)
+		new->line = ft_strdup(line);
+	else
+		new->line = NULL;
 	new->code = NULL;
 	new->label = NULL;
+	if (!(new->param = (char **)malloc(sizeof(char *) * 4)))
+		return (NULL);
+	new->param[0] = NULL;
+	new->param[1] = NULL;
+	new->param[2] = NULL;
+	new->param[3] = NULL;
 	new->inst = NULL;
 	new->next = NULL;
 	if (!tmp)

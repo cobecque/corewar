@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 15:23:10 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/20 20:40:14 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/10/27 23:57:30 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int		main(int argc, char **argv)
 				name = ft_strsub(line, 6, ft_strlen(line) - 6);
 			else if (ft_strncmp(line, ".comment", 8) == 0)
 				comment = ft_strsub(line, 9, ft_strlen(line) - 9);
+			else if (ft_strncmp(line, "#", 1) == 0)
+				;
 			else
 				file = init_file(file, line);
 			free(line);
@@ -50,12 +52,13 @@ void	ft_asm(t_file *file, char *name, char *comment)
 	name = NULL;
 	comment = NULL;
 	tmp = ft_encodage(tmp);
-	/*while (tmp != NULL)
+	ft_printf("\n");
+	while (tmp != NULL)
 	{
 		if (tmp->code != NULL)
 			ft_printf(C_RED"%s\n"FC_ALL, tmp->code);
 		tmp = tmp->next;
-	}*/
+	}
 }
 
 t_file	*ft_encodage(t_file *file)
@@ -67,8 +70,9 @@ t_file	*ft_encodage(t_file *file)
 	tmp = ft_instruction(tmp);
 	tmp = ft_ocp(tmp);
 	tmp = ft_parametre(tmp);
-/*	tmp = ft_spec_param(tmp);
-*/	return (tmp);
+	tmp = file_param(tmp);
+	tmp = ft_spec_param(tmp);
+	return (tmp);
 }
 
 t_file	*ft_label(t_file *file)

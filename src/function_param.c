@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 19:05:35 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/26 07:53:25 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/08 14:28:11 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char		*ft_calc_para(char *line, t_file *file)
 		new = ft_strsub(tmp, j, i - j);
 		if (new != NULL)
 		{
-			if (tmp[j] == '%' || ft_strcmp(file->inst, "live") == 0 || (j - 1 >= 0 && tmp[j - 1] == '%' && tmp[j] != ':'))
+			if (tmp[j] == '%' || ft_strcmp(file->inst, "live") == 0 || (j - 1 >= 0 && tmp[j - 1] == '%' && tmp[j] != ':' && tmp[j - 1] != 'r'))
 			{
 				if (tmp[i] == '\0')
 					code = ft_strcat(code, ft_x_octet(file, new, 2, p));
@@ -92,7 +92,7 @@ char		*ft_x_octet(t_file *file, char *str, int bol, int label)
 			break;
 		i++;
 	}
-	if ((ft_strcmp(file->inst, "live") == 0 || g_op_tab[i].direct_size == 1) && ft_strcmp(file->inst, "sti") != 0) //&& ft_strcmp(file->inst, "xor") != 0)
+	if ((ft_strcmp(file->inst, "live") == 0 || g_op_tab[i].direct_size == 1) && ft_strcmp(file->inst, "sti") != 0)
 	{
 		if (bol == 1 && ft_strcmp(file->inst, "xor") != 0)
 		{

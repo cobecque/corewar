@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 18:44:33 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/28 04:06:59 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/08 14:29:00 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,19 @@ int		label_pos(t_file *file, char *label, char *code)
 {
 	char	*new;
 	t_file	*tmp;
-	int		space;
 	int		size;
-	int		i;
-	int		l;
 
 	new = NULL;
-	space = 0;
-	size = 0;
-	l = 0;
 	tmp = file;
 	if (label)
 		label = ft_strsub(label, 2, ft_strlen(label) - 2);
 	if (code)
 		new = ft_strdup(code);
-	i = ft_is_spec(new);
-	if (i == -1)
-		return (size);
-	i += 4;
-	while (i < (int)ft_strlen(new))
-	{
-		if (size % 4 == 0 && size != 0)
-			space++;
-		size++;
-		i++;
-	}
-	size -= space;
+	size = octet_on_line(new);
 	if (tmp->next != NULL)
 		tmp = tmp->next;
 	while (tmp != NULL)
 	{
-		space = 0;
 		if (tmp->label != NULL && label != NULL)
 		{
 			if (ft_strcmp(label, tmp->label) == 0)
@@ -54,15 +36,7 @@ int		label_pos(t_file *file, char *label, char *code)
 				if (tmp->code != NULL)
 				{
 					new = ft_strdup(tmp->code);
-					i = 0;
-					space = 0;
-					while (new[i] != '\0')
-					{
-						if (new[i] == ' ')
-							space++;
-						i++;
-					}
-					size += i - space;
+					size += octet_on_line(new);
 				}
 				break;
 			}
@@ -70,19 +44,10 @@ int		label_pos(t_file *file, char *label, char *code)
 		if (tmp->code != NULL)
 		{
 			new = ft_strdup(tmp->code);
-			i = 0;
-			while (new[i] != '\0')
-			{
-				if (new[i] == ' ')
-					space++;
-				i++;
-			}
-			size += i - space;
+			size += octet_on_line(new);
 		}
 		tmp = tmp->next;
-		l++;
 	}
-	size = (size + l) / 4;
 	return (size);
 }
 
@@ -91,27 +56,14 @@ int		label_neg(t_file *file, char *label, char *code)
 	t_file	*tmp;
 	char	*new;
 	int		size;
-	int		space;
-	int		i;
 
 	tmp = file;
 	new = NULL;
 	size = 0;
-	space = 0;
 	if (code)
 		new = ft_strdup(code);
 	if (label)
 		label = ft_strsub(label, 2, ft_strlen(label) - 2);
-	i = ft_is_spec(new);
-	if (i == -1)
-		return (size);
-	while (i > 0)
-	{
-		if (size % 4 == 0 && size != 0)
-			space++;
-		size++;
-		i--;
-	}
 	while (tmp != NULL)
 	{
 		if (tmp->label != NULL && label != NULL)
@@ -123,37 +75,16 @@ int		label_neg(t_file *file, char *label, char *code)
 	}
 	while (tmp != NULL)
 	{
-		if (tmp->code != NULL && ft_strcmp(tmp->code, new) == 0)
-		{
-			i = 0;
-			space = 0;
-			while (new[i] != '\0')
-			{
-				if (new[i] == 'X')
-					break;
-				if (new[i] == ' ')
-					space++;
-				i++;
-			}
-			size -= i - space;
+		if (tmp->code != NULL && ft_strcmp(tmp->code, code) == 0)
 			break;
-		}
 		if (tmp->code != NULL)
 		{
-			space = 0;
-			i = 0;
 			new = ft_strdup(tmp->code);
-			while (new[i] != '\0')
-			{
-				if (new[i] == ' ')
-					space++;
-				i++;
-			}
-			size -= i - space;
+			size += octet_on_line(new);
 		}
 		tmp = tmp->next;
 	}
-	size /= 4;
+	size = - size;
 	return (size);
 }
 
@@ -177,7 +108,30 @@ int		ft_nb_octet(char *inst)
 	if (i != 17)
 		size = g_op_tab[i].strange;
 	if (size == 1)
-		return (4);
-	else
 		return (2);
+	else
+		return (0);
+}
+
+int		octet_on_line(char *code)
+{
+	int		i;
+	int		space;
+
+	i = 0;
+	space = 0;
+	if (code != NULL)
+	{
+		while (code[i] != '\0')
+		{
+			if (code[i] == ' ')
+				space++;
+			i++;
+		}
+	}
+	i = i - space;
+	i = i / 4;
+	if (ft_is_spec(code) != -1)
+		i++;
+	return (i);
 }

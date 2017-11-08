@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 18:00:37 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/26 01:52:33 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/08 14:28:19 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char		*conv_hex(char *binary)
 	j = binary_to_decimal(binary);
 	if (j == 0)
 	{
-		res = ft_strdup("0x00 0x00");
+		res = ft_strdup("0x00");
 		return (res);
 	}
 	while (j > 0)

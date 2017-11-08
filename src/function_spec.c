@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 17:59:08 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/29 10:50:56 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/08 14:28:53 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ char		*search_spec(char *code, t_file *file, int nb)
 	if (label && signe > 0)
 	{
 		signe = ft_is_spec(new);
-		size += ft_nb_octet(tmp->inst);
 		label = ft_strsub(new, 0, signe);
 		label = ft_strcat(label, "0x00 ");
 		label = ft_strcat(label, conv_hex(ft_binary(ft_itoa(size))));
@@ -75,7 +74,6 @@ char		*search_spec(char *code, t_file *file, int nb)
 	{
 		signe = ft_is_spec(new);
 		label = ft_strsub(new, 0, signe);
-		size += ft_nb_octet(tmp->inst) + 13;
 		label = ft_strcat(label, "0xff ");
 		label = ft_strcat(label, conv_hex(ft_binary(ft_itoa(size))));
 		if (signe + 4 < (int)ft_strlen(new))

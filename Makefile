@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2017/10/23 19:04:02 by cobecque         ###   ########.fr        #
+#    Updated: 2017/11/07 16:37:21 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
 SRC_NAME = main.c	op.c	struct.c	encodage.c	function_supp.c\
 		   function_ocp.c	function_param.c	function_spec.c\
-		   function_label.c
+		   function_label.c	fill_file.c	function_binair.c
 
 LIB_DIR = ./libft
 LIBP_DIR = ./libft/src/printf

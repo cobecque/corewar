@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 15:23:10 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/27 23:57:30 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/07 19:07:42 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@ int		main(int argc, char **argv)
 	char		*line;
 	char		*name;
 	char		*comment;
+	int			i;
+	int			j;
+	header_t	header;
 
+	header.prog_name[0] = '\0';
+	header.comment[0] = '\0';
+	header.prog_size = 0;
+	header.magic = 0xea83f3;
 	file = NULL;
 	name = NULL;
 	comment = NULL;
@@ -40,28 +47,39 @@ int		main(int argc, char **argv)
 		}
 		close(fd);
 	}
-	ft_asm(file, name, comment);
+	j = 0;
+	i = 1;
+	while (i < PROG_NAME_LENGTH + 1 && i < (int)ft_strlen(name) - 1)
+	{
+		header.prog_name[j] = name[i];
+		i++;
+		j++;
+	}
+	i = 1;
+	j = 0;
+	while (i < COMMENT_LENGTH + 1 && i < (int)ft_strlen(comment) - 1)
+	{
+		header.comment[j] = comment[i];
+		i++;
+		j++;
+	}
+	name = get_name(argv[1]);
+	fd = open(name, O_CREAT | O_WRONLY);
+	chmod(name, S_IRUSR | S_IWUSR);
+	ft_asm(file, fd, header);
+	close(fd);
 	return (0);
 }
 
-void	ft_asm(t_file *file, char *name, char *comment)
+void	ft_asm(t_file *file, int fd, header_t header)
 {
-	t_file	*tmp;
+	t_file		*tmp;
 
 	tmp = file;
-	name = NULL;
-	comment = NULL;
-	tmp = ft_encodage(tmp);
-	ft_printf("\n");
-	while (tmp != NULL)
-	{
-		if (tmp->code != NULL)
-			ft_printf(C_RED"%s\n"FC_ALL, tmp->code);
-		tmp = tmp->next;
-	}
+	tmp = ft_encodage(tmp, fd, header);
 }
 
-t_file	*ft_encodage(t_file *file)
+t_file	*ft_encodage(t_file *file, int fd, header_t header)
 {
 	t_file	*tmp;
 
@@ -72,6 +90,7 @@ t_file	*ft_encodage(t_file *file)
 	tmp = ft_parametre(tmp);
 	tmp = file_param(tmp);
 	tmp = ft_spec_param(tmp);
+	tmp = fill_binair(tmp, fd, header);
 	return (tmp);
 }
 

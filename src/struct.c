@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 15:49:00 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/22 18:51:09 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/07 18:20:20 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_file		*init_file(t_file *file, char *line)
 	new->param[2] = NULL;
 	new->param[3] = NULL;
 	new->inst = NULL;
+	new->binair = NULL;
+	new->nb = 0;
 	new->next = NULL;
 	if (!tmp)
 		return (new);

@@ -1,0 +1,40 @@
+sti
+VAL[0] = 1 pour j = 0
+VAL[1] = 69 pour j = 1
+VAL[2] = 1 pour j = 1
+sti
+VAL[0] = 1 pour j = 0
+VAL[1] = 34 pour j = 1
+VAL[2] = 1 pour j = 1
+ld
+VAL[0] = 1 pour j = 3
+VAL[1] = 3 pour j = 0
+ld
+VAL[0] = 33 pour j = 3
+VAL[1] = 6 pour j = 0
+add
+VAL[0] = 2 pour j = 0
+VAL[1] = 3 pour j = 0
+VAL[2] = 2 pour j = 0
+xor
+VAL[0] = 2 pour j = 0
+VAL[1] = 15 pour j = 3
+VAL[2] = 4 pour j = 0
+live
+VAL[0] = 4 pour j = 0
+zjmp
+VAL = 16 zj = 16
+fork
+VAL = -21 zj = -21
+ld
+VAL[0] = 0 pour j = 3
+VAL[1] = 4 pour j = 0
+zjmp
+VAL = -31 zj = -31
+ld
+VAL[0] = 0 pour j = 3
+VAL[1] = 4 pour j = 0
+live
+VAL[0] = 4 pour j = 0
+zjmp
+VAL = -5 zj = -5

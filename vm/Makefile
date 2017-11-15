@@ -20,8 +20,8 @@ LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
 SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c
 
-LIB_DIR = ../libft
-LIBP_DIR = ../libft/src/printf
+LIB_DIR = ../asm/libft
+LIBP_DIR = ../asm/libft/src/printf
 SRC_DIR = ./src
 OBJ_DIR = ./mdr
 

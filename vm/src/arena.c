@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/13 13:22:47 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/14 19:11:05 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_process	*kill_them_all(t_process *pro)
 	while (cpy != NULL)
 	{
 		if (cpy->live == 0)
-			cpy->live--;			//inserer ici bruitage abbatge
+			cpy->live--;			//inserer ici bruitage abbatage
 		cpy = cpy->next;
 	}
 	return (pro);
@@ -115,4 +115,14 @@ int			cycle_gestion(t_vm *virtual, t_process *pro, int ctd)
 			cycle_d++;
 	}
 	return (winner(pro)); // return le numero du champions gagnants
+}
+
+while (i < NB_CYCLE_MAX)
+{
+	if (f1(d1) == 1)
+		d1 = d2;
+	f2(d1);
+	f3(d1);
+	f4(d1);
+	i++;
 }

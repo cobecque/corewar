@@ -6,11 +6,11 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 16:19:51 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/07 18:24:23 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/15 18:51:00 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "asm.h"
 
 t_file		*ft_instruction(t_file *file)
 {
@@ -38,7 +38,10 @@ t_file		*ft_ocp(t_file *file)
 	tmp = file;
 	while (tmp != NULL)
 	{
-		if (tmp->inst != NULL && ft_strcmp(tmp->inst, "live") != 0 && ft_strcmp(tmp->inst, "zjmp") != 0 && ft_strcmp(tmp->inst, "lfork") != 0  && ft_strcmp(tmp->inst, "fork") != 0)
+		if (tmp->inst != NULL && ft_strcmp(tmp->inst, "live") != 0
+				&& ft_strcmp(tmp->inst, "zjmp") != 0
+				&& ft_strcmp(tmp->inst, "lfork") != 0
+				&& ft_strcmp(tmp->inst, "fork") != 0)
 		{
 			if (tmp->line != NULL && tmp->code != NULL)
 			{
@@ -56,13 +59,15 @@ t_file		*ft_parametre(t_file *file)
 {
 	t_file	*tmp;
 	char	*code;
+	int		i;
 
+	i = 0;
 	tmp = file;
 	while (tmp != NULL)
 	{
 		if (tmp->line != NULL && tmp->code != NULL && tmp->inst != NULL)
 		{
-			code = ft_calc_para(tmp->line, tmp);
+			code = ft_calc_para(tmp->line, tmp, i);
 			if (code != NULL)
 				tmp->code = ft_strcat(tmp->code, code);
 			free(code);

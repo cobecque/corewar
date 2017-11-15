@@ -6,11 +6,11 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:22:15 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/08 13:50:32 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/15 15:25:57 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "asm.h"
 
 unsigned char	*dec_to_bi(char *code)
 {
@@ -18,13 +18,14 @@ unsigned char	*dec_to_bi(char *code)
 	char			*tmp;
 	int				i;
 	int				j;
+	int				len;
 
 	j = 0;
-	i = octet_on_line(code);
-	if (!(res = (unsigned char *)malloc(sizeof(unsigned char) * i + 1)))
+	len = octet_on_line(code);
+	if (!(res = (unsigned char *)malloc(sizeof(unsigned char) * len + 1)))
 		return (NULL);
 	i = 0;
-	while (code[i] != '\0')
+	while (code && i < (int)ft_strlen(code) && code[i] != '\0')
 	{
 		if (code[i] == ' ')
 			i++;
@@ -33,7 +34,7 @@ unsigned char	*dec_to_bi(char *code)
 		i += 4;
 		j++;
 	}
-	res[j] = '\0';
+	res[len] = '\0';
 	return (res);
 }
 
@@ -41,25 +42,20 @@ unsigned char	hex_dec(char *code)
 {
 	unsigned char	res;
 	char			*tmp;
-	int				i;
 	int				nb;
-	int				j;
 	int				hex;
 
-	nb = 0;
-	j = 0;
-	i = 1;
 	tmp = ft_strsub(code, 2, 2);
-	while (i >= 0)
-	{
-		if (tmp[i] - '0' > 9)
-			hex = tmp[i] - 'a' + 10;
-		else
-			hex = tmp[i] - '0';
-		nb += (hex * ft_pow(16, j));
-		i--;
-		j++;
-	}
+	if (tmp[1] - '0' > 9)
+		hex = (tmp[1] - 'a' + 10);
+	else
+		hex = (tmp[1] - '0');
+	nb = hex;
+	if (tmp[0] - '0' > 9)
+		hex = (tmp[0] - 'a' + 10);
+	else
+		hex = (tmp[0] - '0');
+	nb += hex * 16;
 	res = (unsigned char)nb;
 	return (res);
 }

@@ -6,11 +6,11 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 18:44:33 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/08 14:29:00 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/15 15:41:26 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "asm.h"
 
 int		label_pos(t_file *file, char *label, char *code)
 {
@@ -29,18 +29,8 @@ int		label_pos(t_file *file, char *label, char *code)
 		tmp = tmp->next;
 	while (tmp != NULL)
 	{
-		if (tmp->label != NULL && label != NULL)
-		{
-			if (ft_strcmp(label, tmp->label) == 0)
-			{
-				if (tmp->code != NULL)
-				{
-					new = ft_strdup(tmp->code);
-					size += octet_on_line(new);
-				}
-				break;
-			}
-		}
+		if (is_end_label(tmp, label, &size) == 1)
+			break ;
 		if (tmp->code != NULL)
 		{
 			new = ft_strdup(tmp->code);
@@ -58,25 +48,16 @@ int		label_neg(t_file *file, char *label, char *code)
 	int		size;
 
 	tmp = file;
-	new = NULL;
 	size = 0;
 	if (code)
 		new = ft_strdup(code);
 	if (label)
 		label = ft_strsub(label, 2, ft_strlen(label) - 2);
-	while (tmp != NULL)
-	{
-		if (tmp->label != NULL && label != NULL)
-		{
-			if (ft_strcmp(tmp->label, label) == 0)
-				break;
-		}
-		tmp = tmp->next;
-	}
+	tmp = go_label(tmp, label);
 	while (tmp != NULL)
 	{
 		if (tmp->code != NULL && ft_strcmp(tmp->code, code) == 0)
-			break;
+			break ;
 		if (tmp->code != NULL)
 		{
 			new = ft_strdup(tmp->code);
@@ -84,8 +65,21 @@ int		label_neg(t_file *file, char *label, char *code)
 		}
 		tmp = tmp->next;
 	}
-	size = - size;
-	return (size);
+	return (-size);
+}
+
+t_file	*go_label(t_file *file, char *label)
+{
+	while (file != NULL)
+	{
+		if (file->label != NULL && label != NULL)
+		{
+			if (ft_strcmp(file->label, label) == 0)
+				break ;
+		}
+		file = file->next;
+	}
+	return (file);
 }
 
 int		ft_nb_octet(char *inst)
@@ -102,7 +96,7 @@ int		ft_nb_octet(char *inst)
 	while (i < 17)
 	{
 		if (ft_strcmp(new, g_op_tab[i].name) == 0)
-			break;
+			break ;
 		i++;
 	}
 	if (i != 17)

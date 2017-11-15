@@ -1,36 +1,27 @@
-	/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   corewar.h                                          :+:      :+:    :+:   */
+/*   asm.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 18:53:50 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/08 13:46:36 by cobecque         ###   ########.fr       */
+/*   Created: 2017/11/15 14:08:50 by cobecque          #+#    #+#             */
+/*   Updated: 2017/11/15 18:51:17 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COREWAR_H
-# define COREWAR_H
+#ifndef ASM_H
+# define ASM_H
 
 # include "libft.h"
 # include "ft_printf.h"
 # include "op.h"
-
-/*typedef struct		s_file
-{
-	char			*line;
-	char			*octet;
-	char			*inst;
-	struct s_file	*next;
-}					t_file;
 
 typedef struct		s_label
 {
 	char			*label;
 	struct s_label	*next;
 }					t_label;
-*/
 typedef struct		s_file
 {
 	char			*line;
@@ -56,32 +47,19 @@ typedef struct		s_op
 }					t_op;
 
 extern t_op			g_op_tab[];
-/*
-t_label				*init_label(t_label *list, char *label);
-t_label				*feed_label(t_label *list, t_file *file);
-t_file				*init_file(t_file *file, char *line);
-void				ft_try_it(t_file *file, char *n, char *c, int s);
-void				ft_two_octet(t_file *file, char *str, int bol);
-void				ft_x_octet(t_file *file, char *str, int bol);
-void				spec_calc(t_file *file, t_label *list);
-char				*ft_calcul(char *line, t_file *file);
-char				*ft_look(char *line, t_file *file);
-char				*ft_loot_type(char *line, t_file *file);
-char				*ft_conv_hexa(char *line, int dec);
-char				*search_label(char *line);
-char				*ft_param(char *line, t_file *file);
-char				*ft_binary(char *str);
-*/
 
 unsigned char		*dec_to_bi(char *code);
 unsigned char		hex_dec(char *code);
+header_t			init_header(char *name, char *comment);
 t_file				*init_file(t_file *file, char *line);
+t_file				*go_label(t_file *file, char *label);
 t_file				*ft_encodage(t_file *file, int fd, header_t header);
 t_file				*ft_label(t_file *file);
 t_file				*ft_ocp(t_file *file);
 t_file				*ft_instruction(t_file *file);
 t_file				*ft_parametre(t_file *file);
 t_file				*fill_binair(t_file *file, int fd, header_t header);
+t_file				*parsing(t_file *file, char *argv, header_t *header);
 t_file				*file_param(t_file *file);
 t_file				*ft_spec_param(t_file *file);
 char				*search_instruction(char *line, char *label, t_file *file);
@@ -93,11 +71,16 @@ char				*conv_hex(char *binary);
 char				*get_name(char *str);
 char				*ft_two_octet(char *str, int bol, int l, char pa);
 char				*ft_x_octet(t_file *file, char *str, int bol, int l);
-char				*ft_calc_para(char *line, t_file *file);
+char				*ft_calc_para(char *line, t_file *file, int i);
 char				*ft_binary(char *line);
 char				*search_spec(char *code, t_file *file, int nb);
-void				ft_asm(t_file *file, int fd, header_t header);
+char				*reverse_hex(int j);
+char				*good_hex(char *tmp);
+void				ft_fill_ocp(char **bin, int *j, int *i, char *n);
 void				ft_putchar_fd_size(char c, char c2, char c3, int fd);
+void				put_magic(header_t header, int fd);
+void				put_all(header_t header, int fd);
+void				ft_get_par(char *tmp, int *i, int *j, int *p);
 int					ft_is_label(char *label);
 int					ft_is_spec(char *code);
 int					ft_label_signed(t_file *file, char *line, char *label);
@@ -106,5 +89,7 @@ int					label_neg(t_file *file, char *label, char *code);
 int					ft_nb_octet(char *inst);
 int					octet_on_line(char *code);
 int					all_octet(t_file *file);
+int					write_in(int size, int all, int nb, unsigned char *);
+int					is_end_label(t_file *tmp, char *label, int *size);
 
 #endif

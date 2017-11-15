@@ -6,72 +6,72 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 19:05:35 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/08 14:28:11 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/15 19:38:38 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "asm.h"
 
-char		*ft_calc_para(char *line, t_file *file)
+char		*ft_calc_para(char *line, t_file *file, int i)
 {
-	char	*code;
+	char	*c;
 	char	*new;
 	char	*tmp;
-	int		i;
-	int		bol;
 	int		j;
 	int		p;
 
 	i = 0;
-	bol = 0;
-	p = 0;
-	code = ft_strdup("\0");
+	c = ft_strdup("\0");
 	if (line == NULL)
 		return (NULL);
 	tmp = ft_strdup(line);
 	new = NULL;
 	while (tmp[i] != '\0')
 	{
-		p = 0;
-		while (tmp[i] != '\0' && (tmp[i] == 'r' || tmp[i] == '%'))
-			i++;
-		if (tmp[i] == ':')
-			p = 1;
-		if (tmp[i] == 'r' || tmp[i] == '%')
-			i++;
-		j = i;
-		while (tmp[i] != '\0' && tmp[i] != ',')
-			i++;
+		ft_get_par(tmp, &i, &j, &p);
 		new = ft_strsub(tmp, j, i - j);
 		if (new != NULL)
 		{
-			if (tmp[j] == '%' || ft_strcmp(file->inst, "live") == 0 || (j - 1 >= 0 && tmp[j - 1] == '%' && tmp[j] != ':' && tmp[j - 1] != 'r'))
+			if (tmp[j] == '%' || ft_strcmp(file->inst, "live") == 0
+					|| (j - 1 >= 0 && tmp[j - 1] == '%'
+						&& tmp[j] != ':' && tmp[j - 1] != 'r'))
 			{
 				if (tmp[i] == '\0')
-					code = ft_strcat(code, ft_x_octet(file, new, 2, p));
+					c = ft_strcat(c, ft_x_octet(file, new, 2, p));
 				else if (j - 1 == 0)
-					code = ft_strcat(code, ft_x_octet(file, new, 0, p));
+					c = ft_strcat(c, ft_x_octet(file, new, 0, p));
 				else if (j - 1 > 0)
-					code = ft_strcat(code, ft_x_octet(file, new, 1, p));
-				bol++;
+					c = ft_strcat(c, ft_x_octet(file, new, 1, p));
 			}
 			else
 			{
 				if (j - 1 >= 0)
 				{
 					if (tmp[i] == '\0')
-						code = ft_strcat(code, ft_two_octet(new, 1, p, tmp[j - 1]));
+						c = ft_strcat(c, ft_two_octet(new, 1, p, tmp[j - 1]));
 					else
-						code = ft_strcat(code, ft_two_octet(new, 0, p, tmp[j - 1]));
-					bol++;
+						c = ft_strcat(c, ft_two_octet(new, 0, p, tmp[j - 1]));
 				}
 			}
 		}
 		if (tmp[i] == ',')
 			i++;
 	}
-	free(tmp);
-	return (code);
+	return (c);
+}
+
+void		ft_get_par(char *tmp, int *i, int *j, int *p)
+{
+	*p = 0;
+	while (tmp[*i] != '\0' && (tmp[*i] == 'r' || tmp[*i] == '%'))
+		(*i)++;
+	if (tmp[*i] == ':')
+		*p = 1;
+	if (tmp[*i] == 'r' || tmp[*i] == '%')
+		(*i)++;
+	*j = *i;
+	while (tmp[*i] != '\0' && tmp[*i] != ',')
+		(*i)++;
 }
 
 char		*ft_x_octet(t_file *file, char *str, int bol, int label)
@@ -146,7 +146,7 @@ char		*ft_two_octet(char *str, int bol, int label, char pa)
 	return (new);
 }
 
-char	*ft_binary(char *str)
+char		*ft_binary(char *str)
 {
 	char	*reverse;
 	char	*res;

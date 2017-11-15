@@ -5,20 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 23:01:38 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/07 18:56:22 by cobecque         ###   ########.fr       */
+/*   Created: 2017/11/15 14:02:07 by cobecque          #+#    #+#             */
+/*   Updated: 2017/11/15 14:04:39 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef OP_H
+# define OP_H
 /*
  * ** Toutes les tailles sont en octets.
  * ** On part du principe qu'un int fait 32 bits. Est-ce vrai chez vous ?
- * */
-
+*/
 #define IND_SIZE	2
 #define REG_SIZE	4
 #define DIR_SIZE	REG_SIZE
-
+/*
+ **
+*/
 # define REG_CODE	1
 # define DIR_CODE	2
 # define IND_CODE	3
@@ -46,9 +49,6 @@
 #define	NBR_LIVE			21
 #define MAX_CHECKS			10
 
-/*
- * **
- * */
 
 typedef char	t_arg_type;
 
@@ -56,10 +56,6 @@ typedef char	t_arg_type;
 #define T_DIR				2
 #define T_IND				4
 #define T_LAB				8
-
-/*
- * **
- * */
 
 # define PROG_NAME_LENGTH	(128)
 # define COMMENT_LENGTH		(2048)
@@ -72,3 +68,5 @@ typedef struct				header_s
 	unsigned int			prog_size;
 	char					comment[COMMENT_LENGTH + 1];
 }							header_t;
+
+#endif

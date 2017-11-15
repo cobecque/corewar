@@ -6,11 +6,11 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 17:59:08 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/08 14:28:53 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/15 14:10:49 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "asm.h"
 
 char		*search_spec(char *code, t_file *file, int nb)
 {

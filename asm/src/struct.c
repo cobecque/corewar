@@ -6,11 +6,11 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 15:49:00 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/07 18:20:20 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/15 14:11:12 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "asm.h"
 
 t_file		*init_file(t_file *file, char *line)
 {

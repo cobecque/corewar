@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:29:39 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/14 18:42:33 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/15 16:20:01 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			main(int argc, char **argv)
 	int			i;
 	int			*fd;
 	t_vm		data;
-	t_inf		**ret;
+	//t_inf		**ret;
 
 	i = 0;
 	if (argc == 1)
@@ -67,7 +67,7 @@ int			main(int argc, char **argv)
 //			i += nb_oct(info, data.play[0].code[i + 1], &start) + 2;
 		//	ft_printf("%d\n", i);
 //		}
-		ret = list_info(data);
+	//	ret = list_info(data);
 		vm_stuff(data);
 	}
 	return (0);

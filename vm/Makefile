@@ -18,7 +18,10 @@ NAME = corewar
 INC_NAME = ./inc
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
-SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c
+SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
+		   get_instruction.c	instruction/add.c	instruction/aff.c \
+		   instruction/ld.c \
+		   instruction/reg_write.c
 
 LIB_DIR = ../asm/libft
 LIBP_DIR = ../asm/libft/src/printf
@@ -32,6 +35,7 @@ OBJ_PATH = $(addprefix $(OBJ_DIR)/,$(SRC_NAME:.c=.o))
 
 CC = gcc
 FLAGS = -Wall -Werror -Wextra -fsanitize=address
+#FLAGS = -Wextra
 
 all :
 	@printf $(CN_MAG) "=== ->  Compil all libs  <- ==="
@@ -39,6 +43,7 @@ all :
 	@printf "\n"
 	@printf $(CN_YEL) "=== ->  Compil corewar  <- ==="
 	@mkdir -p mdr
+	@mkdir -p mdr/instruction
 	@$(MAKE) $(NAME)
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c

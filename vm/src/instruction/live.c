@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ld.c                                               :+:      :+:    :+:   */
+/*   live.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/14 12:00:11 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/15 17:18:06 by rostroh          ###   ########.fr       */
+/*   Created: 2017/11/16 14:25:54 by rostroh           #+#    #+#             */
+/*   Updated: 2017/11/16 14:39:59 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_ld(t_inf inf, t_process pros)
+t_process	*ft_live(t_process *pro, int nb)
 {
-	pros.carry = inf.val[0] == 0 ? 1 : 0;
-//	reg_write(pros, inf.val[0], inf.val[1], REG_SIZE);
+	t_process	*srt;
+
+	srt = pro;
+	while (pro != NULL)
+	{
+		if (pro->number == nb)
+		{
+			pro->live++;
+			return (srt);
+		}
+		pro = pro->next;
+	}
+	return (srt);
 }

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/14 19:27:31 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/16 16:36:34 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_vm		input_data(t_vm data, int nb, void **pc_adr)
 	while (i < data.play[nb - 1].len)
 	{
 		*(base_addr + i) = data.play[nb - 1].code[i];
+//		ft_printf("%d\n", *(base_addr + i));
 		i++;
 	}
 	return (data);
@@ -65,6 +66,7 @@ t_process	*add_new_process(t_process *srt, int nb)
 	new->pc = NULL;
 	new->carry = 0;
 	new->live = 0;
+	new->start_cycle = -1;
 	new->number = nb;
 	new->next = NULL;
 	if (!srt)
@@ -75,20 +77,23 @@ t_process	*add_new_process(t_process *srt, int nb)
 	return (begin);
 }
 
-void		vm_stuff(t_vm data)
+void		vm_stuff(t_vm data)//, t_inf **ret)
 {
 	int			i;
-	t_process	*ret;
+	t_process	*ret2;
 
 	i = 0;
-	ret = NULL;
+//	ret = NULL;
+	ret2 = NULL;
 	if (!(data.addr = malloc_vm()))
 		exit(-1);
 	while (i < data.nb_pros)
 	{
-		ret = add_new_process(ret, i);
-		data = input_data(data, i + 1, &(ret->pc));
-		ft_printf("\t\t\t-->ICI L'ADDRESSE VAUT %ld pour %ld<--\n", ret->pc, data.addr);
+		ret2 = add_new_process(ret2, i);
+		data = input_data(data, i + 1, &(ret2->pc));
+//		ft_printf("\t\t\t-->ICI L'ADDRESSE VAUT %ld pour %ld<--\n", ret2->pc, data.addr);
 		i++;
 	}
+//	gestion_process(ret2, 5, data);
+	cycle_gestion(data, ret2, CYCLE_TO_DIE);
 }

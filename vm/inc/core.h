@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/14 14:40:43 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/15 18:38:19 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 
 typedef struct				s_process
 {
+	int						start_cycle;
 	int						reg[REG_NUMBER][REG_SIZE];
 	void					*pc;
 	int						carry;
@@ -65,13 +66,12 @@ typedef struct				s_process
 
 typedef struct				s_inf
 {
-	int						nb;
+//	int						nb;
 	int						arg;
 	int						*typ;
 	int						*val;
 	int						length;
 	char					*name;
-	struct s_inf			*next;
 }							t_inf;
 
 typedef struct				s_champ
@@ -108,8 +108,8 @@ typedef struct				s_vm
 t_process					ft_fork(t_inf inf, t_process pros);
 t_process					ft_lfork(t_inf inf, t_process pros);
 t_process					dup_pros(t_process src);
-t_inf						*nb_oct(t_inf *srt, int line, int ocp);
-t_inf						**list_info(t_vm data);
+t_inf						nb_oct(t_inf srt, int line, int ocp);
+//t_inf						**list_info(t_vm data);
 t_vm						fill_champ(int *fd);
 void						reg_write(t_process pros, unsigned int val, int reg, int size);
 void						vm_stuff(t_vm data);
@@ -129,3 +129,7 @@ void						ft_zjmp(t_inf, t_process pros);
 int							get_line(int opc);
 int							get_ocp(void *addr);
 int							*cpy_reg(int *tab);
+t_inf						add_elem(int info, int opc);
+t_process					*gestion_process(t_process *pro, int cycle, t_vm vm);
+void						call_tree(t_inf truc, t_process pros, t_vm vm);
+int							cycle_gestion(t_vm vm, t_process *pro, int ctd);

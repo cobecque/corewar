@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/29 05:40:33 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/10 15:59:02 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/16 16:56:00 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ int		get_line(int opc)
 	int		i;
 
 	i = 0;
-	//	ft_printf("%d", opc);
+	if (opc > 17 || opc < 1)
+		return (-1);
+	//ft_printf("opc = %d\n", opc);
 	while (i < 17)
 	{
 		if (g_op_tab[i].op_code == opc)
 		{
-			ft_printf("%s\n", g_op_tab[i].name);
+	//		ft_printf("name = %s\n", g_op_tab[i].name);
 			return (i);
 		}
 		i++;
@@ -65,65 +67,76 @@ int		type_param(int ocp, int pos, int line, int *res)
 	return (-1);
 }
 
-t_inf	*nb_oct(t_inf *srt, int line, int ocp)
+t_inf	nb_oct(t_inf srt, int line, int ocp)
 {
 	int		i;
 	int		*tab;
 
 	i = 0;
 	if (!(tab = (int *)malloc(sizeof(int) * 3)))
-		return (NULL);
+		return(srt);
 	tab[0] = 0;
 	tab[1] = 0;
 	tab[2] = 0;
-	srt->length = 0;
-	srt->arg = g_op_tab[line].nb_arg;
-	srt->name = ft_strdup(g_op_tab[line].name);
+	srt.length = 0;
+	srt.arg = g_op_tab[line].nb_arg;
+	srt.name = ft_strdup(g_op_tab[line].name);
 	if (ft_strcmp(g_op_tab[line].name, "live") == 0)
-		srt->length = 4;
+	{
+		tab[0] = 3;
+		srt.length = 4;
+	}
 	else if (ft_strcmp(g_op_tab[line].name, "zjmp") == 0)
-		srt->length = 2;
+	{
+		tab[0] = 1;
+		srt.length = 2;
+	}
 	else if (ft_strcmp(g_op_tab[line].name, "lfork") == 0 || ft_strcmp(g_op_tab[line].name, "fork") == 0)
-		srt->length = 2;
+	{
+		tab[0] = 1;
+		srt.length = 2;
+	}
 	else
 	{
 		while (i < g_op_tab[line].nb_arg)
 		{
-			srt->length += type_param(ocp, i, line, &tab[i]);
+			srt.length += type_param(ocp, i, line, &tab[i]);
 			i++;
 		}
 	}
-	srt->typ = tab;
+	srt.typ = tab;
 //	ft_printf(C_RED"%d\n"FC_ALL, srt->length);
 	return (srt);
 }
 
-t_inf	*last_elem(t_inf *srt)
+/*t_inf	*last_elem(t_inf *srt)
 {
 	while (srt->next != NULL)
 		srt = srt->next;
 	return (srt);
-}
+}*/
 
-t_inf	*add_elem(int info, int opc, t_inf *srt, int nb)
+t_inf	add_elem(int info, int opc)//,/* t_inf *srt,*/ int nb)
 {
-	t_inf	*cpy;
+	t_inf	new;
+/*	t_inf	*cpy;
 	t_inf	*new;
 
-	cpy = srt;
-	if (!(new = (t_inf *)malloc(sizeof(t_inf) * 1)))
-		return (NULL);
-	new->nb = nb;
+	*/new.length = 0;
+	/*
+	cpy = srt;*/
+//	if (!(new = (t_inf *)malloc(sizeof(t_inf) * 1)))
+//		return (NULL);
+//	new.nb = nb;
 	new = nb_oct(new, info, opc);
-	new->next = NULL;
 	//ft_printf("length = %d\n", new->length);
 	//ft_printf("->%d\n->%d\n->%d\n", new->typ[0], new->typ[1], new->typ[2]);
-	if (!srt)
+/*	if (!srt)
 		return (new);
 	while (cpy->next != NULL)
 		cpy = cpy->next;
-	cpy->next = new;
-	return (srt);
+	cpy->next = new;*/
+	return (new);
 }
 
 int		fun(int type)
@@ -133,7 +146,7 @@ int		fun(int type)
 	return (type);
 }
 
-int		*list_val(t_inf *elem, char *str)
+int		*list_val(t_inf elem, char *str)
 {
 	int		i;
 	int		nb;
@@ -144,7 +157,7 @@ int		*list_val(t_inf *elem, char *str)
 	i = 0;
 	if (!(tab = (int *)malloc(sizeof(int) * 3)))
 		return (NULL);
-	if (ft_strcmp(elem->name, "zjmp") == 0 || ft_strcmp(elem->name, "fork") == 0 || ft_strcmp(elem->name, "lfork") == 0)
+	if (ft_strcmp(elem.name, "zjmp") == 0 || ft_strcmp(elem.name, "fork") == 0 || ft_strcmp(elem.name, "lfork") == 0)
 	{
 		zj = *str;
 		if (zj == 255)
@@ -160,15 +173,15 @@ int		*list_val(t_inf *elem, char *str)
 			i = *str;
 		}
 		tab[0] = i;
-		ft_printf("VAL = %d zj = %d\n", tab[0], i);
+//		ft_printf("VAL = %d zj = %d\n", tab[0], i);
 		return (tab);
 	}
-	if (ft_strcmp(elem->name, "live") == 0)
+	if (ft_strcmp(elem.name, "live") == 0)
 		str += 2;
-	while (i < elem->arg)
+	while (i < elem.arg)
 	{
 		j = 0;
-		while (j < fun(elem->typ[i]) - 1)
+		while (j < fun(elem.typ[i]) - 1)
 			j++;
 		str += j;
 		zj = *str;
@@ -185,7 +198,7 @@ int		*list_val(t_inf *elem, char *str)
 			str++;
 			tab[i] = *str;
 		}
-		ft_printf("VAL[%d] = %d pour j = %d\n", i, tab[i], j);
+//		ft_printf("VAL[%d] = %d pour j = %d\n", i, tab[i], j);
 	//	str++;
 		i++;
 	//	if (*str == '\0')
@@ -207,7 +220,7 @@ int		is_ocp(int line)
 	return (1);
 }
 
-t_inf	**list_info(t_vm data)
+/*t_inf	**list_info(t_vm data)
 {
 	int		i;
 	int		j;
@@ -230,13 +243,13 @@ t_inf	**list_info(t_vm data)
 			srt[i]->val = list_val(last_elem(srt[i]), &data.play[i].code[j + 1]);
 			j += last_elem(srt[i])->length + is_ocp(info);//get_line(data.play[i].code[j]));
 			nb++;
-		}
+		}*/
 /*		j = 0;
 		while (data.play[i].code[j] != '\0')
 		{
 			j += 2;
 		}*/
-		i++;
+/*		i++;
 	}
 	return (srt);
-}
+}*/

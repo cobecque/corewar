@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/16 16:58:14 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/20 19:33:41 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,49 +93,45 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 
 	vm.error = 1;
 	cpy = pro;
-	i = 0;
 	if (cpy == NULL)
 		ft_printf("Ohoh\n");
 	aff = (unsigned char*)(cpy->pc);
 	line = get_line((int)(*aff));
 	while (cpy != NULL)
 	{
-		//ft_printf("number = %d, line = %d et cycle = %d\n", cpy->number, line, cycle);
+		i = 0;
 		if (cpy->start_cycle == -1)
 			cpy->start_cycle = cycle;
 		if (cpy->start_cycle + g_op_tab[line].cycle == cycle)
 		{
-			ft_printf("Champ%d: Execution de %s\n", cpy->number, g_op_tab[line].name);
+			if (!cpy->pc)
+				ft_printf("clapclap\n");
 			aff = (unsigned char*)(cpy->pc);
 			line = get_line((int)(*aff));
-			cpy->pc++;
-			aff = (unsigned char*)(cpy->pc);
-			inf = add_elem(line, (int)(*aff));
-			if (!(inf.val = (int *)malloc(sizeof(int) * 3)))
-				return (NULL);
-		//	ft_printf("%d\n", g_op_tab[line].nb_arg);
-			if (line != -1)
+			if (line != -1 )
 			{
+					ft_printf("Champ %d: %s\n", cpy->number + 1, g_op_tab[line].name);
+				cpy->pc++;
+				aff = (unsigned char*)(cpy->pc);
+				inf = add_elem(line, (int)(*aff));
+				if (!(inf.val = (int *)malloc(sizeof(int) * 3)))
+					return (NULL);
 				while (i < g_op_tab[line].nb_arg)
 				{
-					if (inf.typ[i] == 3 && ft_strcmp("live", g_op_tab[line].name))
-						inf.typ[i] = 2;
-				//	ft_printf("typ = %d\n", inf.typ[0]);
 					cpy->pc = cpy->pc + inf.typ[i];
 					aff = (unsigned char*)(cpy->pc);
 					inf.val[i] = (int)(*aff);
-	//				ft_printf(C_RED"inf.val[%d] = %d\n"FC_ALL, i, inf.val[i]);
 					i++;
 				}
 			}
-			call_tree(inf, *cpy, vm);
+			else
+				cpy->pc++;
+			pro = call_tree(inf, pro, vm);
 			cpy->start_cycle = -1;
 			cpy->pc++;
-			ft_printf("Champ%d: Fin execution de %s\n", cpy->number, g_op_tab[line].name);
 		}
 		cpy = cpy->next;
 	}
-//	ft_printf("FIN\n");
 	return (pro);
 }
 
@@ -185,5 +181,6 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 		cycle++;
 		cycle_d++;
 	}
+	ft_printf("At the end, cycle = %d\n", cycle);
 	return (winner(pro)); // return le numero du champions gagnants
 }

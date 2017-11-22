@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/16 16:36:34 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:19:03 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		*malloc_vm(void)
 
 	if (!(addr = ft_memalloc(MEM_SIZE)))
 		return (NULL);
-	ft_printf("\t\t\t-->LA VRAIE ADDRESSE %ld\n", addr);
+//	ft_printf("\t\t\t-->LA VRAIE ADDRESSE %ld\n", addr);
 	return (addr);
 }
 
@@ -62,6 +62,7 @@ t_process	*add_new_process(t_process *srt, int nb)
 		}
 		i++;
 	}
+	reg_write(*new, (unsigned int)nb, 1, 4);
 	begin = srt;
 	new->pc = NULL;
 	new->carry = 0;
@@ -80,20 +81,26 @@ t_process	*add_new_process(t_process *srt, int nb)
 void		vm_stuff(t_vm data)//, t_inf **ret)
 {
 	int			i;
-	t_process	*ret2;
+	t_process	*ret;
+	t_process	*cpy;
 
 	i = 0;
 //	ret = NULL;
-	ret2 = NULL;
+	ret = NULL;
+	cpy = NULL;
 	if (!(data.addr = malloc_vm()))
 		exit(-1);
 	while (i < data.nb_pros)
 	{
-		ret2 = add_new_process(ret2, i);
-		data = input_data(data, i + 1, &(ret2->pc));
+		ret = add_new_process(ret, i);
+		if (cpy == NULL)
+			cpy = ret;
+		else
+			cpy = cpy->next;
+		data = input_data(data, i + 1, &(cpy->pc));
 //		ft_printf("\t\t\t-->ICI L'ADDRESSE VAUT %ld pour %ld<--\n", ret2->pc, data.addr);
 		i++;
 	}
 //	gestion_process(ret2, 5, data);
-	cycle_gestion(data, ret2, CYCLE_TO_DIE);
+	ft_printf("\n\nEt le gagnant est: %d\n", cycle_gestion(data, ret, CYCLE_TO_DIE));
 }

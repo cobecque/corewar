@@ -21,7 +21,9 @@ LIB_NAME = libft.a
 SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
 		   get_instruction.c	instruction/add.c	instruction/aff.c \
 		   instruction/ld.c \
-		   instruction/reg_write.c
+		   instruction/reg_write.c \
+		   instruction/live.c \
+
 
 LIB_DIR = ../asm/libft
 LIBP_DIR = ../asm/libft/src/printf

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/15 18:38:19 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:19:09 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,5 +131,6 @@ int							get_ocp(void *addr);
 int							*cpy_reg(int *tab);
 t_inf						add_elem(int info, int opc);
 t_process					*gestion_process(t_process *pro, int cycle, t_vm vm);
-void						call_tree(t_inf truc, t_process pros, t_vm vm);
+t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 int							cycle_gestion(t_vm vm, t_process *pro, int ctd);
+t_process					*ft_live(t_process *pro, int nb);

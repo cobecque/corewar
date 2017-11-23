@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/20 19:33:41 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 04:43:28 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,16 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 	t_inf		inf;
 	int			line;
 	int			i;
-	unsigned char *aff;
+	//unsigned char	*aff;
+	int				*ret;
 
 	vm.error = 1;
 	cpy = pro;
 	if (cpy == NULL)
 		ft_printf("Ohoh\n");
-	aff = (unsigned char*)(cpy->pc);
-	line = get_line((int)(*aff));
+	//aff = (unsigned char*)(cpy->pc);
+	line = get_line(*(cpy->pc));
+	ret = cpy->pc;
 	while (cpy != NULL)
 	{
 		i = 0;
@@ -106,27 +108,36 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 		{
 			if (!cpy->pc)
 				ft_printf("clapclap\n");
-			aff = (unsigned char*)(cpy->pc);
-			line = get_line((int)(*aff));
-			if (line != -1 )
+	//		aff = (unsigned char*)(cpy->pc);
+	//		line = get_line((int)(*aff));
+			line = get_line(*(cpy->pc));
+			if (line != -1)
 			{
 					ft_printf("Champ %d: %s\n", cpy->number + 1, g_op_tab[line].name);
 				cpy->pc++;
-				aff = (unsigned char*)(cpy->pc);
-				inf = add_elem(line, (int)(*aff));
+			//	aff = (unsigned char*)(cpy->pc);
+			//	inf = add_elem(line, (int)(*aff));
+				inf = add_elem(line, *(cpy->pc));
 				if (!(inf.val = (int *)malloc(sizeof(int) * 3)))
 					return (NULL);
 				while (i < g_op_tab[line].nb_arg)
 				{
 					cpy->pc = cpy->pc + inf.typ[i];
-					aff = (unsigned char*)(cpy->pc);
-					inf.val[i] = (int)(*aff);
+					//aff = (unsigned char*)(cpy->pc);
+					if (inf.typ[i] == 3)
+					{
+						//aff = (unsigned char *)(ret + (int)(*aff));
+						inf.val[i] = *(ret + *(cpy->pc));
+					}
+					else
+						inf.val[i] = *(cpy->pc);
+						//inf.val[i] = (int)(*aff);
 					i++;
 				}
 			}
 			else
 				cpy->pc++;
-			pro = call_tree(inf, pro, vm);
+			//g_instructab[line.op_code];
 			cpy->start_cycle = -1;
 			cpy->pc++;
 		}

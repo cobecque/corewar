@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 14:19:46 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/20 20:24:44 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 00:16:23 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void		reg_write(t_process pros, unsigned int val, int reg, int size)
 		/*(unsigned char)*/pros.reg[reg][1] = (val >> 16) & 0xFF;
 		/*(unsigned char)*/pros.reg[reg][2] = (val >> 8) & 0xFF;
 		/*(unsigned char)*/pros.reg[reg][3] = val & 0xFF;
+		//ft_printf("REG = %d\n", pros.reg[reg][3]);
 }

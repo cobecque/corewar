@@ -6,33 +6,39 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/20 20:19:03 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 04:43:54 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		*malloc_vm(void)
+int			*malloc_vm(void)
 {
-	void	*addr;
+	int		i;
+	int		*addr;
 
-	if (!(addr = ft_memalloc(MEM_SIZE)))
+	i = 0;
+	if (!(addr = (int*)malloc(sizeof(int) * MEM_SIZE)))
 		return (NULL);
+	while (i < MEM_SIZE)
+	{
+		addr[i] = 0;
+	}
 //	ft_printf("\t\t\t-->LA VRAIE ADDRESSE %ld\n", addr);
 	return (addr);
 }
 
-t_vm		input_data(t_vm data, int nb, void **pc_adr)
+t_vm		input_data(t_vm data, int nb, int **pc_adr)
 {
 	int		i;
-	char	*base_addr;
+	int		*base_addr;
 
 	i = 0;
 	if (data.nb_pros != nb)
 		base_addr = data.addr + MEM_SIZE / data.nb_pros * (data.nb_pros - nb);
 	else
 		base_addr = data.addr;
-	*pc_adr = (void *)base_addr;
+	*pc_adr = (int *)base_addr;
 	while (i < data.play[nb - 1].len)
 	{
 		*(base_addr + i) = data.play[nb - 1].code[i];
@@ -62,7 +68,7 @@ t_process	*add_new_process(t_process *srt, int nb)
 		}
 		i++;
 	}
-	reg_write(*new, (unsigned int)nb, 1, 4);
+	reg_write(*new, (unsigned int)nb + 1, 1, 4);
 	begin = srt;
 	new->pc = NULL;
 	new->carry = 0;

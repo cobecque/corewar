@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/20 20:19:09 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 04:36:41 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct				s_process
 {
 	int						start_cycle;
 	int						reg[REG_NUMBER][REG_SIZE];
-	void					*pc;
+	int						*pc;
 	int						carry;
 	int						live;
 	int						number;
@@ -99,14 +99,16 @@ extern t_op					g_op_tab[];
 
 typedef struct				s_vm
 {
-	void					*addr;
+	int						*addr;
 	int						error;
 	int						nb_pros;
+	t_process				*pros; //*
 	t_champ					play[MAX_PLAYERS];
 }							t_vm;
 
-t_process					ft_fork(t_inf inf, t_process pros);
-t_process					ft_lfork(t_inf inf, t_process pros);
+
+void						ft_fork(t_inf inf, t_process pros);
+void						ft_lfork(t_inf inf, t_process pros);
 t_process					dup_pros(t_process src);
 t_inf						nb_oct(t_inf srt, int line, int ocp);
 //t_inf						**list_info(t_vm data);
@@ -121,7 +123,7 @@ void						ft_ldi(t_inf inf, t_process pros);
 void						ft_lld(t_inf inf, t_process pros);
 void						ft_lldi(t_inf inf, t_process pros);
 void						ft_or(t_inf inf, t_process pros);
-void						ft_st(t_inf inf, t_process pros, t_vm vm);
+void						ft_st(t_inf inf, t_process pros);
 void						ft_sti(t_inf inf, t_process pros);
 void						ft_sub(t_inf inf, t_process pros);
 void						ft_xor(t_inf inf, t_process pros);
@@ -133,4 +135,11 @@ t_inf						add_elem(int info, int opc);
 t_process					*gestion_process(t_process *pro, int cycle, t_vm vm);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 int							cycle_gestion(t_vm vm, t_process *pro, int ctd);
-t_process					*ft_live(t_process *pro, int nb);
+void						ft_live(t_inf info, t_process pro);
+
+static void					(*g_instructab[17])(t_inf, t_process pros)=
+{
+	&ft_live, &ft_ld, &ft_st, &ft_add, &ft_sub, &ft_and, &ft_or, &ft_xor, 
+	&ft_zjmp, &ft_ldi, &ft_sti, &ft_fork, &ft_lld, &ft_lldi, &ft_lfork, 
+	&ft_aff, NULL
+};

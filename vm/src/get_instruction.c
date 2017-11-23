@@ -6,22 +6,23 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 15:35:01 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/20 19:25:47 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 03:46:35 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 #include <unistd.h>
 
+/*
 t_process		*call_tree(t_inf inf, t_process *pro, t_vm vm)
 {
 	//pros.number = 1;
 	vm.error = 1;
 	if (ft_strcmp("live", inf.name) == 0)
-		pro = ft_live(pro, inf.val[0]);
+		pro = ft_live(pro, inf);
 	if (ft_strcmp("ld", inf.name) == 0)
 		;//ft_ld(inf, pros);
-/*	if (ft_strcmp("st", inf.name) == 0)
+	if (ft_strcmp("st", inf.name) == 0)
 		ft_st(inf, pros, vm);
 	if (ft_strcmp("add", inf.name) == 0)
 		ft_add(inf, pros);
@@ -46,10 +47,10 @@ t_process		*call_tree(t_inf inf, t_process *pro, t_vm vm)
 	if (ft_strcmp("lfork", inf.name) == 0)
 		ft_lfork(inf, pros);
 	if (ft_strcmp("aff", inf.name) == 0)
-		ft_aff(inf, pros);*/
+		ft_aff(inf, pros);
 	return (pro);
 }
-/*
+
 void		call_instruction(t_inf *inf, t_process pros, t_vm vm)
 {
 	while (inf != NULL)

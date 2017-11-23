@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/29 05:40:33 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/16 16:56:00 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 00:26:18 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int		get_line(int opc)
 int		type_param(int ocp, int pos, int line, int *res)
 {
 	ocp  = (ocp >> (6 - (2 * pos)));
-	if ((ocp & 3) == 3)
+	if ((ocp & 3) == 3) //3 = indirecte
 	{
 		*res = 3;
 		return (2);
 	}
-	if ((ocp & 2) == 2)
+	if ((ocp & 2) == 2) //2 = directe
 	{
 		if (g_op_tab[line].strange == 0)
 		{
@@ -59,7 +59,7 @@ int		type_param(int ocp, int pos, int line, int *res)
 			return (2);
 		}
 	}
-	if ((ocp & 1) == 1)
+	if ((ocp & 1) == 1)		//1 = registre
 	{
 		*res = 1;
 		return (1);

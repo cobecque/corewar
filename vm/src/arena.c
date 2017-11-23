@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/23 04:43:28 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 05:00:05 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	cycle_d = 0;
 	while (42)
 	{
+		ft_putchar('a');
 		pro = gestion_process(pro, cycle, virtual);
 		if (cycle_d == ctd)
 		{

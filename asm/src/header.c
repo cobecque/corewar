@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:08:14 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/15 15:04:09 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/20 19:34:41 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void			put_magic(header_t h, int fd)
 void			put_all(header_t h, int fd)
 {
 	int			size;
-	unsigned	p;
+	unsigned	int p;
 
 	put_magic(h, fd);
 	size = ft_strlen(h.prog_name);

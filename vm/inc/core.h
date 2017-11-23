@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/23 04:36:41 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 05:34:18 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct				s_process
 
 typedef struct				s_inf
 {
-//	int						nb;
+	int						nb;
 	int						arg;
 	int						*typ;
 	int						*val;

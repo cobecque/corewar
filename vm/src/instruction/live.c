@@ -6,9 +6,18 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 14:25:54 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/23 03:46:25 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 07:07:07 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
+void		ft_live(t_inf info, t_process pro)
+{
+	if (info.val[0] < 0 || info.val[0] > info.nb)
+	{
+		if (info.val[0] == pro.reg[1][3])
+			pro.live++;
+
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/23 04:43:54 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/23 05:03:29 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int			*malloc_vm(void)
 	while (i < MEM_SIZE)
 	{
 		addr[i] = 0;
+		i++;
 	}
 //	ft_printf("\t\t\t-->LA VRAIE ADDRESSE %ld\n", addr);
 	return (addr);

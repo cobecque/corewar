@@ -19,10 +19,17 @@ INC_NAME = ./inc
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
 SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
-		   get_instruction.c	instruction/add.c	instruction/aff.c \
-		   instruction/ld.c \
+		   get_instruction.c	instruction/add.c\
 		   instruction/reg_write.c \
 		   instruction/live.c \
+		   instruction/sti.c\
+		   instruction/ld.c\
+		   instruction/zjmp.c\
+		   instruction/fork.c\
+		   instruction/xor.c \
+		   instruction/lfork.c \
+		   instruction/st.c
+
 
 
 LIB_DIR = ../asm/libft

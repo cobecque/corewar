@@ -1,0 +1,131 @@
+val = 1
+REG[1]  = 0	REG[1]  = 0	REG[1]  = 0	REG[1]  = 1
+Champ 0: fork
+line = 11
+pc = 520 val = 144
+[32;mfork je t'envois au combat, val = 144 ins = 512
+[0mnew reg = 0 src reg = 0
+new reg = 1 src reg = 1
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+ins dans fork = 1088
+Champ 1: st
+line = 2
+pc = 1096 val = 1
+line = 2
+pc = 1108 val = 112
+[34;mst je t'envoie au combat
+[0mdans st val = 112  r = 1
+Champ 0: st
+line = 2
+pc = 532 val = 1
+line = 2
+pc = 544 val = 112
+[34;mst je t'envoie au combat
+[0mdans st val = 112  r = 1
+Champ 1: fork
+line = 11
+pc = 1136 val = -5
+[32;mfork je t'envois au combat, val = -5 ins = 1128
+[0mnew reg = 0 src reg = 0
+new reg = 1 src reg = 1
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+ins dans fork = 1108
+Champ 0: fork
+line = 11
+pc = 572 val = 113
+[32;mfork je t'envois au combat, val = 113 ins = 564
+[0mnew reg = 0 src reg = 0
+new reg = 1 src reg = 1
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+new reg = 0 src reg = 0
+ins dans fork = 1016
+Champ 1: st
+line = 2
+pc = 1148 val = 1
+line = 2
+pc = 1160 val = 0
+[34;mst je t'envoie au combat
+[0mdans st val = 0  r = 1
+Champ 0: st
+line = 2
+pc = 584 val = 1
+line = 2
+pc = 596 val = 112
+[34;mst je t'envoie au combat
+[0mdans st val = 112  r = 1
+Champ 1: xor
+line = 7
+pc = 1024 val = 1
+line = 7
+pc = 1028 val = 5
+line = 7
+pc = 1032 val = 15
+[34;mxor je t'envois au combat	[0mval = 1
+REG[15]  = 0	REG[15]  = 0	REG[15]  = 0	REG[15]  = 1
+Champ 2: live
+line = 0
+pc = 1124 val = -5
+aval[0] = -5 et reg = 1
+Champ 1: st
+line = 2
+pc = 1188 val = 1
+line = 2
+pc = 1200 val = 3
+[34;mst je t'envoie au combat
+[0mdans st val = 3  r = 1
+Champ 1: st
+line = 2
+pc = 1228 val = 1
+line = 2
+pc = 1240 val = 3
+[34;mst je t'envoie au combat
+[0mdans st val = 3  r = 1
+Champ 1: zjmp
+line = 8
+pc = 1044 val = -89
+[33;mzjmp je t'envois au combat -> val = -89
+[0mChamp 1: ld
+line = 1
+pc = 1068 val = 0
+line = 1
+pc = 1072 val = 16
+[31;mld je t'envois au combat	[0mval = 0
+REG[16]  = 0	REG[16]  = 0	REG[16]  = 0	REG[16]  = 0

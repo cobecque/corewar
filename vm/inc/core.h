@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/23 05:34:18 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/25 06:30:04 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 
 #define REG_NUMBER			16
 
-#define CYCLE_TO_DIE		1536
+#define CYCLE_TO_DIE		3000
 #define CYCLE_DELTA			50
 #define NBR_LIVE			21
 #define MAX_CHECK			10
@@ -58,6 +58,7 @@ typedef struct				s_process
 	int						start_cycle;
 	int						reg[REG_NUMBER][REG_SIZE];
 	int						*pc;
+	int						*ins;
 	int						carry;
 	int						live;
 	int						number;
@@ -72,6 +73,7 @@ typedef struct				s_inf
 	int						*val;
 	int						length;
 	char					*name;
+	int						*min_addr;
 }							t_inf;
 
 typedef struct				s_champ
@@ -107,39 +109,39 @@ typedef struct				s_vm
 }							t_vm;
 
 
-void						ft_fork(t_inf inf, t_process pros);
-void						ft_lfork(t_inf inf, t_process pros);
-t_process					dup_pros(t_process src);
+void						ft_fork(t_inf inf, t_process *pros);
+void						ft_lfork(t_inf inf, t_process *pros);
+t_process					*dup_pros(t_process *src);
 t_inf						nb_oct(t_inf srt, int line, int ocp);
 //t_inf						**list_info(t_vm data);
 t_vm						fill_champ(int *fd);
-void						reg_write(t_process pros, unsigned int val, int reg, int size);
+void						reg_write(t_process *pros, unsigned int val, int reg, int size);
 void						vm_stuff(t_vm data);
-void						ft_add(t_inf inf, t_process pros);
-void						ft_aff(t_inf inf, t_process pros);
-void						ft_and(t_inf, t_process pros);
-void						ft_ld(t_inf inf, t_process pros);
-void						ft_ldi(t_inf inf, t_process pros);
-void						ft_lld(t_inf inf, t_process pros);
-void						ft_lldi(t_inf inf, t_process pros);
-void						ft_or(t_inf inf, t_process pros);
-void						ft_st(t_inf inf, t_process pros);
-void						ft_sti(t_inf inf, t_process pros);
-void						ft_sub(t_inf inf, t_process pros);
-void						ft_xor(t_inf inf, t_process pros);
-void						ft_zjmp(t_inf, t_process pros);
+void						ft_add(t_inf inf, t_process *pros);
+void						ft_aff(t_inf inf, t_process *pros);
+void						ft_and(t_inf, t_process *pros);
+void						ft_ld(t_inf inf, t_process *pros);
+void						ft_ldi(t_inf inf, t_process *pros);
+void						ft_lld(t_inf inf, t_process *pros);
+void						ft_lldi(t_inf inf, t_process *pros);
+void						ft_or(t_inf inf, t_process *pros);
+void						ft_st(t_inf inf, t_process *pros);
+void						ft_sti(t_inf inf, t_process *pros);
+void						ft_sub(t_inf inf, t_process *pros);
+void						ft_xor(t_inf inf, t_process *pros);
+void						ft_zjmp(t_inf, t_process *pros);
 int							get_line(int opc);
 int							get_ocp(void *addr);
-int							*cpy_reg(int *tab);
+void						cpy_reg(int *tab, int **res);
 t_inf						add_elem(int info, int opc);
 t_process					*gestion_process(t_process *pro, int cycle, t_vm vm);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 int							cycle_gestion(t_vm vm, t_process *pro, int ctd);
-void						ft_live(t_inf info, t_process pro);
+void						ft_live(t_inf info, t_process *pro);
 
-static void					(*g_instructab[17])(t_inf, t_process pros)=
+static void					(*g_instructab[17])(t_inf, t_process *pros)=
 {
-	&ft_live, &ft_ld, &ft_st, &ft_add, &ft_sub, &ft_and, &ft_or, &ft_xor, 
-	&ft_zjmp, &ft_ldi, &ft_sti, &ft_fork, &ft_lld, &ft_lldi, &ft_lfork, 
-	&ft_aff, NULL
+	&ft_live, &ft_ld, &ft_st, &ft_add,/* &ft_sub, &ft_and, &ft_or, */&ft_xor, 
+	&ft_zjmp,/* &ft_ldi, */&ft_sti, &ft_fork/*, &ft_lld, &ft_lldi, */,&ft_lfork/*, 
+	&ft_aff*/, NULL
 };

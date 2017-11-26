@@ -6,49 +6,62 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/14 14:07:18 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/25 07:07:23 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-t_process	dup_pros(t_process src)
+t_process	*dup_pros(t_process *src)
 {
-	t_process	new;
+	t_process	*new;
 	int			i;
+	int			j;
 
 	i = 0;
+	if (!(new = (t_process *)malloc(sizeof(t_process))))
+		return (NULL);
 	while (i < REG_NUMBER)
-	{
-		new.reg[i] = cpy_reg(src.reg[i]);
+	{ 
+		j = 0;
+		while (j < REG_SIZE)
+		{
+			new->reg[i][j] = src->reg[i][j];
+			j++;
+		}
+		ft_printf("new reg = %d src reg = %d\n", new->reg[i][3], src->reg[i][3]);
 		i++;
 	}
-	new.pc = NULL;
-	new.carry = src.carry;
-	new.live = src.live;
-	new.number = src.number;
-	new.next = NULL;
+	new->pc = NULL;
+	new->carry = src->carry;
+	new->live = src->live;
+	new->start_cycle = -1;
+	new->number = src->number + 1;//
+	new->next = src->next;
+	src->next = new;
 	return (new);
 }
-
-int			*cpy_reg(int *tab)
+/*
+void		cpy_reg(int *tab, int *res[4])
 {
 	int		i;
-	int		*res;
+//	int		*res;
 
 	i = -1;
-	if (!(res = (int *)malloc(sizeof(int) * REG_SIZE)))
-		return (NULL);
+//	if (!(res = (int *)malloc(sizeof(int) * REG_SIZE)))
+//		return (NULL);
 	while (++i < REG_SIZE)
-		res[i] = tab[i];
-	return (res);
+		*(res[i]) = tab[i];
 }
-
-t_process	ft_fork(t_inf inf, t_process pros)
+*/
+void	ft_fork(t_inf inf, t_process *pros)
 {
 	t_process	*cpy;
 
+	ft_printf(C_GRN"fork je t'envois au combat, val = %d ins = %d\n"FC_ALL, inf.val[0], pros->ins);
 	cpy = dup_pros(pros);
-	cpy.pc = *(pros.pc + (inf.val[0] % IDX_MOD));
-	return (cpy);
+	cpy->ins = (pros->ins + (inf.val[0] % IDX_MOD));
+	cpy->pc = cpy->ins;
+	ft_printf("ins dans fork = %d\n", cpy->ins);
+	//return (cpy);
 }

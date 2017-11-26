@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 05:40:36 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/26 06:08:26 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	ft_fork(t_inf inf, t_process *pros)
 {
 	/*t_process	*cpy;
 */
-	ft_printf(C_GRN"fork je t'envois au combat, val = %d ins = %d\n"FC_ALL, inf.val[0], pros->ins);
+	inf.val[0] = 0;
+//	ft_printf(C_GRN"fork je t'envois au combat, val = %d ins = %d\n"FC_ALL, inf.val[0], pros->ins);
 	pros = dup_pros(pros);
 /*	cpy->ins = (pros->ins + (inf.val[0] % IDX_MOD));
 	cpy->pc = cpy->ins;

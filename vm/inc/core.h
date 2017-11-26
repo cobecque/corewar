@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 05:12:48 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/26 06:35:14 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@
 
 #define REG_NUMBER			16
 
-#define CYCLE_TO_DIE		5000
+#define CYCLE_TO_DIE		10000
+
 #define CYCLE_DELTA			50
 #define NBR_LIVE			21
 #define MAX_CHECK			10

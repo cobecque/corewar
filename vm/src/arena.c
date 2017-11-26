@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 06:04:15 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/26 06:31:53 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 			if (line != -1)
 			{
 				//		ft_printf("One more time\n");
-	//			ft_printf("Champ %d: %s\n", cpy->number, g_op_tab[line].name);
+				ft_printf("Champ %d: %s\n", cpy->number, g_op_tab[line].name);
 				cpy->pc++;
 				//	aff = (unsigned char*)(cpy->pc);
 				//	inf = add_elem(line, (int)(*aff));
@@ -142,22 +142,24 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 						nb = 2;
 					if (inf.typ[i] == 0)
 					{
-	//					ft_printf("addresse pc = %d val = %d inst = %d\n", cpy->pc, *cpy->pc, cpy->ins);
+						ft_printf("addresse pc = %d val = %d inst = %d\n", cpy->pc, *cpy->pc, cpy->ins);
 						if (*cpy->pc == 0)
 						{
+							ft_putchar('a');
 							cpy->pc++;
 							if (*cpy->pc < 0)
 							{
 								*cpy->pc = 256 + *cpy->pc;
 							}
 						}
-						else if (*cpy->pc == 0xFF)
+						else if (*cpy->pc == -1)
 						{
 							cpy->pc++;
 							if (*cpy->pc > 0)
 							{
 								*cpy->pc = -256 + *cpy->pc;
 							}
+							ft_printf("val pc neg %d\n", *cpy->pc);
 						}
 					}
 					else
@@ -197,6 +199,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 			else if (line == 14)
 				g_instructab[8](inf, cpy);
 			cpy->start_cycle = -1;
+			ft_printf("fin instru %d\n", cpy->pc);
 			if (cpy->pc + 1 > inf.min_addr + MEM_SIZE)
 				cpy->pc = inf.min_addr;
 			else

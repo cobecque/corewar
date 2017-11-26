@@ -28,6 +28,13 @@ SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
 		   instruction/fork.c\
 		   instruction/xor.c \
 		   instruction/lfork.c \
+		   instruction/aff.c \
+		   instruction/and.c \
+		   instruction/or.c \
+		   instruction/ldi.c \
+		   instruction/lld.c \
+		   instruction/lldi.c \
+		   instruction/sub.c \
 		   instruction/st.c
 
 

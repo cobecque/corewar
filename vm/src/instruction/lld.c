@@ -6,14 +6,14 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:59:24 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/14 14:02:25 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/26 06:43:44 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_lld(t_inf inf, t_process pros)
+void		ft_lld(t_inf inf, t_process *pros)
 {
-	pros.carry = (inf.val[0] == 0) ? 1 : 0;
-	reg_write(inf.val[0], inf.val[1], REG_SIZE);
+	pros->carry = (inf.val[0] == 0) ? 1 : 0;
+	reg_write(pros, inf.val[0], inf.val[1], REG_SIZE);
 }

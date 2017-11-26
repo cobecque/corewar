@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/25 08:16:30 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/26 04:13:24 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 	//t_process	*fun;
 	t_process	*cpy;
 	t_inf		inf;
+	int			nb;
 	int			line;
 	int			i;
 	//unsigned char	*aff;
@@ -99,6 +100,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 		ft_printf("Ohoh\n");
 	//aff = (unsigned char*)(cpy->pc);
 	ret = cpy->pc;
+	nb = 0;
 	while (cpy != NULL)
 	{
 		line = get_line(*(cpy->pc));
@@ -129,22 +131,25 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 					return (NULL);
 				while (i < g_op_tab[line].nb_arg)
 				{
-					ft_printf("line = %d\n", line);
-					if (*cpy->pc == 0)
+					nb = inf.typ[i];
+					ft_printf("ici le typ %d et la ligne %d\n", inf.typ[i], line);
+					if (nb == 3 && line != 0)
+						nb = 2;
+					if (*cpy->pc == 0 && line != 0)
 					{
-						cpy->pc = cpy->pc + inf.typ[i];
+						cpy->pc = cpy->pc + nb;
 						if (*cpy->pc <= -128 / 4)
 						{
 							*cpy->pc = 256 + *cpy->pc;
 						}
 					}
 					else
-						cpy->pc = cpy->pc + inf.typ[i];
+						cpy->pc = cpy->pc + nb;
 					//aff = (unsigned char*)(cpy->pc);
 					if (inf.typ[i] == 3)
 					{
 						//aff = (unsigned char *)(ret + (int)(*aff));
-						inf.val[i] = *(ret + *(cpy->pc));
+						inf.val[i] = *cpy->pc;//*(ret + *(cpy->pc));
 					}
 					else
 						inf.val[i] = *(cpy->pc);

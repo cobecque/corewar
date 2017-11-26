@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/25 06:26:41 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/26 05:41:49 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		ft_sti(t_inf inf, t_process *pros)
 
 	//ft_putchar('a');
 //	adr = (int *)malloc(sizeof(int) * 1);
-	ft_printf(C_YEL"sti je t'envoie au combat\n"FC_ALL);
+//	ft_printf(C_YEL"sti je t'envoie au combat\n"FC_ALL);
 //	ft_printf("val1 = %d et val2 = %d min = %d et ins = %d\n", inf.val[1], inf.val[2], inf.min_addr, pros->ins);
 	pros->ins = (pros->ins + inf.val[1] + inf.val[2] + 3);
 //	ft_printf("AVANT proc = %d\n", *pros->ins);

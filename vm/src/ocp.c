@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/29 05:40:33 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/25 07:24:35 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/26 05:05:05 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,12 @@ t_inf	nb_oct(t_inf srt, int line, int ocp)
 	}
 	else if (ft_strcmp(g_op_tab[line].name, "zjmp") == 0)
 	{
-		tab[0] = 1;
+		tab[0] = 0;
 		srt.length = 2;
 	}
 	else if (ft_strcmp(g_op_tab[line].name, "lfork") == 0 || ft_strcmp(g_op_tab[line].name, "fork") == 0)
 	{
-		tab[0] = 1;
+		tab[0] = 0;
 		srt.length = 2;
 	}
 	else

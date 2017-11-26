@@ -1,217 +1,32 @@
-val = 1
-REG[1]  = 0	REG[1]  = 0	REG[1]  = 0	REG[1]  = 1
-Champ 0: fork
-ici le typ 1 et la ligne 11
-pc = 520 val = 144
 [32;mfork je t'envois au combat, val = 144 ins = 512
-[0mnew reg = 0 src reg = 0
-new reg = 1 src reg = 1
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-Champ 0: st
-ici le typ 1 et la ligne 2
-pc = 532 val = 1
-ici le typ 3 et la ligne 2
-pc = 540 val = 6
-[34;mst je t'envoie au combat
-[0mdans st val = 6  r = 1
-Champ 0: live
-ici le typ 3 et la ligne 0
-pc = 560 val = 42
-aChamp 1: fork
-ici le typ 1 et la ligne 11
-pc = 520 val = 144
-[32;mfork je t'envois au combat, val = 144 ins = 512
-[0mnew reg = 0 src reg = 0
-new reg = 1 src reg = 1
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-Champ 1: st
-ici le typ 1 et la ligne 2
-pc = 532 val = 1
-ici le typ 3 et la ligne 2
-pc = 540 val = 6
-[34;mst je t'envoie au combat
-[0mdans st val = 6  r = 1
-Champ 1: live
-ici le typ 3 et la ligne 0
-pc = 560 val = 42
-aChamp 0: fork
-ici le typ 1 et la ligne 11
-pc = 572 val = 113
-[32;mfork je t'envois au combat, val = 113 ins = 564
-[0mnew reg = 0 src reg = 0
-new reg = 1 src reg = 1
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-Champ 0: st
-ici le typ 1 et la ligne 2
-pc = 584 val = 1
-ici le typ 3 et la ligne 2
-pc = 592 val = 6
-[34;mst je t'envoie au combat
-[0mdans st val = 6  r = 1
-Champ 0: live
-ici le typ 3 et la ligne 0
-pc = 612 val = 42
-aChamp 2: fork
-ici le typ 1 et la ligne 11
-pc = 520 val = 144
-[32;mfork je t'envois au combat, val = 144 ins = 512
-[0mnew reg = 0 src reg = 0
-new reg = 1 src reg = 1
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-Champ 2: st
-ici le typ 1 et la ligne 2
-pc = 532 val = 1
-ici le typ 3 et la ligne 2
-pc = 540 val = 6
-[34;mst je t'envoie au combat
-[0mdans st val = 6  r = 1
-Champ 2: live
-ici le typ 3 et la ligne 0
-pc = 560 val = 42
-aChamp 1: fork
-ici le typ 1 et la ligne 11
-pc = 572 val = 113
-[32;mfork je t'envois au combat, val = 113 ins = 564
-[0mnew reg = 0 src reg = 0
-new reg = 1 src reg = 1
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-Champ 1: fork
-ici le typ 1 et la ligne 11
-pc = 572 val = 113
-[32;mfork je t'envois au combat, val = 113 ins = 564
-[0mnew reg = 0 src reg = 0
-new reg = 1 src reg = 1
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-Champ 1: st
-ici le typ 1 et la ligne 2
-pc = 584 val = 1
-ici le typ 3 et la ligne 2
-pc = 592 val = 6
-[34;mst je t'envoie au combat
-[0mdans st val = 6  r = 1
-Champ 1: st
-ici le typ 1 et la ligne 2
-pc = 584 val = 1
-ici le typ 3 et la ligne 2
-pc = 592 val = 6
-[34;mst je t'envoie au combat
-[0mdans st val = 6  r = 1
-Champ 1: live
-ici le typ 3 et la ligne 0
-pc = 612 val = 42
-aChamp 1: live
-ici le typ 3 et la ligne 0
-pc = 612 val = 42
-aChamp 0: fork
-ici le typ 1 et la ligne 11
-pc = 624 val = -15
-[32;mfork je t'envois au combat, val = -15 ins = 616
-[0mnew reg = 0 src reg = 0
-new reg = 1 src reg = 1
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-new reg = 0 src reg = 0
-Champ 0: st
-ici le typ 1 et la ligne 2
-pc = 636 val = 1
-ici le typ 3 et la ligne 2
-pc = 644 val = 6
-[34;mst je t'envoie au combat
-[0mdans st val = 6  r = 1
-Champ 0: live
-ici le typ 3 et la ligne 0
-pc = 664 val = -112
-aval[0] = -112 et reg = 1
-At the end, cycle = 3000
-
-
-Et le gagnant est: -1
+[0m[32;mfork je t'envois au combat, val = 144 ins = 512
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 144 ins = 512
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = 144 ins = 512
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = -1 ins = 668
+[0m[32;mfork je t'envois au combat, val = 144 ins = 512
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 1 ins = 564
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = 241 ins = 616
+[0m[32;mfork je t'envois au combat, val = -1 ins = 668
+[0m[32;mfork je t'envois au combat, val = -1 ins = 668
+[0m[32;mfork je t'envois au combat, val = -1 ins = 668
+[0m[32;mfork je t'envois au combat, val = -1 ins = 668
+[0m[32;mfork je t'envois au combat, val = -1 ins = 1128
+[0m

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 04:13:24 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/26 06:04:15 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,13 @@ t_process	*kill_them_all(t_process *pro)
 
 t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 {
-	//t_process	*fun;
+	t_process	*fun;
 	t_process	*cpy;
 	t_inf		inf;
 	int			nb;
 	int			line;
 	int			i;
+	int			p;
 	//unsigned char	*aff;
 	int				*ret;
 
@@ -101,9 +102,11 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 	//aff = (unsigned char*)(cpy->pc);
 	ret = cpy->pc;
 	nb = 0;
+	p = 0;
 	while (cpy != NULL)
 	{
 		line = get_line(*(cpy->pc));
+		//ft_printf("cycle = %d\n", cycle);
 		i = 0;
 		if (cpy->start_cycle == -1)
 			cpy->start_cycle = cycle;
@@ -121,7 +124,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 			if (line != -1)
 			{
 				//		ft_printf("One more time\n");
-				ft_printf("Champ %d: %s\n", cpy->number, g_op_tab[line].name);
+	//			ft_printf("Champ %d: %s\n", cpy->number, g_op_tab[line].name);
 				cpy->pc++;
 				//	aff = (unsigned char*)(cpy->pc);
 				//	inf = add_elem(line, (int)(*aff));
@@ -131,16 +134,30 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 					return (NULL);
 				while (i < g_op_tab[line].nb_arg)
 				{
+					if (line == 11)
+						p++;
 					nb = inf.typ[i];
-					ft_printf("ici le typ %d et la ligne %d\n", inf.typ[i], line);
+	//				ft_printf("ici le typ %d et la ligne %d\n", inf.typ[i], line);
 					if (nb == 3 && line != 0)
 						nb = 2;
-					if (*cpy->pc == 0 && line != 0)
+					if (inf.typ[i] == 0)
 					{
-						cpy->pc = cpy->pc + nb;
-						if (*cpy->pc <= -128 / 4)
+	//					ft_printf("addresse pc = %d val = %d inst = %d\n", cpy->pc, *cpy->pc, cpy->ins);
+						if (*cpy->pc == 0)
 						{
-							*cpy->pc = 256 + *cpy->pc;
+							cpy->pc++;
+							if (*cpy->pc < 0)
+							{
+								*cpy->pc = 256 + *cpy->pc;
+							}
+						}
+						else if (*cpy->pc == 0xFF)
+						{
+							cpy->pc++;
+							if (*cpy->pc > 0)
+							{
+								*cpy->pc = -256 + *cpy->pc;
+							}
 						}
 					}
 					else
@@ -154,7 +171,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 					else
 						inf.val[i] = *(cpy->pc);
 					//inf.val[i] = (int)(*aff);
-					ft_printf("pc = %d val = %d\n", cpy->pc, inf.val[i]);
+	//				ft_printf("pc = %d val = %d\n", cpy->pc, inf.val[i]);
 					i++;
 				}
 			}
@@ -163,41 +180,44 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 			//ft_printf("%d\n", line);
 			if (line == 10)
 				g_instructab[6](inf, cpy);
-			if (line == 3)
+			else if (line == 3)
 				g_instructab[3](inf, cpy);
-			if (line == 2)
+			else if (line == 2)
 				g_instructab[2](inf, cpy);
-			if (line == 1)
+			else if (line == 1)
 				g_instructab[1](inf, cpy);
-			if (line == 0)
+			else if (line == 0)
 				g_instructab[0](inf, cpy);
-			if (line == 7)
+			else if (line == 7)
 				g_instructab[4](inf, cpy);
-			if (line == 8)
+			else if (line == 8)
 				g_instructab[5](inf, cpy);
-			if (line == 11)
+			else if (line == 11)
 				g_instructab[7](inf, cpy);
-			if (line == 14)
+			else if (line == 14)
 				g_instructab[8](inf, cpy);
 			cpy->start_cycle = -1;
-			cpy->pc++;
+			if (cpy->pc + 1 > inf.min_addr + MEM_SIZE)
+				cpy->pc = inf.min_addr;
+			else
+				cpy->pc++;
 		}
-		//	if (line != -1)
-		//		ft_printf(C_RED"cpy->number %d\n"FC_ALL, cpy->number);
+//		if (line != -1)
+//				ft_printf(C_RED"cpy->number %d\n"FC_ALL, cpy->number);
 		//	//		ft_printf(C_RED"le reg a la fin de la boucle = %d\n"FC_ALL, cpy->reg[1][3]);
 		cpy = cpy->next;
 	}
-	/*	if (line != -1)
+		if (line != -1)
 		{
 		fun = pro;
 		while (fun != NULL)
 		{
-		ft_printf("And another one\n");
+			i++;
 		fun = fun->next;
 		}
-		ft_printf("FIN BOUCLE %d\n", line);
+	//		ft_printf("FIN BOUCLE %d\n", i);
 		}
-		*/	return (pro);
+			return (pro);
 }
 
 int			count_live(t_process *pro)

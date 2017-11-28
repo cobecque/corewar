@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/29 05:40:33 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 05:05:05 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/28 08:21:47 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,29 +78,32 @@ t_inf	nb_oct(t_inf srt, int line, int ocp)
 	tab[0] = 0;
 	tab[1] = 0;
 	tab[2] = 0;
+	srt.l[0] = 0;
+	srt.l[1] = 0;
+	srt.l[2] = 0;
 	srt.length = 0;
 	srt.arg = g_op_tab[line].nb_arg;
 	srt.name = ft_strdup(g_op_tab[line].name);
 	if (ft_strcmp(g_op_tab[line].name, "live") == 0)
 	{
 		tab[0] = 3;
-		srt.length = 4;
+		srt.l[i] = 4;
 	}
 	else if (ft_strcmp(g_op_tab[line].name, "zjmp") == 0)
 	{
-		tab[0] = 0;
-		srt.length = 2;
+		tab[0] = 2;
+		srt.l[i] = 2;
 	}
 	else if (ft_strcmp(g_op_tab[line].name, "lfork") == 0 || ft_strcmp(g_op_tab[line].name, "fork") == 0)
 	{
-		tab[0] = 0;
-		srt.length = 2;
+		tab[0] = 2;
+		srt.l[i] = 2;
 	}
 	else
 	{
 		while (i < g_op_tab[line].nb_arg)
 		{
-			srt.length += type_param(ocp, i, line, &tab[i]);
+			srt.l[i] = type_param(ocp, i, line, &tab[i]);
 			i++;
 		}
 	}
@@ -116,6 +119,13 @@ t_inf	nb_oct(t_inf srt, int line, int ocp)
 	return (srt);
 }*/
 
+int		have_ocp(int line)
+{
+	if (line == 0 || line == 8 || line == 11 || line == 14)
+		return (-1);
+	return (0);
+}
+
 t_inf	add_elem(int info, int opc)//,/* t_inf *srt,*/ int nb)
 {
 	t_inf	new;
@@ -128,6 +138,7 @@ t_inf	add_elem(int info, int opc)//,/* t_inf *srt,*/ int nb)
 //	if (!(new = (t_inf *)malloc(sizeof(t_inf) * 1)))
 //		return (NULL);
 //	new.nb = nb;
+	new.l = (int *)malloc(sizeof(int) * 3);
 	new = nb_oct(new, info, opc);
 	new.min_addr = NULL;
 	//ft_printf("length = %d\n", new->length);

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 06:35:14 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/28 08:21:21 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct				s_inf
 	int						nb;
 	int						arg;
 	int						*typ;
+	int						*l;
 	int						*val;
 	int						length;
 	char					*name;
@@ -112,7 +113,7 @@ typedef struct				s_vm
 
 void						ft_fork(t_inf inf, t_process *pros);
 void						ft_lfork(t_inf inf, t_process *pros);
-t_process					*dup_pros(t_process *src);
+t_process					*dup_pros(t_process *src, t_inf inf);
 t_inf						nb_oct(t_inf srt, int line, int ocp);
 //t_inf						**list_info(t_vm data);
 t_vm						fill_champ(int *fd);
@@ -131,6 +132,7 @@ void						ft_sti(t_inf inf, t_process *pros);
 void						ft_sub(t_inf inf, t_process *pros);
 void						ft_xor(t_inf inf, t_process *pros);
 void						ft_zjmp(t_inf, t_process *pros);
+int							have_ocp(int line);
 int							get_line(int opc);
 int							get_ocp(void *addr);
 void						cpy_reg(int *tab, int **res);

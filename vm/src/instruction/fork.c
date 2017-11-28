@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 06:08:26 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/28 09:04:00 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-t_process	*dup_pros(t_process *src)
+t_process	*dup_pros(t_process *src, t_inf inf)
 {
 	t_process	*new;
 	t_process	*tmp;
@@ -34,18 +34,20 @@ t_process	*dup_pros(t_process *src)
 	//	ft_printf("new reg = %d src reg = %d\n", new->reg[i][3], src->reg[i][3]);
 		i++;
 	}
-	new->pc = NULL;
-	new->carry = src->carry;
-	new->live = src->live;
-	new->start_cycle = -1;
-	new->number = src->number + 1;//
-	new->ins = src->ins;
-	new->pc = new->ins;
-	new->next = NULL;
-	if (!(tmp))
-		return (new);
 	while (tmp->next != NULL)
 		tmp = tmp->next;
+	new->pc = NULL;
+	new->carry = src->carry;
+	new->live = 1;
+	new->start_cycle = -1;
+//	ft_printf("fork pour le numero %d a l'adresse %d\n", *src->ins, src->ins);
+	new->number = tmp->number + 1;//
+	new->ins = src->ins + (inf.val[0] % IDX_MOD);
+//	if (new->ins > MEM_SIZE + inf.min_addr)
+//		new->ins = inf.min_addr + (new->ins - (MEM_SIZE + inf.min_addr));
+	new->pc = new->ins;
+//	ft_printf("hey je suis le fork %d et moi la valeur apres %d\n", new->ins, *new->ins);
+	new->next = NULL;
 	tmp->next = new;
 	return (src);
 }
@@ -66,9 +68,8 @@ void	ft_fork(t_inf inf, t_process *pros)
 {
 	/*t_process	*cpy;
 */
-	inf.val[0] = 0;
 //	ft_printf(C_GRN"fork je t'envois au combat, val = %d ins = %d\n"FC_ALL, inf.val[0], pros->ins);
-	pros = dup_pros(pros);
+	pros = dup_pros(pros, inf);
 /*	cpy->ins = (pros->ins + (inf.val[0] % IDX_MOD));
 	cpy->pc = cpy->ins;
 	ft_printf("ins dans fork = %d\n", cpy->ins);

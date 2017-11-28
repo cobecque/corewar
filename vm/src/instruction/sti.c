@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 06:55:12 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/28 05:47:41 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		ft_sti(t_inf inf, t_process *pros)
 {
 	int		adr;
 
-	ft_printf("sti je t'envois au combat, val = %d adresse = %d val1 = %d val2 = %d\n", *pros->pc, pros->pc, inf.val[1], inf.val[2]);
+//	ft_printf("sti je t'envois au combat, val = %d adresse = %d val1 = %d val2 = %d\n", *pros->pc, pros->pc, inf.val[1], inf.val[2]);
 	if (inf.typ[1] == 1)
 		inf.val[1] = pros->reg[inf.val[1]][3];
 	if (inf.typ[2] == 1)

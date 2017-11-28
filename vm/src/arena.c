@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 06:31:53 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/28 06:02:41 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 	while (cpy != NULL)
 	{
 		line = get_line(*(cpy->pc));
-		//ft_printf("cycle = %d\n", cycle);
 		i = 0;
 		if (cpy->start_cycle == -1)
 			cpy->start_cycle = cycle;
@@ -120,6 +119,8 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 			//		aff = (unsigned char*)(cpy->pc);
 			//		line = get_line((int)(*aff));
 			line = get_line(*(cpy->pc));
+			if (line == 11)
+				p++;
 			cpy->ins = cpy->pc;
 			if (line != -1)
 			{
@@ -134,18 +135,16 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 					return (NULL);
 				while (i < g_op_tab[line].nb_arg)
 				{
-					if (line == 11)
-						p++;
 					nb = inf.typ[i];
 	//				ft_printf("ici le typ %d et la ligne %d\n", inf.typ[i], line);
 					if (nb == 3 && line != 0)
 						nb = 2;
 					if (inf.typ[i] == 0)
 					{
-						ft_printf("addresse pc = %d val = %d inst = %d\n", cpy->pc, *cpy->pc, cpy->ins);
+					//	ft_printf("addresse pc = %d val = %d inst = %d\n", cpy->pc, *cpy->pc, cpy->ins);
 						if (*cpy->pc == 0)
 						{
-							ft_putchar('a');
+	//						ft_putchar('a');
 							cpy->pc++;
 							if (*cpy->pc < 0)
 							{
@@ -159,7 +158,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 							{
 								*cpy->pc = -256 + *cpy->pc;
 							}
-							ft_printf("val pc neg %d\n", *cpy->pc);
+			//				ft_printf("val pc neg %d\n", *cpy->pc);
 						}
 					}
 					else
@@ -199,7 +198,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 			else if (line == 14)
 				g_instructab[8](inf, cpy);
 			cpy->start_cycle = -1;
-			ft_printf("fin instru %d\n", cpy->pc);
+	//		ft_printf("fin instru %d\n", cpy->pc);
 			if (cpy->pc + 1 > inf.min_addr + MEM_SIZE)
 				cpy->pc = inf.min_addr;
 			else
@@ -216,11 +215,12 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 		while (fun != NULL)
 		{
 			i++;
-		fun = fun->next;
+			fun = fun->next;
 		}
+			ft_printf("nombre processus %d\n", i);
 	//		ft_printf("FIN BOUCLE %d\n", i);
 		}
-			return (pro);
+		return (pro);
 }
 
 int			count_live(t_process *pro)

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/28 09:04:00 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/28 10:43:15 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_process	*dup_pros(t_process *src, t_inf inf)
 			new->reg[i][j] = src->reg[i][j];
 			j++;
 		}
+			ft_printf("reg[%d] = %d\n", i, new->reg[i][3]);
 	//	ft_printf("new reg = %d src reg = %d\n", new->reg[i][3], src->reg[i][3]);
 		i++;
 	}

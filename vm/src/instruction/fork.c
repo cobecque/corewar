@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/28 10:43:15 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/30 05:00:33 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_process	*dup_pros(t_process *src, t_inf inf)
 			new->reg[i][j] = src->reg[i][j];
 			j++;
 		}
-			ft_printf("reg[%d] = %d\n", i, new->reg[i][3]);
+		//	ft_printf("reg[%d] = %d\n", i, new->reg[i][3]);
 	//	ft_printf("new reg = %d src reg = %d\n", new->reg[i][3], src->reg[i][3]);
 		i++;
 	}
@@ -43,6 +43,7 @@ t_process	*dup_pros(t_process *src, t_inf inf)
 	new->start_cycle = -1;
 //	ft_printf("fork pour le numero %d a l'adresse %d\n", *src->ins, src->ins);
 	new->number = tmp->number + 1;//
+	new->champ = src->champ;
 	new->ins = src->ins + (inf.val[0] % IDX_MOD);
 //	if (new->ins > MEM_SIZE + inf.min_addr)
 //		new->ins = inf.min_addr + (new->ins - (MEM_SIZE + inf.min_addr));

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2017/10/29 06:06:44 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/11/30 05:37:09 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ t_vm			init_vm(int nb_pros)
 
 	i = 0;
 	data.nb_pros = nb_pros;
-	data.error = 0;
-	while (i < MAX_PLAYERS)
+	data.error = 0;/*
+	while (i < nb_pros)
 	{
-		data.play[i] = init_play(i + 1);
+		data.play[i].nb = i;
+		ft_printf("champ %s a nb = %d\n", data.play[i].name, data.play[i].nb);
 		i++;
-	}
+	}*/
 	return (data);
 }
 
@@ -115,6 +116,7 @@ t_vm		fill_champ(int *fd)
 	while (i < fd[0])
 	{
 		data.play[i - 1] = fill_all(fd[i], &data.play[i]);
+		data.play[i - 1].nb = i;
 		if (data.play[i - 1].len > CHAMP_MAX_SIZE)
 			data.error = 1;
 		//ft_printf("at fd %d, len = %d\n", i - 1, data.play[i - 1].len);

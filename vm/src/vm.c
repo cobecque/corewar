@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/28 07:07:17 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/30 05:43:46 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ t_process	*add_new_process(t_process *srt, int nb)
 	new->live = 0;
 	new->start_cycle = -1;
 	new->number = nb;
+	new->champ = nb;
 	new->next = NULL;
 	if (!srt)
 		return (new);
@@ -89,15 +90,23 @@ t_process	*add_new_process(t_process *srt, int nb)
 void		vm_stuff(t_vm data)//, t_inf **ret)
 {
 	int			i;
+	int			j;
 	t_process	*ret;
 	t_process	*cpy;
 
 	i = 0;
+	j = 0;
 //	ret = NULL;
 	ret = NULL;
 	cpy = NULL;
 	if (!(data.addr = malloc_vm()))
 		exit(-1);
+	ft_printf("Inctroducing contestants...\n");
+	while (j < data.nb_pros)
+	{
+		ft_printf("Player number %d, %s !\n", data.play[j].nb, data.play[j].name);
+		j++;
+	}
 	while (i < data.nb_pros)
 	{
 		ret = add_new_process(ret, i);
@@ -110,5 +119,8 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 		i++;
 	}
 //	gestion_process(ret2, 5, data);
-	ft_printf("\n\nEt le gagnant est: %d\n", cycle_gestion(data, ret, CYCLE_TO_DIE));
+/*	ft_printf("\n\nEt le gagnant est: %d\n",*/ 
+	i = cycle_gestion(data, ret, CYCLE_TO_DIE);
+	if (i != -1)
+		ft_printf("\nAnd the winner is contestant %d: %s !\n", data.play[i].nb, data.play[i].name);
 }

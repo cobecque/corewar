@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/28 11:43:29 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/11/30 06:34:56 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,52 +25,73 @@
 	  return (-1);
 	  }*/
 
+int			
+
 /*
  ** Revoye le nombre du champions vainqueur
  */
 int			winner(t_process *pro)
 {
 	int			winner;
+	t_process	*cpy;
 
 	winner = -1;
+	cpy = pro;
 	while (pro != NULL)
 	{
 		if (pro->live != 0)
 		{
-			if (winner != -1 && winner != pro->number)
+	//		ft_printf("pro %d\n", pro->champ);
+			if (winner != -1 && winner != pro->champ)
 			{
-				ft_printf("Their's more than one process alive, an occured\n");
+				winner = -1;
 				break ;
+			//	ft_printf("Their's more than one process alive, an occured\n");
+			//	return (-1);
 			}
 			else
-				winner = pro->number;
+				winner = pro->champ;
 		}
 		pro = pro->next;
 	}
+	if (winner == -1)
+		winner = more_live(cpy);//truc chelou 
 	return (winner);
 }
 
 /*
  ** Repporte le nombre de process vivant
  */
-int			check_alive(t_process *pro)
+int			check_alive(int nb_champ, t_process *pro)
 {
+	int		*tab;
 	int		nb_chicken;
 	int		i;
 	int		nb;
 
+	if (!(tab = (int *)malloc(sizeof(int) * nb_champ)))
+		return (-1);
 	nb = 0;
 	i = 0;
 	nb_chicken = 0;
 	while (pro != NULL)
 	{
-		if (pro->live != 0)
-			nb++;
-		i++;
+		if (pro->live != 0 && pro->champ < nb_champ)
+			tab[pro->champ] = 1;
+//		i++;
 		pro = pro->next;
 	}
-	if (nb == 0)
-		nb_chicken = -1;
+	while (i < nb_champ)
+	{
+		if (tab[i] >= 0)
+		{
+			nb_chicken += tab[i];
+		}
+		i++;
+	}
+//	if (nb == 0)
+//		nb_chicken = -1;
+	ft_printf("poulet = %d\n", nb_chicken);
 	return (nb_chicken);
 }
 
@@ -79,14 +100,34 @@ int			check_alive(t_process *pro)
  */
 t_process	*kill_them_all(t_process *pro)
 {
+	t_process	*tmp;
 	t_process	*cpy;
 
 	cpy = pro;
-	while (cpy != NULL)
+	if (cpy != NULL)
 	{
 		if (cpy->live == 0)
-			cpy->live--;			//inserer ici bruitage abbatage
-		cpy = cpy->next;
+		{
+			tmp = cpy;
+		//	free(tmp->pc);
+		//	free(tmp->ins);
+			tmp = cpy->next;
+		//	free(tmp);
+		}
+		while (cpy->next != NULL)
+		{
+			if (cpy->next->live == 0)
+			{
+				tmp = cpy->next;
+			//	free(tmp->pc);
+			//	free(tmp->ins);
+				tmp->next = tmp->next;
+			//	free(tmp);
+			}
+			else
+				cpy->next->live = 0;
+			cpy = cpy->next;
+		}
 	}
 	return (pro);
 }
@@ -134,7 +175,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 				if (line != -1)
 				{
 					//		ft_printf("One more time\n");
-					ft_printf("Champ %d: %s\n", cpy->number, g_op_tab[line].name);
+					//ft_printf("Champ %d: %s\n", cpy->number, g_op_tab[line].name);
 					cpy->pc++;
 					//	aff = (unsigned char*)(cpy->pc);
 					//	inf = add_elem(line, (int)(*aff));
@@ -184,7 +225,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 						//inf.val[i] = (int)(*aff);
 						//				ft_printf("pc = %d val = %d\n", cpy->pc, inf.val[i]);
 						i++;*/
-						ft_printf("cpy adresse = %d\n", cpy->pc);
+						//ft_printf("cpy adresse = %d\n", cpy->pc);
 						p = 0;
 						pos = 1;
 						nb = 0;
@@ -233,17 +274,17 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 							cpy->pc++;
 							p++;
 						}
-						ft_printf("val[%d] = %d\n", i, inf.val[i]);
+						//ft_printf("val[%d] = %d\n", i, inf.val[i]);
 						i++;
 					}
 				}
 				else
 					cpy->pc++;
 				//ft_printf("%d\n", line);
-				if (cpy->reg[2][3] != 0)
-					ft_printf("hahahah = %d\n", cpy->reg[2][3]);
-				if (cpy->reg[4][3] != 0)
-					ft_printf("voila = %d\n", cpy->reg[4][3]);
+			//	if (cpy->reg[2][3] != 0)
+		//			ft_printf("hahahah = %d\n", cpy->reg[2][3]);
+		//		if (cpy->reg[4][3] != 0)
+		//			ft_printf("voila = %d\n", cpy->reg[4][3]);
 				if (line == 10)
 					g_instructab[6](inf, cpy);
 				else if (line == 3)
@@ -283,7 +324,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 			i++;
 			fun = fun->next;
 		}
-		ft_printf("Cycle = %d et nombre processus %d\n", cycle, i);
+		//ft_printf("Cycle = %d et nombre processus %d\n", cycle, i);
 		//		ft_printf("FIN BOUCLE %d\n", i);
 	}
 	return (pro);
@@ -320,21 +361,28 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 		pro = gestion_process(pro, cycle, virtual);
 		if (cycle_d == ctd)
 		{
-			if (check_alive(pro) <= 1)
+		//	ft_putchar('a');
+			if (check_alive(virtual.nb_pros, pro) <= 1)
+			{
+				ft_putchar('?');
 				break ;
+			}
 			cycle_d = 0;
-			pro = kill_them_all(pro);
 			if (count_live(pro) >= NBR_LIVE || check == 10)
 			{
 				check = 0;
 				ctd -= CYCLE_DELTA;
+				if (ctd < 0)
+					break ;
+			//	ft_printf("CYLE_TO_DIE = %d\n", ctd);
 			}
 			else
 				check++;
+			pro = kill_them_all(pro);
 		}
 		cycle++;
 		cycle_d++;
 	}
-	ft_printf("At the end, cycle = %d\n", cycle);
+	//ft_printf("At the end, cycle = %d\n", cycle);
 	return (winner(pro)); // return le numero du champions gagnants
 }

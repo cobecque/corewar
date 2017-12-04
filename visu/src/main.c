@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:05:10 by cobecque          #+#    #+#             */
-/*   Updated: 2017/12/04 17:09:59 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/04 17:20:10 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		main(void)
 				SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 				SDL_RenderClear(renderer);
 				surf = SDL_GetWindowSurface(window);
-				texte = TTF_RenderText_Solid(police, "10 ", color);
+				texte = TTF_RenderText_Solid(police, " FF ", color);
 				texte2 = SDL_CreateTextureFromSurface(renderer, texte);
 				image = IMG_LoadTexture(renderer, "fond/appel.jpg");
 				SDL_QueryTexture(image, NULL, NULL, &w, &h);

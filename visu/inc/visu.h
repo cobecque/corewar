@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:06:43 by cobecque          #+#    #+#             */
-/*   Updated: 2017/12/04 16:43:46 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/04 18:20:17 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <stdlib.h>
 
 SDL_Rect		*ft_rects(void);
+char			*hexa(int i);
 void			fill(int p, SDL_Rect *rects, SDL_Renderer *r, int i);
+void			all(SDL_Renderer *r, SDL_Rect *rects, SDL_Texture **texte);
 
 #endif

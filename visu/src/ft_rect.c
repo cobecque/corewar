@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:40:28 by cobecque          #+#    #+#             */
-/*   Updated: 2017/12/04 17:20:12 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/04 18:45:45 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,67 @@ void			fill(int player, SDL_Rect *rects, SDL_Renderer *renderer, int i)
 	if (player == 4)
 		SDL_SetRenderDrawColor(renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderFillRect(renderer, &rects[i]);
+}
+
+void			all(SDL_Renderer *renderer, SDL_Rect *rects, SDL_Texture **texte2)
+{
+	int			i;
+
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRects(renderer, rects, 4096);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
+	i = 0;
+	while (i < 4096)
+	{
+		if (i < 16 * 64)
+			fill(1, rects, renderer, i);
+		if (i < 32 * 64 && i >= 16 * 64)
+			fill(2, rects, renderer, i);
+		if (i < 48 * 64 && i >= 32 * 64)
+			fill(3, rects, renderer, i);
+		if (i < 64 * 64 && i >= 48 * 64)
+			fill(4, rects, renderer, i);
+		//SDL_RenderFillRect(renderer, &rects[i]);
+		SDL_RenderCopy(renderer, texte2[i % 225], NULL, &rects[i]);
+		i++;
+	}
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawLine(renderer, 1935, 1295, 2550, 1295);
+	SDL_RenderDrawLine(renderer, 1935, 15, 2550, 15);
+	SDL_RenderDrawLine(renderer, 2550, 15, 2550, 1295);
+}
+
+char			*hexa(int i)
+{
+	char	*str;
+	int		res;
+
+	if (!(str = (char *)malloc(sizeof(char) * 5)))
+		return (NULL);
+	str[0] = ' ';
+	str[3] = ' ';
+	if (i <= 15)
+	{
+		str[1] = '0';
+		if (i < 10)
+			str[2] = i + '0';
+		if (i > 9)
+			str[2] = i + 'A' - 10;
+		str[4] = '\0';
+	}
+	else
+	{
+		res = i % 15;
+		i /= 15;
+		if (res > 10)
+			str[2] = res + 'A' - 10;
+		else
+			str[2] = res + '0';
+		if (i > 10)
+			str[1] = i + 'A' - 10;
+		else
+			str[1] = i + '0';
+		str[4] = '\0';
+	}
+	return (str);
 }

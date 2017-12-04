@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   visu.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/16 00:59:06 by cobecque          #+#    #+#             */
-/*   Updated: 2017/10/22 22:31:42 by rostroh          ###   ########.fr       */
+/*   Created: 2017/12/04 16:06:43 by cobecque          #+#    #+#             */
+/*   Updated: 2017/12/04 16:43:46 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef VISU_H
+#define VISU_H
 
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
-# define BUFF_SIZE 200
+#include "SDL.h"
+#include "SDL_ttf.h"
+#include "SDL_image.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-typedef struct		s_fd
-{
-	int				fd;
-	char			buf[BUFF_SIZE + 1];
-	char			*curr;
-}					t_fd;
-
-int					get_next_line(int fd, char **line);
+SDL_Rect		*ft_rects(void);
+void			fill(int p, SDL_Rect *rects, SDL_Renderer *r, int i);
 
 #endif

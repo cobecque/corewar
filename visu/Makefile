@@ -20,8 +20,7 @@ LIBP_NAME = libftprintf.a
 LIB_SDL_NAME = libSDL2.a
 LIB_TTF_NAME = libSDL2_ttf.a
 LIB_NAME = libft.a
-SRC_NAME = main.c\
-
+SRC_NAME = main.c	ft_rect.c
 
 LIB_DIR = ../asm/libft
 LIBP_DIR = ../asm/libft/src/printf
@@ -50,7 +49,7 @@ all :
 	@$(MAKE) $(NAME)
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
-	@$(CC) $(FLAGS) -I $(INC_NAME) -I ./include -o $@ -c $<
+	@$(CC) $(FLAGS) -I $(INC_NAME) -o $@ -c $<
 	@printf $(C_BLU) "        [ ✔ ] $<"
 
 $(NAME): $(OBJ_PATH)

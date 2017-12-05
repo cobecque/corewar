@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:40:28 by cobecque          #+#    #+#             */
-/*   Updated: 2017/12/04 18:45:45 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/05 19:25:44 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ SDL_Rect		*ft_rects(void)
 	i = 1;
 	while (i < 64)
 	{
-		x[i] = x[i - 1] + 30;
+		x[i] = x[i - 1] + 35;
 		y[i] = y[i - 1] + 20;
 		i++;
 	}
@@ -45,7 +45,7 @@ SDL_Rect		*ft_rects(void)
 		{
 			rect[h].y = y[j];
 			rect[h].x = x[i];
-			rect[h].w = 27;
+			rect[h].w = 32;
 			rect[h].h = 20;
 			printf("rect[%d].y = %d et x = %d\n", h, rect[h].y, rect[h].x);
 			i++;
@@ -93,8 +93,8 @@ void			all(SDL_Renderer *renderer, SDL_Rect *rects, SDL_Texture **texte2)
 		i++;
 	}
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
-	SDL_RenderDrawLine(renderer, 1935, 1295, 2550, 1295);
-	SDL_RenderDrawLine(renderer, 1935, 15, 2550, 15);
+	SDL_RenderDrawLine(renderer, 2253, 1295, 2550, 1295);
+	SDL_RenderDrawLine(renderer, 2253, 15, 2550, 15);
 	SDL_RenderDrawLine(renderer, 2550, 15, 2550, 1295);
 }
 
@@ -103,32 +103,50 @@ char			*hexa(int i)
 	char	*str;
 	int		res;
 
-	if (!(str = (char *)malloc(sizeof(char) * 5)))
+	if (!(str = (char *)malloc(sizeof(char) * 6)))
 		return (NULL);
 	str[0] = ' ';
-	str[3] = ' ';
+	str[4] = ' ';
 	if (i <= 15)
 	{
 		str[1] = '0';
 		if (i < 10)
-			str[2] = i + '0';
+			str[3] = i + '0';
 		if (i > 9)
-			str[2] = i + 'A' - 10;
-		str[4] = '\0';
+			str[3] = i + 'A' - 10;
+		str[2] = ' ';
+		str[5] = '\0';
 	}
 	else
 	{
-		res = i % 15;
-		i /= 15;
-		if (res > 10)
-			str[2] = res + 'A' - 10;
+		res = i % 16;
+		i /= 16;
+		if (res > 9)
+			str[3] = res + 'A' - 10;
 		else
-			str[2] = res + '0';
-		if (i > 10)
+			str[3] = res + '0';
+		if (i > 9)
 			str[1] = i + 'A' - 10;
 		else
 			str[1] = i + '0';
-		str[4] = '\0';
+		str[2] = ' ';
+		str[5] = '\0';
 	}
 	return (str);
+}
+
+void			complete(SDL_Renderer *renderer)
+{
+	int		i;
+	int		y;
+
+	i = 15;
+	y = 15;
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	while (i < 1295)
+	{
+		y += 20;
+		SDL_RenderDrawLine(renderer, 15, y, 2250, y);
+		i += 20;
+	}
 }

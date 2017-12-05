@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:05:10 by cobecque          #+#    #+#             */
-/*   Updated: 2017/12/04 18:46:09 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/05 19:25:45 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(void)
 {
 	SDL_Window		*window;
 	SDL_Renderer	*renderer;
-//	SDL_Renderer	*ren;
+	//	SDL_Renderer	*ren;
 	SDL_Surface		*surf;
 	SDL_Rect		position;
 	SDL_Texture		*image;
@@ -51,7 +51,7 @@ int		main(void)
 		{
 			if (bol != 1)
 			{
-				police = TTF_OpenFont("police/Escapee.ttf", 15);
+				police = TTF_OpenFont("police/stocky.ttf", 25);
 				SDL_CreateWindowAndRenderer(0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP, &window, &renderer);
 				SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 				SDL_RenderClear(renderer);
@@ -72,69 +72,92 @@ int		main(void)
 					i++;
 				}
 				i = 0;
+				/*	image = IMG_LoadTexture(renderer, "fond/appel.jpg");
+					SDL_QueryTexture(image, NULL, NULL, &w, &h);
+					position.x = 0;
+					position.y = 1295;
+					position.w = 200;
+					position.h = 200;
+					while (i < 12)
+					{
+					SDL_RenderCopy(renderer, image, NULL, &position);
+					position.x += 200;
+					i++;
+					}
+					position.x = 2400;
+					SDL_RenderCopy(renderer, image, NULL, &position);
+					image = IMG_LoadTexture(renderer, "fond/spectrum.jpg");
+					SDL_QueryTexture(image, NULL, NULL, &w, &h);
+					position.x = 2220;
+					position.y = 15;
+					position.w = 2550 - 2220;
+					position.h = 1295 - 15;
+					SDL_RenderCopy(renderer, image, NULL, &position);
+				//		SDL_Delay(2000);
+				*/	/*SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+					  SDL_RenderDrawRects(renderer, rects, 4096);
+					  SDL_SetRenderDrawColor(renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
+					  i = 0;
+					  while (i < 4096)
+					  {
+					  if (i < 16 * 64)
+					  fill(1, rects, renderer, i);
+					  if (i < 32 * 64 && i >= 16 * 64)
+					  fill(2, rects, renderer, i);
+					  if (i < 48 * 64 && i >= 32 * 64)
+					  fill(3, rects, renderer, i);
+					  if (i < 64 * 64 && i >= 48 * 64)
+					  fill(4, rects, renderer, i);
+				//SDL_RenderFillRect(renderer, &rects[i]);
+				SDL_RenderCopy(renderer, texte2, NULL, &rects[i]);
+				i++;
+				}
+				SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+				SDL_RenderDrawLine(renderer, 1935, 1295, 2550, 1295);
+				SDL_RenderDrawLine(renderer, 1935, 15, 2550, 15);
+				SDL_RenderDrawLine(renderer, 2550, 15, 2550, 1295);
+				*///	SDL_RenderPresent(renderer);
+				//ren = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+				//	SDL_SetRenderDrawColor(ren, 255, 0, 0, SDL_ALPHA_OPAQUE);
+				//		SDL_RenderClear(ren);
+				//		SDL_SetRenderDrawColor(ren, 255, 0, 0, SDL_ALPHA_OPAQUE);
+				//		SDL_RenderDrawRect(ren, &rects[5]);
+				///		SDL_RenderFillRect(ren, &rects[5]);
+				//		SDL_RenderPresent(ren);
+				bol = 1;
+			}
+			if (bol == 1)
+			{
 				image = IMG_LoadTexture(renderer, "fond/appel.jpg");
 				SDL_QueryTexture(image, NULL, NULL, &w, &h);
 				position.x = 0;
 				position.y = 1295;
 				position.w = 200;
 				position.h = 200;
+				i = 0;
 				while (i < 12)
 				{
-			//		SDL_RenderCopy(renderer, image, NULL, &position);
+					SDL_RenderCopy(renderer, image, NULL, &position);
 					position.x += 200;
 					i++;
 				}
 				position.x = 2400;
-			//	SDL_RenderCopy(renderer, image, NULL, &position);
+				SDL_RenderCopy(renderer, image, NULL, &position);
 				image = IMG_LoadTexture(renderer, "fond/spectrum.jpg");
 				SDL_QueryTexture(image, NULL, NULL, &w, &h);
-				position.x = 1935;
+				position.x = 2220;
 				position.y = 15;
-				position.w = 2550 - 1935;
+				position.w = 2550 - 2220;
 				position.h = 1295 - 15;
-			//	SDL_RenderCopy(renderer, image, NULL, &position);
-				//		SDL_Delay(2000);
-				/*SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
-				SDL_RenderDrawRects(renderer, rects, 4096);
-				SDL_SetRenderDrawColor(renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
-				i = 0;
-				while (i < 4096)
-				{
-					if (i < 16 * 64)
-						fill(1, rects, renderer, i);
-					if (i < 32 * 64 && i >= 16 * 64)
-						fill(2, rects, renderer, i);
-					if (i < 48 * 64 && i >= 32 * 64)
-						fill(3, rects, renderer, i);
-					if (i < 64 * 64 && i >= 48 * 64)
-						fill(4, rects, renderer, i);
-						//SDL_RenderFillRect(renderer, &rects[i]);
-					SDL_RenderCopy(renderer, texte2, NULL, &rects[i]);
-					i++;
-				}
-				SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
-				SDL_RenderDrawLine(renderer, 1935, 1295, 2550, 1295);
-				SDL_RenderDrawLine(renderer, 1935, 15, 2550, 15);
-				SDL_RenderDrawLine(renderer, 2550, 15, 2550, 1295);
-			*///	SDL_RenderPresent(renderer);
-				//ren = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-			//	SDL_SetRenderDrawColor(ren, 255, 0, 0, SDL_ALPHA_OPAQUE);
-		//		SDL_RenderClear(ren);
-		//		SDL_SetRenderDrawColor(ren, 255, 0, 0, SDL_ALPHA_OPAQUE);
-		//		SDL_RenderDrawRect(ren, &rects[5]);
-		///		SDL_RenderFillRect(ren, &rects[5]);
-	//		SDL_RenderPresent(ren);
-				bol = 1;
-			}
-			if (bol == 1)
-			{
+				SDL_RenderCopy(renderer, image, NULL, &position);
 				all(renderer, rects, texte2);
 				if (yolo % 2 == 0)
 					SDL_SetRenderDrawColor(renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
 				else
 					SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-				SDL_RenderFillRect(renderer, &rects[5]);
-				SDL_RenderCopy(renderer, texte2[5], NULL, &rects[5]);
+				SDL_RenderFillRect(renderer, &rects[10]);
+				SDL_RenderCopy(renderer, texte2[10], NULL, &rects[10]);
+				complete(renderer);
 				yolo++;
 			}
 			SDL_Delay(200);

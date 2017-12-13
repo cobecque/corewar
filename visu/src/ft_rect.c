@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:40:28 by cobecque          #+#    #+#             */
-/*   Updated: 2017/12/05 19:25:44 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/13 21:27:23 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,241 @@ void			fill(int player, SDL_Rect *rects, SDL_Renderer *renderer, int i)
 	SDL_RenderFillRect(renderer, &rects[i]);
 }
 
+void			ft_pause(SDL_Renderer *renderer, TTF_Font *police, int i)
+{
+	SDL_Rect	rect;
+	SDL_Surface	*texte;
+	SDL_Texture	*texte2;
+	SDL_Color	color = {255, 255, 255, 255};
+
+	police = TTF_OpenFont("police/code2000.ttf", 15);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	rect.x = 2253;
+	rect.y = 15;
+	rect.w = 2550 - 2253;
+	rect.h = 50;
+	SDL_RenderFillRect(renderer, &rect);
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(renderer, &rect);
+	rect.y = rect.y + 5;
+	rect.w = 250;
+	rect.h = 30;
+	if (i == 1)
+		texte = TTF_RenderText_Solid(police, "    --PAUSE--  ", color);
+	else
+		texte = TTF_RenderText_Solid(police, "    --START--  ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+}
+
+void			ft_cycle(SDL_Renderer *renderer, TTF_Font *police, int cycle)
+{
+	char		*str;
+	SDL_Rect	rect;
+	SDL_Surface	*texte;
+	SDL_Texture	*texte2;
+	SDL_Color	color = {255, 255, 255, 255};
+
+
+	police = TTF_OpenFont("police/code2000.ttf", 15);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	rect.x = 2253;
+	rect.y = 585;
+	rect.w = 2550 - 2253;
+	rect.h = 40;
+	SDL_RenderFillRect(renderer, &rect);
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(renderer, &rect);
+	rect.y = rect.y + 10;
+	rect.w = 185;
+	rect.h = 20;
+	str = ft_strjoin("  Cycle : ", ft_itoa(cycle));
+	texte = TTF_RenderText_Solid(police, str, color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+}
+
+
+
+void			champ(SDL_Renderer *renderer, TTF_Font *police)
+{
+	SDL_Rect	rect;
+	SDL_Surface	*texte;
+	SDL_Texture	*texte2;
+	SDL_Color	color = {255, 0, 0, 255};
+
+	police = TTF_OpenFont("police/code2000.ttf", 15);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	rect.x = 2253;
+	rect.y = 65;
+	rect.w = 2550 - 2253;
+	rect.h = 150;
+	SDL_RenderFillRect(renderer, &rect);
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(renderer, &rect);
+	rect.y = rect.y + 5;
+	rect.w = 250;
+	rect.h = 30;
+	texte = TTF_RenderText_Solid(police, " 1 - Fluttershy ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 35;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -nombre live         0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -nombre process      0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -last live              0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+
+	color.r = 0;
+	color.g = 0;
+	color.b = 255;
+	color.a = 255;
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	rect.x = 2253;
+	rect.y = rect.y + 20;
+	rect.w = 2550 - 2253;
+	rect.h = 150;
+	SDL_RenderFillRect(renderer, &rect);
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(renderer, &rect);
+	rect.y = rect.y + 5;
+	rect.w = 250;
+	rect.h = 30;
+	texte = TTF_RenderText_Solid(police, " 2 - Fluttershy ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 35;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -nombre live         0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -nombre process      0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -last live              0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+
+
+	color.r = 0;
+	color.g = 255;
+	color.b = 0;
+	color.a = 255;
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	rect.x = 2253;
+	rect.y = rect.y + 20;
+	rect.w = 2550 - 2253;
+	rect.h = 150;
+	SDL_RenderFillRect(renderer, &rect);
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(renderer, &rect);
+	rect.y = rect.y + 5;
+	rect.w = 250;
+	rect.h = 30;
+	texte = TTF_RenderText_Solid(police, " 3 - Fluttershy ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 35;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -nombre live         0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -nombre process      0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -last live              0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+
+
+	color.r = 255;
+	color.g = 0;
+	color.b = 255;
+	color.a = 255;
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	rect.x = 2253;
+	rect.y = rect.y + 20;
+	rect.w = 2550 - 2253;
+	rect.h = 150;
+	SDL_RenderFillRect(renderer, &rect);
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(renderer, &rect);
+	rect.y = rect.y + 5;
+	rect.w = 250;
+	rect.h = 30;
+	texte = TTF_RenderText_Solid(police, " 4 - Fluttershy ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 35;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -nombre live         0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -nombre process      0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 200;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " -last live              0 ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+}
+
 void			all(SDL_Renderer *renderer, SDL_Rect *rects, SDL_Texture **texte2)
 {
 	int			i;
@@ -81,14 +316,13 @@ void			all(SDL_Renderer *renderer, SDL_Rect *rects, SDL_Texture **texte2)
 	while (i < 4096)
 	{
 		if (i < 16 * 64)
-			fill(1, rects, renderer, i);
-		if (i < 32 * 64 && i >= 16 * 64)
 			fill(2, rects, renderer, i);
+		if (i < 32 * 64 && i >= 16 * 64)
+			fill(1, rects, renderer, i);
 		if (i < 48 * 64 && i >= 32 * 64)
-			fill(3, rects, renderer, i);
-		if (i < 64 * 64 && i >= 48 * 64)
 			fill(4, rects, renderer, i);
-		//SDL_RenderFillRect(renderer, &rects[i]);
+		if (i < 64 * 64 && i >= 48 * 64)
+			fill(3, rects, renderer, i);
 		SDL_RenderCopy(renderer, texte2[i % 225], NULL, &rects[i]);
 		i++;
 	}

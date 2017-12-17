@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/16 06:45:34 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/17 07:37:06 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,7 +205,10 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 				if (line <= 17)
 				{
 					*val = 1;
-				//	ft_printf("cylce %d et %s\n", cycle, g_op_tab[line].name);
+		//		if (cycle >= 3360 && cycle <= 3365)
+		//				ft_printf("cycle %d et %s\n", cycle, g_op_tab[line].name);
+				//	if (line == 10)
+				//		ft_printf("%d\n", cycle);
 					g_instructab[line](inf, cpy);
 			//		cycle--;
 				}
@@ -274,14 +277,25 @@ char		*get_hexa(int val)
 void		dump(int *ptr)
 {
 	int		i;
+	int		p;
 
 	i = 0;
+	p = 0;
 	while (i < MEM_SIZE)
 	{
 		if (i % 64 == 0 && i != 0)
 			ft_putchar('\n');
+		if (i % 64 == 0)
+		{
+			ft_putstr("0x0");
+			if (p < 16)
+				ft_putchar('0');
+			ft_printf("%x0 : ", p);
+			p += 4;
+		}
 		if (ptr[i] != 0)
-			ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
+			ft_printf("%s ", get_hexa(ptr[i]));
+	//		ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
 		else
 			ft_printf("%s ", get_hexa(ptr[i]));
 		i++;
@@ -299,8 +313,8 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	check = 0;
 	cycle = 0;
 	cycle_d = 0;
-	dump(virtual.addr);
-	ft_putchar('\n');
+//	dump(virtual.addr);
+//	ft_putchar('\n');
 	while (42)
 	{
 		val = 0;

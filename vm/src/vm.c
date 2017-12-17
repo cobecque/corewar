@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/16 07:15:23 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/17 05:25:06 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,11 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 	cpy = NULL;
 	if (!(data.addr = malloc_vm()))
 		exit(-1);
-	ft_printf("Inctroducing contestants...\n");
+	//ft_printf("Inctroducing contestants...\n");
 	while (j < data.nb_pros)
 	{
-		ft_printf("Player number %d, %s !\n", data.play[j].nb, data.play[j].name);
+	//	ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", data.play[j].nb, data.play[j].len, data.play[j].name, data.play[j].comment);
+		//ft_printf("Player number %d, %s !\n", data.play[j].nb, data.play[j].name);
 		j++;
 	}
 	while (i < data.nb_pros)
@@ -127,6 +128,6 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 //	gestion_process(ret2, 5, data);
 /*	ft_printf("\n\nEt le gagnant est: %d\n",*/ 
 	i = cycle_gestion(data, ret, CYCLE_TO_DIE);
-	if (i != -1)
-		ft_printf("\nAnd the winner is contestant %d: %s !\n", data.play[i].nb, data.play[i].name);
+	//if (i != -1)
+	//	ft_printf("\nAnd the winner is contestant %d: %s !\n", data.play[i].nb, data.play[i].name);
 }

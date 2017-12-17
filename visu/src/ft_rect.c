@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:40:28 by cobecque          #+#    #+#             */
-/*   Updated: 2017/12/13 21:27:23 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/17 03:29:01 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,11 @@ SDL_Rect		*ft_rects(void)
 			rect[h].x = x[i];
 			rect[h].w = 32;
 			rect[h].h = 20;
-			printf("rect[%d].y = %d et x = %d\n", h, rect[h].y, rect[h].x);
 			i++;
 			h++;
 		}
 		j++;
 	}
-	printf("i = %d et j = %d\n", i, j);
 	return (rect);
 }
 
@@ -77,7 +75,7 @@ void			ft_pause(SDL_Renderer *renderer, TTF_Font *police, int i)
 	SDL_Texture	*texte2;
 	SDL_Color	color = {255, 255, 255, 255};
 
-	police = TTF_OpenFont("police/code2000.ttf", 15);
+//	police = TTF_OpenFont("police/code2000.ttf", 15);
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 	rect.x = 2253;
 	rect.y = 15;
@@ -95,6 +93,9 @@ void			ft_pause(SDL_Renderer *renderer, TTF_Font *police, int i)
 		texte = TTF_RenderText_Solid(police, "    --START--  ", color);
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
 	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	SDL_DestroyTexture(texte2);
+	SDL_FreeSurface(texte);
+//	TTF_CloseFont(police);
 }
 
 void			ft_cycle(SDL_Renderer *renderer, TTF_Font *police, int cycle)
@@ -106,25 +107,158 @@ void			ft_cycle(SDL_Renderer *renderer, TTF_Font *police, int cycle)
 	SDL_Color	color = {255, 255, 255, 255};
 
 
-	police = TTF_OpenFont("police/code2000.ttf", 15);
+//	police = TTF_OpenFont("police/code2000.ttf", 15);
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 	rect.x = 2253;
-	rect.y = 585;
+	rect.y = 705;
 	rect.w = 2550 - 2253;
-	rect.h = 40;
+	rect.h = 60;
 	SDL_RenderFillRect(renderer, &rect);
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawRect(renderer, &rect);
-	rect.y = rect.y + 10;
+	rect.y = rect.y + 20;
 	rect.w = 185;
-	rect.h = 20;
+	rect.h = 30;
 	str = ft_strjoin("  Cycle : ", ft_itoa(cycle));
 	texte = TTF_RenderText_Solid(police, str, color);
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
 	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	SDL_DestroyTexture(texte2);
+	SDL_FreeSurface(texte);
+//	TTF_CloseFont(police);
 }
 
+void			ft_process(SDL_Renderer *renderer, TTF_Font *police, int pros)
+{
+	char		*str;
+	SDL_Rect	rect;
+	SDL_Surface	*texte;
+	SDL_Texture	*texte2;
+	SDL_Color	color = {255, 255, 255, 255};
 
+	printf("fonction processi cycle %d\n", pros);
+	//police = TTF_OpenFont("police/code2000.ttf", 15);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	rect.x = 2253;
+	rect.y = 765;
+	rect.w = 2550 - 2253;
+	rect.h = 60;
+	SDL_RenderFillRect(renderer, &rect);
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(renderer, &rect);
+	rect.y = rect.y + 15;
+	rect.w = 185;
+	rect.h = 30;
+	str = ft_strjoin("  Process : ", ft_itoa(pros));
+	texte = TTF_RenderText_Solid(police, str, color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	SDL_FreeSurface(texte);
+	SDL_DestroyTexture(texte2);
+	//TTF_CloseFont(police);
+}
+
+void			ft_die(SDL_Renderer *r, TTF_Font *police, int ctd)
+{
+	char		*str;
+	SDL_Rect	rect;
+	SDL_Surface	*texte;
+	SDL_Texture	*texte2;
+	SDL_Color	color= {255, 255, 255, 255};
+
+//	police = TTF_OpenFont("police/code2000.ttf", 15);
+	SDL_SetRenderDrawColor(r, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	rect.x = 2253;
+	rect.y = 825;
+	rect.w = 2550 - 2253;
+	rect.h = 50;
+	SDL_RenderFillRect(r, &rect);
+	SDL_SetRenderDrawColor(r, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(r, &rect);
+	rect.y = rect.y + 15;
+	rect.w = 250;
+	rect.h = 20;
+	str = ft_strjoin("  Cycle to die : ", ft_itoa(ctd));
+	texte = TTF_RenderText_Solid(police, str, color);
+	texte2 = SDL_CreateTextureFromSurface(r, texte);
+	SDL_RenderCopy(r, texte2, NULL, &rect);
+	SDL_FreeSurface(texte);
+	SDL_DestroyTexture(texte2);
+}
+
+void			ft_load(SDL_Renderer *renderer, int ld, int bol)
+{
+	SDL_Rect	rect;
+
+	rect.x = 15;
+	rect.y = 1305;
+	rect.w = 2550 - 15;
+	rect.h = 100;
+	if (bol == 1)
+	{
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+		SDL_RenderDrawRect(renderer, &rect);
+		SDL_SetRenderDrawColor(renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
+		rect.x = 15;
+		rect.y = 1305;
+		rect.w = ld;
+		if (rect.w > 2550 - 15)
+			rect.w = 2550 - 15;
+		rect.h = 100;
+		SDL_RenderFillRect(renderer, &rect);
+	}
+	else
+	{
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+	//	SDL_RenderDrawRect(renderer, &rect);
+		rect.x = 2550;
+		rect.y = 1305;
+		rect.w = -ld;
+		if (rect.w < -2550 + 15)
+			rect.w = -2550 + 15;
+		rect.h = 100;
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+		SDL_RenderFillRect(renderer, &rect);
+	}
+}
+
+void			ft_define(SDL_Renderer *r)
+{
+	SDL_Rect	rect;
+	SDL_Surface	*texte;
+	SDL_Texture	*texte2;
+	SDL_Color	color = {255, 255, 255, 255};
+	TTF_Font	*police;
+
+	police = TTF_OpenFont("police/code2000.ttf", 15);
+	SDL_SetRenderDrawColor(r, 0, 0 ,0, SDL_ALPHA_OPAQUE);
+	rect.x = 2253;
+	rect.y = 875;
+	rect.w = 2550 - 2253;
+	rect.h = 160;
+	SDL_RenderFillRect(r, &rect);
+	SDL_SetRenderDrawColor(r, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(r, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 250;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, "  Cycle delta : 50 ", color);
+	texte2 = SDL_CreateTextureFromSurface(r, texte);
+	SDL_RenderCopy(r, texte2, NULL, &rect);
+	rect.y = rect.y + 45;
+	rect.w = 250;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, "  Number live :  21 ", color);
+	texte2 = SDL_CreateTextureFromSurface(r, texte);
+	SDL_RenderCopy(r, texte2, NULL, &rect);
+	rect.y = rect.y + 45;
+	rect.w = 250;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, "  Max Checks   :  21 ", color);
+	texte2 = SDL_CreateTextureFromSurface(r, texte);
+	SDL_RenderCopy(r, texte2, NULL, &rect);
+	TTF_CloseFont(police);
+}
 
 void			champ(SDL_Renderer *renderer, TTF_Font *police)
 {
@@ -133,12 +267,12 @@ void			champ(SDL_Renderer *renderer, TTF_Font *police)
 	SDL_Texture	*texte2;
 	SDL_Color	color = {255, 0, 0, 255};
 
-	police = TTF_OpenFont("police/code2000.ttf", 15);
+//	police = TTF_OpenFont("police/code2000.ttf", 15);
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 	rect.x = 2253;
 	rect.y = 65;
 	rect.w = 2550 - 2253;
-	rect.h = 150;
+	rect.h = 180;
 	SDL_RenderFillRect(renderer, &rect);
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawRect(renderer, &rect);
@@ -149,9 +283,15 @@ void			champ(SDL_Renderer *renderer, TTF_Font *police)
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
 	SDL_RenderCopy(renderer, texte2, NULL, &rect);
 	rect.y = rect.y + 35;
-	rect.w = 200;
+	rect.w = 250;
 	rect.h = 20;
-	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
+	texte = TTF_RenderText_Solid(police, "  dat fucking comment ye ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 250;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, "  is really long you cant ", color);
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
 	SDL_RenderCopy(renderer, texte2, NULL, &rect);
 	rect.y = rect.y + 25;
@@ -181,7 +321,7 @@ void			champ(SDL_Renderer *renderer, TTF_Font *police)
 	rect.x = 2253;
 	rect.y = rect.y + 20;
 	rect.w = 2550 - 2253;
-	rect.h = 150;
+	rect.h = 180;
 	SDL_RenderFillRect(renderer, &rect);
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawRect(renderer, &rect);
@@ -192,7 +332,13 @@ void			champ(SDL_Renderer *renderer, TTF_Font *police)
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
 	SDL_RenderCopy(renderer, texte2, NULL, &rect);
 	rect.y = rect.y + 35;
-	rect.w = 200;
+	rect.w = 250;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 250;
 	rect.h = 20;
 	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
@@ -225,7 +371,7 @@ void			champ(SDL_Renderer *renderer, TTF_Font *police)
 	rect.x = 2253;
 	rect.y = rect.y + 20;
 	rect.w = 2550 - 2253;
-	rect.h = 150;
+	rect.h = 180;
 	SDL_RenderFillRect(renderer, &rect);
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawRect(renderer, &rect);
@@ -236,7 +382,13 @@ void			champ(SDL_Renderer *renderer, TTF_Font *police)
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
 	SDL_RenderCopy(renderer, texte2, NULL, &rect);
 	rect.y = rect.y + 35;
-	rect.w = 200;
+	rect.w = 250;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 250;
 	rect.h = 20;
 	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
@@ -269,7 +421,7 @@ void			champ(SDL_Renderer *renderer, TTF_Font *police)
 	rect.x = 2253;
 	rect.y = rect.y + 20;
 	rect.w = 2550 - 2253;
-	rect.h = 150;
+	rect.h = 180;
 	SDL_RenderFillRect(renderer, &rect);
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawRect(renderer, &rect);
@@ -280,7 +432,13 @@ void			champ(SDL_Renderer *renderer, TTF_Font *police)
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
 	SDL_RenderCopy(renderer, texte2, NULL, &rect);
 	rect.y = rect.y + 35;
-	rect.w = 200;
+	rect.w = 250;
+	rect.h = 20;
+	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
+	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
+	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	rect.y = rect.y + 25;
+	rect.w = 250;
 	rect.h = 20;
 	texte = TTF_RenderText_Solid(police, " dat fucking comment ", color);
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
@@ -303,6 +461,9 @@ void			champ(SDL_Renderer *renderer, TTF_Font *police)
 	texte = TTF_RenderText_Solid(police, " -last live              0 ", color);
 	texte2 = SDL_CreateTextureFromSurface(renderer, texte);
 	SDL_RenderCopy(renderer, texte2, NULL, &rect);
+	SDL_FreeSurface(texte);
+	SDL_DestroyTexture(texte2);
+	//TTF_CloseFont(police);
 }
 
 void			all(SDL_Renderer *renderer, SDL_Rect *rects, SDL_Texture **texte2)

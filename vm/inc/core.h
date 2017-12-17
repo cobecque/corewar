@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/30 05:08:19 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/16 07:22:18 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 
 #define REG_NUMBER			16
 
-#define CYCLE_TO_DIE		1536
+#define CYCLE_TO_DIE		5005
 
 #define CYCLE_DELTA			50
 #define NBR_LIVE			21
@@ -57,6 +57,7 @@
 typedef struct				s_process
 {
 	int						start_cycle;
+	int						val[REG_NUMBER];
 	int						reg[REG_NUMBER][REG_SIZE];
 	int						*pc;
 	int						*ins;
@@ -138,14 +139,14 @@ int							get_line(int opc);
 int							get_ocp(void *addr);
 void						cpy_reg(int *tab, int **res);
 t_inf						add_elem(int info, int opc);
-t_process					*gestion_process(t_process *pro, int cycle, t_vm vm);
+t_process					*gestion_process(t_process *pro, int cycle, t_vm vm, int *val);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 int							cycle_gestion(t_vm vm, t_process *pro, int ctd);
 void						ft_live(t_inf info, t_process *pro);
 
 static void					(*g_instructab[17])(t_inf, t_process *pros)=
 {
-	&ft_live, &ft_ld, &ft_st, &ft_add,/* &ft_sub, &ft_and, &ft_or, */&ft_xor, 
-	&ft_zjmp,/* &ft_ldi, */&ft_sti, &ft_fork/*, &ft_lld, &ft_lldi, */,&ft_lfork/*, 
-	&ft_aff*/, NULL
+	&ft_live, &ft_ld, &ft_st, &ft_add, &ft_sub, &ft_and, &ft_or, &ft_xor, 
+	&ft_zjmp, &ft_ldi, &ft_sti, &ft_fork, &ft_lld, &ft_lldi, &ft_lfork, 
+	&ft_aff, NULL
 };

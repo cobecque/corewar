@@ -1,0 +1,2068 @@
+Inctroducing contestants...
+Player number 1, fluttershy !
+cylce 800 et fork
+cylce 805 et st
+cylce 806 et st
+cylce 816 et live
+cylce 817 et live
+cylce 1617 et fork
+cylce 1618 et fork
+cylce 1623 et st
+cylce 1623 et st
+cylce 1624 et st
+cylce 1627 et live
+cylce 1629 et st
+cylce 1634 et live
+cylce 1635 et live
+cylce 1635 et st
+cylce 1641 et st
+cylce 1647 et st
+cylce 1653 et st
+cylce 1659 et st
+cylce 1665 et st
+cylce 1671 et st
+cylce 1677 et st
+cylce 1683 et ld
+cylce 1694 et live
+cylce 1705 et live
+cylce 1716 et live
+cylce 1727 et live
+cylce 1738 et live
+cylce 1749 et live
+cylce 1760 et live
+cylce 1771 et live
+cylce 1782 et live
+cylce 1793 et live
+cylce 1814 et zjmp
+cylce 1825 et live
+cylce 1836 et live
+cylce 1847 et live
+cylce 1858 et live
+cylce 1869 et live
+cylce 1880 et live
+cylce 1891 et live
+cylce 1902 et live
+cylce 1913 et live
+cylce 1924 et live
+cylce 1945 et zjmp
+cylce 1956 et live
+cylce 1967 et live
+cylce 1978 et live
+cylce 1989 et live
+cylce 2000 et live
+cylce 2011 et live
+cylce 2022 et live
+cylce 2033 et live
+cylce 2044 et live
+cylce 2055 et live
+cylce 2076 et zjmp
+cylce 2087 et live
+cylce 2098 et live
+cylce 2109 et live
+cylce 2120 et live
+cylce 2131 et live
+cylce 2142 et live
+cylce 2153 et live
+cylce 2164 et live
+cylce 2175 et live
+cylce 2186 et live
+cylce 2207 et zjmp
+cylce 2218 et live
+cylce 2229 et live
+cylce 2240 et live
+cylce 2251 et live
+cylce 2262 et live
+cylce 2273 et live
+cylce 2284 et live
+cylce 2295 et live
+cylce 2306 et live
+cylce 2317 et live
+cylce 2338 et zjmp
+cylce 2349 et live
+cylce 2360 et live
+cylce 2371 et live
+cylce 2382 et live
+cylce 2393 et live
+cylce 2404 et live
+cylce 2415 et live
+cylce 2426 et live
+cylce 2428 et fork
+cylce 2434 et st
+cylce 2435 et fork
+cylce 2436 et fork
+cylce 2437 et live
+cylce 2438 et live
+cylce 2440 et st
+cylce 2441 et ld
+cylce 2441 et st
+cylce 2442 et st
+cylce 2445 et live
+cylce 2446 et st
+cylce 2447 et ld
+cylce 2448 et live
+cylce 2452 et st
+cylce 2452 et live
+cylce 2453 et live
+cylce 2453 et ld
+cylce 2458 et st
+cylce 2464 et st
+cylce 2469 et zjmp
+cylce 2470 et st
+cylce 2476 et st
+cylce 2479 et sti
+[34;mSti je t'envoie au combat, 1 51 1[0m	ret = 52
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 2480 et live
+cylce 2482 et st
+cylce 2485 et st
+cylce 2488 et st
+cylce 2491 et live
+cylce 2494 et ld
+cylce 2496 et live
+cylce 2502 et live
+cylce 2505 et live
+cylce 2513 et live
+cylce 2516 et live
+cylce 2522 et ldi
+[31;mLdi je t'envoie au combat
+[0m-38
+cylce 2524 et live
+cylce 2527 et live
+cylce 2535 et live
+cylce 2538 et live
+cylce 2546 et live
+cylce 2548 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 400
+1 = 2
+2 = -112
+3 = 0
+4 = 0
+cylce 2549 et live
+cylce 2557 et live
+cylce 2559 et add
+cylce 2560 et live
+cylce 2568 et live
+cylce 2571 et live
+cylce 2579 et live
+cylce 2582 et live
+cylce 2585 et ldi
+[31;mLdi je t'envoie au combat
+[0m-51
+cylce 2593 et live
+cylce 2600 et zjmp
+cylce 2604 et live
+cylce 2611 et live
+cylce 2611 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 387
+1 = 0
+2 = 0
+3 = 2
+4 = 2
+cylce 2622 et live
+cylce 2622 et add
+cylce 2625 et zjmp
+cylce 2633 et live
+cylce 2633 et live
+cylce 2636 et live
+cylce 2640 et xor
+cylce 2644 et live
+cylce 2647 et live
+cylce 2655 et live
+cylce 2658 et live
+cylce 2661 et zjmp
+cylce 2666 et live
+cylce 2667 et ld
+cylce 2669 et live
+cylce 2677 et live
+cylce 2680 et live
+cylce 2688 et live
+cylce 2688 et zjmp
+cylce 2691 et live
+cylce 2699 et live
+cylce 2699 et live
+cylce 2702 et live
+cylce 2710 et live
+cylce 2713 et live
+cylce 2724 et live
+cylce 2725 et ldi
+[31;mLdi je t'envoie au combat
+[0m-30
+cylce 2731 et zjmp
+cylce 2735 et live
+cylce 2742 et live
+cylce 2751 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 408
+1 = -112
+2 = 0
+3 = 0
+4 = 0
+cylce 2753 et live
+cylce 2756 et zjmp
+cylce 2762 et add
+cylce 2764 et live
+cylce 2767 et live
+cylce 2775 et live
+cylce 2778 et live
+cylce 2786 et live
+cylce 2788 et ldi
+[31;mLdi je t'envoie au combat
+[0m-43
+cylce 2789 et live
+cylce 2797 et live
+cylce 2800 et live
+cylce 2808 et live
+cylce 2811 et live
+cylce 2814 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 395
+1 = 4
+2 = 3
+3 = 2
+4 = -112
+cylce 2819 et live
+cylce 2822 et live
+cylce 2825 et add
+cylce 2830 et live
+cylce 2833 et live
+cylce 2836 et live
+cylce 2841 et live
+cylce 2843 et xor
+cylce 2844 et live
+cylce 2855 et live
+cylce 2862 et zjmp
+cylce 2864 et zjmp
+cylce 2866 et live
+cylce 2870 et ld
+cylce 2873 et live
+cylce 2884 et live
+cylce 2887 et zjmp
+cylce 2891 et zjmp
+cylce 2895 et live
+cylce 2898 et live
+cylce 2902 et live
+cylce 2906 et live
+cylce 2909 et live
+cylce 2917 et live
+cylce 2920 et live
+cylce 2928 et live
+cylce 2928 et ldi
+[31;mLdi je t'envoie au combat
+[0m-22
+cylce 2931 et live
+cylce 2939 et live
+cylce 2942 et live
+cylce 2950 et live
+cylce 2953 et live
+cylce 2954 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 416
+1 = 0
+2 = 0
+3 = 0
+4 = 96
+cylce 2961 et live
+cylce 2964 et live
+cylce 2965 et add
+cylce 2972 et live
+cylce 2975 et live
+cylce 2986 et live
+cylce 2991 et ldi
+[31;mLdi je t'envoie au combat
+[0m-35
+cylce 2993 et zjmp
+cylce 2997 et live
+cylce 3004 et live
+cylce 3015 et live
+cylce 3017 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 403
+1 = 5
+2 = 11
+3 = 104
+4 = 1
+cylce 3018 et zjmp
+cylce 3026 et live
+cylce 3028 et add
+cylce 3029 et live
+cylce 3037 et live
+cylce 3039 et live
+cylce 3040 et live
+cylce 3046 et xor
+cylce 3048 et live
+cylce 3051 et live
+cylce 3059 et live
+cylce 3062 et live
+cylce 3067 et zjmp
+cylce 3070 et live
+cylce 3073 et live
+cylce 3073 et ld
+cylce 3081 et live
+cylce 3084 et live
+cylce 3092 et live
+cylce 3094 et zjmp
+cylce 3095 et live
+cylce 3103 et live
+cylce 3105 et live
+cylce 3106 et live
+cylce 3117 et live
+cylce 3124 et zjmp
+cylce 3128 et live
+cylce 3131 et ldi
+[31;mLdi je t'envoie au combat
+[0m-14
+cylce 3135 et live
+cylce 3146 et live
+cylce 3149 et zjmp
+cylce 3157 et live
+cylce 3157 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 424
+1 = 0
+2 = 51
+3 = 0
+4 = 1
+cylce 3160 et live
+cylce 3168 et live
+cylce 3168 et add
+cylce 3171 et live
+cylce 3179 et live
+cylce 3182 et live
+cylce 3190 et live
+cylce 3193 et live
+cylce 3194 et ldi
+[31;mLdi je t'envoie au combat
+[0m-27
+cylce 3201 et live
+cylce 3204 et live
+cylce 3212 et live
+cylce 3215 et live
+cylce 3220 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 411
+1 = 3
+2 = 112
+3 = 1
+4 = 0
+cylce 3223 et live
+cylce 3226 et live
+cylce 3231 et add
+cylce 3234 et live
+cylce 3237 et live
+cylce 3239 et fork
+cylce 3242 et live
+cylce 3245 et st
+cylce 3246 et fork
+cylce 3248 et live
+cylce 3249 et xor
+cylce 3249 et live
+cylce 3251 et st
+cylce 3252 et ld
+cylce 3253 et fork
+cylce 3254 et fork
+cylce 3255 et zjmp
+cylce 3256 et live
+cylce 3257 et st
+cylce 3258 et ld
+cylce 3259 et live
+cylce 3263 et st
+cylce 3263 et live
+cylce 3264 et ld
+cylce 3264 et live
+cylce 3266 et live
+cylce 3269 et st
+cylce 3270 et zjmp
+cylce 3275 et st
+cylce 3276 et ld
+cylce 3277 et live
+cylce 3279 et sti
+[34;mSti je t'envoie au combat, 1 52 1[0m	ret = 53
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 3280 et sti
+[34;mSti je t'envoie au combat, 1 52 1[0m	ret = 53
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 3280 et zjmp
+cylce 3281 et st
+cylce 3285 et st
+cylce 3286 et st
+cylce 3287 et st
+cylce 3288 et live
+cylce 3290 et sti
+[34;mSti je t'envoie au combat, 1 51 1[0m	ret = 52
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 3291 et live
+cylce 3293 et st
+cylce 3296 et st
+cylce 3296 et live
+cylce 3297 et live
+cylce 3297 et zjmp
+cylce 3299 et live
+cylce 3299 et st
+cylce 3302 et live
+cylce 3305 et ld
+cylce 3307 et live
+cylce 3308 et live
+cylce 3310 et live
+cylce 3313 et live
+cylce 3316 et live
+cylce 3321 et live
+cylce 3322 et sti
+[34;mSti je t'envoie au combat, 1 62 1[0m	ret = 63
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 3323 et sti
+[34;mSti je t'envoie au combat, 1 62 1[0m	ret = 63
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 3324 et live
+cylce 3327 et live
+cylce 3328 et ld
+cylce 3329 et ld
+cylce 3332 et live
+cylce 3333 et ldi
+[31;mLdi je t'envoie au combat
+[0m-38
+cylce 3334 et ldi
+[31;mLdi je t'envoie au combat
+[0m-6
+cylce 3334 et ld
+cylce 3335 et ld
+cylce 3335 et live
+cylce 3338 et live
+cylce 3340 et ld
+cylce 3341 et ld
+cylce 3343 et live
+cylce 3346 et live
+cylce 3346 et ld
+cylce 3347 et ld
+cylce 3349 et live
+cylce 3354 et live
+cylce 3357 et live
+cylce 3357 et live
+cylce 3358 et live
+cylce 3359 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 400
+1 = 2
+2 = -112
+3 = 0
+4 = 0
+cylce 3360 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 432
+1 = 6
+2 = 1
+3 = 0
+4 = 0
+cylce 3360 et live
+cylce 3365 et live
+cylce 3368 et live
+cylce 3370 et add
+cylce 3371 et add
+cylce 3371 et live
+cylce 3379 et live
+cylce 3382 et live
+cylce 3383 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 153
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3384 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = -65868
+c15216 pour 16896 et 512
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3386 et zjmp
+cylce 3390 et live
+cylce 3393 et live
+cylce 3394 et add
+cylce 3395 et add
+cylce 3396 et ldi
+[31;mLdi je t'envoie au combat
+[0m-51
+cylce 3397 et live
+cylce 3397 et ldi
+[31;mLdi je t'envoie au combat
+[0m-19
+cylce 3404 et live
+cylce 3408 et live
+cylce 3411 et zjmp
+cylce 3415 et live
+cylce 3419 et live
+cylce 3420 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 148
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3421 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 419
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3422 et live
+cylce 3422 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 387
+1 = 0
+2 = 0
+3 = 2
+4 = 2
+cylce 3423 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 419
+1 = 0
+2 = 1
+3 = 10
+4 = -108
+cylce 3430 et live
+cylce 3431 et add
+cylce 3432 et add
+cylce 3433 et live
+cylce 3433 et add
+cylce 3434 et add
+cylce 3436 et zjmp
+cylce 3441 et live
+cylce 3442 et live
+cylce 3443 et live
+cylce 3444 et live
+cylce 3444 et live
+cylce 3445 et live
+cylce 3447 et live
+cylce 3449 et xor
+cylce 3450 et xor
+cylce 3451 et xor
+cylce 3452 et live
+cylce 3452 et xor
+cylce 3455 et live
+cylce 3458 et live
+cylce 3463 et live
+cylce 3466 et live
+cylce 3469 et live
+cylce 3470 et zjmp
+cylce 3471 et zjmp
+cylce 3472 et zjmp
+cylce 3473 et zjmp
+cylce 3474 et live
+cylce 3476 et ld
+cylce 3477 et ld
+cylce 3477 et live
+cylce 3478 et ld
+cylce 3479 et ld
+cylce 3480 et live
+cylce 3485 et live
+cylce 3488 et live
+cylce 3491 et live
+cylce 3496 et live
+cylce 3497 et zjmp
+cylce 3498 et zjmp
+cylce 3499 et live
+cylce 3499 et zjmp
+cylce 3500 et zjmp
+cylce 3502 et live
+cylce 3508 et live
+cylce 3509 et live
+cylce 3510 et live
+cylce 3510 et live
+cylce 3511 et live
+cylce 3513 et live
+cylce 3517 et zjmp
+cylce 3521 et live
+cylce 3524 et live
+cylce 3528 et live
+cylce 3534 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 165
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3535 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 424
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3535 et live
+cylce 3536 et ldi
+[31;mLdi je t'envoie au combat
+[0m-30
+cylce 3537 et ldi
+[31;mLdi je t'envoie au combat
+[0m2
+cylce 3539 et live
+cylce 3542 et zjmp
+cylce 3545 et add
+cylce 3546 et add
+cylce 3546 et live
+cylce 3550 et live
+cylce 3553 et live
+cylce 3561 et live
+cylce 3562 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 408
+1 = -112
+2 = 0
+3 = 0
+4 = 0
+cylce 3563 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 440
+1 = -1
+2 = -38
+3 = 2
+4 = 4
+cylce 3564 et live
+cylce 3567 et zjmp
+cylce 3571 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 160
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3572 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 407
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3572 et live
+cylce 3573 et add
+cylce 3574 et add
+cylce 3575 et live
+cylce 3578 et live
+cylce 3582 et add
+cylce 3583 et add
+cylce 3583 et live
+cylce 3586 et live
+cylce 3589 et live
+cylce 3593 et live
+cylce 3594 et live
+cylce 3594 et live
+cylce 3597 et live
+cylce 3599 et ldi
+[31;mLdi je t'envoie au combat
+[0m-43
+cylce 3600 et ldi
+[31;mLdi je t'envoie au combat
+[0m-11
+cylce 3600 et live
+cylce 3600 et xor
+cylce 3601 et xor
+cylce 3605 et live
+cylce 3608 et live
+cylce 3611 et live
+cylce 3616 et live
+cylce 3619 et live
+cylce 3621 et zjmp
+cylce 3622 et zjmp
+cylce 3622 et live
+cylce 3625 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 395
+1 = 4
+2 = 3
+3 = 2
+4 = -112
+cylce 3626 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 427
+1 = 11
+2 = 100
+3 = 4
+4 = 1
+cylce 3627 et live
+cylce 3627 et ld
+cylce 3628 et ld
+cylce 3630 et live
+cylce 3633 et live
+cylce 3636 et add
+cylce 3637 et add
+cylce 3641 et live
+cylce 3644 et live
+cylce 3647 et live
+cylce 3648 et zjmp
+cylce 3648 et live
+cylce 3648 et zjmp
+cylce 3649 et zjmp
+cylce 3652 et live
+cylce 3654 et xor
+cylce 3655 et xor
+cylce 3655 et live
+cylce 3659 et live
+cylce 3659 et live
+cylce 3660 et live
+cylce 3666 et live
+cylce 3670 et live
+cylce 3673 et zjmp
+cylce 3675 et zjmp
+cylce 3676 et zjmp
+cylce 3677 et live
+cylce 3681 et live
+cylce 3681 et ld
+cylce 3682 et ld
+cylce 3684 et live
+cylce 3685 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 177
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3686 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 412
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3692 et live
+cylce 3695 et live
+cylce 3696 et add
+cylce 3697 et add
+cylce 3698 et zjmp
+cylce 3702 et zjmp
+cylce 3703 et live
+cylce 3703 et zjmp
+cylce 3706 et live
+cylce 3709 et live
+cylce 3713 et live
+cylce 3714 et live
+cylce 3714 et live
+cylce 3717 et live
+cylce 3720 et live
+cylce 3722 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 172
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3723 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 395
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3725 et live
+cylce 3728 et live
+cylce 3731 et live
+cylce 3733 et add
+cylce 3734 et add
+cylce 3736 et live
+cylce 3739 et live
+cylce 3739 et ldi
+[31;mLdi je t'envoie au combat
+[0m-22
+cylce 3740 et ldi
+[31;mLdi je t'envoie au combat
+[0m10
+cylce 3742 et live
+cylce 3744 et live
+cylce 3745 et live
+cylce 3747 et live
+cylce 3750 et live
+cylce 3751 et xor
+cylce 3752 et xor
+cylce 3753 et live
+cylce 3758 et live
+cylce 3761 et live
+cylce 3764 et live
+cylce 3765 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 416
+1 = 0
+2 = 0
+3 = 0
+4 = 96
+cylce 3766 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 448
+1 = -112
+2 = 2
+3 = 4
+4 = 84
+cylce 3772 et live
+cylce 3772 et zjmp
+cylce 3773 et zjmp
+cylce 3775 et live
+cylce 3776 et add
+cylce 3777 et add
+cylce 3778 et ld
+cylce 3779 et ld
+cylce 3779 et zjmp
+cylce 3783 et live
+cylce 3786 et live
+cylce 3790 et live
+cylce 3797 et live
+cylce 3799 et zjmp
+cylce 3800 et zjmp
+cylce 3801 et live
+cylce 3802 et ldi
+[31;mLdi je t'envoie au combat
+[0m-35
+cylce 3803 et ldi
+[31;mLdi je t'envoie au combat
+[0m-3
+cylce 3804 et zjmp
+cylce 3808 et live
+cylce 3810 et live
+cylce 3811 et live
+cylce 3812 et live
+cylce 3815 et live
+cylce 3823 et live
+cylce 3826 et live
+cylce 3828 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 403
+1 = 5
+2 = 11
+3 = 104
+4 = 1
+cylce 3829 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 435
+1 = 2
+2 = 3
+3 = 2
+4 = 10
+cylce 3829 et zjmp
+cylce 3834 et live
+cylce 3836 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 189
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3837 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 400
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3837 et live
+cylce 3839 et add
+cylce 3840 et add
+cylce 3840 et live
+cylce 3845 et live
+cylce 3847 et add
+cylce 3848 et add
+cylce 3848 et live
+cylce 3850 et live
+cylce 3851 et live
+cylce 3851 et live
+cylce 3856 et live
+cylce 3857 et xor
+cylce 3858 et xor
+cylce 3859 et live
+cylce 3862 et live
+cylce 3867 et live
+cylce 3870 et live
+cylce 3873 et live
+cylce 3873 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 184
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3874 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 383
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3878 et live
+cylce 3878 et zjmp
+cylce 3879 et zjmp
+cylce 3881 et live
+cylce 3884 et live
+cylce 3884 et ld
+cylce 3884 et add
+cylce 3885 et add
+cylce 3885 et ld
+cylce 3889 et live
+cylce 3892 et live
+cylce 3895 et live
+cylce 3895 et live
+cylce 3896 et live
+cylce 3902 et xor
+cylce 3903 et xor
+cylce 3903 et live
+cylce 3905 et zjmp
+cylce 3906 et zjmp
+cylce 3906 et live
+cylce 3910 et zjmp
+cylce 3914 et live
+cylce 3916 et live
+cylce 3917 et live
+cylce 3917 et live
+cylce 3921 et live
+cylce 3923 et zjmp
+cylce 3924 et zjmp
+cylce 3928 et live
+cylce 3929 et ld
+cylce 3930 et ld
+cylce 3932 et live
+cylce 3935 et zjmp
+cylce 3939 et live
+cylce 3942 et ldi
+[31;mLdi je t'envoie au combat
+[0m-14
+cylce 3943 et live
+cylce 3943 et ldi
+[31;mLdi je t'envoie au combat
+[0m18
+cylce 3946 et live
+cylce 3950 et zjmp
+cylce 3951 et zjmp
+cylce 3954 et live
+cylce 3957 et live
+cylce 3960 et zjmp
+cylce 3961 et live
+cylce 3962 et live
+cylce 3965 et live
+cylce 3968 et live
+cylce 3968 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 424
+1 = 0
+2 = 51
+3 = 0
+4 = 1
+cylce 3969 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 456
+1 = -108
+2 = -1
+3 = -55
+4 = 2
+cylce 3971 et live
+cylce 3976 et live
+cylce 3979 et live
+cylce 3979 et add
+cylce 3980 et add
+cylce 3982 et live
+cylce 3987 et live
+cylce 3987 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 201
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3988 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 388
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 3990 et live
+cylce 3993 et live
+cylce 3998 et live
+cylce 3998 et add
+cylce 3999 et add
+cylce 4001 et live
+cylce 4004 et live
+cylce 4005 et ldi
+[31;mLdi je t'envoie au combat
+[0m-27
+cylce 4006 et ldi
+[31;mLdi je t'envoie au combat
+[0m5
+cylce 4009 et live
+cylce 4012 et live
+cylce 4015 et live
+cylce 4020 et live
+cylce 4023 et live
+cylce 4024 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 196
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4025 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 371
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4026 et live
+cylce 4031 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 411
+1 = 3
+2 = 112
+3 = 1
+4 = 0
+cylce 4032 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 443
+1 = 4
+2 = 11
+3 = 100
+4 = 4
+cylce 4034 et live
+cylce 4035 et add
+cylce 4036 et add
+cylce 4037 et live
+cylce 4041 et zjmp
+cylce 4042 et add
+cylce 4043 et add
+cylce 4045 et live
+cylce 4046 et live
+cylce 4047 et live
+cylce 4048 et live
+cylce 4050 et fork
+cylce 4052 et live
+cylce 4053 et live
+cylce 4053 et xor
+cylce 4054 et xor
+cylce 4054 et live
+cylce 4056 et st
+cylce 4057 et fork
+cylce 4059 et live
+cylce 4060 et xor
+cylce 4060 et live
+cylce 4061 et xor
+cylce 4062 et st
+cylce 4063 et live
+cylce 4063 et ld
+cylce 4064 et fork
+cylce 4065 et fork
+cylce 4066 et zjmp
+cylce 4067 et live
+cylce 4068 et st
+cylce 4069 et ld
+cylce 4070 et live
+cylce 4074 et live
+cylce 4074 et zjmp
+cylce 4074 et st
+cylce 4074 et live
+cylce 4075 et zjmp
+cylce 4075 et ld
+cylce 4075 et live
+cylce 4077 et live
+cylce 4080 et ld
+cylce 4080 et st
+cylce 4081 et ld
+cylce 4081 et zjmp
+cylce 4082 et zjmp
+cylce 4085 et live
+cylce 4086 et st
+cylce 4087 et ld
+cylce 4088 et live
+cylce 4088 et ld
+cylce 4090 et sti
+[34;mSti je t'envoie au combat, 1 52 1[0m	ret = 53
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 4091 et zjmp
+cylce 4091 et sti
+[34;mSti je t'envoie au combat, 1 52 1[0m	ret = 53
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 4092 et st
+cylce 4096 et live
+cylce 4096 et st
+cylce 4097 et st
+cylce 4098 et st
+cylce 4099 et live
+cylce 4101 et zjmp
+cylce 4101 et sti
+[34;mSti je t'envoie au combat, 1 51 1[0m	ret = 52
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 4102 et zjmp
+cylce 4102 et live
+cylce 4104 et st
+cylce 4107 et live
+cylce 4107 et st
+cylce 4107 et live
+cylce 4108 et live
+cylce 4110 et live
+cylce 4110 et st
+cylce 4112 et live
+cylce 4113 et live
+cylce 4113 et live
+cylce 4116 et ld
+cylce 4118 et live
+cylce 4118 et live
+cylce 4121 et live
+cylce 4124 et live
+cylce 4127 et live
+cylce 4129 et live
+cylce 4132 et live
+cylce 4133 et sti
+[34;mSti je t'envoie au combat, 1 62 1[0m	ret = 63
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 4134 et sti
+[34;mSti je t'envoie au combat, 1 62 1[0m	ret = 63
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 4135 et live
+cylce 4138 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 213
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4138 et live
+cylce 4139 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 376
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4139 et ld
+cylce 4140 et live
+cylce 4140 et ld
+cylce 4143 et live
+cylce 4144 et ldi
+[31;mLdi je t'envoie au combat
+[0m-38
+cylce 4145 et ld
+cylce 4146 et live
+cylce 4146 et ld
+cylce 4149 et add
+cylce 4149 et live
+cylce 4150 et add
+cylce 4151 et live
+cylce 4151 et ld
+cylce 4152 et ld
+cylce 4154 et live
+cylce 4157 et live
+cylce 4157 et ld
+cylce 4158 et ld
+cylce 4160 et live
+cylce 4165 et live
+cylce 4168 et live
+cylce 4168 et live
+cylce 4169 et live
+cylce 4170 et sti
+[34;mSti je t'envoie au combat, 4 400 2[0mb	ret = 400
+1 = 2
+2 = -112
+3 = 0
+4 = 0
+cylce 4171 et live
+cylce 4172 et zjmp
+cylce 4175 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 208
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4176 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 359
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4176 et live
+cylce 4179 et live
+cylce 4181 et add
+cylce 4182 et live
+cylce 4183 et live
+cylce 4186 et add
+cylce 4187 et add
+cylce 4190 et live
+cylce 4193 et live
+cylce 4194 et live
+cylce 4194 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 153
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4195 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = -65868
+c15216 pour 16896 et 512
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4197 et zjmp
+cylce 4197 et live
+cylce 4198 et live
+cylce 4201 et live
+cylce 4204 et xor
+cylce 4204 et live
+cylce 4205 et xor
+cylce 4205 et live
+cylce 4205 et add
+cylce 4206 et add
+cylce 4207 et ldi
+[31;mLdi je t'envoie au combat
+[0m-51
+cylce 4208 et live
+cylce 4215 et live
+cylce 4216 et live
+cylce 4219 et live
+cylce 4222 et zjmp
+cylce 4225 et zjmp
+cylce 4226 et zjmp
+cylce 4226 et live
+cylce 4227 et live
+cylce 4230 et live
+cylce 4231 et ld
+cylce 4231 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 148
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4232 et ld
+cylce 4232 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 419
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4233 et live
+cylce 4233 et sti
+[34;mSti je t'envoie au combat, 4 383 2[0mb	ret = 387
+1 = 0
+2 = 0
+3 = 2
+4 = 2
+cylce 4238 et live
+cylce 4241 et live
+cylce 4242 et add
+cylce 4243 et add
+cylce 4244 et live
+cylce 4244 et add
+cylce 4247 et zjmp
+cylce 4249 et live
+cylce 4252 et live
+cylce 4252 et zjmp
+cylce 4253 et zjmp
+cylce 4253 et live
+cylce 4254 et live
+cylce 4255 et live
+cylce 4255 et live
+cylce 4258 et live
+cylce 4260 et live
+cylce 4260 et xor
+cylce 4261 et xor
+cylce 4263 et live
+cylce 4263 et live
+cylce 4264 et live
+cylce 4266 et live
+cylce 4269 et live
+cylce 4271 et live
+cylce 4274 et live
+cylce 4276 et zjmp
+cylce 4277 et live
+cylce 4280 et live
+cylce 4281 et zjmp
+cylce 4282 et live
+cylce 4282 et zjmp
+cylce 4285 et live
+cylce 4287 et ld
+cylce 4288 et live
+cylce 4288 et ld
+cylce 4289 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 225
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4290 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 364
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4291 et live
+cylce 4296 et live
+cylce 4297 et zjmp
+cylce 4299 et live
+cylce 4300 et add
+cylce 4301 et add
+cylce 4302 et live
+cylce 4303 et zjmp
+cylce 4307 et live
+cylce 4308 et zjmp
+cylce 4309 et zjmp
+cylce 4310 et live
+cylce 4313 et live
+cylce 4314 et live
+cylce 4318 et zjmp
+cylce 4319 et live
+cylce 4320 et live
+cylce 4321 et live
+cylce 4324 et live
+cylce 4325 et live
+cylce 4326 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 220
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4327 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 347
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4328 et zjmp
+cylce 4332 et live
+cylce 4335 et live
+cylce 4336 et live
+cylce 4337 et add
+cylce 4338 et add
+cylce 4339 et live
+cylce 4339 et zjmp
+cylce 4345 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 165
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4346 et live
+cylce 4346 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 424
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4347 et live
+cylce 4348 et live
+cylce 4349 et live
+cylce 4350 et live
+cylce 4353 et zjmp
+cylce 4355 et xor
+cylce 4356 et xor
+cylce 4356 et add
+cylce 4357 et live
+cylce 4357 et add
+cylce 4358 et live
+cylce 4360 et zjmp
+cylce 4361 et live
+cylce 4364 et live
+cylce 4369 et live
+cylce 4372 et live
+cylce 4375 et live
+cylce 4376 et zjmp
+cylce 4377 et zjmp
+cylce 4378 et zjmp
+cylce 4380 et live
+cylce 4381 et zjmp
+cylce 4382 et ld
+cylce 4382 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 160
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4383 et ld
+cylce 4383 et live
+cylce 4383 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 407
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4386 et live
+cylce 4389 et live
+cylce 4391 et live
+cylce 4393 et add
+cylce 4394 et live
+cylce 4394 et add
+cylce 4397 et live
+cylce 4400 et live
+cylce 4402 et live
+cylce 4402 et zjmp
+cylce 4403 et zjmp
+cylce 4404 et zjmp
+cylce 4404 et live
+cylce 4405 et live
+cylce 4405 et live
+cylce 4408 et live
+cylce 4411 et live
+cylce 4411 et xor
+cylce 4412 et xor
+cylce 4413 et live
+cylce 4414 et live
+cylce 4415 et live
+cylce 4416 et live
+cylce 4419 et live
+cylce 4422 et live
+cylce 4423 et zjmp
+cylce 4427 et live
+cylce 4430 et live
+cylce 4432 et zjmp
+cylce 4433 et live
+cylce 4433 et zjmp
+cylce 4434 et zjmp
+cylce 4438 et live
+cylce 4438 et ld
+cylce 4439 et ld
+cylce 4440 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 237
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4441 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 352
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4441 et live
+cylce 4444 et live
+cylce 4444 et zjmp
+cylce 4445 et live
+cylce 4451 et add
+cylce 4452 et add
+cylce 4452 et live
+cylce 4455 et live
+cylce 4456 et live
+cylce 4459 et zjmp
+cylce 4459 et zjmp
+cylce 4460 et zjmp
+cylce 4463 et live
+cylce 4465 et zjmp
+cylce 4466 et live
+cylce 4467 et live
+cylce 4470 et live
+cylce 4470 et live
+cylce 4471 et live
+cylce 4477 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 232
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4477 et live
+cylce 4478 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 335
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4478 et live
+cylce 4481 et live
+cylce 4484 et zjmp
+cylce 4486 et zjmp
+cylce 4488 et add
+cylce 4488 et live
+cylce 4489 et add
+cylce 4489 et live
+cylce 4492 et live
+cylce 4495 et live
+cylce 4496 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 177
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4497 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 412
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4499 et live
+cylce 4500 et live
+cylce 4500 et live
+cylce 4503 et live
+cylce 4506 et live
+cylce 4506 et xor
+cylce 4507 et xor
+cylce 4507 et zjmp
+cylce 4507 et add
+cylce 4508 et add
+cylce 4509 et zjmp
+cylce 4511 et live
+cylce 4514 et live
+cylce 4517 et live
+cylce 4520 et live
+cylce 4522 et live
+cylce 4525 et live
+cylce 4527 et zjmp
+cylce 4528 et zjmp
+cylce 4528 et live
+cylce 4528 et zjmp
+cylce 4531 et live
+cylce 4533 et live
+cylce 4533 et ld
+cylce 4533 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 172
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4534 et ld
+cylce 4534 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 395
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4536 et live
+cylce 4539 et live
+cylce 4542 et live
+cylce 4544 et live
+cylce 4544 et add
+cylce 4545 et add
+cylce 4547 et live
+cylce 4549 et zjmp
+cylce 4550 et live
+cylce 4553 et live
+cylce 4554 et zjmp
+cylce 4555 et zjmp
+cylce 4555 et live
+cylce 4556 et live
+cylce 4558 et live
+cylce 4561 et live
+cylce 4562 et xor
+cylce 4563 et xor
+cylce 4564 et live
+cylce 4565 et zjmp
+cylce 4565 et live
+cylce 4566 et live
+cylce 4569 et live
+cylce 4570 et zjmp
+cylce 4572 et live
+cylce 4575 et live
+cylce 4576 et live
+cylce 4583 et live
+cylce 4583 et zjmp
+cylce 4584 et zjmp
+cylce 4586 et live
+cylce 4587 et live
+cylce 4589 et ld
+cylce 4590 et zjmp
+cylce 4590 et ld
+cylce 4591 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 249
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4591 et zjmp
+cylce 4592 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 340
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4594 et live
+cylce 4597 et live
+cylce 4598 et live
+cylce 4601 et live
+cylce 4602 et add
+cylce 4603 et add
+cylce 4608 et live
+cylce 4609 et live
+cylce 4610 et zjmp
+cylce 4611 et zjmp
+cylce 4612 et live
+cylce 4612 et zjmp
+cylce 4615 et zjmp
+cylce 4619 et live
+cylce 4620 et live
+cylce 4621 et live
+cylce 4622 et live
+cylce 4623 et live
+cylce 4626 et live
+cylce 4628 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 244
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4629 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 323
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4631 et live
+cylce 4633 et zjmp
+cylce 4634 et live
+cylce 4637 et live
+cylce 4639 et add
+cylce 4640 et add
+cylce 4640 et zjmp
+cylce 4642 et live
+cylce 4645 et live
+cylce 4647 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 189
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4648 et live
+cylce 4648 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 400
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4650 et live
+cylce 4651 et live
+cylce 4651 et live
+cylce 4653 et live
+cylce 4654 et zjmp
+cylce 4656 et live
+cylce 4657 et xor
+cylce 4658 et xor
+cylce 4658 et add
+cylce 4659 et live
+cylce 4659 et add
+cylce 4662 et live
+cylce 4664 et live
+cylce 4667 et live
+cylce 4670 et live
+cylce 4673 et live
+cylce 4675 et live
+cylce 4675 et zjmp
+cylce 4678 et live
+cylce 4678 et zjmp
+cylce 4679 et zjmp
+cylce 4681 et live
+cylce 4684 et ld
+cylce 4684 et live
+cylce 4684 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 184
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4685 et ld
+cylce 4685 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 383
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4689 et live
+cylce 4692 et live
+cylce 4695 et live
+cylce 4695 et add
+cylce 4696 et zjmp
+cylce 4696 et zjmp
+cylce 4696 et add
+cylce 4700 et live
+cylce 4703 et live
+cylce 4705 et zjmp
+cylce 4706 et zjmp
+cylce 4706 et live
+cylce 4706 et live
+cylce 4707 et live
+cylce 4707 et live
+cylce 4713 et xor
+cylce 4714 et live
+cylce 4714 et xor
+cylce 4716 et live
+cylce 4717 et live
+cylce 4717 et live
+cylce 4717 et zjmp
+cylce 4718 et live
+cylce 4721 et zjmp
+cylce 4725 et live
+cylce 4728 et live
+cylce 4729 et live
+cylce 4732 et live
+cylce 4734 et zjmp
+cylce 4735 et zjmp
+cylce 4738 et zjmp
+cylce 4739 et live
+cylce 4740 et live
+cylce 4740 et ld
+cylce 4741 et ld
+cylce 4742 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 261
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4743 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 328
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4743 et live
+cylce 4746 et zjmp
+cylce 4750 et live
+cylce 4751 et live
+cylce 4753 et add
+cylce 4754 et add
+cylce 4754 et live
+cylce 4757 et live
+cylce 4759 et zjmp
+cylce 4761 et zjmp
+cylce 4762 et live
+cylce 4762 et zjmp
+cylce 4765 et live
+cylce 4768 et live
+cylce 4771 et zjmp
+cylce 4772 et live
+cylce 4773 et live
+cylce 4773 et live
+cylce 4776 et live
+cylce 4779 et live
+cylce 4779 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 256
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4780 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 311
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4780 et zjmp
+cylce 4782 et live
+cylce 4784 et live
+cylce 4787 et live
+cylce 4790 et live
+cylce 4790 et add
+cylce 4791 et add
+cylce 4793 et live
+cylce 4795 et live
+cylce 4798 et live
+cylce 4798 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 201
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4799 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 388
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4801 et live
+cylce 4801 et live
+cylce 4801 et zjmp
+cylce 4802 et live
+cylce 4804 et live
+cylce 4806 et live
+cylce 4808 et xor
+cylce 4809 et xor
+cylce 4809 et live
+cylce 4809 et add
+cylce 4810 et add
+cylce 4812 et live
+cylce 4815 et live
+cylce 4820 et live
+cylce 4822 et zjmp
+cylce 4823 et live
+cylce 4826 et live
+cylce 4827 et zjmp
+cylce 4829 et zjmp
+cylce 4830 et zjmp
+cylce 4831 et live
+cylce 4834 et live
+cylce 4835 et ld
+cylce 4835 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 196
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4836 et ld
+cylce 4836 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 371
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4837 et live
+cylce 4838 et live
+cylce 4843 et zjmp
+cylce 4845 et live
+cylce 4846 et add
+cylce 4847 et add
+cylce 4848 et live
+cylce 4849 et live
+cylce 4852 et zjmp
+cylce 4856 et live
+cylce 4856 et zjmp
+cylce 4857 et zjmp
+cylce 4857 et live
+cylce 4858 et live
+cylce 4859 et live
+cylce 4860 et live
+cylce 4861 et fork
+cylce 4863 et live
+cylce 4864 et zjmp
+cylce 4864 et xor
+cylce 4865 et xor
+cylce 4867 et live
+cylce 4867 et st
+cylce 4868 et live
+cylce 4868 et fork
+cylce 4870 et live
+cylce 4871 et live
+cylce 4871 et live
+cylce 4873 et st
+cylce 4874 et live
+cylce 4874 et ld
+cylce 4875 et fork
+cylce 4876 et fork
+cylce 4877 et zjmp
+cylce 4878 et live
+cylce 4879 et st
+cylce 4880 et ld
+cylce 4881 et live
+cylce 4882 et live
+cylce 4885 et live
+cylce 4885 et zjmp
+cylce 4885 et zjmp
+cylce 4885 et st
+cylce 4885 et live
+cylce 4886 et zjmp
+cylce 4886 et ld
+cylce 4886 et live
+cylce 4888 et live
+cylce 4891 et ld
+cylce 4891 et st
+cylce 4892 et ld
+cylce 4893 et live
+cylce 4893 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 273
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4894 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 316
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4896 et live
+cylce 4897 et st
+cylce 4899 et live
+cylce 4901 et sti
+[34;mSti je t'envoie au combat, 1 52 1[0m	ret = 53
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 4902 et zjmp
+cylce 4902 et sti
+[34;mSti je t'envoie au combat, 1 52 1[0m	ret = 53
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 4903 et st
+cylce 4904 et live
+cylce 4904 et add
+cylce 4905 et add
+cylce 4906 et zjmp
+cylce 4907 et live
+cylce 4907 et st
+cylce 4908 et st
+cylce 4909 et st
+cylce 4910 et live
+cylce 4912 et zjmp
+cylce 4913 et live
+cylce 4913 et zjmp
+cylce 4915 et live
+cylce 4915 et st
+cylce 4918 et live
+cylce 4918 et live
+cylce 4919 et live
+cylce 4921 et live
+cylce 4921 et st
+cylce 4923 et live
+cylce 4924 et live
+cylce 4924 et live
+cylce 4926 et live
+cylce 4927 et zjmp
+cylce 4927 et ld
+cylce 4929 et live
+cylce 4930 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 268
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4931 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 299
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4932 et live
+cylce 4935 et live
+cylce 4937 et live
+cylce 4938 et live
+cylce 4940 et live
+cylce 4941 et add
+cylce 4942 et add
+cylce 4943 et live
+cylce 4944 et sti
+[34;mSti je t'envoie au combat, 1 62 1[0m	ret = 63
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 4945 et sti
+[34;mSti je t'envoie au combat, 1 62 1[0m	ret = 63
+1 = 0
+2 = 0
+3 = 0
+4 = 1
+cylce 4946 et live
+cylce 4948 et zjmp
+cylce 4949 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 213
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4949 et live
+cylce 4950 et sti
+[34;mSti je t'envoie au combat, 4 -70 2[0mb	ret = 376
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4950 et ld
+cylce 4951 et live
+cylce 4951 et ld
+cylce 4952 et live
+cylce 4953 et live
+cylce 4954 et live
+cylce 4956 et ld
+cylce 4957 et live
+cylce 4957 et ld
+cylce 4958 et zjmp
+cylce 4959 et xor
+cylce 4960 et xor
+cylce 4960 et add
+cylce 4960 et live
+cylce 4961 et add
+cylce 4962 et live
+cylce 4962 et ld
+cylce 4963 et ld
+cylce 4965 et live
+cylce 4968 et live
+cylce 4968 et ld
+cylce 4969 et live
+cylce 4969 et zjmp
+cylce 4969 et ld
+cylce 4971 et live
+cylce 4976 et live
+cylce 4979 et live
+cylce 4979 et live
+cylce 4980 et live
+cylce 4980 et zjmp
+cylce 4980 et live
+cylce 4981 et zjmp
+cylce 4982 et live
+cylce 4983 et zjmp
+cylce 4986 et ld
+cylce 4986 et sti
+[34;mSti je t'envoie au combat, 4 142 2[0mb	ret = 208
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4987 et ld
+cylce 4987 et live
+cylce 4987 et sti
+[34;mSti je t'envoie au combat, 4 -81 2[0mb	ret = 359
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+cylce 4990 et live
+cylce 4990 et zjmp
+cylce 4991 et live
+cylce 4993 et live
+cylce 4994 et live
+cylce 4997 et add
+cylce 4998 et add
+cylce 5001 et live
+cylce 5002 et live
+cylce 5004 et live
+cylce 5005 et live
+cylce 5005 et sti
+[34;mSti je t'envoie au combat, 4 153 2[0mb	ret = 153
+1 = 9
+2 = 0
+3 = 0
+4 = 9
+[31;m0c [0m00 [31;m90 [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m06 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0c [0m[31;m01 [0m[31;m71 [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m06 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0c [0m00 [31;mf1 [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m06 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0c [0m[31;mff [0m[31;mfb [0m[31;m0b [0m[31;m68 [0m[31;m01 [0m00 [31;m34 [0m00 [31;m01 [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m06 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0b [0m[31;m68 [0m[31;m01 [0m00 [31;m3e [0m
+00 [31;m01 [0m[31;m02 [0m[31;m90 [0m[31;mff [0m[31;mff [0m[31;mff [0m[31;mfa [0m[31;m02 [0m[31;m02 [0m[31;m90 [0m[31;mff [0m[31;mff [0m[31;mff [0m[31;mfa [0m[31;m03 [0m[31;m02 [0m[31;m90 [0m[31;m09 [0m00 00 [31;m09 [0m[31;m04 [0m[31;m02 [0m[31;m90 [0m[31;mff [0m[31;mff [0m[31;mff [0m[31;m46 [0m[31;m05 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0b [0m[31;m64 [0m[31;m04 [0m[31;mff [0m[31;mba [0m[31;m02 [0m[31;m04 [0m[31;m54 [0m[31;m02 [0m[31;m03 [0m[31;m02 [0m[31;m0b [0m[31;m64 [0m[31;m04 [0m[31;mff [0m[31;maf [0m[31;m02 [0m[31;m04 [0m[31;m54 [0m[31;m02 [0m[31;m03 [0m[31;m02 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m08 [0m[31;m54 [0m
+[31;m02 [0m[31;m05 [0m[31;m0f [0m[31;m09 [0m[31;mff [0m[31;ma7 [0m[31;m02 [0m[31;m90 [0m00 00 00 00 [31;m10 [0m[31;m09 [0m[31;mff [0m[31;md1 [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m06 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0c [0m[31;mff [0m[31;mfb [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m
+[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m3a [0m[31;m02 [0m[31;m90 [0m00 00 00 00 [31;m10 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m01 [0m00 
+00 00 [31;m01 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m09 [0m[31;mff [0m[31;mce [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m06 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0c [0m[31;mff [0m[31;mfb [0m[31;m0b [0m[31;m68 [0m[31;m01 [0m00 [31;m34 [0m00 [31;m01 [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m06 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0b [0m[31;m68 [0m[31;m01 [0m00 [31;m3e [0m00 [31;m01 [0m[31;m02 [0m[31;m90 [0m00 00 00 00 [31;m02 [0m[31;m02 [0m[31;m90 [0m00 00 00 [31;m06 [0m[31;m03 [0m[31;m02 [0m[31;m90 [0m
+[31;m09 [0m00 00 [31;m09 [0m[31;m04 [0m[31;m02 [0m[31;m90 [0m00 00 00 [31;mb4 [0m[31;m05 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0b [0m[31;m64 [0m[31;m04 [0m00 [31;m99 [0m[31;m02 [0m[31;m04 [0m[31;m54 [0m[31;m02 [0m[31;m03 [0m[31;m02 [0m[31;m0b [0m[31;m64 [0m[31;m04 [0m00 [31;m8e [0m[31;m02 [0m[31;m04 [0m[31;m54 [0m[31;m02 [0m[31;m03 [0m[31;m02 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m08 [0m[31;m54 [0m[31;m02 [0m[31;m05 [0m[31;m0f [0m[31;m09 [0m[31;mff [0m[31;ma7 [0m[31;m02 [0m[31;m90 [0m00 00 00 00 [31;m10 [0m[31;m09 [0m[31;mff [0m[31;md1 [0m[31;m03 [0m[31;m70 [0m
+[31;m01 [0m00 [31;m06 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0c [0m[31;mff [0m[31;mfb [0m[31;m02 [0m[31;m90 [0m00 00 00 00 [31;m02 [0m[31;m02 [0m[31;m90 [0m00 00 00 [31;m04 [0m[31;m03 [0m[31;m09 [0m00 00 [31;m09 [0m00 [31;m60 [0m[31;m09 [0m00 00 [31;m09 [0m00 [31;m33 [0m[31;m09 [0m00 00 [31;m09 [0m[31;m01 [0m00 [31;m09 [0m00 00 [31;m09 [0m00 [31;m01 [0m[31;m09 [0m00 00 [31;m09 [0m[31;m02 [0m[31;m04 [0m[31;m09 [0m00 00 [31;m09 [0m[31;m90 [0m[31;m02 [0m[31;m09 [0m00 00 
+[31;m09 [0m[31;m02 [0m[31;m0a [0m[31;m09 [0m00 00 [31;m09 [0m[31;m04 [0m[31;m0b [0m[31;m09 [0m00 00 [31;m09 [0m[31;m02 [0m[31;m04 [0m[31;m09 [0m00 00 [31;m09 [0m[31;m01 [0m00 [31;m09 [0m00 00 [31;m09 [0m[31;m54 [0m[31;m02 [0m[31;m09 [0m00 00 [31;m09 [0m[31;m6a [0m[31;m02 [0m[31;m09 [0m00 00 [31;m09 [0m00 [31;m0f [0m[31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m
+00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 
+00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 [31;m02 [0m[31;m90 [0m00 00 00 00 [31;m02 [0m[31;m02 [0m[31;m90 [0m00 00 00 [31;m04 [0m[31;m03 [0m[31;m02 [0m[31;m90 [0m00 00 00 [31;m60 [0m[31;m05 [0m[31;m0b [0m[31;m68 [0m[31;m01 [0m00 [31;m33 [0m00 [31;m01 [0m[31;m03 [0m[31;m70 [0m[31;m01 [0m00 [31;m06 [0m[31;m01 [0m00 00 00 [31;m01 [0m[31;m0a [0m[31;m94 [0m[31;mff [0m[31;mda [0m[31;m02 [0m[31;m04 [0m[31;m0b [0m[31;m64 [0m[31;m04 [0m[31;m01 [0m[31;m90 [0m[31;m02 [0m[31;m04 [0m[31;m54 [0m[31;m02 [0m[31;m03 [0m[31;m02 [0m[31;m0a [0m[31;m94 [0m
+[31;mff [0m[31;mc9 [0m[31;m02 [0m[31;m04 [0m[31;m0b [0m[31;m64 [0m[31;m04 [0m00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 [31;m09 [0m00 00 [31;m09 [0m00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+And the winner is contestant 1: fluttershy !

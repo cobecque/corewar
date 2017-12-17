@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/30 05:00:33 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/16 06:44:44 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ t_process	*dup_pros(t_process *src, t_inf inf)
 	t_process	*tmp;
 	int			i;
 	int			j;
+	int			nb;
 
 	i = 0;
+	nb = 0;
 	tmp = src;
 	if (!(new = (t_process *)malloc(sizeof(t_process))))
 		return (NULL);
@@ -31,49 +33,32 @@ t_process	*dup_pros(t_process *src, t_inf inf)
 			new->reg[i][j] = src->reg[i][j];
 			j++;
 		}
-		//	ft_printf("reg[%d] = %d\n", i, new->reg[i][3]);
-	//	ft_printf("new reg = %d src reg = %d\n", new->reg[i][3], src->reg[i][3]);
 		i++;
 	}
 	while (tmp->next != NULL)
+	{
+		nb++;
 		tmp = tmp->next;
+	}
 	new->pc = NULL;
 	new->carry = src->carry;
 	new->live = 1;
 	new->start_cycle = -1;
-//	ft_printf("fork pour le numero %d a l'adresse %d\n", *src->ins, src->ins);
-	new->number = tmp->number + 1;//
+	if (nb == 0 && src->number == 0)
+		new->number = 1;//
+	else
+		new->number = tmp->number + 1;
 	new->champ = src->champ;
 	new->ins = src->ins + (inf.val[0] % IDX_MOD);
-//	if (new->ins > MEM_SIZE + inf.min_addr)
-//		new->ins = inf.min_addr + (new->ins - (MEM_SIZE + inf.min_addr));
 	new->pc = new->ins;
-//	ft_printf("hey je suis le fork %d et moi la valeur apres %d\n", new->ins, *new->ins);
 	new->next = NULL;
 	tmp->next = new;
-	return (src);
+	tmp = src;
+//	ft_printf("le process numero %d est entrain de fork pour creer le numero %d\n", src->number, new->number);
+	return (tmp);
 }
-/*
-void		cpy_reg(int *tab, int *res[4])
-{
-	int		i;
-//	int		*res;
 
-	i = -1;
-//	if (!(res = (int *)malloc(sizeof(int) * REG_SIZE)))
-//		return (NULL);
-	while (++i < REG_SIZE)
-		*(res[i]) = tab[i];
-}
-*/
 void	ft_fork(t_inf inf, t_process *pros)
 {
-	/*t_process	*cpy;
-*/
-//	ft_printf(C_GRN"fork je t'envois au combat, val = %d ins = %d\n"FC_ALL, inf.val[0], pros->ins);
 	pros = dup_pros(pros, inf);
-/*	cpy->ins = (pros->ins + (inf.val[0] % IDX_MOD));
-	cpy->pc = cpy->ins;
-	ft_printf("ins dans fork = %d\n", cpy->ins);
-*/	//return (cpy);
 }

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/30 05:43:46 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/16 07:15:23 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,14 @@ t_process	*add_new_process(t_process *srt, int nb)
 			j++;
 		}
 		i++;
+		new->val[i] = 0;
 	}
-	reg_write(new, (unsigned int)nb + 1, 1, 4);
+	new->val[1] = (unsigned int)nb + 1;
+	//reg_write(new, (unsigned int)nb + 1, 1, 4);
+	new->reg[1][0] = 255;
+	new->reg[1][1] = 255;
+	new->reg[1][2] = 255;
+	new->reg[1][3] = 255 - nb;
 	begin = srt;
 	new->pc = NULL;
 	new->ins = NULL;

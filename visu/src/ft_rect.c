@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:40:28 by cobecque          #+#    #+#             */
-/*   Updated: 2017/12/17 03:29:01 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/17 09:27:41 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,7 @@ void			ft_load(SDL_Renderer *renderer, int ld, int bol)
 	if (bol == 1)
 	{
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-		SDL_RenderDrawRect(renderer, &rect);
+		//SDL_RenderDrawRect(renderer, &rect);
 		SDL_SetRenderDrawColor(renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
 		rect.x = 15;
 		rect.y = 1305;
@@ -487,11 +487,11 @@ void			all(SDL_Renderer *renderer, SDL_Rect *rects, SDL_Texture **texte2)
 		SDL_RenderCopy(renderer, texte2[i % 225], NULL, &rects[i]);
 		i++;
 	}
-	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	/*SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawLine(renderer, 2253, 1295, 2550, 1295);
 	SDL_RenderDrawLine(renderer, 2253, 15, 2550, 15);
 	SDL_RenderDrawLine(renderer, 2550, 15, 2550, 1295);
-}
+*/}
 
 char			*hexa(int i)
 {

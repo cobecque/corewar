@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:05:10 by cobecque          #+#    #+#             */
-/*   Updated: 2017/12/17 03:17:49 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/17 09:27:40 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ int		main(void)
 	SDL_Renderer	*renderer;
 	SDL_Surface		*surf;
 	SDL_Rect		position;
+	SDL_Rect		rpos;
 	SDL_Texture		*image;
+	SDL_Texture		*renderer3;
+	SDL_Texture		*r;
+	SDL_Texture		*r2;
 	SDL_Texture		**texte2;
 	SDL_Surface		**texte;
 	SDL_Color		color = {0, 0, 0, 255};
@@ -32,11 +36,13 @@ int		main(void)
 	TTF_Font		*police2;
 	int				bol;
 	int				w;
+	int				dat;
 	int				h;
 	int				i;
 	int				yolo;
 	int				si;
 	SDL_Rect		*rects;
+	SDL_Rect		sans;
 	char			*str;
 	int				d;
 	int				cy;
@@ -63,7 +69,12 @@ int		main(void)
 		surf = NULL;
 		police = TTF_OpenFont("police/stocky.ttf", 25);
 		police2 = TTF_OpenFont("police/code2000.ttf", 15);
-		SDL_CreateWindowAndRenderer(0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP, &window, &renderer);
+		//	SDL_CreateWindowAndRenderer(0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP, &window, &renderer);
+		window = SDL_CreateWindow("hello", 0, 0, 2500, 1400, SDL_WINDOW_FULLSCREEN_DESKTOP);
+		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+		renderer3 = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_UNKNOWN, SDL_TEXTUREACCESS_TARGET, 2250, 1295);
+		r = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_UNKNOWN, SDL_TEXTUREACCESS_TARGET, 2550, 1295);
+		r2 = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_UNKNOWN, SDL_TEXTUREACCESS_TARGET, 2550, 1400);
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 		SDL_RenderClear(renderer);
 		surf = SDL_GetWindowSurface(window);
@@ -83,62 +94,63 @@ int		main(void)
 		}
 		d = 0;
 		si = 0;
+		sans.x = 2253;
+		sans.y = 1035;
+		sans.w = 2550 - 2253;
+		sans.h = 1295 - 1035;
+		position.x = 0;
+		position.y = 0;
+		position.w = 2250;
+		position.h = 1295;
+		SDL_SetRenderTarget(renderer, renderer3);
+		all(renderer, rects, texte2);
+	//	champ(renderer, police2);
+		SDL_SetRenderTarget(renderer, NULL);
+		SDL_SetRenderTarget(renderer, r);
+		SDL_RenderCopy(renderer, renderer3, NULL, &position);
+		champ(renderer, police2);
+		SDL_SetRenderTarget(renderer, NULL);
+		dat = 0;
 		while (bol != 2)
 		{
 			i = 0;
-			position.x = 0;
-			position.x = 2253;
-			position.y = 1035;
-			position.w = 2550 - 2253;
-			position.h = 1295 - 1035;
-			SDL_RenderCopy(renderer, image, NULL, &position);
-			/*image = IMG_LoadTexture(renderer, "fond/appel.jpg");
-			  SDL_QueryTexture(image, NULL, NULL, &w, &h);
-			  position.x = 0;
-			  position.y = 1295;
-			  position.w = 200;
-			  position.h = 200;
-			  i = 0;
-			  while (i < 12)
-			  {
-			  SDL_RenderCopy(renderer, image, NULL, &position);
-			  position.x += 200;
-			  i++;
-			  }
-			  position.x = 2400;
-			  */	/*  SDL_RenderCopy(renderer, image, NULL, &position);
-						image = IMG_LoadTexture(renderer, "fond/spectrum.jpg");
-						SDL_QueryTexture(image, NULL, NULL, &w, &h);
-						position.x = 2220;
-						position.y = 15;
-						position.w = 2550 - 2220;
-						position.h = 1295 - 15;
-						SDL_RenderCopy(renderer, image, NULL, &position);*/
-			/*	if (yolo == 0)
-				{
-				*/
-			all(renderer, rects, texte2);
+			SDL_SetRenderTarget(renderer, r);
+			SDL_RenderCopy(renderer, image, NULL, &sans);
+			//	if (yolo == 0)
+			//	all(renderer, rects, texte2);
+			//	all(renderer, rects, texte2);
 			ft_pause(renderer, police2, si);
-			champ(renderer, police2);
-			ft_cycle(renderer, police2, cy);
 			ft_process(renderer, police2, cy);
 			ft_define(renderer);
-			if ((cy % 100 == 0 && cy != 0 )|| cy == 8 || cy == ctd - 20)
+		//	complete(renderer);
+			ft_cycle(renderer, police2, cy);
+			//	champ(renderer, police2);
+			//	ft_process(renderer, police2, cy);
+			//	ft_define(renderer);
+			if ((cy % 100 == 0 && cy != 0 ) || cy == 8 || cy == d + 1536 - 20 || (salut == 0 && cy == d && cy != 0))
 				ld += 150;
-			ft_load(renderer, ld, salut);
-			if (yolo % 2 == 0)
-				SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
-			else
+			SDL_SetRenderTarget(renderer, NULL);
+			SDL_SetRenderTarget(renderer, r2);
+			rpos.x = 0;
+			rpos.y = 0;
+			rpos.w = 2550;
+			rpos.h = 1295;
+			SDL_RenderCopy(renderer, r, NULL, &rpos);
+			if (yolo % 10 == 0)
 				SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+			else
+				SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 			SDL_RenderFillRect(renderer, &rects[10]);
 			SDL_RenderCopy(renderer, texte2[10], NULL, &rects[10]);
-			complete(renderer);
-	//		SDL_Delay(6);
+			ft_load(renderer, ld, salut);
+			SDL_SetRenderTarget(renderer, NULL);
+			SDL_SetRenderTarget(renderer, r);
+//			complete(renderer);
 			yolo++;
 			cy += 1;
 			if (cy % 800 == 0)
 				pros *= 2;
-			if (cy == d + ctd)
+			if (cy == d + 1536)
 			{
 				ctd -= 50;
 				ld = 0;
@@ -149,6 +161,18 @@ int		main(void)
 				d = cy;
 			}
 			ft_die(renderer, police2, ctd);
+			position.x = 0;
+			position.y = 0;
+			position.w = 2250;
+			position.h = 1295;
+			SDL_SetRenderTarget(renderer, NULL);
+			SDL_RenderCopy(renderer, renderer3, NULL, &position);
+			SDL_RenderCopy(renderer, r, NULL, &rpos);
+			rpos.x = 0;
+			rpos.y = 0;
+			rpos.w = 2550;
+			rpos.h = 1400;
+			SDL_RenderCopy(renderer, r2, NULL, &rpos);
 			SDL_RenderPresent(renderer);
 			if (bol == 3)
 			{
@@ -205,6 +229,8 @@ int		main(void)
 				SDL_DestroyTexture(image);
 			if (surf)
 				SDL_FreeSurface(surf);
+			if (renderer3)
+				SDL_DestroyTexture(renderer3);
 			i = 0;
 			while (i < 225)
 			{
@@ -212,9 +238,9 @@ int		main(void)
 				SDL_DestroyTexture(texte2[i]);
 				i++;
 			}
-		}
-		//TTF_Quit();
-		//	SDL_Quit();
-		return (0);
 	}
+	//TTF_Quit();
+	//	SDL_Quit();
+	return (0);
+}
 

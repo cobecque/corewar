@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:10:39 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/17 03:27:29 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/18 07:46:27 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void		ft_st(t_inf inf, t_process *pros)
 {
-	int		*adr;
+	char	*adr;
 
 	adr = NULL;
-//	ft_printf("%d %d\n", inf.val[0], inf.val[1]);
+//	ft_printf("st = %d %d\n", inf.val[0], inf.val[1]);
 	if (inf.typ[1] == 1)
 	{
 		reg_write(pros, inf.val[0], inf.val[1], REG_SIZE);

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/17 07:37:06 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/18 11:03:41 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	int			bol;
 	int			bol2;
 	int			pos;
-	int				*ret;
+	char		*ret;
 	int			all_pro;
 
 	bol = 0;
@@ -133,11 +133,14 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	all_pro = count_pros(pro);
 	while (cpy != NULL)
 	{
+	//	ft_putstr("Hello 1\n");
 		line = get_line(*(cpy->pc));
 		i = 0;
 		if (line != -1 && cpy->start_cycle == -1)
 			cpy->start_cycle = cycle - 1 + bol;
+	//	ft_putstr("Hello 2\n");
 		if (line != -1)
+		{
 			if (line != -1 && cpy->start_cycle + g_op_tab[line].cycle == cycle)
 			{
 				if (!cpy->pc)
@@ -185,7 +188,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 									{
 										inf.val[i] += (256 + *cpy->pc) * (ft_pow(256, inf.l[i] - nb));
 									}
-									else if (*cpy-> pc > 0 && *cpy->pc < 128 && *cpy->pc != 0 && pos == 0)
+									else if (*cpy-> pc > 0 /*&& *cpy->pc < 128 */&& *cpy->pc != 0 && pos == 0)
 										inf.val[i] += (-256 + *cpy->pc) * (ft_pow(256, inf.l[i] - nb));
 									else
 										inf.val[i] += *cpy->pc * (ft_pow(256, inf.l[i] - nb));
@@ -202,11 +205,13 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 				else
 					cpy->pc++;
 			//	if (cpy->next == NULL)
+				if (line == 10)
+					(*val)++;
 				if (line <= 17)
 				{
-					*val = 1;
-		//		if (cycle >= 3360 && cycle <= 3365)
-		//				ft_printf("cycle %d et %s\n", cycle, g_op_tab[line].name);
+				//	if (cycle >= 3365 && cycle <= 3500)
+				//	if (cpy->number == 1)
+				//		ft_printf("Process %d cycle %d et %s\n", cpy->number, cycle, g_op_tab[line].name);
 				//	if (line == 10)
 				//		ft_printf("%d\n", cycle);
 					g_instructab[line](inf, cpy);
@@ -221,6 +226,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 				if (cpy->pc + 1 > inf.min_addr + MEM_SIZE)
 					cpy->pc = inf.min_addr;
 			}
+		}
 		/*if (bol == 1)
 			break ;*/
 		cpy = cpy->next;
@@ -274,7 +280,7 @@ char		*get_hexa(int val)
 	return (str);
 }
 
-void		dump(int *ptr)
+void		dump(char *ptr)
 {
 	int		i;
 	int		p;
@@ -315,9 +321,10 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	cycle_d = 0;
 //	dump(virtual.addr);
 //	ft_putchar('\n');
+//	dump(virtual.addr);
+		val = 0;
 	while (42)
 	{
-		val = 0;
 		if (cycle >= 1)
 		{
 		//	ft_printf("TRUC\n");
@@ -341,8 +348,9 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 				check++;
 			pro = kill_them_all(pro);
 		}
-	//	if (val != 1)
-	//	{
+		if (val > 123)
+			break ;
+		//	{
 			cycle++;
 			cycle_d++;
 	//	}

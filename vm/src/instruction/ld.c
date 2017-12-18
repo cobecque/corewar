@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 12:00:11 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/13 22:56:03 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/18 09:58:42 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 void		ft_ld(t_inf inf, t_process *pros)
 {
-	//ft_printf(C_RED"ld je t'envois au combat\t"FC_ALL);
+	int		y;
+
 	pros->carry = inf.val[0] == 0 ? 1 : 0;
 //	ft_printf("pc = %d\n", pros->pc);
-	reg_write(pros, (unsigned int)inf.val[0], inf.val[1], REG_SIZE);
-	pros->val[inf.val[1]] = (unsigned int)inf.val[0];
+	reg_write(pros, inf.val[0], inf.val[1], REG_SIZE);
+	if (*(pros->ins + 2) == -1)
+	{
+		y = *(pros->ins + 5);
+		pros->val[inf.val[1]] = y;
+	}
+	else
+		pros->val[inf.val[1]] = inf.val[0];
 //	ft_printf("pc = %d\n", pros->pc);
 }

@@ -6,19 +6,19 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/17 05:25:06 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/18 08:46:49 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-int			*malloc_vm(void)
+char		*malloc_vm(void)
 {
 	int		i;
-	int		*addr;
+	char	*addr;
 
 	i = 0;
-	if (!(addr = (int*)malloc(sizeof(int) * MEM_SIZE)))
+	if (!(addr = (char*)malloc(sizeof(char) * MEM_SIZE)))
 		return (NULL);
 	while (i < MEM_SIZE)
 	{
@@ -29,21 +29,21 @@ int			*malloc_vm(void)
 	return (addr);
 }
 
-t_vm		input_data(t_vm data, int nb, int **pc_adr)
+t_vm		input_data(t_vm data, int nb, char **pc_adr)
 {
 	int		i;
-	int		*base_addr;
+	char	*base_addr;
 
 	i = 0;
 	if (data.nb_pros != nb)
 		base_addr = data.addr + MEM_SIZE / data.nb_pros * (data.nb_pros - nb);
 	else
 		base_addr = data.addr;
-	*pc_adr = (int *)base_addr;
+	*pc_adr = base_addr;
 	while (i < data.play[nb - 1].len)
 	{
 		*(base_addr + i) = data.play[nb - 1].code[i];
-//		ft_printf("%d\n", *(base_addr + i));
+	//	ft_printf("%d\n", *(base_addr + i));
 		i++;
 	}
 	return (data);

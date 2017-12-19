@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/18 11:03:41 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/19 12:57:56 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -306,7 +306,7 @@ void		dump(char *ptr)
 			ft_printf("%s ", get_hexa(ptr[i]));
 		i++;
 	}
-	ft_putchar('\n');
+	ft_putstr("\n\n");
 }
 
 int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
@@ -348,13 +348,20 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 				check++;
 			pro = kill_them_all(pro);
 		}
-		if (val > 123)
+		if (cycle == virtual.arg.dump)
+		{
+			ft_printf("cycle = %d et dump = %d\n", cycle, virtual.arg.dump);
+			dump(virtual.addr);
+		}
+		if (cycle == virtual.arg.end)
 			break ;
+		//if (val > 123)
+		//	break ;
 		//	{
-			cycle++;
-			cycle_d++;
+		cycle++;
+		cycle_d++;
 	//	}
 	}
-	dump(virtual.addr);
+	//dump(virtual.addr);
 	return (winner(pro));
 }

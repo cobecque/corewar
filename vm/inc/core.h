@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/18 11:09:17 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/19 13:02:17 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,17 @@ typedef struct				s_champ
 	char					comment[COMMENT_LENGTH];
 }							t_champ;
 
+typedef struct				s_pam
+{
+	int						nb;
+	int						end;
+	int						help;
+	int						sdl;
+	int						dump;
+	int						error;
+	char					*patern;
+}							t_pam;
+
 typedef struct				s_op
 {
 	char					*name;
@@ -108,6 +119,7 @@ typedef struct				s_vm
 	char					*addr;
 	int						error;
 	int						nb_pros;
+	t_pam					arg;
 	t_process				*pros; //*
 	t_champ					play[MAX_PLAYERS];
 }							t_vm;

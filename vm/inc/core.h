@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/18 11:09:17 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/19 15:08:47 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 
 #define REG_NUMBER			16
 
-#define CYCLE_TO_DIE		10000
+#define CYCLE_TO_DIE		900
 
 #define CYCLE_DELTA			50
 #define NBR_LIVE			21
@@ -119,7 +119,7 @@ t_process					*dup_pros(t_process *src, t_inf inf);
 t_inf						nb_oct(t_inf srt, int line, int ocp);
 //t_inf						**list_info(t_vm data);
 t_vm						fill_champ(int *fd);
-void						reg_write(t_process *pros, int val, int reg, int size);
+void						reg_write(t_process *pros, unsigned int val, int reg, int size);
 void						vm_stuff(t_vm data);
 void						ft_add(t_inf inf, t_process *pros);
 void						ft_aff(t_inf inf, t_process *pros);

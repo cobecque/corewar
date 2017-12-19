@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 14:10:27 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/26 06:36:43 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/19 12:14:48 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void		ft_aff(t_inf inf, t_process *pros)
 	res += ((pros->reg[inf.val[0]][2] >> 8) & 0xFF);
 	res += (pros->reg[inf.val[0]][2] & 0xFF);
 	aff = res % 256;
-	ft_printf("%d\n", aff);
+//	ft_printf("%d\n", aff);
 }

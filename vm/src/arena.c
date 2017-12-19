@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/18 11:03:41 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/19 15:10:34 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	int			pos;
 	char		*ret;
 	int			all_pro;
+	int			ff;
 
 	bol = 0;
 	bol2 = 0;
@@ -160,6 +161,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						cpy->pc++;
 					if (!(inf.val = (int *)malloc(sizeof(int) * 3)))
 						return (NULL);
+					ff = 0;
 					while (i < g_op_tab[line].nb_arg)
 					{
 						p = 0;
@@ -176,6 +178,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 								if (p == 0 && *cpy->pc != -1)
 								{
 									pos = 1;
+									ff = 1;
 									inf.val[i] += *cpy->pc * (ft_pow(256, inf.l[i] - nb));
 								}
 								else if (p == 0 && *cpy->pc == -1)
@@ -185,13 +188,19 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 								else if (p != 0)
 								{
 									if (*cpy->pc < 0 && *cpy->pc > -128 && *cpy->pc != 0 && pos == 1)
-									{
 										inf.val[i] += (256 + *cpy->pc) * (ft_pow(256, inf.l[i] - nb));
-									}
-									else if (*cpy-> pc > 0 /*&& *cpy->pc < 128 */&& *cpy->pc != 0 && pos == 0)
+									else if (*cpy-> pc > 0 && *cpy->pc != 0 && pos == 0)
+									{
 										inf.val[i] += (-256 + *cpy->pc) * (ft_pow(256, inf.l[i] - nb));
+										ff = 1;
+									}
+									else if (*cpy->pc == -1 && ff == 0)
+										inf.val[i] += 0;
 									else
+									{
 										inf.val[i] += *cpy->pc * (ft_pow(256, inf.l[i] - nb));
+										ff = 1;
+									}
 								}
 							}
 							if (line == 0 && p == 0)
@@ -299,10 +308,11 @@ void		dump(char *ptr)
 			ft_printf("%x0 : ", p);
 			p += 4;
 		}
-		if (ptr[i] != 0)
-			ft_printf("%s ", get_hexa(ptr[i]));
+		
+	//	if (ptr[i] == 9)
 	//		ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
-		else
+	//		ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
+	//	else
 			ft_printf("%s ", get_hexa(ptr[i]));
 		i++;
 	}
@@ -348,13 +358,14 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 				check++;
 			pro = kill_them_all(pro);
 		}
-		if (val > 123)
-			break ;
+	//	if (val > 20)
+	//		break ;
 		//	{
 			cycle++;
 			cycle_d++;
 	//	}
 	}
+//	ft_printf("cycle = %d\n", cycle);
 	dump(virtual.addr);
 	return (winner(pro));
 }

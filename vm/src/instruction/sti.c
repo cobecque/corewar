@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/18 11:08:42 by rostroh          ###   ########.fr       */
+/*   Updated: 2017/12/19 14:10:05 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,19 @@ int			relative(int *adr, int val)
 	int		ret;
 
 	ret = (int)adr;
-//	ft_printf("%d et %d\n", adr, ret);
 	return (ret + val);
 }
 
 void		ft_sti(t_inf inf, t_process *pros)
 {
-	int			ret;
-	char		*adr;
-
+//	int			ret;
+//	char		*adr;
+/*
 	ret = 0;
-//	if (pros->start_cycle >= 3340)
-//		ft_printf(C_BLU"Sti je t'envoie au combat, %d %d %d\n"FC_ALL, inf.val[0], inf.val[1], inf.val[2]);
 	if (inf.typ[1] == 1)
-	{
-//		ft_putchar('a');
 		ret += pros->val[inf.val[1]];
-	}
 	else
 	{
-	//	ft_printf("j aime les stats %d   %d\n", *(pros->ins + 3), *(pros->ins + 4));
 		if (*(pros->ins + 3) == -1)
 		{
 			ret += *(pros->ins + 4);
@@ -108,6 +101,80 @@ void		ft_sti(t_inf inf, t_process *pros)
 			i = 0;
 		}
 		*(adr + i) = pros->reg[inf.val[0]][j]; //SEGF sur max adr
+		j++;
+		i++;
+	}*/
+	char			*adr;
+	int				res;
+	int				bug;
+	int				i;
+	int				j;
+	int				ff;
+
+	ff = 0;
+//	if (inf.val[0] != 1)
+//	ft_printf(C_YEL"arrive de sti dans la place a l'adresse %d avec pour valeur %d et %d\n"FC_ALL, (int)pros->ins, inf.val[1], inf.val[2]);
+	res = 0;
+	bug = 0;
+	if (inf.typ[1] == 1)
+	{
+		i = 0;
+		while (i < 4)
+		{
+			res += pros->reg[inf.val[1]][i];
+			i++;
+		}
+	}
+	else
+		res += inf.val[1];
+	//ft_printf("res avant le r2 %d\n", res);
+	if (inf.typ[2] == 1)
+	{
+		i = 0;
+		while (i < 4)
+		{
+			if (ff == 0 && pros->reg[inf.val[2]][i] == 255)
+				;
+			else
+			{
+				if (ff == 0 && i > 0)
+				{
+					bug += (-256 + pros->reg[inf.val[2]][i]);
+				}
+				else
+					bug += pros->reg[inf.val[2]][i];
+	//			ft_printf("res apres le r2 %d && pros>reg = %d\n", bug, pros->reg[inf.val[2]][i]);
+				ff = 1;
+			}
+			i++;
+		}
+	}
+	else
+		res += inf.val[2];
+	//if (inf.val[0] != 1)
+//		ft_printf("pros numero %d & res je t'ai jamais aime %d\n\n", pros->number, res + bug);
+	res = (int)res + (int)bug;
+	adr = pros->ins + ((int)res % IDX_MOD);
+	if (adr < inf.min_addr)
+	{
+		if ((int)adr > 0)
+			adr = inf.min_addr + MEM_SIZE - ((int)inf.min_addr - ((int)adr % MEM_SIZE));
+		else
+			adr = inf.min_addr + MEM_SIZE + (int)adr % MEM_SIZE;
+	}
+	else if (adr > inf.min_addr + MEM_SIZE)
+		adr = inf.min_addr + MEM_SIZE - (adr - inf.min_addr + MEM_SIZE);
+	i = 0;
+	j = 0;
+	while (j < 4)
+	{
+		if ((adr + j) >= inf.min_addr + MEM_SIZE)
+		{
+			adr = inf.min_addr;
+			i = 0;
+		}
+		*(adr + i) = pros->reg[inf.val[0]][j]; //SEGF sur max adr
+	//	ft_printf(C_RED"reg[%d][%d] = %x a l'adresse %d\n"FC_ALL, inf.val[0], j, pros->reg[inf.val[0]][j], (int)(adr + i));
 		j++;
 		i++;
 	}

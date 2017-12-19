@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/19 15:10:34 by cobecque         ###   ########.fr       */
+/*   Updated: 2017/12/19 16:16:17 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -358,8 +358,8 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 				check++;
 			pro = kill_them_all(pro);
 		}
-	//	if (val > 20)
-	//		break ;
+		if (cycle > 1500)
+			break ;
 		//	{
 			cycle++;
 			cycle_d++;
@@ -367,5 +367,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	}
 //	ft_printf("cycle = %d\n", cycle);
 	dump(virtual.addr);
+	il faut swap les byte (little endian to big endian);
+	ft_printf("test %d\n", 0x0008);
 	return (winner(pro));
 }

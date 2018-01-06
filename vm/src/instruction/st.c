@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:10:39 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/19 12:24:31 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/06 09:59:09 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,21 @@ void		ft_st(t_inf inf, t_process *pros)
 	}*/
 	i = 0;
 	res = 0;
-//	ft_printf(C_GRN"\nArrive de st a l'adresse %d\n"FC_ALL, (int)pros->ins);
+	//ft_printf(C_GRN"Arrive de st a l'adresse %d et la val = %d\n"FC_ALL, (int)pros->ins, inf.val[1]);
 	if (inf.typ[1] == 1)
 	{
 		while (i < 4)
 		{
 			res += pros->reg[inf.val[1]][i];
+//			ft_printf(C_RED"yolo res tu fais quoi %d\n"FC_ALL, res);
 			i++;
 		}
 	}
 	else
 		res = inf.val[1];
+//	ft_printf(C_RED"yolo res tu fais quoi %d\n"FC_ALL, res);
 	adr = pros->ins + ((int)res % IDX_MOD);
-	pros->carry = (adr == 0) ? 1 : 0;
+//	ft_printf(C_RED"yolo adr tu fais quoi %d\n"FC_ALL, adr);
 	if (adr < inf.min_addr)
 	{
 		if ((int)adr > 0)
@@ -66,6 +68,8 @@ void		ft_st(t_inf inf, t_process *pros)
 		adr = inf.min_addr + MEM_SIZE - (adr - inf.min_addr + MEM_SIZE);
 	i = 0;
 	j = 0;
+	//ft_printf("----------------cancer en approche--------------\n");
+//	ft_printf("inst du st bug = %d\n", pros->ins);
 	while (j < 4)
 	{
 		if ((adr + j) >= inf.min_addr + MEM_SIZE)
@@ -74,6 +78,7 @@ void		ft_st(t_inf inf, t_process *pros)
 			i = 0;
 		}
 		*(adr + i) = pros->reg[inf.val[0]][j]; //SEGF sur max adr
+	//	ft_printf(C_RED"inst = %d adr = %d et valeur = %d\n"FC_ALL, inf.min_addr, (adr + i), pros->reg[inf.val[0]][j]);
 		j++;
 		i++;
 	}

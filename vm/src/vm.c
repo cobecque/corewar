@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/18 08:46:49 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/06 08:58:10 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char		*malloc_vm(void)
 		addr[i] = 0;
 		i++;
 	}
-//	ft_printf("\t\t\t-->LA VRAIE ADDRESSE %ld\n", addr);
+//	ft_printf("\t\t\t-->LA VRAIE ADDRESSE %d\n", addr);
 	return (addr);
 }
 
@@ -85,11 +85,13 @@ t_process	*add_new_process(t_process *srt, int nb)
 	new->number = nb;
 	new->champ = nb;
 	new->next = NULL;
+	new->pre = NULL;
 	if (!srt)
 		return (new);
 	while (srt->next != NULL)
 		srt = srt->next;
 	srt->next = new;
+	new->pre = srt;
 	return (begin);
 }
 

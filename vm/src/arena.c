@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/19 16:16:17 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/06 10:25:46 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,14 +114,15 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	int			nb;
 	int			line;
 	int			i;
-	int			p;
 	int			bol;
 	int			bol2;
-	int			pos;
 	char		*ret;
 	int			all_pro;
-	int			ff;
+	unsigned int	a;
+	unsigned int	b;
+	int			p;
 
+	a = 0;
 	bol = 0;
 	bol2 = 0;
 	vm.error = 1;
@@ -132,6 +133,8 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	nb = 0;
 	p = 0;
 	all_pro = count_pros(pro);
+	while (cpy->next != NULL)
+		cpy = cpy->next;
 	while (cpy != NULL)
 	{
 	//	ft_putstr("Hello 1\n");
@@ -155,16 +158,17 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 				if (line != -1)
 				{
 					cpy->pc++;
+		//			if (line == 2)
+		//				ft_printf(C_BLU"cpy->ins = %d && cpy->pros = %d\n"FC_ALL, cpy->ins, cpy->number);
 					inf = add_elem(line, *(cpy->pc));
 					inf.min_addr = vm.addr;
 					if (have_ocp(line) == 0)
 						cpy->pc++;
 					if (!(inf.val = (int *)malloc(sizeof(int) * 3)))
 						return (NULL);
-					ff = 0;
 					while (i < g_op_tab[line].nb_arg)
 					{
-						p = 0;
+						/*p = 0;
 						pos = 1;
 						nb = 0;
 						inf.val[i] = 0;
@@ -207,7 +211,25 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 								inf.val[i] = 0;
 							cpy->pc++;
 							p++;
+						}*/
+						p = 0;
+						while (p < inf.l[i])
+						{
+							if (p == 0)
+								a = *cpy->pc;
+							else
+							{
+								b = *cpy->pc << 24;
+								a = (a << 8) | (b >> 24);
+							}
+						/*	if (line == 2 && cycle == 8920)
+								ft_printf("cpy->pc = %d et a = %d\n", *cpy->pc, a);
+						*/	cpy->pc++;
+							p++;
 						}
+						inf.val[i] = a;
+			//			if (line == 2 && cycle == 8915)
+			//				ft_printf("inf.val = %d\n", inf.val[i]);
 						i++;
 					}
 				}
@@ -216,16 +238,23 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 			//	if (cpy->next == NULL)
 				if (line == 10)
 					(*val)++;
-				if (line <= 17)
+				if (line <= 17 && line >= 0)
 				{
 				//	if (cycle >= 3365 && cycle <= 3500)
 				//	if (cpy->number == 1)
 				//		ft_printf("Process %d cycle %d et %s\n", cpy->number, cycle, g_op_tab[line].name);
-				//	if (line == 10)
-				//		ft_printf("%d\n", cycle);
-					g_instructab[line](inf, cpy);
+			//		if (line == 2)
+			//			ft_printf("cycle = %d\t", cycle);
+					/*	if (cpy->number != 74)
+							;
+						else
+							g_instructab[line](inf, cpy);
+					}
+					else*/
+							g_instructab[line](inf, cpy);
 			//		cycle--;
 				}
+	//			ft_printf("\n");
 				if (count_pros(pro) > all_pro)
 					bol = 1;
 				else
@@ -238,7 +267,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 		}
 		/*if (bol == 1)
 			break ;*/
-		cpy = cpy->next;
+		cpy = cpy->pre;
 	}
 	if (line != -1)
 	{
@@ -308,11 +337,9 @@ void		dump(char *ptr)
 			ft_printf("%x0 : ", p);
 			p += 4;
 		}
-		
-	//	if (ptr[i] == 9)
-	//		ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
-	//		ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
-	//	else
+//		if (i == 392 - 256)
+//			ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
+//		else
 			ft_printf("%s ", get_hexa(ptr[i]));
 		i++;
 	}
@@ -358,16 +385,16 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 				check++;
 			pro = kill_them_all(pro);
 		}
-		if (cycle > 1500)
+		if (cycle > 8930)
 			break ;
+		
 		//	{
 			cycle++;
 			cycle_d++;
 	//	}
 	}
 //	ft_printf("cycle = %d\n", cycle);
+//	ft_printf("\n");
 	dump(virtual.addr);
-	il faut swap les byte (little endian to big endian);
-	ft_printf("test %d\n", 0x0008);
 	return (winner(pro));
 }

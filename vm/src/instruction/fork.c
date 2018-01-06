@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/18 07:46:15 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/06 07:54:27 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ t_process	*dup_pros(t_process *src, t_inf inf)
 	new->pc = new->ins;
 	new->next = NULL;
 	tmp->next = new;
+	new->pre = tmp;
 	tmp = src;
 //	ft_printf("le process numero %d est entrain de fork pour creer le numero %d\n", src->number, new->number);
 	return (tmp);

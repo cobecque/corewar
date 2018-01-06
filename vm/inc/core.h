@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:16:04 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/19 15:20:34 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/06 06:21:29 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 
 #define REG_NUMBER			16
 
-#define CYCLE_TO_DIE		4000
+#define CYCLE_TO_DIE		27438
 
 #define CYCLE_DELTA			50
 #define NBR_LIVE			21
@@ -66,6 +66,7 @@ typedef struct				s_process
 	int						champ;
 	int						number;
 	struct s_process		*next;
+	struct s_process		*pre;
 }							t_process;
 
 typedef struct				s_inf

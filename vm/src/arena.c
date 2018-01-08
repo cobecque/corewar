@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/06 10:25:46 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/08 08:10:00 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ int			count_pros(t_process *pro)
 
 t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 {
-	t_process	*fun;
 	t_process	*cpy;
 	t_inf		inf;
 	int			nb;
@@ -122,162 +121,92 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	unsigned int	b;
 	int			p;
 
+	*val = 0;
 	a = 0;
 	bol = 0;
 	bol2 = 0;
 	vm.error = 1;
 	cpy = pro;
-	if (cpy == NULL)
-		ft_printf("Ohoh\n");
+	inf.min_addr = vm.addr;
 	ret = cpy->pc;
 	nb = 0;
 	p = 0;
+//	ft_printf("yolo\n");
 	all_pro = count_pros(pro);
 	while (cpy->next != NULL)
 		cpy = cpy->next;
 	while (cpy != NULL)
 	{
-	//	ft_putstr("Hello 1\n");
+		//ft_printf("%d\n", cpy->pc);
 		line = get_line(*(cpy->pc));
+//			ft_printf("bitch\n");
 		i = 0;
 		if (line != -1 && cpy->start_cycle == -1)
 			cpy->start_cycle = cycle - 1 + bol;
-	//	ft_putstr("Hello 2\n");
-		if (line != -1)
+//			ft_printf("debut\n");
+		if (line != -1 && cpy->start_cycle + g_op_tab[line].cycle == cycle)
 		{
-			if (line != -1 && cpy->start_cycle + g_op_tab[line].cycle == cycle)
+			if (!cpy->pc)
 			{
-				if (!cpy->pc)
-				{
-					ft_printf("clapclap\n");
-					break ;
-				}
-				if (line == 11)
-					p++;
-				cpy->ins = cpy->pc;
-				if (line != -1)
-				{
-					cpy->pc++;
-		//			if (line == 2)
-		//				ft_printf(C_BLU"cpy->ins = %d && cpy->pros = %d\n"FC_ALL, cpy->ins, cpy->number);
-					inf = add_elem(line, *(cpy->pc));
-					inf.min_addr = vm.addr;
-					if (have_ocp(line) == 0)
-						cpy->pc++;
-					if (!(inf.val = (int *)malloc(sizeof(int) * 3)))
-						return (NULL);
-					while (i < g_op_tab[line].nb_arg)
-					{
-						/*p = 0;
-						pos = 1;
-						nb = 0;
-						inf.val[i] = 0;
-						while (p < inf.l[i])
-						{
-							nb++;
-							if (inf.val[i] == 0 && *cpy->pc == 0 && p != 0)
-								;
-							else
-							{
-								if (p == 0 && *cpy->pc != -1)
-								{
-									pos = 1;
-									ff = 1;
-									inf.val[i] += *cpy->pc * (ft_pow(256, inf.l[i] - nb));
-								}
-								else if (p == 0 && *cpy->pc == -1)
-								{
-									pos = 0;
-								}
-								else if (p != 0)
-								{
-									if (*cpy->pc < 0 && *cpy->pc > -128 && *cpy->pc != 0 && pos == 1)
-										inf.val[i] += (256 + *cpy->pc) * (ft_pow(256, inf.l[i] - nb));
-									else if (*cpy-> pc > 0 && *cpy->pc != 0 && pos == 0)
-									{
-										inf.val[i] += (-256 + *cpy->pc) * (ft_pow(256, inf.l[i] - nb));
-										ff = 1;
-									}
-									else if (*cpy->pc == -1 && ff == 0)
-										inf.val[i] += 0;
-									else
-									{
-										inf.val[i] += *cpy->pc * (ft_pow(256, inf.l[i] - nb));
-										ff = 1;
-									}
-								}
-							}
-							if (line == 0 && p == 0)
-								inf.val[i] = 0;
-							cpy->pc++;
-							p++;
-						}*/
-						p = 0;
-						while (p < inf.l[i])
-						{
-							if (p == 0)
-								a = *cpy->pc;
-							else
-							{
-								b = *cpy->pc << 24;
-								a = (a << 8) | (b >> 24);
-							}
-						/*	if (line == 2 && cycle == 8920)
-								ft_printf("cpy->pc = %d et a = %d\n", *cpy->pc, a);
-						*/	cpy->pc++;
-							p++;
-						}
-						inf.val[i] = a;
-			//			if (line == 2 && cycle == 8915)
-			//				ft_printf("inf.val = %d\n", inf.val[i]);
-						i++;
-					}
-				}
-				else
-					cpy->pc++;
-			//	if (cpy->next == NULL)
-				if (line == 10)
-					(*val)++;
-				if (line <= 17 && line >= 0)
-				{
-				//	if (cycle >= 3365 && cycle <= 3500)
-				//	if (cpy->number == 1)
-				//		ft_printf("Process %d cycle %d et %s\n", cpy->number, cycle, g_op_tab[line].name);
-			//		if (line == 2)
-			//			ft_printf("cycle = %d\t", cycle);
-					/*	if (cpy->number != 74)
-							;
-						else
-							g_instructab[line](inf, cpy);
-					}
-					else*/
-							g_instructab[line](inf, cpy);
-			//		cycle--;
-				}
-	//			ft_printf("\n");
-				if (count_pros(pro) > all_pro)
-					bol = 1;
-				else
-					bol = 0;
-				//ft_printf("Process = %d et Cycle = %d et nb = %d\n", cpy->number, cycle, count_pros(pro));
-				cpy->start_cycle = -1;
-				if (cpy->pc + 1 > inf.min_addr + MEM_SIZE)
-					cpy->pc = inf.min_addr;
+				ft_printf("clapclap\n");
+				break ;
 			}
+			if (line == 11)
+				p++;
+			cpy->ins = cpy->pc;
+			cpy->pc++;
+			inf = add_elem(line, *(cpy->pc));
+			inf.min_addr = vm.addr;
+			if (have_ocp(line) == 0)
+				cpy->pc++;
+			if (!(inf.val = (int *)malloc(sizeof(int) * 3)))
+				return (NULL);
+			while (i < g_op_tab[line].nb_arg)
+			{
+				p = 0;
+				while (p < inf.l[i])
+				{
+					if (p == 0)
+						a = *cpy->pc;
+					else
+					{
+						b = *cpy->pc << 24;
+						a = (a << 8) | (b >> 24);
+					}
+					//	if (line == 2 && cycle > 8900)
+					//		ft_printf("cpy->pc = %x adresse = %d et a = %d\n", *cpy->pc, cpy->pc, a);
+					cpy->pc++;
+					p++;
+				}
+				inf.val[i] = a;
+	//				ft_printf("cycle %d et inst = %d\n", cycle, line);
+			//	if (/*cycle > 8895 && line == 2 && */cpy->number == 1)
+			//		ft_printf(C_RED"cycle = %d, cpy->ins = %d, inf.val[%d] = %d, cpy->number = %d\n"FC_ALL, cycle, cpy->ins, i, inf.val[i], cpy->number);
+				//			if (line == 2 && cycle == 8915)
+				//				ft_printf("inf.val = %d\n", inf.val[i]);
+				i++;
+			}
+			//	if (cpy->next == NULL)
+			if (line <= 17 && line >= 0)
+				g_instructab[line](inf, cpy);
+			if (count_pros(pro) > all_pro)
+				bol = 1;
+			else
+				bol = 0;
+		//	ft_printf("Process = %d et Cycle = %d et nb = %d\n", cpy->number, cycle, count_pros(pro));
+			cpy->start_cycle = -1;
+			if (cpy->pc + 1 > inf.min_addr + MEM_SIZE)
+				cpy->pc = inf.min_addr;
+		//	ft_printf("FIN1\n");
 		}
-		/*if (bol == 1)
-			break ;*/
+		else if (line == -1)
+			cpy->pc++;
+			/*if (bol == 1)
+		  break ;*/
+		if (cpy->pc + 1 > inf.min_addr + MEM_SIZE)
+			cpy->pc = inf.min_addr;
 		cpy = cpy->pre;
-	}
-	if (line != -1)
-	{
-		i = 0;
-		fun = pro;
-		while (fun != NULL)
-		{
-			i++;
-			fun = fun->next;
-		}
+	//	ft_printf("FIN2\n");
 	}
 	return (pro);
 }
@@ -337,7 +266,7 @@ void		dump(char *ptr)
 			ft_printf("%x0 : ", p);
 			p += 4;
 		}
-//		if (i == 392 - 256)
+//		if (i == 4096 - 119)
 //			ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
 //		else
 			ft_printf("%s ", get_hexa(ptr[i]));
@@ -356,15 +285,15 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	check = 0;
 	cycle = 0;
 	cycle_d = 0;
-//	dump(virtual.addr);
-//	ft_putchar('\n');
-//	dump(virtual.addr);
-		val = 0;
+	//	dump(virtual.addr);
+	//	ft_putchar('\n');
+	//	dump(virtual.addr);
+	val = 0;
 	while (42)
 	{
 		if (cycle >= 1)
 		{
-		//	ft_printf("TRUC\n");
+			//	ft_printf("TRUC\n");
 			pro = gestion_process(pro, cycle, virtual, &val);
 		}
 		if (cycle_d == ctd)
@@ -385,16 +314,15 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 				check++;
 			pro = kill_them_all(pro);
 		}
-		if (cycle > 8930)
-			break ;
-		
+//		if (cycle > 9020)
+//			break ;
 		//	{
-			cycle++;
-			cycle_d++;
-	//	}
+		cycle++;
+		cycle_d++;
+		//	}
 	}
-//	ft_printf("cycle = %d\n", cycle);
-//	ft_printf("\n");
+	//	ft_printf("cycle = %d\n", cycle);
+	//	ft_printf("\n");
 	dump(virtual.addr);
 	return (winner(pro));
 }

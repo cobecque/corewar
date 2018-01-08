@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/06 08:58:10 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/08 07:50:37 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char		*malloc_vm(void)
 		addr[i] = 0;
 		i++;
 	}
-//	ft_printf("\t\t\t-->LA VRAIE ADDRESSE %d\n", addr);
 	return (addr);
 }
 
@@ -43,7 +42,6 @@ t_vm		input_data(t_vm data, int nb, char **pc_adr)
 	while (i < data.play[nb - 1].len)
 	{
 		*(base_addr + i) = data.play[nb - 1].code[i];
-	//	ft_printf("%d\n", *(base_addr + i));
 		i++;
 	}
 	return (data);

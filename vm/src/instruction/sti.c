@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/06 07:56:31 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/08 08:00:42 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,6 @@ void		ft_sti(t_inf inf, t_process *pros)
 
 	ff = 0;
 //	if (inf.val[0] != 1)
-//	ft_printf(C_YEL"arrive de sti dans la place a l'adresse %d avec pour valeur %d et %d\n"FC_ALL, (int)pros->ins, inf.val[1], inf.val[2]);
 	res = 0;
 	bug = 0;
 	if (inf.typ[1] == 1)
@@ -152,7 +151,6 @@ void		ft_sti(t_inf inf, t_process *pros)
 	else
 		res += inf.val[2];
 	//if (inf.val[0] != 1)
-//		ft_printf("pros numero %d & res je t'ai jamais aime %d\n\n", pros->number, res + bug);
 	res = (int)res + (int)bug;
 	adr = pros->ins + ((int)res % IDX_MOD);
 	if (adr < inf.min_addr)
@@ -163,7 +161,7 @@ void		ft_sti(t_inf inf, t_process *pros)
 			adr = inf.min_addr + MEM_SIZE + (int)adr % MEM_SIZE;
 	}
 	else if (adr > inf.min_addr + MEM_SIZE)
-		adr = inf.min_addr + MEM_SIZE - (adr - inf.min_addr + MEM_SIZE);
+		adr = adr - (inf.min_addr + MEM_SIZE) + inf.min_addr;
 	i = 0;
 	j = 0;
 	while (j < 4)
@@ -174,7 +172,6 @@ void		ft_sti(t_inf inf, t_process *pros)
 			i = 0;
 		}
 		*(adr + i) = pros->reg[inf.val[0]][j]; //SEGF sur max adr
-	//	ft_printf(C_RED"reg[%d][%d] = %x a l'adresse %d\n"FC_ALL, inf.val[0], j, pros->reg[inf.val[0]][j], (int)(adr + i));
 		j++;
 		i++;
 	}

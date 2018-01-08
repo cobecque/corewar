@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/29 05:40:33 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/28 08:21:47 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/08 07:57:58 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,6 @@ t_inf	add_elem(int info, int opc)//,/* t_inf *srt,*/ int nb)
 //	new.nb = nb;
 	new.l = (int *)malloc(sizeof(int) * 3);
 	new = nb_oct(new, info, opc);
-	new.min_addr = NULL;
 	//ft_printf("length = %d\n", new->length);
 	//ft_printf("->%d\n->%d\n->%d\n", new->typ[0], new->typ[1], new->typ[2]);
 /*	if (!srt)

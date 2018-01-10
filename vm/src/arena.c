@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/08 08:10:00 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/10 02:47:00 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -300,7 +300,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 		{
 			if (check_alive(virtual.nb_pros, pro) <= 1)
 			{
-				break ;
+			//	break ;
 			}
 			cycle_d = 0;
 			if (count_live(pro) >= NBR_LIVE || check == 10)
@@ -314,8 +314,8 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 				check++;
 			pro = kill_them_all(pro);
 		}
-//		if (cycle > 9020)
-//			break ;
+		if (cycle > 27200)
+			break ;
 		//	{
 		cycle++;
 		cycle_d++;

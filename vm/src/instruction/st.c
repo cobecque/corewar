@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:10:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/08 08:09:55 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/10 12:34:46 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		ft_st(t_inf inf, t_process *pros)
 	{
 		i = 0;
 		res = 0;
-		//ft_printf(C_GRN"Arrive de st a l'adresse %d et la val = %d\n"FC_ALL, (int)pros->ins, inf.val[1]);
+//		ft_printf(C_GRN"Arrive de st a l'adresse %d et la val = %d et pros %d\n"FC_ALL, (int)pros->ins, inf.val[1], pros->number);
 		if (inf.typ[1] == 1)
 		{
 			while (i < 4)

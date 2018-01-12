@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/10 02:47:00 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/12 03:48:29 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,12 @@ int			check_alive(int nb_champ, t_process *pro)
 
 t_process	*kill_them_all(t_process *pro)
 {
-	t_process	*tmp;
+//	t_process	*tmp;
 	t_process	*cpy;
+	t_process	*yolo;
 
 	cpy = pro;
-	if (cpy != NULL)
+	/*if (cpy != NULL)
 	{
 		if (cpy->live == 0)
 		{
@@ -89,19 +90,46 @@ t_process	*kill_them_all(t_process *pro)
 				cpy->next->live = 0;
 			cpy = cpy->next;
 		}
+	}*/
+	while (cpy != NULL)
+	{
+//		if (cpy->live == 0)
+//		{
+		//	ft_printf("kill the process %d\n", cpy->number);
+//			tmp = cpy->next;
+//			tmp->pre = cpy->pre;
+		//	yolo = cpy;
+		//	yolo->next = NULL;
+		//	yolo->pre = NULL;
+		//	free(yolo);
+//			cpy = tmp;
+//		}
+//		else
+			cpy = cpy->next;
+		if (cpy != NULL)
+			yolo = cpy;
+	}
+	cpy = yolo;
+	while (cpy != NULL)
+	{
+		cpy->live = 0;
+//		ft_printf("pros = %d\n", cpy->number);
+		cpy = cpy->pre;
 	}
 	return (pro);
 }
 
 int			count_pros(t_process *pro)
 {
+	t_process	*tmp;
 	int			i;
 
 	i = 0;
-	while (pro != NULL)
+	tmp = pro;
+	while (tmp != NULL)
 	{
 		i++;
-		pro = pro->next;
+		tmp = tmp->next;
 	}
 	return (i);
 }
@@ -116,7 +144,6 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	int			bol;
 	int			bol2;
 	char		*ret;
-	int			all_pro;
 	unsigned int	a;
 	unsigned int	b;
 	int			p;
@@ -132,7 +159,6 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	nb = 0;
 	p = 0;
 //	ft_printf("yolo\n");
-	all_pro = count_pros(pro);
 	while (cpy->next != NULL)
 		cpy = cpy->next;
 	while (cpy != NULL)
@@ -142,9 +168,9 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 //			ft_printf("bitch\n");
 		i = 0;
 		if (line != -1 && cpy->start_cycle == -1)
-			cpy->start_cycle = cycle - 1 + bol;
+			cpy->start_cycle = cycle + bol;
 //			ft_printf("debut\n");
-		if (line != -1 && cpy->start_cycle + g_op_tab[line].cycle == cycle)
+		if (line != -1 && (cpy->start_cycle + g_op_tab[line].cycle) - 1 == cycle)
 		{
 			if (!cpy->pc)
 			{
@@ -173,6 +199,8 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						b = *cpy->pc << 24;
 						a = (a << 8) | (b >> 24);
 					}
+				//	if (line == 0)
+					//	ft_printf("cpy-pc = %x a = %u\n", *cpy->pc, a);
 					//	if (line == 2 && cycle > 8900)
 					//		ft_printf("cpy->pc = %x adresse = %d et a = %d\n", *cpy->pc, cpy->pc, a);
 					cpy->pc++;
@@ -187,12 +215,16 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 				i++;
 			}
 			//	if (cpy->next == NULL)
-			if (line <= 17 && line >= 0)
+			/*if (line == 0 && inf.val[0] != -1)
+				ft_printf("cycle = %d\t", cycle);
+		*/	if (line <= 17 && line >= 0)
+			{
 				g_instructab[line](inf, cpy);
-			if (count_pros(pro) > all_pro)
+			}
+			/*if (count_pros(pro) > all_pro)
 				bol = 1;
 			else
-				bol = 0;
+				bol = 0;*/
 		//	ft_printf("Process = %d et Cycle = %d et nb = %d\n", cpy->number, cycle, count_pros(pro));
 			cpy->start_cycle = -1;
 			if (cpy->pc + 1 > inf.min_addr + MEM_SIZE)
@@ -207,6 +239,13 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 			cpy->pc = inf.min_addr;
 		cpy = cpy->pre;
 	//	ft_printf("FIN2\n");
+	}
+	cpy = pro;
+	i = 0;
+	while (cpy != NULL)
+	{
+		i++;
+		cpy = cpy->next;
 	}
 	return (pro);
 }
@@ -291,11 +330,11 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	val = 0;
 	while (42)
 	{
-		if (cycle >= 1)
-		{
-			//	ft_printf("TRUC\n");
+	//	if (cycle >= 1)
+	//	{
+	//		//	ft_printf("TRUC\n");
 			pro = gestion_process(pro, cycle, virtual, &val);
-		}
+	//	}
 		if (cycle_d == ctd)
 		{
 			if (check_alive(virtual.nb_pros, pro) <= 1)
@@ -314,7 +353,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 				check++;
 			pro = kill_them_all(pro);
 		}
-		if (cycle > 27200)
+		if (cycle > 22000)
 			break ;
 		//	{
 		cycle++;

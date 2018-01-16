@@ -6,14 +6,15 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:28:23 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/19 12:05:57 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/12 08:06:50 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_ldi(t_inf inf, t_process *pros)
+void		ft_ldi(t_inf inf, t_process *pros, t_pam arg)
 {
+	arg.ver = arg.ver;
 /*	char	*adr;
 	int		i;
 	int		res;

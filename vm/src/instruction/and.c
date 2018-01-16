@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:22:19 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/19 12:05:10 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/12 08:04:07 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_and(t_inf inf, t_process *pros)
+void		ft_and(t_inf inf, t_process *pros, t_pam arg)
 {
 	unsigned int		a;
 	unsigned int		b;
@@ -27,6 +27,7 @@ void		ft_and(t_inf inf, t_process *pros)
 	pros->carry = (res == 0) ? 1 : 0;
 	reg_write(pros, (unsigned int)res, inf.val[2], REG_SIZE);
 */
+	arg.ver = arg.ver;
 	a = 0x00;
 	b = 0x00;
 	if (inf.typ[0] == 1)

@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 12:00:11 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/06 07:42:09 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/12 12:02:37 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_ld(t_inf inf, t_process *pros)
+void		ft_ld(t_inf inf, t_process *pros, t_pam arg)
 {
 	unsigned int	res;
 //	int				y;
@@ -27,9 +27,14 @@ void		ft_ld(t_inf inf, t_process *pros)
 	else
 		pros->val[inf.val[1]] = inf.val[0];
 */
-	pros->carry = inf.val[0] == 0 ? 1 : 0;
-	res = inf.val[0];
-//	ft_printf(C_RED"ld a l'adresse %d avec res = %d et pros numero %d registre %d\n"FC_ALL, (int)pros->ins, res, pros->number, inf.val[1]);
-	pros->val[inf.val[1]] = (int)res;
-	reg_write(pros, res, inf.val[1], REG_SIZE);
+	if (inf.val[1] >= 0 && inf.val[1] <= 16)
+	{
+		pros->carry = inf.val[0] == 0 ? 1 : 0;
+		res = inf.val[0];
+	//	ft_printf(C_RED"ld a l'adresse %d avec res = %d et pros numero %d registre %d\n"FC_ALL, (int)pros->ins, res, pros->number, inf.val[1]);
+		if (arg.ver == 14)
+			ft_printf("ld a l'adresse %d sur r%d et la valeur %d\n", pros->ins, inf.val[1], inf.val[0]);
+		pros->val[inf.val[1]] = (int)res;
+		reg_write(pros, res, inf.val[1], REG_SIZE);
+	}
 }

@@ -6,19 +6,20 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:19:03 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/19 14:09:45 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/12 08:03:45 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_add(t_inf inf, t_process *pros)
+void		ft_add(t_inf inf, t_process *pros, t_pam arg)
 {
 	unsigned int		res;
 	int					i;
 	int					ff;
 	int					fuck;
 
+	arg.ver = arg.ver;
 	ff = 0;
 	fuck = 0;
 	/*if (inf.val[0] != 0 || inf.val[1] != 0)

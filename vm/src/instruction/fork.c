@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/06 07:54:27 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/12 12:20:04 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-t_process	*dup_pros(t_process *src, t_inf inf)
+t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 {
 	t_process	*new;
 	t_process	*tmp;
@@ -43,6 +43,8 @@ t_process	*dup_pros(t_process *src, t_inf inf)
 	new->pc = NULL;
 	new->carry = src->carry;
 	new->live = 1;
+	new->line = -1;
+	new->seek = 0;
 	new->start_cycle = -1;
 	if (nb == 0 && src->number == 0)
 		new->number = 1;//
@@ -55,11 +57,12 @@ t_process	*dup_pros(t_process *src, t_inf inf)
 	tmp->next = new;
 	new->pre = tmp;
 	tmp = src;
-//	ft_printf("le process numero %d est entrain de fork pour creer le numero %d\n", src->number, new->number);
+	if (arg.ver == 14)
+		ft_printf("le process %d fork  %d\n", src->number, inf.val[0] % IDX_MOD);
 	return (tmp);
 }
 
-void	ft_fork(t_inf inf, t_process *pros)
+void	ft_fork(t_inf inf, t_process *pros, t_pam arg)
 {
-	pros = dup_pros(pros, inf);
+	pros = dup_pros(pros, inf, arg);
 }

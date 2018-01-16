@@ -6,18 +6,20 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:25:27 by rostroh           #+#    #+#             */
-/*   Updated: 2017/12/19 12:05:27 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/12 08:10:24 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_xor(t_inf inf, t_process *pros)
+void		ft_xor(t_inf inf, t_process *pros, t_pam arg)
 {
 	unsigned int	res;
 	unsigned int	a;
 	unsigned int	b;
 	int				i;
+
+	arg.ver = arg.ver;
 /*
 //	ft_printf(C_BLU"xor je t'envois au combat\t"FC_ALL);
 	if (inf.typ[0] == 1)

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/08 07:50:37 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/12 12:19:43 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ t_process	*add_new_process(t_process *srt, int nb)
 	new->start_cycle = -1;
 	new->number = nb;
 	new->champ = nb;
+	new->seek = 0;
+	new->line = -1;
 	new->next = NULL;
 	new->pre = NULL;
 	if (!srt)

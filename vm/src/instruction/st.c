@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:10:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/16 13:49:11 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/16 20:21:48 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,12 @@ void		ft_st(t_inf inf, t_process *pros, t_pam arg)
 			adr = adr - (inf.min_addr + MEM_SIZE) + inf.min_addr;
 		i = 0;
 		j = 0;
-		if (arg.ver == 14 && pros->number != 12)
-			ft_printf("st du process %d sur r%d avec pour valeur %d et pour pc %d et adr min = %d\n", pros->number, inf.val[0], res, pros->ins, inf.min_addr);
-		if (arg.ver == 14 && pros->number == 12)
-			ft_printf(C_RED"st du process %d sur r%d avec pour valeur %d et pour pc %d et adr min = %d\n"FC_ALL, pros->number, inf.val[0], res, pros->ins, inf.min_addr);
+		arg.ver = arg.ver;
+		if (arg.ver == 14)
+			ft_printf("P%5d | st r%d %d\n", pros->number, inf.val[0], res);
+			//ft_printf("st du process %d sur r%d avec pour valeur %d et pour pc %d et adr min = %d\n", pros->number, inf.val[0], res, pros->ins, inf.min_addr);
+//		if (arg.ver == 14 && pros->number == 12)
+//			ft_printf(C_RED"st du process %d sur r%d avec pour valeur %d et pour pc %d et adr min = %d\n"FC_ALL, pros->number, inf.val[0], res, pros->ins, inf.min_addr);
 //		ft_printf(C_RED"yolo adr tu fais quoi %d\n"FC_ALL, adr);
 //			ft_printf(C_BLU"inst = %d adr = %d\n"FC_ALL, pros->ins, inf.val[0]);
 //		ft_printf("----------------cancer en approche--------------\n");

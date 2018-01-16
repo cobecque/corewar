@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/16 15:39:16 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/16 20:23:42 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int			check_alive(int nb_champ, t_process *pro)
 	return (nb_chicken);
 }
 
-t_process	*kill_them_all(t_process *pro)
+t_process	*kill_them_all(t_process *pro, int cycle, int ctd)
 {
 	t_process	*tmp;
 	t_process	*cpy;
@@ -94,21 +94,23 @@ t_process	*kill_them_all(t_process *pro)
 	  }*/
 	yolo = NULL;
 	tmp = NULL;
+	while (cpy->next != NULL)
+		cpy = cpy->next;
 	while (cpy != NULL)
 	{
 		if (cpy->live == 0)
 		{
-		//		ft_printf("cpy->number %d\n", cpy->number);
-		tmp = cpy->next;
-		tmp->pre = cpy->pre;
+			ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n", cpy->number, cycle - cpy->last_live, ctd);
+			tmp = cpy->pre;
+			tmp->next = cpy->next;
 		//	yolo = cpy;
 		//	yolo->next = NULL;
 		//	yolo->pre = NULL;
 		//	free(yolo);
-		cpy = tmp;
+			cpy = tmp;
 		}
 		else
-			cpy = cpy->next;
+			cpy = cpy->pre;
 		if (cpy != NULL)
 			yolo = cpy;
 	}
@@ -117,7 +119,7 @@ t_process	*kill_them_all(t_process *pro)
 	{
 		cpy->live = 0;
 		//		ft_printf("pros = %d\n", cpy->number);
-		cpy = cpy->pre;
+		cpy = cpy->next;
 	}
 	return (pro);
 }
@@ -161,7 +163,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	nb = 0;
 	p = 0;
 	if (vm.arg.ver == 14)
-		ft_printf("Au cycle %d\n", cycle);
+		ft_printf("It is now cycle %d\n", cycle);
 	while (cpy->next != NULL)
 		cpy = cpy->next;
 	while (cpy != NULL)
@@ -342,7 +344,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	int		cycle_d;
 
 	check = 0;
-	cycle = 0;
+	cycle = 1;
 	cycle_d = 0;
 	//	dump(virtual.addr);
 	//	ft_putchar('\n');
@@ -362,19 +364,19 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 				//	break ;
 			}
 			cycle_d = 0;
+			pro = kill_them_all(pro, cycle, ctd);
 			if (count_live(pro) >= NBR_LIVE || check == 10)
 			{
 				check = 0;
 				ctd -= CYCLE_DELTA;
-				//		ft_printf("Cycle to die = %d\n", ctd);
+				ft_printf("Cycle to die is now %d\n", ctd);
 				if (ctd < 0)
 					break ;
 			}
 			else
 				check++;
-			pro = kill_them_all(pro);
 		}
-		if (cycle > 20000)
+		if (cycle == 27439)
 		{
 			break ;
 		}
@@ -385,6 +387,11 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	}
 	//	ft_printf("cycle = %d\n", cycle);
 	//	ft_printf("\n");
-	dump(virtual.addr);
+	while (pro != NULL)
+	{
+		ft_printf("number = %d\n", pro->number);
+		pro = pro->next;
+	}
+//	dump(virtual.addr);
 	return (winner(pro));
 }

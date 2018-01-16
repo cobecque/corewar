@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 12:16:41 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/16 18:57:54 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct				s_process
 	int						carry;
 	int						line;
 	int						live;
+	int						last_live;
 	int						seek;
 	t_inf					inf;
 	int						champ;

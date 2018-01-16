@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 12:19:43 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/16 18:53:10 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,18 @@ t_process	*add_new_process(t_process *srt, int nb)
 		i++;
 		new->val[i] = 0;
 	}
-	new->val[1] = (unsigned int)nb + 1;
+	new->val[1] = (unsigned int)nb;
 	//reg_write(new, (unsigned int)nb + 1, 1, 4);
 	new->reg[1][0] = 255;
 	new->reg[1][1] = 255;
 	new->reg[1][2] = 255;
-	new->reg[1][3] = 255 - nb;
+	new->reg[1][3] = 255 - nb + 1;
 	begin = srt;
 	new->pc = NULL;
 	new->ins = NULL;
 	new->carry = 0;
 	new->live = 0;
+	new->last_live = 0;
 	new->start_cycle = -1;
 	new->number = nb;
 	new->champ = nb;
@@ -118,7 +119,7 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 	}
 	while (i < data.nb_pros)
 	{
-		ret = add_new_process(ret, i);
+		ret = add_new_process(ret, i + 1);
 		if (cpy == NULL)
 			cpy = ret;
 		else

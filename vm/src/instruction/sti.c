@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 11:32:25 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/16 13:39:27 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ void		ft_sti(t_inf inf, t_process *pros, t_pam arg)
 	j = 0;
 	if (arg.ver == 14)
 		ft_printf("sti sur le r%d avec pour valeur %d\n", inf.val[0], res);
-	ft_printf(C_RED"%d\n"FC_ALL, inf.min_addr);
+//	ft_printf(C_RED"%d\n"FC_ALL, inf.min_addr);
 	while (j < 4)
 	{
 		if ((adr + j) >= inf.min_addr + MEM_SIZE)

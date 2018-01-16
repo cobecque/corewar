@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 12:20:04 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/16 13:57:56 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 	new->pre = tmp;
 	tmp = src;
 	if (arg.ver == 14)
-		ft_printf("le process %d fork  %d\n", src->number, inf.val[0] % IDX_MOD);
+		ft_printf("le process %d fork  %d a l'adresse %d\n", src->number, inf.val[0] % IDX_MOD, new->pc);
 	return (tmp);
 }
 

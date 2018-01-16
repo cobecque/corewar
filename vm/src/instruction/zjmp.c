@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:26:36 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 09:30:25 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/16 14:22:18 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ void		ft_zjmp(t_inf inf, t_process *pros, t_pam arg)
 	if (pros->carry == 1)
 	{
 		if (arg.ver == 14)
-			ft_printf("pros = %d zjmp OK\n", pros->number);
+			ft_printf("pros = %d zjmp OK avec %d\n", pros->number, inf.val[0] % IDX_MOD);
 //		ft_putstr("hey\n");
-		pros->ins = pros->ins + (inf.val[0]  % IDX_MOD);
+	//	if (inf.val[0] >= 0)
+			pros->ins = pros->ins + (inf.val[0]  % IDX_MOD);
+	//	if (inf.val[0] < 0)
+	//		pros->ins = pros->ins + (inf.val[0]  % IDX_MOD);
 		pros->pc = pros->ins;
 	}
 }

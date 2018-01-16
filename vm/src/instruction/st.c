@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:10:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 10:09:47 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/16 13:49:11 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void		ft_st(t_inf inf, t_process *pros, t_pam arg)
 				i = 0;
 			}
 			*(adr + i) = pros->reg[inf.val[0]][j]; //SEGF sur max adr
-//			ft_printf(C_BLU"inst = %d adr = %d et valeur = %d\n"FC_ALL, pros->ins, (adr + i), pros->reg[inf.val[0]][j]);
+			//ft_printf(C_BLU"inst = %d adr = %d et valeur = %d\n"FC_ALL, pros->ins, (adr + i), pros->reg[inf.val[0]][j]);
 			j++;
 			i++;
 		}

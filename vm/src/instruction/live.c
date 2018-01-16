@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 14:25:54 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 10:09:58 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/16 13:35:40 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,5 @@ void		ft_live(t_inf inf, t_process *pro, t_pam arg)
 		pro->live++;
 //		ft_printf(" a %d live\n", pro->live);
 	}
+	//ft_printf("le process %d a %d nombre de live\n", pro->number, pro->live);
 }

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/16 20:21:37 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/17 21:12:54 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 	new->pc = NULL;
 	new->carry = src->carry;
 	new->live = 1;
-	new->last_live = src->start_cycle + 800;
+	new->last_live = src->start_cycle;
 	new->line = -1;
 	new->seek = 0;
 	new->start_cycle = -1;

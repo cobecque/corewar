@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/16 20:23:42 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/17 19:55:32 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,33 +65,13 @@ int			check_alive(int nb_champ, t_process *pro)
 	return (nb_chicken);
 }
 
-t_process	*kill_them_all(t_process *pro, int cycle, int ctd)
+t_process	*kill_them_all(t_process *pro, t_vm vm, int cycle, int ctd)
 {
 	t_process	*tmp;
 	t_process	*cpy;
 	t_process	*yolo;
 
 	cpy = pro;
-	//ft_printf("Arrive au cycle to die\n");
-	/*if (cpy != NULL)
-	  {
-	  if (cpy->live == 0)
-	  {
-	  tmp = cpy;
-	  tmp = cpy->next;
-	  }
-	  while (cpy->next != NULL)
-	  {
-	  if (cpy->next->live == 0)
-	  {
-	  tmp = cpy->next;
-	  tmp->next = tmp->next;
-	  }
-	  else
-	  cpy->next->live = 0;
-	  cpy = cpy->next;
-	  }
-	  }*/
 	yolo = NULL;
 	tmp = NULL;
 	while (cpy->next != NULL)
@@ -100,25 +80,36 @@ t_process	*kill_them_all(t_process *pro, int cycle, int ctd)
 	{
 		if (cpy->live == 0)
 		{
-			ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n", cpy->number, cycle - cpy->last_live, ctd);
-			tmp = cpy->pre;
-			tmp->next = cpy->next;
-		//	yolo = cpy;
-		//	yolo->next = NULL;
-		//	yolo->pre = NULL;
-		//	free(yolo);
-			cpy = tmp;
+			if (vm.arg.ver == 14)
+				ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n", cpy->number, cycle - cpy->last_live, ctd);
+			/*	tmp = cpy->pre;
+				if (tmp == NULL)
+				{
+				yolo->pre = NULL;
+				break;
+				}
+				if (cpy->next)
+				tmp->next = cpy->next;
+				else
+				tmp->next = NULL;
+			//	yolo = cpy;
+			//	yolo->next = NULL;
+			//	yolo->pre = NULL;
+			//	free(yolo);
+			cpy = tmp;*/
+			cpy->live = -1;
 		}
-		else
-			cpy = cpy->pre;
-		if (cpy != NULL)
-			yolo = cpy;
+		//	else
+		cpy = cpy->pre;
+		/*	if (cpy != NULL)
+			yolo = cpy;*/
 	}
-	cpy = yolo;
+	//	cpy = yolo;
+	cpy = pro;
 	while (cpy != NULL)
 	{
-		cpy->live = 0;
-		//		ft_printf("pros = %d\n", cpy->number);
+		if (cpy->live != -1)
+			cpy->live = 0;
 		cpy = cpy->next;
 	}
 	return (pro);
@@ -168,57 +159,19 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 		cpy = cpy->next;
 	while (cpy != NULL)
 	{
-		if (cpy->seek == 0)
-			cpy->line = get_line(*(cpy->pc));
-		i = 0;
-		if (cpy->line != -1 && cpy->start_cycle == -1)
+		if (cpy->live != -1)
 		{
-			cpy->seek = 1;
-			if (cycle != 0)
-				cpy->start_cycle = cycle - 1;
-			else
-				cpy->start_cycle = cycle;
-		}
-/*		if (cpy->line != -1 && cpy->start_cycle != -1)//&& cpy->start_cycle + g_op_tab[line].cycle == cycle)
-		{
-			if (cpy->seek == 1 && cpy->line != 2)
+			if (cpy->seek == 0)
+				cpy->line = get_line(*(cpy->pc));
+			i = 0;
+			if (cpy->line != -1 && cpy->start_cycle == -1)
 			{
-				if (!cpy->pc)
-					break ;
-				cpy->ins = cpy->pc;
-				cpy->pc++;
-				cpy->inf = add_elem(cpy->line, *(cpy->pc));
-				cpy->inf.min_addr = vm.addr;
-				if (have_ocp(cpy->line) == 0)
-					cpy->pc++;
-				if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
-					return (NULL);
-				while (i < g_op_tab[cpy->line].nb_arg)
-				{
-					p = 0;
-					while (p < cpy->inf.l[i])
-					{
-						if (p == 0)
-							a = *cpy->pc;
-						else
-						{
-							b = *cpy->pc << 24;
-							a = (a << 8) | (b >> 24);
-						}
-						cpy->pc++;
-						//		if (cpy->line == 0)
-						//			ft_printf("line\t");
-						p++;
-					}
-					cpy->inf.val[i] = a;
-					//				if (cycle > 8000)
-					//					ft_printf("cpy->pc %d et a %d et process %d a l'adresse %d\n", *cpy->pc, a, cpy->number, cpy->pc);
-					i++;
-				}
-				//	if (cpy->line == 0)
-				//		ft_printf("\n");
-				cpy->seek = 2;
-			}*/
+				cpy->seek = 1;
+				if (cycle != 0)
+					cpy->start_cycle = cycle - 1;
+				else
+					cpy->start_cycle = cycle;
+			}
 			if (cpy->start_cycle + g_op_tab[cpy->line].cycle == cycle && cpy->line <= 17 && cpy->line >= 0)
 			{
 				if (cpy->seek == 1)
@@ -263,10 +216,11 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 					cpy->seek = 0;
 				}
 			}
-		else if (cpy->line == -1)
-			cpy->pc++;
-		if (cpy->pc >= inf.min_addr + MEM_SIZE)
-			cpy->pc = inf.min_addr;
+			else if (cpy->line == -1)
+				cpy->pc++;
+			if (cpy->pc >= inf.min_addr + MEM_SIZE)
+				cpy->pc = inf.min_addr;
+		}
 		cpy = cpy->pre;
 	}
 	return (pro);
@@ -341,6 +295,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	int		val;
 	int		check;
 	int		cycle;
+	int		die;
 	int		cycle_d;
 
 	check = 0;
@@ -350,6 +305,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	//	ft_putchar('\n');
 	//	dump(virtual.addr);
 	val = 0;
+	die = 0;
 	while (42)
 	{
 		//	if (cycle >= 1)
@@ -361,24 +317,30 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 		{
 			if (check_alive(virtual.nb_pros, pro) <= 1)
 			{
-				//	break ;
+				;
 			}
 			cycle_d = 0;
-			pro = kill_them_all(pro, cycle, ctd);
-			if (count_live(pro) >= NBR_LIVE || check == 10)
+			die = count_live(pro);
+			pro = kill_them_all(pro, virtual, cycle, ctd);
+			if (die >= NBR_LIVE || check == 10)
 			{
 				check = 0;
 				ctd -= CYCLE_DELTA;
-				ft_printf("Cycle to die is now %d\n", ctd);
+				if (virtual.arg.ver == 14)
+					ft_printf("Cycle to die is now %d\n", ctd);
 				if (ctd < 0)
+				{
+					pro = kill_them_all(pro, virtual, cycle, ctd);
 					break ;
+				}
 			}
 			else
 				check++;
 		}
-		if (cycle == 27439)
+		if (virtual.arg.dump != 0 && cycle == virtual.arg.dump)
 		{
-			break ;
+			dump(virtual.addr);
+		  break ;
 		}
 		//	{
 		cycle++;
@@ -387,11 +349,10 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 	}
 	//	ft_printf("cycle = %d\n", cycle);
 	//	ft_printf("\n");
-	while (pro != NULL)
-	{
+	/*	while (pro != NULL)
+		{
 		ft_printf("number = %d\n", pro->number);
 		pro = pro->next;
-	}
-//	dump(virtual.addr);
+		}*/
 	return (winner(pro));
 }

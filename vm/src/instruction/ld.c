@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 12:00:11 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/16 20:21:42 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/18 00:56:02 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		ft_ld(t_inf inf, t_process *pros, t_pam arg)
 	else
 		pros->val[inf.val[1]] = inf.val[0];
 */
-	if (inf.val[1] >= 0 && inf.val[1] <= 16)
+	if (inf.val[1] > 0 && inf.val[1] <= 16)
 	{
 		pros->carry = inf.val[0] == 0 ? 1 : 0;
 		res = inf.val[0];

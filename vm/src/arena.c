@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/17 19:55:32 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/18 00:13:39 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,18 @@ t_process	*kill_them_all(t_process *pro, t_vm vm, int cycle, int ctd)
 		cpy = cpy->next;
 	while (cpy != NULL)
 	{
-		if (cpy->live == 0)
+		if (ctd < 0)
 		{
+			if (cpy->live != -1)
+			{
+				if (vm.arg.ver == 14)
+					ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n", cpy->number, cycle - cpy->last_live, ctd);
+				cpy->live = -1;
+			}
+		}
+		else if ((cycle - cpy->last_live - ctd > 0) && cpy->live != -1)//if (cpy->live == 0)
+		{
+			//ft_printf("-> doggo cycle %d ll %d ctd %d\n", cycle, cpy->last_live, ctd);
 			if (vm.arg.ver == 14)
 				ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n", cpy->number, cycle - cpy->last_live, ctd);
 			/*	tmp = cpy->pre;
@@ -180,10 +190,16 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						break ;
 					cpy->ins = cpy->pc;
 					cpy->pc++;
+					if (cpy->pc >= inf.min_addr + MEM_SIZE)
+						cpy->pc = inf.min_addr;
 					cpy->inf = add_elem(cpy->line, *(cpy->pc));
 					cpy->inf.min_addr = vm.addr;
 					if (have_ocp(cpy->line) == 0)
+					{
 						cpy->pc++;
+						if (cpy->pc >= inf.min_addr + MEM_SIZE)
+							cpy->pc = inf.min_addr;
+					}
 					if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
 						return (NULL);
 					while (i < g_op_tab[cpy->line].nb_arg)
@@ -199,6 +215,8 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 								a = (a << 8) | (b >> 24);
 							}
 							cpy->pc++;
+							if (cpy->pc >= inf.min_addr + MEM_SIZE)
+								cpy->pc = inf.min_addr;
 							//		if (cpy->line == 0)
 							//			ft_printf("line\t");
 							p++;
@@ -311,7 +329,6 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 		//	if (cycle >= 1)
 		//	{
 		//		//	ft_printf("TRUC\n");
-		pro = gestion_process(pro, cycle, virtual, &val);
 		//	}
 		if (cycle_d == ctd)
 		{
@@ -337,22 +354,18 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 			else
 				check++;
 		}
+		pro = gestion_process(pro, cycle, virtual, &val);
 		if (virtual.arg.dump != 0 && cycle == virtual.arg.dump)
 		{
 			dump(virtual.addr);
 		  break ;
 		}
+		if (cycle == virtual.arg.end)
+			break ;
 		//	{
 		cycle++;
 		cycle_d++;
 		//	}
 	}
-	//	ft_printf("cycle = %d\n", cycle);
-	//	ft_printf("\n");
-	/*	while (pro != NULL)
-		{
-		ft_printf("number = %d\n", pro->number);
-		pro = pro->next;
-		}*/
 	return (winner(pro));
 }

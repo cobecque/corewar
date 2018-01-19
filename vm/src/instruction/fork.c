@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/17 21:12:54 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/18 00:53:47 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 	new->pc = NULL;
 	new->carry = src->carry;
 	new->live = 1;
-	new->last_live = src->start_cycle;
+	new->last_live = src->start_cycle + 1;
 	new->line = -1;
 	new->seek = 0;
 	new->start_cycle = -1;
@@ -52,14 +52,16 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 	else
 		new->number = tmp->number + 1;
 	new->champ = src->champ;
-	new->ins = src->ins + (inf.val[0] % IDX_MOD);
+	new->ins = src->ins + (inf.val[0]);
 	new->pc = new->ins;
 	new->next = NULL;
 	tmp->next = new;
 	new->pre = tmp;
 	tmp = src;
-	if (arg.ver == 14)
-		ft_printf("P%5d | fork %d (%d)\n", src->number, inf.val[0], src->ins - inf.min_addr + inf.val[0] % IDX_MOD);
+	if (arg.ver == 14 && src->line == 11)
+		ft_printf("P%5d | fork %d (%d)\n", src->number, inf.val[0], src->ins - inf.min_addr + inf.val[0]);
+	if (arg.ver == 14 && src->line == 14)
+		ft_printf("P%5d | lfork %d (%d)\n", src->number, inf.val[0], src->ins - inf.min_addr + inf.val[0]);
 		//ft_printf("le process %d fork  %d a l'adresse %d\n", src->number, inf.val[0] % IDX_MOD, new->pc);
 	return (tmp);
 }

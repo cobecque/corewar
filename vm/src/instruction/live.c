@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 14:25:54 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/17 21:10:41 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/18 00:09:06 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		ft_live(t_inf inf, t_process *pro, t_pam arg)
 //		if (arg.ver == 14)
 //			ft_printf("le process %d vie avec pour valeur a = %d et b = %d\n", pro->number, a, b);
 		pro->live++;
-		pro->last_live = pro->start_cycle + 10;
+		pro->last_live = pro->start_cycle + 11;
 //		ft_printf(" a %d live\n", pro->live);
 //	}
 	//ft_printf("le process %d a %d nombre de live\n", pro->number, pro->live);

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:10:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/19 17:23:21 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/19 21:26:05 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		ft_st(t_inf inf, t_process *pros, t_pam arg)
 		{
 			while (i < 4)
 			{
-				res += pros->reg[inf.val[1]][i];
+				res = (res << 8) | (pros->reg[inf.val[1]][i]);
 //				ft_printf(C_RED"yolo res tu fais quoi %d\n"FC_ALL, res);
 				i++;
 			}

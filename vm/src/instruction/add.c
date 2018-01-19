@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:19:03 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 08:03:45 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/19 18:42:21 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void		ft_add(t_inf inf, t_process *pros, t_pam arg)
 			}
 			i++;
 		}
+		if (arg.ver == 14)
+			ft_printf("P%5d | add r%d r%d r%d\n", pros->number, inf.val[0], inf.val[1], inf.val[2]);
 		//ft_printf(C_GRN"yolo yolo pros numero %d avec res = %d\n"FC_ALL, pros->number, res);
 		pros->carry = (res == 0) ? 1 : 0;
 		pros->val[inf.val[2]] = (int)res;

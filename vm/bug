@@ -1,2890 +1,1395 @@
-1764788d1764787
-< P 1971 | st r15 15
-1795929d1795927
-< P 1971 | st r15 15
-1828748d1828745
-< P 1430 | ld 15 r15
-1835219d1835215
-< P 1614 | st r15 15
-1938611c1938607
-< P 1430 | zjmp -280 KO
+101279a101280
+> P    4 | zjmp -1 OK
+101290d101290
+< P    4 | zjmp 880 OK
+101345d101344
+< P    4 | ld 0 r16
+101472a101472
+> P    4 | zjmp -1 OK
+101522d101521
+< P    4 | zjmp -47 OK
+101613d101611
+< P    4 | live -1
+101656a101655
+> P    4 | zjmp -1 OK
+101856a101856
+> P    4 | zjmp -1 OK
+101861,101862d101860
+< P    4 | sti r4 153 96
+<        | -> store to 153 + 96 = 249 (with pc and mod 586)
+101950d101947
+< P    4 | add r2 r3 r2
+102049a102047
+> P    4 | zjmp -1 OK
+102184,102185d102181
+< P    4 | sti r4 142 100
+<        | -> store to 142 + 100 = 242 (with pc and mod 590)
+102256a102253
+> P    4 | zjmp -1 OK
+102274d102270
+< P    4 | add r2 r3 r2
+102359d102354
+< P    4 | live -1
+102435d102429
+< P    4 | xor 104 96 r15
+102440a102435
+> P    4 | zjmp -1 OK
+102625d102619
+< P    4 | zjmp -89 FAILED
+102637a102632
+> P    4 | zjmp -1 OK
+102688d102682
+< P    4 | ld 0 r16
+102833a102828
+> P    4 | zjmp -1 OK
+102865d102859
+< P    4 | zjmp -47 OK
+102951d102944
+< P    4 | live -1
+103016a103010
+> P    4 | zjmp -1 OK
+103175,103176d103168
+< P    4 | sti r4 153 104
+<        | -> store to 153 + 104 = 257 (with pc and mod 594)
+103230a103223
+> P    4 | zjmp -1 OK
+103265d103257
+< P    4 | add r2 r3 r2
+103427a103420
+> P    4 | zjmp -1 OK
+103510,103511d103502
+< P    4 | sti r4 142 108
+<        | -> store to 142 + 108 = 250 (with pc and mod 598)
+103608d103598
+< P    4 | add r2 r3 r2
+103616a103607
+> P    4 | zjmp -1 OK
+103691d103681
+< P    4 | live -1
+103746d103735
+< P    4 | xor 112 96 r15
+103813a103803
+> P    4 | zjmp -1 OK
+103921d103910
+< P    4 | zjmp -89 FAILED
+103996d103984
+< P    4 | ld 0 r16
+104009a103998
+> P    4 | zjmp -1 OK
+104173d104161
+< P    4 | zjmp -47 OK
+104196a104185
+> P    4 | zjmp -1 OK
+104263d104251
+< P    4 | live -1
+104397a104386
+> P    4 | zjmp -1 OK
+104483,104484d104471
+< P    4 | sti r4 153 112
+<        | -> store to 153 + 112 = 265 (with pc and mod 602)
+104584d104570
+< P    4 | add r2 r3 r2
+104593a104580
+> P    4 | zjmp -1 OK
+104780a104768
+> P    4 | zjmp -1 OK
+104828,104829d104815
+< P    4 | sti r4 142 116
+<        | -> store to 142 + 116 = 258 (with pc and mod 606)
+104917d104902
+< P    4 | add r2 r3 r2
+104974a104960
+> P    4 | zjmp -1 OK
+105011d104996
+< P    4 | live -1
+105062d105046
+< P    4 | xor 120 96 r15
+105181a105166
+> P    4 | zjmp -1 OK
+105231d105215
+< P    4 | zjmp -89 FAILED
+105304d105287
+< P    4 | ld 0 r16
+105389a105373
+> P    4 | zjmp -1 OK
+105476d105459
+< P    4 | zjmp -47 OK
+105567c105550
+< P    4 | live -1
 ---
-> P 1430 | zjmp -280 OK
-1940584c1940580
-< P 1430 | live 0
+> P    4 | zjmp -1 OK
+105768a105752
+> P    4 | zjmp -1 OK
+105801,105802d105784
+< P    4 | sti r4 153 120
+<        | -> store to 153 + 120 = 273 (with pc and mod 610)
+105897d105878
+< P    4 | add r2 r3 r2
+105986a105968
+> P    4 | zjmp -1 OK
+106157,106158d106138
+< P    4 | sti r4 142 124
+<        | -> store to 142 + 124 = 266 (with pc and mod 614)
+106174a106155
+> P    4 | zjmp -1 OK
+106252d106232
+< P    4 | add r2 r3 r2
+106335d106314
+< P    4 | live -1
+106383a106363
+> P    4 | zjmp -1 OK
+106396d106375
+< P    4 | xor 128 96 r15
+106579a106559
+> P    4 | zjmp -1 OK
+106583d106562
+< P    4 | zjmp -89 FAILED
+106656d106634
+< P    4 | ld 0 r16
+106772a106751
+> P    4 | zjmp -1 OK
+106840d106818
+< P    4 | zjmp -47 OK
+106934d106911
+< P    4 | live -1
+106987a106965
+> P    4 | zjmp -1 OK
+107159,107160d107136
+< P    4 | sti r4 153 128
+<        | -> store to 153 + 128 = 281 (with pc and mod 618)
+107195a107172
+> P    4 | zjmp -1 OK
+107258d107234
+< P    4 | add r2 r3 r2
+107414a107391
+> P    4 | zjmp -1 OK
+107512,107513d107488
+< P    4 | sti r4 142 132
+<        | -> store to 142 + 132 = 274 (with pc and mod 622)
+107603a107579
+> P    4 | zjmp -1 OK
+107606d107581
+< P    4 | add r2 r3 r2
+107704d107678
+< P    4 | live -1
+107757d107730
+< P    4 | xor 136 96 r15
+107799a107773
+> P    4 | zjmp -1 OK
+107936d107909
+< P    4 | zjmp -89 FAILED
+108013c107986
+< P    4 | ld 0 r16
 ---
-> P 1430 | live -1
-1941161a1941158
-> P 1430 | st r2 -256
-1946697a1946695
-> P 1430 | live 196539
-1947463a1947462
-> P 1430 | st r2 -78
-1948570a1948570
-> P 1430 | st r2 -87
-1949315a1949316
-> P 1430 | st r2 -96
-1952746a1952748
-> P 1430 | st r2 -132
-1954059a1954062
-> P 1430 | st r2 -141
-1954604a1954608
-> P 1430 | st r2 -150
-1955858a1955863
-> P 1430 | st r2 -159
-1956412a1956418
-> P 1430 | st r2 -168
-1957778a1957785
-> P 1430 | st r2 -177
-1958324a1958332
-> P 1430 | st r2 -186
-1959628a1959637
-> P 1430 | st r2 -195
-1960166a1960176
-> P 1430 | st r2 -204
-1961413a1961424
-> P 1430 | st r2 -213
-1961970a1961982
-> P 1430 | st r2 -222
-1963347a1963360
-> P 1430 | st r2 -231
-1963902a1963916
-> P 1430 | st r2 -240
-1965217a1965232
-> P 1430 | st r2 -249
-1965762a1965778
-> P 1430 | st r2 -258
-1967005a1967022
-> P 1430 | st r2 -267
-1967557a1967575
-> P 1430 | st r2 -276
-1968928a1968947
-> P 1430 | st r2 -285
-1969539a1969559
-> P 1430 | st r2 -294
-1970815a1970836
-> P 1430 | st r2 -303
-1971335a1971357
-> P 1430 | st r2 -312
-1972545a1972568
-> P 1430 | st r2 -321
-1973062a1973086
-> P 1430 | st r2 -330
-1974391a1974416
-> P 1430 | st r2 -339
-1974923a1974949
-> P 1430 | st r2 -348
-1976213a1976240
-> P 1430 | st r2 -357
-1976730a1976758
-> P 1430 | st r2 -366
-1977941a1977970
-> P 1430 | st r2 -375
-1978447a1978477
-> P 1430 | st r2 -384
-1979768a1979799
-> P 1430 | st r2 -393
-1980276a1980308
-> P 1430 | st r2 -402
-1981559a1981592
-> P 1430 | st r2 -411
-1982058a1982092
-> P 1430 | st r2 -420
-1983253a1983288
-> P 1430 | st r2 -429
-1983749a1983785
-> P 1430 | st r2 -438
-1985055a1985092
-> P 1430 | st r2 -447
-1985550a1985588
-> P 1430 | st r2 -456
-1986811a1986850
-> P 1430 | st r2 -465
-1987296a1987336
-> P 1430 | st r2 -474
-1988462a1988503
-> P 1430 | st r2 -483
-1988936a1988978
-> P 1430 | st r2 -492
-1990216a1990259
-> P 1430 | st r2 -501
-1990679a1990723
-> P 1430 | st r2 -510
-1994011a1994056
-> P 1430 | zjmp -280 OK
-1995752a1995798
-> P 1430 | live -1
-1996979a1997026
-> P 1430 | st r2 -256
-2001891a2001939
-> Process 1770 hasn't lived for 186 cycles (CTD 186)
-2001912d2001959
-< Process 1430 hasn't lived for 339 cycles (CTD 186)
-2001920a2001968
-> Process 1317 hasn't lived for 186 cycles (CTD 186)
-2001953a2002002
-> Process 982 hasn't lived for 186 cycles (CTD 186)
-2001983a2002033
-> Process 678 hasn't lived for 186 cycles (CTD 186)
-2002030a2002081
-> Process 289 hasn't lived for 186 cycles (CTD 186)
-2002116d2002166
-< P 1770 | st r2 -411
-2002127a2002178
-> P 1430 | live 196539
-2002130d2002180
-< P 1317 | st r2 -411
-2002143d2002192
-< P  982 | st r2 -411
-2002157d2002205
-< P  678 | st r2 -411
-2002177d2002224
-< P  289 | st r2 -411
-2002432d2002478
-< P 1770 | st r2 -420
-2002443a2002490
-> P 1430 | st r2 -78
-2002446d2002492
-< P 1317 | st r2 -420
-2002459d2002504
-< P  982 | st r2 -420
-2002474d2002518
-< P  678 | st r2 -420
-2002494d2002537
-< P  289 | st r2 -420
-2003448d2003490
-< P 1770 | st r2 -429
-2003458a2003501
-> P 1430 | st r2 -87
-2003462d2003504
-< P 1317 | st r2 -429
-2003476d2003517
-< P  982 | st r2 -429
-2003494d2003534
-< P  678 | st r2 -429
-2003517d2003556
-< P  289 | st r2 -429
-2003786d2003824
-< P 1770 | st r2 -438
-2003795a2003834
-> P 1430 | st r2 -96
-2003799d2003837
-< P 1317 | st r2 -438
-2003814d2003851
-< P  982 | st r2 -438
-2003834d2003870
-< P  678 | st r2 -438
-2003860d2003895
-< P  289 | st r2 -438
-2004944d2004978
-< P 1770 | st r2 -447
-2004956d2004989
-< P 1317 | st r2 -447
-2004972d2005004
-< P  982 | st r2 -447
-2004993d2005024
-< P  678 | st r2 -447
-2005020d2005050
-< P  289 | st r2 -447
-2005304d2005333
-< P 1770 | st r2 -456
-2005316d2005344
-< P 1317 | st r2 -456
-2005334d2005361
-< P  982 | st r2 -456
-2005356d2005382
-< P  678 | st r2 -456
-2005385d2005410
-< P  289 | st r2 -456
-2006439d2006463
-< P 1770 | st r2 -465
-2006450d2006473
-< P 1317 | st r2 -465
-2006468d2006490
-< P  982 | st r2 -465
-2006489d2006510
-< P  678 | st r2 -465
-2006520d2006540
-< P  289 | st r2 -465
-2006775a2006796
-> P 1430 | st r2 -132
-2006808d2006828
-< P 1770 | st r2 -474
-2006819d2006838
-< P 1317 | st r2 -474
-2006837d2006855
-< P  982 | st r2 -474
-2006860d2006877
-< P  678 | st r2 -474
-2006893d2006909
-< P  289 | st r2 -474
-2007833a2007850
-> P 1430 | st r2 -141
-2007868d2007884
-< P 1770 | st r2 -483
-2007879d2007894
-< P 1317 | st r2 -483
-2007898d2007912
-< P  982 | st r2 -483
-2007923d2007936
-< P  678 | st r2 -483
-2007958d2007970
-< P  289 | st r2 -483
-2008200a2008213
-> P 1430 | st r2 -150
-2008239d2008251
-< P 1770 | st r2 -492
-2008250d2008261
-< P 1317 | st r2 -492
-2008270d2008280
-< P  982 | st r2 -492
-2008297d2008306
-< P  678 | st r2 -492
-2008333d2008341
-< P  289 | st r2 -492
-2009383a2009392
-> P 1430 | st r2 -159
-2009417d2009425
-< P 1770 | st r2 -501
-2009429d2009436
-< P 1317 | st r2 -501
-2009450d2009456
-< P  982 | st r2 -501
-2009477d2009482
-< P  678 | st r2 -501
-2009513d2009517
-< P  289 | st r2 -501
-2009760a2009765
-> P 1430 | st r2 -168
-2009793d2009797
-< P 1770 | st r2 -510
-2009805d2009808
-< P 1317 | st r2 -510
-2009826d2009828
-< P  982 | st r2 -510
-2009853d2009854
-< P  678 | st r2 -510
-2009889d2009889
-< P  289 | st r2 -510
-2010912a2010913
-> P 1430 | st r2 -177
-2011300a2011302
-> P 1430 | st r2 -186
-2012373a2012376
-> P 1430 | st r2 -195
-2012742a2012746
-> P 1430 | st r2 -204
-2012773d2012776
-< P 1770 | zjmp -280 OK
-2012784d2012786
-< P 1317 | zjmp -280 OK
-2012804d2012805
-< P  982 | zjmp -280 OK
-2012831d2012831
-< P  678 | zjmp -280 OK
-2012866d2012865
-< P  289 | zjmp -280 OK
-2013927a2013927
-> P 1430 | st r2 -213
-2014286a2014287
-> P 1430 | st r2 -222
-2014318d2014318
-< P 1770 | live -1
-2014329d2014328
-< P 1317 | live -1
-2014350d2014348
-< P  982 | live -1
-2014376d2014373
-< P  678 | live -1
-2014412d2014408
-< P  289 | live -1
-2015419a2015416
-> P 1430 | st r2 -231
-2015448d2015444
-< P 1770 | st r2 -256
-2015457d2015452
-< P 1317 | st r2 -256
-2015476d2015470
-< P  982 | st r2 -256
-2015501d2015494
-< P  678 | st r2 -256
-2015535d2015527
-< P  289 | st r2 -256
-2015773a2015766
-> P 1430 | st r2 -240
-2016819a2016813
-> P 1430 | st r2 -249
-2017176a2017171
-> P 1430 | st r2 -258
-2018346a2018342
-> P 1430 | st r2 -267
-2018693a2018690
-> P 1430 | st r2 -276
-2019803d2019799
-< P 1770 | live 196539
-2019809a2019806
-> P 1430 | st r2 -285
-2019812d2019808
-< P 1317 | live 196539
-2019817d2019812
-< P  982 | live 196539
-2019823d2019817
-< P  678 | live 196539
-2019830d2019823
-< P  289 | live 196539
-2020160d2020152
-< P 1770 | st r2 -78
-2020166a2020159
-> P 1430 | st r2 -294
-2020169d2020161
-< P 1317 | st r2 -78
-2020173d2020164
-< P  982 | st r2 -78
-2020179d2020169
-< P  678 | st r2 -78
-2020186d2020175
-< P  289 | st r2 -78
-2021203d2021191
-< P 1770 | st r2 -87
-2021210a2021199
-> P 1430 | st r2 -303
-2021213d2021201
-< P 1317 | st r2 -87
-2021218d2021205
-< P  982 | st r2 -87
-2021224d2021210
-< P  678 | st r2 -87
-2021232d2021217
-< P  289 | st r2 -87
-2021791d2021775
-< P 1770 | st r2 -96
-2021794a2021779
-> P 1430 | st r2 -312
-2021796d2021780
-< P 1317 | st r2 -96
-2021799d2021782
-< P  982 | st r2 -96
-2021802d2021784
-< P  678 | st r2 -96
-2021806d2021787
-< P  289 | st r2 -96
-2022742a2022724
-> P 1430 | st r2 -321
-2022876a2022859
-> P 1430 | st r2 -330
-2023777a2023761
-> P 1430 | st r2 -339
-2023905d2023888
-< P 1770 | st r2 -132
-2023907d2023889
-< P 1317 | st r2 -132
-2023910d2023891
-< P  982 | st r2 -132
-2023912d2023892
-< P  678 | st r2 -132
-2023915d2023894
-< P  289 | st r2 -132
-2023925a2023905
-> P 1430 | st r2 -348
-2024745,2024746d2024724
-< P 1770 | st r2 -141
-< P 1317 | st r2 -141
-2024749d2024726
-< P  982 | st r2 -141
-2024751d2024727
-< P  678 | st r2 -141
-2024754d2024729
-< P  289 | st r2 -141
-2024762a2024738
-> P 1430 | st r2 -357
-2024889d2024864
-< P 1770 | st r2 -150
-2024892d2024866
-< P 1317 | st r2 -150
-2024896d2024869
-< P  982 | st r2 -150
-2024898d2024870
-< P  678 | st r2 -150
-2024902d2024873
-< P  289 | st r2 -150
-2024910a2024882
-> P 1430 | st r2 -366
-2025845d2025816
-< P 1770 | st r2 -159
-2025848d2025818
-< P 1317 | st r2 -159
-2025851d2025820
-< P  982 | st r2 -159
-2025853d2025821
-< P  678 | st r2 -159
-2025857d2025824
-< P  289 | st r2 -159
-2025864a2025832
-> P 1430 | st r2 -375
-2025984d2025951
-< P 1770 | st r2 -168
-2025988d2025954
-< P 1317 | st r2 -168
-2025991d2025956
-< P  982 | st r2 -168
-2025994d2025958
-< P  678 | st r2 -168
-2025998d2025961
-< P  289 | st r2 -168
-2026006a2025970
-> P 1430 | st r2 -384
-2026896d2026859
-< P 1770 | st r2 -177
-2026899d2026861
-< P 1317 | st r2 -177
-2026902d2026863
-< P  982 | st r2 -177
-2026905d2026865
-< P  678 | st r2 -177
-2026909d2026868
-< P  289 | st r2 -177
-2026920a2026880
-> P 1430 | st r2 -393
-2027055d2027014
-< P 1770 | st r2 -186
-2027060d2027018
-< P 1317 | st r2 -186
-2027064d2027021
-< P  982 | st r2 -186
-2027068d2027024
-< P  678 | st r2 -186
-2027073d2027028
-< P  289 | st r2 -186
-2027085a2027041
-> P 1430 | st r2 -402
-2027921d2027876
-< P 1770 | st r2 -195
-2027926d2027880
-< P 1317 | st r2 -195
-2027930d2027883
-< P  982 | st r2 -195
-2027934d2027886
-< P  678 | st r2 -195
-2027939d2027890
-< P  289 | st r2 -195
-2027951a2027903
-> P 1430 | st r2 -411
-2028095d2028046
-< P 1770 | st r2 -204
-2028100d2028050
-< P 1317 | st r2 -204
-2028104d2028053
-< P  982 | st r2 -204
-2028108d2028056
-< P  678 | st r2 -204
-2028113d2028060
-< P  289 | st r2 -204
-2028125a2028073
-> P 1430 | st r2 -420
-2029079d2029026
-< P 1770 | st r2 -213
-2029083d2029029
-< P 1317 | st r2 -213
-2029087d2029032
-< P  982 | st r2 -213
-2029091d2029035
-< P  678 | st r2 -213
-2029096d2029039
-< P  289 | st r2 -213
-2029106a2029050
-> P 1430 | st r2 -429
-2029250d2029193
-< P 1770 | st r2 -222
-2029255d2029197
-< P 1317 | st r2 -222
-2029259d2029200
-< P  982 | st r2 -222
-2029263d2029203
-< P  678 | st r2 -222
-2029268d2029207
-< P  289 | st r2 -222
-2029278a2029218
-> P 1430 | st r2 -438
-2030186d2030125
-< P 1770 | st r2 -231
-2030191d2030129
-< P 1317 | st r2 -231
-2030195d2030132
-< P  982 | st r2 -231
-2030199d2030135
-< P  678 | st r2 -231
-2030204d2030139
-< P  289 | st r2 -231
-2030214a2030150
-> P 1430 | st r2 -447
-2030359d2030294
-< P 1770 | st r2 -240
-2030365d2030299
-< P 1317 | st r2 -240
-2030369d2030302
-< P  982 | st r2 -240
-2030373d2030305
-< P  678 | st r2 -240
-2030378d2030309
-< P  289 | st r2 -240
-2030388a2030320
-> P 1430 | st r2 -456
-2031225d2031156
-< P 1770 | st r2 -249
-2031230d2031160
-< P 1317 | st r2 -249
-2031234d2031163
-< P  982 | st r2 -249
-2031238d2031166
-< P  678 | st r2 -249
-2031243d2031170
-< P  289 | st r2 -249
-2031253a2031181
-> P 1430 | st r2 -465
-2031316d2031243
-< Process 1770 hasn't lived for 100 cycles (CTD 86)
-2031324a2031252
-> Process 1430 hasn't lived for 219 cycles (CTD 86)
-2031328d2031255
-< Process 1317 hasn't lived for 100 cycles (CTD 86)
-2031344d2031270
-< Process 982 hasn't lived for 100 cycles (CTD 86)
-2031364d2031289
-< Process 678 hasn't lived for 100 cycles (CTD 86)
-2031392d2031316
-< Process 289 hasn't lived for 100 cycles (CTD 86)
-2034238,2035403c2034162,2035328
-< Process 2120 hasn't lived for 18 cycles (CTD -14)
-< Process 2109 hasn't lived for 18 cycles (CTD -14)
-< Process 2096 hasn't lived for 18 cycles (CTD -14)
-< Process 2077 hasn't lived for 8 cycles (CTD -14)
-< Process 2076 hasn't lived for 8 cycles (CTD -14)
-< Process 2071 hasn't lived for 28 cycles (CTD -14)
-< Process 2069 hasn't lived for 8 cycles (CTD -14)
-< Process 2068 hasn't lived for 18 cycles (CTD -14)
-< Process 2067 hasn't lived for 18 cycles (CTD -14)
-< Process 2064 hasn't lived for 13 cycles (CTD -14)
-< Process 2062 hasn't lived for 8 cycles (CTD -14)
-< Process 2061 hasn't lived for 8 cycles (CTD -14)
-< Process 2060 hasn't lived for 8 cycles (CTD -14)
-< Process 2059 hasn't lived for 28 cycles (CTD -14)
-< Process 2058 hasn't lived for 28 cycles (CTD -14)
-< Process 2057 hasn't lived for 28 cycles (CTD -14)
-< Process 2054 hasn't lived for 13 cycles (CTD -14)
-< Process 2052 hasn't lived for 18 cycles (CTD -14)
-< Process 2051 hasn't lived for 18 cycles (CTD -14)
-< Process 2050 hasn't lived for 18 cycles (CTD -14)
-< Process 2049 hasn't lived for 8 cycles (CTD -14)
-< Process 2048 hasn't lived for 8 cycles (CTD -14)
-< Process 2047 hasn't lived for 8 cycles (CTD -14)
-< Process 2046 hasn't lived for 8 cycles (CTD -14)
-< Process 2045 hasn't lived for 8 cycles (CTD -14)
-< Process 2042 hasn't lived for 13 cycles (CTD -14)
-< Process 2040 hasn't lived for 28 cycles (CTD -14)
-< Process 2039 hasn't lived for 28 cycles (CTD -14)
-< Process 2038 hasn't lived for 28 cycles (CTD -14)
-< Process 2037 hasn't lived for 28 cycles (CTD -14)
-< Process 2036 hasn't lived for 8 cycles (CTD -14)
-< Process 2035 hasn't lived for 18 cycles (CTD -14)
-< Process 2034 hasn't lived for 18 cycles (CTD -14)
-< Process 2033 hasn't lived for 18 cycles (CTD -14)
-< Process 2032 hasn't lived for 18 cycles (CTD -14)
-< Process 2031 hasn't lived for 18 cycles (CTD -14)
-< Process 1969 hasn't lived for 3 cycles (CTD -14)
-< Process 1966 hasn't lived for 28 cycles (CTD -14)
-< Process 1963 hasn't lived for 3 cycles (CTD -14)
-< Process 1961 hasn't lived for 18 cycles (CTD -14)
-< Process 1959 hasn't lived for 8 cycles (CTD -14)
-< Process 1958 hasn't lived for 8 cycles (CTD -14)
-< Process 1957 hasn't lived for 8 cycles (CTD -14)
-< Process 1955 hasn't lived for 3 cycles (CTD -14)
-< Process 1953 hasn't lived for 28 cycles (CTD -14)
-< Process 1952 hasn't lived for 28 cycles (CTD -14)
-< Process 1950 hasn't lived for 18 cycles (CTD -14)
-< Process 1949 hasn't lived for 18 cycles (CTD -14)
-< Process 1948 hasn't lived for 18 cycles (CTD -14)
-< Process 1947 hasn't lived for 8 cycles (CTD -14)
-< Process 1945 hasn't lived for 3 cycles (CTD -14)
-< Process 1943 hasn't lived for 8 cycles (CTD -14)
-< Process 1942 hasn't lived for 8 cycles (CTD -14)
-< Process 1941 hasn't lived for 8 cycles (CTD -14)
-< Process 1939 hasn't lived for 28 cycles (CTD -14)
-< Process 1938 hasn't lived for 28 cycles (CTD -14)
-< Process 1937 hasn't lived for 28 cycles (CTD -14)
-< Process 1936 hasn't lived for 28 cycles (CTD -14)
-< Process 1935 hasn't lived for 8 cycles (CTD -14)
-< Process 1933 hasn't lived for 3 cycles (CTD -14)
-< Process 1931 hasn't lived for 18 cycles (CTD -14)
-< Process 1930 hasn't lived for 18 cycles (CTD -14)
-< Process 1929 hasn't lived for 18 cycles (CTD -14)
-< Process 1928 hasn't lived for 18 cycles (CTD -14)
-< Process 1859 hasn't lived for 18 cycles (CTD -14)
-< Process 1858 hasn't lived for 18 cycles (CTD -14)
-< Process 1857 hasn't lived for 18 cycles (CTD -14)
-< Process 1856 hasn't lived for 18 cycles (CTD -14)
-< Process 1855 hasn't lived for 18 cycles (CTD -14)
-< Process 1854 hasn't lived for 18 cycles (CTD -14)
-< Process 1853 hasn't lived for 18 cycles (CTD -14)
-< Process 1852 hasn't lived for 18 cycles (CTD -14)
-< Process 1851 hasn't lived for 18 cycles (CTD -14)
-< Process 1850 hasn't lived for 18 cycles (CTD -14)
-< Process 1848 hasn't lived for 8 cycles (CTD -14)
-< Process 1847 hasn't lived for 8 cycles (CTD -14)
-< Process 1846 hasn't lived for 8 cycles (CTD -14)
-< Process 1845 hasn't lived for 8 cycles (CTD -14)
-< Process 1844 hasn't lived for 8 cycles (CTD -14)
-< Process 1843 hasn't lived for 8 cycles (CTD -14)
-< Process 1842 hasn't lived for 8 cycles (CTD -14)
-< Process 1841 hasn't lived for 8 cycles (CTD -14)
-< Process 1840 hasn't lived for 8 cycles (CTD -14)
-< Process 1839 hasn't lived for 8 cycles (CTD -14)
-< Process 1838 hasn't lived for 8 cycles (CTD -14)
-< Process 1833 hasn't lived for 28 cycles (CTD -14)
-< Process 1832 hasn't lived for 28 cycles (CTD -14)
-< Process 1831 hasn't lived for 28 cycles (CTD -14)
-< Process 1830 hasn't lived for 28 cycles (CTD -14)
-< Process 1829 hasn't lived for 28 cycles (CTD -14)
-< Process 1828 hasn't lived for 28 cycles (CTD -14)
-< Process 1827 hasn't lived for 28 cycles (CTD -14)
-< Process 1826 hasn't lived for 28 cycles (CTD -14)
-< Process 1825 hasn't lived for 28 cycles (CTD -14)
-< Process 1824 hasn't lived for 28 cycles (CTD -14)
-< Process 1823 hasn't lived for 28 cycles (CTD -14)
-< Process 1821 hasn't lived for 18 cycles (CTD -14)
-< Process 1820 hasn't lived for 18 cycles (CTD -14)
-< Process 1819 hasn't lived for 18 cycles (CTD -14)
-< Process 1818 hasn't lived for 18 cycles (CTD -14)
-< Process 1817 hasn't lived for 18 cycles (CTD -14)
-< Process 1816 hasn't lived for 18 cycles (CTD -14)
-< Process 1815 hasn't lived for 18 cycles (CTD -14)
-< Process 1814 hasn't lived for 18 cycles (CTD -14)
-< Process 1813 hasn't lived for 18 cycles (CTD -14)
-< Process 1812 hasn't lived for 18 cycles (CTD -14)
-< Process 1811 hasn't lived for 18 cycles (CTD -14)
-< Process 1810 hasn't lived for 18 cycles (CTD -14)
-< Process 1806 hasn't lived for 18 cycles (CTD -14)
-< Process 1802 hasn't lived for 18 cycles (CTD -14)
-< Process 1801 hasn't lived for 18 cycles (CTD -14)
-< Process 1798 hasn't lived for 3 cycles (CTD -14)
-< Process 1797 hasn't lived for 8 cycles (CTD -14)
-< Process 1795 hasn't lived for 28 cycles (CTD -14)
-< Process 1794 hasn't lived for 28 cycles (CTD -14)
-< Process 1793 hasn't lived for 18 cycles (CTD -14)
-< Process 1790 hasn't lived for 3 cycles (CTD -14)
-< Process 1789 hasn't lived for 18 cycles (CTD -14)
-< Process 1788 hasn't lived for 18 cycles (CTD -14)
-< Process 1786 hasn't lived for 8 cycles (CTD -14)
-< Process 1785 hasn't lived for 8 cycles (CTD -14)
-< Process 1784 hasn't lived for 8 cycles (CTD -14)
-< Process 1783 hasn't lived for 18 cycles (CTD -14)
-< Process 1780 hasn't lived for 3 cycles (CTD -14)
-< Process 1779 hasn't lived for 28 cycles (CTD -14)
-< Process 1778 hasn't lived for 28 cycles (CTD -14)
-< Process 1777 hasn't lived for 28 cycles (CTD -14)
-< Process 1775 hasn't lived for 18 cycles (CTD -14)
-< Process 1774 hasn't lived for 18 cycles (CTD -14)
-< Process 1773 hasn't lived for 18 cycles (CTD -14)
-< Process 1772 hasn't lived for 18 cycles (CTD -14)
-< Process 1771 hasn't lived for 18 cycles (CTD -14)
-< Process 1736 hasn't lived for 18 cycles (CTD -14)
-< Process 1735 hasn't lived for 18 cycles (CTD -14)
-< Process 1734 hasn't lived for 18 cycles (CTD -14)
-< Process 1733 hasn't lived for 18 cycles (CTD -14)
-< Process 1732 hasn't lived for 18 cycles (CTD -14)
-< Process 1731 hasn't lived for 18 cycles (CTD -14)
-< Process 1730 hasn't lived for 18 cycles (CTD -14)
-< Process 1725 hasn't lived for 8 cycles (CTD -14)
-< Process 1724 hasn't lived for 8 cycles (CTD -14)
-< Process 1723 hasn't lived for 8 cycles (CTD -14)
-< Process 1722 hasn't lived for 8 cycles (CTD -14)
-< Process 1721 hasn't lived for 8 cycles (CTD -14)
-< Process 1720 hasn't lived for 8 cycles (CTD -14)
-< Process 1719 hasn't lived for 8 cycles (CTD -14)
-< Process 1717 hasn't lived for 28 cycles (CTD -14)
-< Process 1716 hasn't lived for 28 cycles (CTD -14)
-< Process 1715 hasn't lived for 28 cycles (CTD -14)
-< Process 1714 hasn't lived for 28 cycles (CTD -14)
-< Process 1713 hasn't lived for 28 cycles (CTD -14)
-< Process 1712 hasn't lived for 28 cycles (CTD -14)
-< Process 1711 hasn't lived for 28 cycles (CTD -14)
-< Process 1710 hasn't lived for 28 cycles (CTD -14)
-< Process 1705 hasn't lived for 18 cycles (CTD -14)
-< Process 1704 hasn't lived for 18 cycles (CTD -14)
-< Process 1703 hasn't lived for 18 cycles (CTD -14)
-< Process 1702 hasn't lived for 18 cycles (CTD -14)
-< Process 1701 hasn't lived for 18 cycles (CTD -14)
-< Process 1700 hasn't lived for 18 cycles (CTD -14)
-< Process 1699 hasn't lived for 18 cycles (CTD -14)
-< Process 1698 hasn't lived for 18 cycles (CTD -14)
-< Process 1696 hasn't lived for 8 cycles (CTD -14)
-< Process 1695 hasn't lived for 8 cycles (CTD -14)
-< Process 1694 hasn't lived for 8 cycles (CTD -14)
-< Process 1693 hasn't lived for 8 cycles (CTD -14)
-< Process 1692 hasn't lived for 8 cycles (CTD -14)
-< Process 1691 hasn't lived for 8 cycles (CTD -14)
-< Process 1690 hasn't lived for 8 cycles (CTD -14)
-< Process 1689 hasn't lived for 8 cycles (CTD -14)
-< Process 1688 hasn't lived for 8 cycles (CTD -14)
-< Process 1683 hasn't lived for 28 cycles (CTD -14)
-< Process 1682 hasn't lived for 28 cycles (CTD -14)
-< Process 1681 hasn't lived for 28 cycles (CTD -14)
-< Process 1680 hasn't lived for 28 cycles (CTD -14)
-< Process 1679 hasn't lived for 28 cycles (CTD -14)
-< Process 1678 hasn't lived for 28 cycles (CTD -14)
-< Process 1677 hasn't lived for 28 cycles (CTD -14)
-< Process 1676 hasn't lived for 28 cycles (CTD -14)
-< Process 1675 hasn't lived for 28 cycles (CTD -14)
-< Process 1673 hasn't lived for 18 cycles (CTD -14)
-< Process 1672 hasn't lived for 18 cycles (CTD -14)
-< Process 1671 hasn't lived for 18 cycles (CTD -14)
-< Process 1670 hasn't lived for 18 cycles (CTD -14)
-< Process 1669 hasn't lived for 18 cycles (CTD -14)
-< Process 1668 hasn't lived for 18 cycles (CTD -14)
-< Process 1667 hasn't lived for 18 cycles (CTD -14)
-< Process 1666 hasn't lived for 18 cycles (CTD -14)
-< Process 1665 hasn't lived for 18 cycles (CTD -14)
-< Process 1664 hasn't lived for 18 cycles (CTD -14)
-< Process 1659 hasn't lived for 8 cycles (CTD -14)
-< Process 1658 hasn't lived for 8 cycles (CTD -14)
-< Process 1657 hasn't lived for 8 cycles (CTD -14)
-< Process 1656 hasn't lived for 8 cycles (CTD -14)
-< Process 1655 hasn't lived for 8 cycles (CTD -14)
-< Process 1654 hasn't lived for 8 cycles (CTD -14)
-< Process 1653 hasn't lived for 8 cycles (CTD -14)
-< Process 1652 hasn't lived for 8 cycles (CTD -14)
-< Process 1651 hasn't lived for 8 cycles (CTD -14)
-< Process 1650 hasn't lived for 8 cycles (CTD -14)
-< Process 1648 hasn't lived for 28 cycles (CTD -14)
-< Process 1647 hasn't lived for 28 cycles (CTD -14)
-< Process 1646 hasn't lived for 28 cycles (CTD -14)
-< Process 1645 hasn't lived for 28 cycles (CTD -14)
-< Process 1644 hasn't lived for 28 cycles (CTD -14)
-< Process 1643 hasn't lived for 28 cycles (CTD -14)
-< Process 1642 hasn't lived for 28 cycles (CTD -14)
-< Process 1641 hasn't lived for 28 cycles (CTD -14)
-< Process 1640 hasn't lived for 28 cycles (CTD -14)
-< Process 1639 hasn't lived for 28 cycles (CTD -14)
-< Process 1638 hasn't lived for 28 cycles (CTD -14)
-< Process 1633 hasn't lived for 18 cycles (CTD -14)
-< Process 1632 hasn't lived for 18 cycles (CTD -14)
-< Process 1631 hasn't lived for 18 cycles (CTD -14)
-< Process 1630 hasn't lived for 18 cycles (CTD -14)
-< Process 1629 hasn't lived for 18 cycles (CTD -14)
-< Process 1628 hasn't lived for 18 cycles (CTD -14)
-< Process 1627 hasn't lived for 18 cycles (CTD -14)
-< Process 1626 hasn't lived for 18 cycles (CTD -14)
-< Process 1625 hasn't lived for 18 cycles (CTD -14)
-< Process 1624 hasn't lived for 18 cycles (CTD -14)
-< Process 1623 hasn't lived for 18 cycles (CTD -14)
-< Process 1619 hasn't lived for 13 cycles (CTD -14)
-< Process 1617 hasn't lived for 8 cycles (CTD -14)
-< Process 1613 hasn't lived for 13 cycles (CTD -14)
-< Process 1612 hasn't lived for 28 cycles (CTD -14)
-< Process 1610 hasn't lived for 18 cycles (CTD -14)
-< Process 1609 hasn't lived for 18 cycles (CTD -14)
-< Process 1605 hasn't lived for 13 cycles (CTD -14)
-< Process 1604 hasn't lived for 8 cycles (CTD -14)
-< Process 1603 hasn't lived for 8 cycles (CTD -14)
-< Process 1601 hasn't lived for 28 cycles (CTD -14)
-< Process 1600 hasn't lived for 28 cycles (CTD -14)
-< Process 1599 hasn't lived for 28 cycles (CTD -14)
-< Process 1595 hasn't lived for 13 cycles (CTD -14)
-< Process 1594 hasn't lived for 18 cycles (CTD -14)
-< Process 1593 hasn't lived for 18 cycles (CTD -14)
-< Process 1592 hasn't lived for 18 cycles (CTD -14)
-< Process 1577 hasn't lived for 18 cycles (CTD -14)
-< Process 1576 hasn't lived for 18 cycles (CTD -14)
-< Process 1575 hasn't lived for 18 cycles (CTD -14)
-< Process 1574 hasn't lived for 18 cycles (CTD -14)
-< Process 1573 hasn't lived for 18 cycles (CTD -14)
-< Process 1568 hasn't lived for 8 cycles (CTD -14)
-< Process 1567 hasn't lived for 8 cycles (CTD -14)
-< Process 1566 hasn't lived for 8 cycles (CTD -14)
-< Process 1565 hasn't lived for 8 cycles (CTD -14)
-< Process 1564 hasn't lived for 8 cycles (CTD -14)
-< Process 1562 hasn't lived for 28 cycles (CTD -14)
-< Process 1561 hasn't lived for 28 cycles (CTD -14)
-< Process 1560 hasn't lived for 28 cycles (CTD -14)
-< Process 1559 hasn't lived for 28 cycles (CTD -14)
-< Process 1558 hasn't lived for 28 cycles (CTD -14)
-< Process 1557 hasn't lived for 28 cycles (CTD -14)
-< Process 1552 hasn't lived for 18 cycles (CTD -14)
-< Process 1551 hasn't lived for 18 cycles (CTD -14)
-< Process 1550 hasn't lived for 18 cycles (CTD -14)
-< Process 1549 hasn't lived for 18 cycles (CTD -14)
-< Process 1548 hasn't lived for 18 cycles (CTD -14)
-< Process 1547 hasn't lived for 18 cycles (CTD -14)
-< Process 1545 hasn't lived for 8 cycles (CTD -14)
-< Process 1544 hasn't lived for 8 cycles (CTD -14)
-< Process 1543 hasn't lived for 8 cycles (CTD -14)
-< Process 1542 hasn't lived for 8 cycles (CTD -14)
-< Process 1541 hasn't lived for 8 cycles (CTD -14)
-< Process 1540 hasn't lived for 8 cycles (CTD -14)
-< Process 1539 hasn't lived for 8 cycles (CTD -14)
-< Process 1534 hasn't lived for 28 cycles (CTD -14)
-< Process 1533 hasn't lived for 28 cycles (CTD -14)
-< Process 1532 hasn't lived for 28 cycles (CTD -14)
-< Process 1531 hasn't lived for 28 cycles (CTD -14)
-< Process 1530 hasn't lived for 28 cycles (CTD -14)
-< Process 1529 hasn't lived for 28 cycles (CTD -14)
-< Process 1528 hasn't lived for 28 cycles (CTD -14)
-< Process 1526 hasn't lived for 18 cycles (CTD -14)
-< Process 1525 hasn't lived for 18 cycles (CTD -14)
-< Process 1524 hasn't lived for 18 cycles (CTD -14)
-< Process 1523 hasn't lived for 18 cycles (CTD -14)
-< Process 1522 hasn't lived for 18 cycles (CTD -14)
-< Process 1521 hasn't lived for 18 cycles (CTD -14)
-< Process 1520 hasn't lived for 18 cycles (CTD -14)
-< Process 1519 hasn't lived for 18 cycles (CTD -14)
-< Process 1514 hasn't lived for 8 cycles (CTD -14)
-< Process 1513 hasn't lived for 8 cycles (CTD -14)
-< Process 1512 hasn't lived for 8 cycles (CTD -14)
-< Process 1511 hasn't lived for 8 cycles (CTD -14)
-< Process 1510 hasn't lived for 8 cycles (CTD -14)
-< Process 1509 hasn't lived for 8 cycles (CTD -14)
-< Process 1508 hasn't lived for 8 cycles (CTD -14)
-< Process 1507 hasn't lived for 8 cycles (CTD -14)
-< Process 1505 hasn't lived for 28 cycles (CTD -14)
-< Process 1504 hasn't lived for 28 cycles (CTD -14)
-< Process 1503 hasn't lived for 28 cycles (CTD -14)
-< Process 1502 hasn't lived for 28 cycles (CTD -14)
-< Process 1501 hasn't lived for 28 cycles (CTD -14)
-< Process 1500 hasn't lived for 28 cycles (CTD -14)
-< Process 1499 hasn't lived for 28 cycles (CTD -14)
-< Process 1498 hasn't lived for 28 cycles (CTD -14)
-< Process 1497 hasn't lived for 28 cycles (CTD -14)
-< Process 1492 hasn't lived for 18 cycles (CTD -14)
-< Process 1491 hasn't lived for 18 cycles (CTD -14)
-< Process 1490 hasn't lived for 18 cycles (CTD -14)
-< Process 1489 hasn't lived for 18 cycles (CTD -14)
-< Process 1488 hasn't lived for 18 cycles (CTD -14)
-< Process 1487 hasn't lived for 18 cycles (CTD -14)
-< Process 1486 hasn't lived for 18 cycles (CTD -14)
-< Process 1485 hasn't lived for 18 cycles (CTD -14)
-< Process 1484 hasn't lived for 18 cycles (CTD -14)
-< Process 1482 hasn't lived for 8 cycles (CTD -14)
-< Process 1481 hasn't lived for 8 cycles (CTD -14)
-< Process 1480 hasn't lived for 8 cycles (CTD -14)
-< Process 1479 hasn't lived for 8 cycles (CTD -14)
-< Process 1478 hasn't lived for 8 cycles (CTD -14)
-< Process 1477 hasn't lived for 8 cycles (CTD -14)
-< Process 1476 hasn't lived for 8 cycles (CTD -14)
-< Process 1475 hasn't lived for 8 cycles (CTD -14)
-< Process 1474 hasn't lived for 8 cycles (CTD -14)
-< Process 1473 hasn't lived for 8 cycles (CTD -14)
-< Process 1468 hasn't lived for 28 cycles (CTD -14)
-< Process 1467 hasn't lived for 28 cycles (CTD -14)
-< Process 1466 hasn't lived for 28 cycles (CTD -14)
-< Process 1465 hasn't lived for 28 cycles (CTD -14)
-< Process 1464 hasn't lived for 28 cycles (CTD -14)
-< Process 1463 hasn't lived for 28 cycles (CTD -14)
-< Process 1462 hasn't lived for 28 cycles (CTD -14)
-< Process 1461 hasn't lived for 28 cycles (CTD -14)
-< Process 1460 hasn't lived for 28 cycles (CTD -14)
-< Process 1459 hasn't lived for 28 cycles (CTD -14)
-< Process 1457 hasn't lived for 18 cycles (CTD -14)
-< Process 1456 hasn't lived for 18 cycles (CTD -14)
-< Process 1455 hasn't lived for 18 cycles (CTD -14)
-< Process 1454 hasn't lived for 18 cycles (CTD -14)
-< Process 1453 hasn't lived for 18 cycles (CTD -14)
-< Process 1452 hasn't lived for 18 cycles (CTD -14)
-< Process 1451 hasn't lived for 18 cycles (CTD -14)
-< Process 1450 hasn't lived for 18 cycles (CTD -14)
-< Process 1449 hasn't lived for 18 cycles (CTD -14)
-< Process 1448 hasn't lived for 18 cycles (CTD -14)
-< Process 1447 hasn't lived for 18 cycles (CTD -14)
-< Process 1444 hasn't lived for 13 cycles (CTD -14)
-< Process 1439 hasn't lived for 28 cycles (CTD -14)
-< Process 1434 hasn't lived for 18 cycles (CTD -14)
-< Process 1432 hasn't lived for 8 cycles (CTD -14)
-< Process 1431 hasn't lived for 8 cycles (CTD -14)
-< Process 1426 hasn't lived for 28 cycles (CTD -14)
-< Process 1425 hasn't lived for 28 cycles (CTD -14)
-< Process 1423 hasn't lived for 18 cycles (CTD -14)
-< Process 1422 hasn't lived for 18 cycles (CTD -14)
-< Process 1421 hasn't lived for 18 cycles (CTD -14)
-< Process 1416 hasn't lived for 8 cycles (CTD -14)
-< Process 1415 hasn't lived for 8 cycles (CTD -14)
-< Process 1414 hasn't lived for 8 cycles (CTD -14)
-< Process 1412 hasn't lived for 28 cycles (CTD -14)
-< Process 1411 hasn't lived for 28 cycles (CTD -14)
-< Process 1410 hasn't lived for 28 cycles (CTD -14)
-< Process 1409 hasn't lived for 28 cycles (CTD -14)
-< Process 1404 hasn't lived for 18 cycles (CTD -14)
-< Process 1403 hasn't lived for 18 cycles (CTD -14)
-< Process 1402 hasn't lived for 18 cycles (CTD -14)
-< Process 1401 hasn't lived for 18 cycles (CTD -14)
-< Process 1399 hasn't lived for 8 cycles (CTD -14)
-< Process 1398 hasn't lived for 8 cycles (CTD -14)
-< Process 1397 hasn't lived for 8 cycles (CTD -14)
-< Process 1396 hasn't lived for 8 cycles (CTD -14)
-< Process 1395 hasn't lived for 8 cycles (CTD -14)
-< Process 1390 hasn't lived for 28 cycles (CTD -14)
-< Process 1389 hasn't lived for 28 cycles (CTD -14)
-< Process 1388 hasn't lived for 28 cycles (CTD -14)
-< Process 1387 hasn't lived for 28 cycles (CTD -14)
-< Process 1386 hasn't lived for 28 cycles (CTD -14)
-< Process 1384 hasn't lived for 18 cycles (CTD -14)
-< Process 1383 hasn't lived for 18 cycles (CTD -14)
-< Process 1382 hasn't lived for 18 cycles (CTD -14)
-< Process 1381 hasn't lived for 18 cycles (CTD -14)
-< Process 1380 hasn't lived for 18 cycles (CTD -14)
-< Process 1379 hasn't lived for 18 cycles (CTD -14)
-< Process 1375 hasn't lived for 12 cycles (CTD -14)
-< Process 1374 hasn't lived for 8 cycles (CTD -14)
-< Process 1373 hasn't lived for 8 cycles (CTD -14)
-< Process 1372 hasn't lived for 8 cycles (CTD -14)
-< Process 1371 hasn't lived for 8 cycles (CTD -14)
-< Process 1370 hasn't lived for 8 cycles (CTD -14)
-< Process 1369 hasn't lived for 8 cycles (CTD -14)
-< Process 1367 hasn't lived for 28 cycles (CTD -14)
-< Process 1366 hasn't lived for 28 cycles (CTD -14)
-< Process 1365 hasn't lived for 28 cycles (CTD -14)
-< Process 1364 hasn't lived for 28 cycles (CTD -14)
-< Process 1363 hasn't lived for 28 cycles (CTD -14)
-< Process 1362 hasn't lived for 28 cycles (CTD -14)
-< Process 1361 hasn't lived for 28 cycles (CTD -14)
-< Process 1356 hasn't lived for 18 cycles (CTD -14)
-< Process 1355 hasn't lived for 18 cycles (CTD -14)
-< Process 1354 hasn't lived for 18 cycles (CTD -14)
-< Process 1353 hasn't lived for 18 cycles (CTD -14)
-< Process 1352 hasn't lived for 18 cycles (CTD -14)
-< Process 1351 hasn't lived for 18 cycles (CTD -14)
-< Process 1350 hasn't lived for 18 cycles (CTD -14)
-< Process 1348 hasn't lived for 8 cycles (CTD -14)
-< Process 1347 hasn't lived for 8 cycles (CTD -14)
-< Process 1346 hasn't lived for 8 cycles (CTD -14)
-< Process 1345 hasn't lived for 8 cycles (CTD -14)
-< Process 1344 hasn't lived for 8 cycles (CTD -14)
-< Process 1343 hasn't lived for 8 cycles (CTD -14)
-< Process 1342 hasn't lived for 8 cycles (CTD -14)
-< Process 1341 hasn't lived for 8 cycles (CTD -14)
-< Process 1336 hasn't lived for 28 cycles (CTD -14)
-< Process 1335 hasn't lived for 28 cycles (CTD -14)
-< Process 1334 hasn't lived for 28 cycles (CTD -14)
-< Process 1333 hasn't lived for 28 cycles (CTD -14)
-< Process 1332 hasn't lived for 28 cycles (CTD -14)
-< Process 1331 hasn't lived for 28 cycles (CTD -14)
-< Process 1330 hasn't lived for 28 cycles (CTD -14)
-< Process 1329 hasn't lived for 28 cycles (CTD -14)
-< Process 1327 hasn't lived for 18 cycles (CTD -14)
-< Process 1326 hasn't lived for 18 cycles (CTD -14)
-< Process 1325 hasn't lived for 18 cycles (CTD -14)
-< Process 1324 hasn't lived for 18 cycles (CTD -14)
-< Process 1323 hasn't lived for 18 cycles (CTD -14)
-< Process 1322 hasn't lived for 18 cycles (CTD -14)
-< Process 1321 hasn't lived for 18 cycles (CTD -14)
-< Process 1320 hasn't lived for 18 cycles (CTD -14)
-< Process 1319 hasn't lived for 18 cycles (CTD -14)
-< Process 1314 hasn't lived for 8 cycles (CTD -14)
-< Process 1313 hasn't lived for 8 cycles (CTD -14)
-< Process 1312 hasn't lived for 8 cycles (CTD -14)
-< Process 1311 hasn't lived for 8 cycles (CTD -14)
-< Process 1310 hasn't lived for 8 cycles (CTD -14)
-< Process 1309 hasn't lived for 8 cycles (CTD -14)
-< Process 1308 hasn't lived for 8 cycles (CTD -14)
-< Process 1307 hasn't lived for 8 cycles (CTD -14)
-< Process 1306 hasn't lived for 8 cycles (CTD -14)
-< Process 1304 hasn't lived for 28 cycles (CTD -14)
-< Process 1303 hasn't lived for 28 cycles (CTD -14)
-< Process 1302 hasn't lived for 28 cycles (CTD -14)
-< Process 1301 hasn't lived for 28 cycles (CTD -14)
-< Process 1300 hasn't lived for 28 cycles (CTD -14)
-< Process 1299 hasn't lived for 28 cycles (CTD -14)
-< Process 1298 hasn't lived for 28 cycles (CTD -14)
-< Process 1297 hasn't lived for 28 cycles (CTD -14)
-< Process 1296 hasn't lived for 28 cycles (CTD -14)
-< Process 1295 hasn't lived for 28 cycles (CTD -14)
-< Process 1290 hasn't lived for 18 cycles (CTD -14)
-< Process 1289 hasn't lived for 18 cycles (CTD -14)
-< Process 1288 hasn't lived for 18 cycles (CTD -14)
-< Process 1287 hasn't lived for 18 cycles (CTD -14)
-< Process 1286 hasn't lived for 18 cycles (CTD -14)
-< Process 1285 hasn't lived for 18 cycles (CTD -14)
-< Process 1284 hasn't lived for 18 cycles (CTD -14)
-< Process 1283 hasn't lived for 18 cycles (CTD -14)
-< Process 1282 hasn't lived for 18 cycles (CTD -14)
-< Process 1281 hasn't lived for 18 cycles (CTD -14)
-< Process 1275 hasn't lived for 18 cycles (CTD -14)
-< Process 1270 hasn't lived for 8 cycles (CTD -14)
-< Process 1268 hasn't lived for 28 cycles (CTD -14)
-< Process 1267 hasn't lived for 28 cycles (CTD -14)
-< Process 1262 hasn't lived for 18 cycles (CTD -14)
-< Process 1261 hasn't lived for 18 cycles (CTD -14)
-< Process 1259 hasn't lived for 8 cycles (CTD -14)
-< Process 1258 hasn't lived for 8 cycles (CTD -14)
-< Process 1257 hasn't lived for 8 cycles (CTD -14)
-< Process 1252 hasn't lived for 28 cycles (CTD -14)
-< Process 1251 hasn't lived for 28 cycles (CTD -14)
-< Process 1250 hasn't lived for 28 cycles (CTD -14)
-< Process 1248 hasn't lived for 18 cycles (CTD -14)
-< Process 1247 hasn't lived for 18 cycles (CTD -14)
-< Process 1246 hasn't lived for 18 cycles (CTD -14)
-< Process 1245 hasn't lived for 18 cycles (CTD -14)
-< Process 1240 hasn't lived for 8 cycles (CTD -14)
-< Process 1239 hasn't lived for 8 cycles (CTD -14)
-< Process 1238 hasn't lived for 8 cycles (CTD -14)
-< Process 1237 hasn't lived for 8 cycles (CTD -14)
-< Process 1235 hasn't lived for 28 cycles (CTD -14)
-< Process 1234 hasn't lived for 28 cycles (CTD -14)
-< Process 1233 hasn't lived for 28 cycles (CTD -14)
-< Process 1232 hasn't lived for 28 cycles (CTD -14)
-< Process 1231 hasn't lived for 28 cycles (CTD -14)
-< Process 1226 hasn't lived for 18 cycles (CTD -14)
-< Process 1225 hasn't lived for 18 cycles (CTD -14)
-< Process 1224 hasn't lived for 18 cycles (CTD -14)
-< Process 1223 hasn't lived for 18 cycles (CTD -14)
-< Process 1222 hasn't lived for 18 cycles (CTD -14)
-< Process 1220 hasn't lived for 8 cycles (CTD -14)
-< Process 1219 hasn't lived for 8 cycles (CTD -14)
-< Process 1218 hasn't lived for 8 cycles (CTD -14)
-< Process 1217 hasn't lived for 8 cycles (CTD -14)
-< Process 1216 hasn't lived for 8 cycles (CTD -14)
-< Process 1215 hasn't lived for 8 cycles (CTD -14)
-< Process 1210 hasn't lived for 28 cycles (CTD -14)
-< Process 1209 hasn't lived for 28 cycles (CTD -14)
-< Process 1208 hasn't lived for 28 cycles (CTD -14)
-< Process 1207 hasn't lived for 28 cycles (CTD -14)
-< Process 1206 hasn't lived for 28 cycles (CTD -14)
-< Process 1205 hasn't lived for 28 cycles (CTD -14)
-< Process 1203 hasn't lived for 18 cycles (CTD -14)
-< Process 1202 hasn't lived for 18 cycles (CTD -14)
-< Process 1201 hasn't lived for 18 cycles (CTD -14)
-< Process 1200 hasn't lived for 18 cycles (CTD -14)
-< Process 1199 hasn't lived for 18 cycles (CTD -14)
-< Process 1198 hasn't lived for 18 cycles (CTD -14)
-< Process 1197 hasn't lived for 18 cycles (CTD -14)
-< Process 1192 hasn't lived for 8 cycles (CTD -14)
-< Process 1191 hasn't lived for 8 cycles (CTD -14)
-< Process 1190 hasn't lived for 8 cycles (CTD -14)
-< Process 1189 hasn't lived for 8 cycles (CTD -14)
-< Process 1188 hasn't lived for 8 cycles (CTD -14)
-< Process 1187 hasn't lived for 8 cycles (CTD -14)
-< Process 1186 hasn't lived for 8 cycles (CTD -14)
-< Process 1184 hasn't lived for 28 cycles (CTD -14)
-< Process 1183 hasn't lived for 28 cycles (CTD -14)
-< Process 1182 hasn't lived for 28 cycles (CTD -14)
-< Process 1181 hasn't lived for 28 cycles (CTD -14)
-< Process 1180 hasn't lived for 28 cycles (CTD -14)
-< Process 1179 hasn't lived for 28 cycles (CTD -14)
-< Process 1178 hasn't lived for 28 cycles (CTD -14)
-< Process 1177 hasn't lived for 28 cycles (CTD -14)
-< Process 1172 hasn't lived for 18 cycles (CTD -14)
-< Process 1171 hasn't lived for 18 cycles (CTD -14)
-< Process 1170 hasn't lived for 18 cycles (CTD -14)
-< Process 1169 hasn't lived for 18 cycles (CTD -14)
-< Process 1168 hasn't lived for 18 cycles (CTD -14)
-< Process 1167 hasn't lived for 18 cycles (CTD -14)
-< Process 1166 hasn't lived for 18 cycles (CTD -14)
-< Process 1165 hasn't lived for 18 cycles (CTD -14)
-< Process 1163 hasn't lived for 8 cycles (CTD -14)
-< Process 1162 hasn't lived for 8 cycles (CTD -14)
-< Process 1161 hasn't lived for 8 cycles (CTD -14)
-< Process 1160 hasn't lived for 8 cycles (CTD -14)
-< Process 1159 hasn't lived for 8 cycles (CTD -14)
-< Process 1158 hasn't lived for 8 cycles (CTD -14)
-< Process 1157 hasn't lived for 8 cycles (CTD -14)
-< Process 1156 hasn't lived for 8 cycles (CTD -14)
-< Process 1155 hasn't lived for 8 cycles (CTD -14)
-< Process 1150 hasn't lived for 28 cycles (CTD -14)
-< Process 1149 hasn't lived for 28 cycles (CTD -14)
-< Process 1148 hasn't lived for 28 cycles (CTD -14)
-< Process 1147 hasn't lived for 28 cycles (CTD -14)
-< Process 1146 hasn't lived for 28 cycles (CTD -14)
-< Process 1145 hasn't lived for 28 cycles (CTD -14)
-< Process 1144 hasn't lived for 28 cycles (CTD -14)
-< Process 1143 hasn't lived for 28 cycles (CTD -14)
-< Process 1142 hasn't lived for 28 cycles (CTD -14)
-< Process 1140 hasn't lived for 18 cycles (CTD -14)
-< Process 1139 hasn't lived for 18 cycles (CTD -14)
-< Process 1138 hasn't lived for 18 cycles (CTD -14)
-< Process 1137 hasn't lived for 18 cycles (CTD -14)
-< Process 1136 hasn't lived for 18 cycles (CTD -14)
-< Process 1135 hasn't lived for 18 cycles (CTD -14)
-< Process 1134 hasn't lived for 18 cycles (CTD -14)
-< Process 1133 hasn't lived for 18 cycles (CTD -14)
-< Process 1132 hasn't lived for 18 cycles (CTD -14)
-< Process 1131 hasn't lived for 18 cycles (CTD -14)
-< Process 1123 hasn't lived for 8 cycles (CTD -14)
-< Process 1118 hasn't lived for 28 cycles (CTD -14)
-< Process 1116 hasn't lived for 18 cycles (CTD -14)
-< Process 1115 hasn't lived for 18 cycles (CTD -14)
-< Process 1110 hasn't lived for 8 cycles (CTD -14)
-< Process 1109 hasn't lived for 8 cycles (CTD -14)
-< Process 1107 hasn't lived for 28 cycles (CTD -14)
-< Process 1106 hasn't lived for 28 cycles (CTD -14)
-< Process 1105 hasn't lived for 28 cycles (CTD -14)
-< Process 1100 hasn't lived for 18 cycles (CTD -14)
-< Process 1099 hasn't lived for 18 cycles (CTD -14)
-< Process 1098 hasn't lived for 18 cycles (CTD -14)
-< Process 1096 hasn't lived for 8 cycles (CTD -14)
-< Process 1095 hasn't lived for 8 cycles (CTD -14)
-< Process 1094 hasn't lived for 8 cycles (CTD -14)
-< Process 1093 hasn't lived for 8 cycles (CTD -14)
-< Process 1088 hasn't lived for 28 cycles (CTD -14)
-< Process 1087 hasn't lived for 28 cycles (CTD -14)
-< Process 1086 hasn't lived for 28 cycles (CTD -14)
-< Process 1085 hasn't lived for 28 cycles (CTD -14)
-< Process 1083 hasn't lived for 18 cycles (CTD -14)
-< Process 1082 hasn't lived for 18 cycles (CTD -14)
-< Process 1081 hasn't lived for 18 cycles (CTD -14)
-< Process 1080 hasn't lived for 18 cycles (CTD -14)
-< Process 1079 hasn't lived for 18 cycles (CTD -14)
-< Process 1074 hasn't lived for 8 cycles (CTD -14)
-< Process 1073 hasn't lived for 8 cycles (CTD -14)
-< Process 1072 hasn't lived for 8 cycles (CTD -14)
-< Process 1071 hasn't lived for 8 cycles (CTD -14)
-< Process 1070 hasn't lived for 8 cycles (CTD -14)
-< Process 1068 hasn't lived for 28 cycles (CTD -14)
-< Process 1067 hasn't lived for 28 cycles (CTD -14)
-< Process 1066 hasn't lived for 28 cycles (CTD -14)
-< Process 1065 hasn't lived for 28 cycles (CTD -14)
-< Process 1064 hasn't lived for 28 cycles (CTD -14)
-< Process 1063 hasn't lived for 28 cycles (CTD -14)
-< Process 1058 hasn't lived for 18 cycles (CTD -14)
-< Process 1057 hasn't lived for 18 cycles (CTD -14)
-< Process 1056 hasn't lived for 18 cycles (CTD -14)
-< Process 1055 hasn't lived for 18 cycles (CTD -14)
-< Process 1054 hasn't lived for 18 cycles (CTD -14)
-< Process 1053 hasn't lived for 18 cycles (CTD -14)
-< Process 1051 hasn't lived for 8 cycles (CTD -14)
-< Process 1050 hasn't lived for 8 cycles (CTD -14)
-< Process 1049 hasn't lived for 8 cycles (CTD -14)
-< Process 1048 hasn't lived for 8 cycles (CTD -14)
-< Process 1047 hasn't lived for 8 cycles (CTD -14)
-< Process 1046 hasn't lived for 8 cycles (CTD -14)
-< Process 1045 hasn't lived for 8 cycles (CTD -14)
-< Process 1040 hasn't lived for 28 cycles (CTD -14)
-< Process 1039 hasn't lived for 28 cycles (CTD -14)
-< Process 1038 hasn't lived for 28 cycles (CTD -14)
-< Process 1037 hasn't lived for 28 cycles (CTD -14)
-< Process 1036 hasn't lived for 28 cycles (CTD -14)
-< Process 1035 hasn't lived for 28 cycles (CTD -14)
-< Process 1034 hasn't lived for 28 cycles (CTD -14)
-< Process 1032 hasn't lived for 18 cycles (CTD -14)
-< Process 1031 hasn't lived for 18 cycles (CTD -14)
-< Process 1030 hasn't lived for 18 cycles (CTD -14)
-< Process 1029 hasn't lived for 18 cycles (CTD -14)
-< Process 1028 hasn't lived for 18 cycles (CTD -14)
-< Process 1027 hasn't lived for 18 cycles (CTD -14)
-< Process 1026 hasn't lived for 18 cycles (CTD -14)
-< Process 1025 hasn't lived for 18 cycles (CTD -14)
-< Process 1020 hasn't lived for 8 cycles (CTD -14)
-< Process 1019 hasn't lived for 8 cycles (CTD -14)
-< Process 1018 hasn't lived for 8 cycles (CTD -14)
-< Process 1017 hasn't lived for 8 cycles (CTD -14)
-< Process 1016 hasn't lived for 8 cycles (CTD -14)
-< Process 1015 hasn't lived for 8 cycles (CTD -14)
-< Process 1014 hasn't lived for 8 cycles (CTD -14)
-< Process 1013 hasn't lived for 8 cycles (CTD -14)
-< Process 1011 hasn't lived for 28 cycles (CTD -14)
-< Process 1010 hasn't lived for 28 cycles (CTD -14)
-< Process 1009 hasn't lived for 28 cycles (CTD -14)
-< Process 1008 hasn't lived for 28 cycles (CTD -14)
-< Process 1007 hasn't lived for 28 cycles (CTD -14)
-< Process 1006 hasn't lived for 28 cycles (CTD -14)
-< Process 1005 hasn't lived for 28 cycles (CTD -14)
-< Process 1004 hasn't lived for 28 cycles (CTD -14)
-< Process 1003 hasn't lived for 28 cycles (CTD -14)
-< Process 998 hasn't lived for 18 cycles (CTD -14)
-< Process 997 hasn't lived for 18 cycles (CTD -14)
-< Process 996 hasn't lived for 18 cycles (CTD -14)
-< Process 995 hasn't lived for 18 cycles (CTD -14)
-< Process 994 hasn't lived for 18 cycles (CTD -14)
-< Process 993 hasn't lived for 18 cycles (CTD -14)
-< Process 992 hasn't lived for 18 cycles (CTD -14)
-< Process 991 hasn't lived for 18 cycles (CTD -14)
-< Process 990 hasn't lived for 18 cycles (CTD -14)
-< Process 984 hasn't lived for 28 cycles (CTD -14)
-< Process 979 hasn't lived for 18 cycles (CTD -14)
-< Process 977 hasn't lived for 8 cycles (CTD -14)
-< Process 976 hasn't lived for 8 cycles (CTD -14)
-< Process 971 hasn't lived for 28 cycles (CTD -14)
-< Process 970 hasn't lived for 28 cycles (CTD -14)
-< Process 968 hasn't lived for 18 cycles (CTD -14)
-< Process 967 hasn't lived for 18 cycles (CTD -14)
-< Process 966 hasn't lived for 18 cycles (CTD -14)
-< Process 961 hasn't lived for 8 cycles (CTD -14)
-< Process 960 hasn't lived for 8 cycles (CTD -14)
-< Process 959 hasn't lived for 8 cycles (CTD -14)
-< Process 957 hasn't lived for 28 cycles (CTD -14)
-< Process 956 hasn't lived for 28 cycles (CTD -14)
-< Process 955 hasn't lived for 28 cycles (CTD -14)
-< Process 954 hasn't lived for 28 cycles (CTD -14)
-< Process 949 hasn't lived for 18 cycles (CTD -14)
-< Process 948 hasn't lived for 18 cycles (CTD -14)
-< Process 947 hasn't lived for 18 cycles (CTD -14)
-< Process 946 hasn't lived for 18 cycles (CTD -14)
-< Process 944 hasn't lived for 8 cycles (CTD -14)
-< Process 943 hasn't lived for 8 cycles (CTD -14)
-< Process 942 hasn't lived for 8 cycles (CTD -14)
-< Process 941 hasn't lived for 8 cycles (CTD -14)
-< Process 940 hasn't lived for 8 cycles (CTD -14)
-< Process 935 hasn't lived for 28 cycles (CTD -14)
-< Process 934 hasn't lived for 28 cycles (CTD -14)
-< Process 933 hasn't lived for 28 cycles (CTD -14)
-< Process 932 hasn't lived for 28 cycles (CTD -14)
-< Process 931 hasn't lived for 28 cycles (CTD -14)
-< Process 929 hasn't lived for 18 cycles (CTD -14)
-< Process 928 hasn't lived for 18 cycles (CTD -14)
-< Process 927 hasn't lived for 18 cycles (CTD -14)
-< Process 926 hasn't lived for 18 cycles (CTD -14)
-< Process 925 hasn't lived for 18 cycles (CTD -14)
-< Process 924 hasn't lived for 18 cycles (CTD -14)
-< Process 919 hasn't lived for 8 cycles (CTD -14)
-< Process 918 hasn't lived for 8 cycles (CTD -14)
-< Process 917 hasn't lived for 8 cycles (CTD -14)
-< Process 916 hasn't lived for 8 cycles (CTD -14)
-< Process 915 hasn't lived for 8 cycles (CTD -14)
-< Process 914 hasn't lived for 8 cycles (CTD -14)
-< Process 912 hasn't lived for 28 cycles (CTD -14)
-< Process 911 hasn't lived for 28 cycles (CTD -14)
-< Process 910 hasn't lived for 28 cycles (CTD -14)
-< Process 909 hasn't lived for 28 cycles (CTD -14)
-< Process 908 hasn't lived for 28 cycles (CTD -14)
-< Process 907 hasn't lived for 28 cycles (CTD -14)
-< Process 906 hasn't lived for 28 cycles (CTD -14)
-< Process 901 hasn't lived for 18 cycles (CTD -14)
-< Process 900 hasn't lived for 18 cycles (CTD -14)
-< Process 899 hasn't lived for 18 cycles (CTD -14)
-< Process 898 hasn't lived for 18 cycles (CTD -14)
-< Process 897 hasn't lived for 18 cycles (CTD -14)
-< Process 896 hasn't lived for 18 cycles (CTD -14)
-< Process 895 hasn't lived for 18 cycles (CTD -14)
-< Process 893 hasn't lived for 8 cycles (CTD -14)
-< Process 892 hasn't lived for 8 cycles (CTD -14)
-< Process 891 hasn't lived for 8 cycles (CTD -14)
-< Process 890 hasn't lived for 8 cycles (CTD -14)
-< Process 889 hasn't lived for 8 cycles (CTD -14)
-< Process 888 hasn't lived for 8 cycles (CTD -14)
-< Process 887 hasn't lived for 8 cycles (CTD -14)
-< Process 886 hasn't lived for 8 cycles (CTD -14)
-< Process 881 hasn't lived for 28 cycles (CTD -14)
-< Process 880 hasn't lived for 28 cycles (CTD -14)
-< Process 879 hasn't lived for 28 cycles (CTD -14)
-< Process 878 hasn't lived for 28 cycles (CTD -14)
-< Process 877 hasn't lived for 28 cycles (CTD -14)
-< Process 876 hasn't lived for 28 cycles (CTD -14)
-< Process 875 hasn't lived for 28 cycles (CTD -14)
-< Process 874 hasn't lived for 28 cycles (CTD -14)
-< Process 872 hasn't lived for 18 cycles (CTD -14)
-< Process 871 hasn't lived for 18 cycles (CTD -14)
-< Process 870 hasn't lived for 18 cycles (CTD -14)
-< Process 869 hasn't lived for 18 cycles (CTD -14)
-< Process 868 hasn't lived for 18 cycles (CTD -14)
-< Process 867 hasn't lived for 18 cycles (CTD -14)
-< Process 866 hasn't lived for 18 cycles (CTD -14)
-< Process 865 hasn't lived for 18 cycles (CTD -14)
-< Process 864 hasn't lived for 18 cycles (CTD -14)
-< Process 856 hasn't lived for 18 cycles (CTD -14)
-< Process 851 hasn't lived for 8 cycles (CTD -14)
-< Process 849 hasn't lived for 28 cycles (CTD -14)
-< Process 848 hasn't lived for 28 cycles (CTD -14)
-< Process 843 hasn't lived for 18 cycles (CTD -14)
-< Process 842 hasn't lived for 18 cycles (CTD -14)
-< Process 840 hasn't lived for 8 cycles (CTD -14)
-< Process 839 hasn't lived for 8 cycles (CTD -14)
-< Process 838 hasn't lived for 8 cycles (CTD -14)
-< Process 833 hasn't lived for 28 cycles (CTD -14)
-< Process 832 hasn't lived for 28 cycles (CTD -14)
-< Process 831 hasn't lived for 28 cycles (CTD -14)
-< Process 829 hasn't lived for 18 cycles (CTD -14)
-< Process 828 hasn't lived for 18 cycles (CTD -14)
-< Process 827 hasn't lived for 18 cycles (CTD -14)
-< Process 826 hasn't lived for 18 cycles (CTD -14)
-< Process 821 hasn't lived for 8 cycles (CTD -14)
-< Process 820 hasn't lived for 8 cycles (CTD -14)
-< Process 819 hasn't lived for 8 cycles (CTD -14)
-< Process 818 hasn't lived for 8 cycles (CTD -14)
-< Process 816 hasn't lived for 28 cycles (CTD -14)
-< Process 815 hasn't lived for 28 cycles (CTD -14)
-< Process 814 hasn't lived for 28 cycles (CTD -14)
-< Process 813 hasn't lived for 28 cycles (CTD -14)
-< Process 812 hasn't lived for 28 cycles (CTD -14)
-< Process 807 hasn't lived for 18 cycles (CTD -14)
-< Process 806 hasn't lived for 18 cycles (CTD -14)
-< Process 805 hasn't lived for 18 cycles (CTD -14)
-< Process 804 hasn't lived for 18 cycles (CTD -14)
-< Process 803 hasn't lived for 18 cycles (CTD -14)
-< Process 801 hasn't lived for 8 cycles (CTD -14)
-< Process 800 hasn't lived for 8 cycles (CTD -14)
-< Process 799 hasn't lived for 8 cycles (CTD -14)
-< Process 798 hasn't lived for 8 cycles (CTD -14)
-< Process 797 hasn't lived for 8 cycles (CTD -14)
-< Process 796 hasn't lived for 8 cycles (CTD -14)
-< Process 791 hasn't lived for 28 cycles (CTD -14)
-< Process 790 hasn't lived for 28 cycles (CTD -14)
-< Process 789 hasn't lived for 28 cycles (CTD -14)
-< Process 788 hasn't lived for 28 cycles (CTD -14)
-< Process 787 hasn't lived for 28 cycles (CTD -14)
-< Process 786 hasn't lived for 28 cycles (CTD -14)
-< Process 784 hasn't lived for 18 cycles (CTD -14)
-< Process 783 hasn't lived for 18 cycles (CTD -14)
-< Process 782 hasn't lived for 18 cycles (CTD -14)
-< Process 781 hasn't lived for 18 cycles (CTD -14)
-< Process 780 hasn't lived for 18 cycles (CTD -14)
-< Process 779 hasn't lived for 18 cycles (CTD -14)
-< Process 778 hasn't lived for 18 cycles (CTD -14)
-< Process 773 hasn't lived for 8 cycles (CTD -14)
-< Process 772 hasn't lived for 8 cycles (CTD -14)
-< Process 771 hasn't lived for 8 cycles (CTD -14)
-< Process 770 hasn't lived for 8 cycles (CTD -14)
-< Process 769 hasn't lived for 8 cycles (CTD -14)
-< Process 768 hasn't lived for 8 cycles (CTD -14)
-< Process 767 hasn't lived for 8 cycles (CTD -14)
-< Process 765 hasn't lived for 28 cycles (CTD -14)
-< Process 764 hasn't lived for 28 cycles (CTD -14)
-< Process 763 hasn't lived for 28 cycles (CTD -14)
-< Process 762 hasn't lived for 28 cycles (CTD -14)
-< Process 761 hasn't lived for 28 cycles (CTD -14)
-< Process 760 hasn't lived for 28 cycles (CTD -14)
-< Process 759 hasn't lived for 28 cycles (CTD -14)
-< Process 758 hasn't lived for 28 cycles (CTD -14)
-< Process 753 hasn't lived for 18 cycles (CTD -14)
-< Process 752 hasn't lived for 18 cycles (CTD -14)
-< Process 751 hasn't lived for 18 cycles (CTD -14)
-< Process 750 hasn't lived for 18 cycles (CTD -14)
-< Process 749 hasn't lived for 18 cycles (CTD -14)
-< Process 748 hasn't lived for 18 cycles (CTD -14)
-< Process 747 hasn't lived for 18 cycles (CTD -14)
-< Process 746 hasn't lived for 18 cycles (CTD -14)
-< Process 740 hasn't lived for 8 cycles (CTD -14)
-< Process 735 hasn't lived for 28 cycles (CTD -14)
-< Process 733 hasn't lived for 18 cycles (CTD -14)
-< Process 732 hasn't lived for 18 cycles (CTD -14)
-< Process 727 hasn't lived for 8 cycles (CTD -14)
-< Process 726 hasn't lived for 8 cycles (CTD -14)
-< Process 724 hasn't lived for 28 cycles (CTD -14)
-< Process 723 hasn't lived for 28 cycles (CTD -14)
-< Process 722 hasn't lived for 28 cycles (CTD -14)
-< Process 717 hasn't lived for 18 cycles (CTD -14)
-< Process 716 hasn't lived for 18 cycles (CTD -14)
-< Process 715 hasn't lived for 18 cycles (CTD -14)
-< Process 713 hasn't lived for 8 cycles (CTD -14)
-< Process 712 hasn't lived for 8 cycles (CTD -14)
-< Process 711 hasn't lived for 8 cycles (CTD -14)
-< Process 710 hasn't lived for 8 cycles (CTD -14)
-< Process 705 hasn't lived for 28 cycles (CTD -14)
-< Process 704 hasn't lived for 28 cycles (CTD -14)
-< Process 703 hasn't lived for 28 cycles (CTD -14)
-< Process 702 hasn't lived for 28 cycles (CTD -14)
-< Process 700 hasn't lived for 18 cycles (CTD -14)
-< Process 699 hasn't lived for 18 cycles (CTD -14)
-< Process 698 hasn't lived for 18 cycles (CTD -14)
-< Process 697 hasn't lived for 18 cycles (CTD -14)
-< Process 696 hasn't lived for 18 cycles (CTD -14)
-< Process 691 hasn't lived for 8 cycles (CTD -14)
-< Process 690 hasn't lived for 8 cycles (CTD -14)
-< Process 689 hasn't lived for 8 cycles (CTD -14)
-< Process 688 hasn't lived for 8 cycles (CTD -14)
-< Process 687 hasn't lived for 8 cycles (CTD -14)
-< Process 685 hasn't lived for 28 cycles (CTD -14)
-< Process 684 hasn't lived for 28 cycles (CTD -14)
-< Process 683 hasn't lived for 28 cycles (CTD -14)
-< Process 682 hasn't lived for 28 cycles (CTD -14)
-< Process 681 hasn't lived for 28 cycles (CTD -14)
-< Process 680 hasn't lived for 28 cycles (CTD -14)
-< Process 675 hasn't lived for 18 cycles (CTD -14)
-< Process 674 hasn't lived for 18 cycles (CTD -14)
-< Process 673 hasn't lived for 18 cycles (CTD -14)
-< Process 672 hasn't lived for 18 cycles (CTD -14)
-< Process 671 hasn't lived for 18 cycles (CTD -14)
-< Process 670 hasn't lived for 18 cycles (CTD -14)
-< Process 668 hasn't lived for 8 cycles (CTD -14)
-< Process 667 hasn't lived for 8 cycles (CTD -14)
-< Process 666 hasn't lived for 8 cycles (CTD -14)
-< Process 665 hasn't lived for 8 cycles (CTD -14)
-< Process 664 hasn't lived for 8 cycles (CTD -14)
-< Process 663 hasn't lived for 8 cycles (CTD -14)
-< Process 662 hasn't lived for 8 cycles (CTD -14)
-< Process 657 hasn't lived for 28 cycles (CTD -14)
-< Process 656 hasn't lived for 28 cycles (CTD -14)
-< Process 655 hasn't lived for 28 cycles (CTD -14)
-< Process 654 hasn't lived for 28 cycles (CTD -14)
-< Process 653 hasn't lived for 28 cycles (CTD -14)
-< Process 652 hasn't lived for 28 cycles (CTD -14)
-< Process 651 hasn't lived for 28 cycles (CTD -14)
-< Process 649 hasn't lived for 18 cycles (CTD -14)
-< Process 648 hasn't lived for 18 cycles (CTD -14)
-< Process 647 hasn't lived for 18 cycles (CTD -14)
-< Process 646 hasn't lived for 18 cycles (CTD -14)
-< Process 645 hasn't lived for 18 cycles (CTD -14)
-< Process 644 hasn't lived for 18 cycles (CTD -14)
-< Process 643 hasn't lived for 18 cycles (CTD -14)
-< Process 642 hasn't lived for 18 cycles (CTD -14)
-< Process 634 hasn't lived for 28 cycles (CTD -14)
-< Process 629 hasn't lived for 18 cycles (CTD -14)
-< Process 627 hasn't lived for 8 cycles (CTD -14)
-< Process 626 hasn't lived for 8 cycles (CTD -14)
-< Process 621 hasn't lived for 28 cycles (CTD -14)
-< Process 620 hasn't lived for 28 cycles (CTD -14)
-< Process 618 hasn't lived for 18 cycles (CTD -14)
-< Process 617 hasn't lived for 18 cycles (CTD -14)
-< Process 616 hasn't lived for 18 cycles (CTD -14)
-< Process 611 hasn't lived for 8 cycles (CTD -14)
-< Process 610 hasn't lived for 8 cycles (CTD -14)
-< Process 609 hasn't lived for 8 cycles (CTD -14)
-< Process 607 hasn't lived for 28 cycles (CTD -14)
-< Process 606 hasn't lived for 28 cycles (CTD -14)
-< Process 605 hasn't lived for 28 cycles (CTD -14)
-< Process 604 hasn't lived for 28 cycles (CTD -14)
-< Process 599 hasn't lived for 18 cycles (CTD -14)
-< Process 598 hasn't lived for 18 cycles (CTD -14)
-< Process 597 hasn't lived for 18 cycles (CTD -14)
-< Process 596 hasn't lived for 18 cycles (CTD -14)
-< Process 594 hasn't lived for 8 cycles (CTD -14)
-< Process 593 hasn't lived for 8 cycles (CTD -14)
-< Process 592 hasn't lived for 8 cycles (CTD -14)
-< Process 591 hasn't lived for 8 cycles (CTD -14)
-< Process 590 hasn't lived for 8 cycles (CTD -14)
-< Process 585 hasn't lived for 28 cycles (CTD -14)
-< Process 584 hasn't lived for 28 cycles (CTD -14)
-< Process 583 hasn't lived for 28 cycles (CTD -14)
-< Process 582 hasn't lived for 28 cycles (CTD -14)
-< Process 581 hasn't lived for 28 cycles (CTD -14)
-< Process 579 hasn't lived for 18 cycles (CTD -14)
-< Process 578 hasn't lived for 18 cycles (CTD -14)
-< Process 577 hasn't lived for 18 cycles (CTD -14)
-< Process 576 hasn't lived for 18 cycles (CTD -14)
-< Process 575 hasn't lived for 18 cycles (CTD -14)
-< Process 574 hasn't lived for 18 cycles (CTD -14)
-< Process 569 hasn't lived for 8 cycles (CTD -14)
-< Process 568 hasn't lived for 8 cycles (CTD -14)
-< Process 567 hasn't lived for 8 cycles (CTD -14)
-< Process 566 hasn't lived for 8 cycles (CTD -14)
-< Process 565 hasn't lived for 8 cycles (CTD -14)
-< Process 564 hasn't lived for 8 cycles (CTD -14)
-< Process 562 hasn't lived for 28 cycles (CTD -14)
-< Process 561 hasn't lived for 28 cycles (CTD -14)
-< Process 560 hasn't lived for 28 cycles (CTD -14)
-< Process 559 hasn't lived for 28 cycles (CTD -14)
-< Process 558 hasn't lived for 28 cycles (CTD -14)
-< Process 557 hasn't lived for 28 cycles (CTD -14)
-< Process 556 hasn't lived for 28 cycles (CTD -14)
-< Process 551 hasn't lived for 18 cycles (CTD -14)
-< Process 550 hasn't lived for 18 cycles (CTD -14)
-< Process 549 hasn't lived for 18 cycles (CTD -14)
-< Process 548 hasn't lived for 18 cycles (CTD -14)
-< Process 547 hasn't lived for 18 cycles (CTD -14)
-< Process 546 hasn't lived for 18 cycles (CTD -14)
-< Process 545 hasn't lived for 18 cycles (CTD -14)
-< Process 539 hasn't lived for 18 cycles (CTD -14)
-< Process 534 hasn't lived for 8 cycles (CTD -14)
-< Process 532 hasn't lived for 28 cycles (CTD -14)
-< Process 531 hasn't lived for 28 cycles (CTD -14)
-< Process 526 hasn't lived for 18 cycles (CTD -14)
-< Process 525 hasn't lived for 18 cycles (CTD -14)
-< Process 523 hasn't lived for 8 cycles (CTD -14)
-< Process 522 hasn't lived for 8 cycles (CTD -14)
-< Process 521 hasn't lived for 8 cycles (CTD -14)
-< Process 516 hasn't lived for 28 cycles (CTD -14)
-< Process 515 hasn't lived for 28 cycles (CTD -14)
-< Process 514 hasn't lived for 28 cycles (CTD -14)
-< Process 512 hasn't lived for 18 cycles (CTD -14)
-< Process 511 hasn't lived for 18 cycles (CTD -14)
-< Process 510 hasn't lived for 18 cycles (CTD -14)
-< Process 509 hasn't lived for 18 cycles (CTD -14)
-< Process 504 hasn't lived for 8 cycles (CTD -14)
-< Process 503 hasn't lived for 8 cycles (CTD -14)
-< Process 502 hasn't lived for 8 cycles (CTD -14)
-< Process 501 hasn't lived for 8 cycles (CTD -14)
-< Process 499 hasn't lived for 28 cycles (CTD -14)
-< Process 498 hasn't lived for 28 cycles (CTD -14)
-< Process 497 hasn't lived for 28 cycles (CTD -14)
-< Process 496 hasn't lived for 28 cycles (CTD -14)
-< Process 495 hasn't lived for 28 cycles (CTD -14)
-< Process 490 hasn't lived for 18 cycles (CTD -14)
-< Process 489 hasn't lived for 18 cycles (CTD -14)
-< Process 488 hasn't lived for 18 cycles (CTD -14)
-< Process 487 hasn't lived for 18 cycles (CTD -14)
-< Process 486 hasn't lived for 18 cycles (CTD -14)
-< Process 484 hasn't lived for 8 cycles (CTD -14)
-< Process 483 hasn't lived for 8 cycles (CTD -14)
-< Process 482 hasn't lived for 8 cycles (CTD -14)
-< Process 481 hasn't lived for 8 cycles (CTD -14)
-< Process 480 hasn't lived for 8 cycles (CTD -14)
-< Process 479 hasn't lived for 8 cycles (CTD -14)
-< Process 474 hasn't lived for 28 cycles (CTD -14)
-< Process 473 hasn't lived for 28 cycles (CTD -14)
-< Process 472 hasn't lived for 28 cycles (CTD -14)
-< Process 471 hasn't lived for 28 cycles (CTD -14)
-< Process 470 hasn't lived for 28 cycles (CTD -14)
-< Process 469 hasn't lived for 28 cycles (CTD -14)
-< Process 467 hasn't lived for 18 cycles (CTD -14)
-< Process 466 hasn't lived for 18 cycles (CTD -14)
-< Process 465 hasn't lived for 18 cycles (CTD -14)
-< Process 464 hasn't lived for 18 cycles (CTD -14)
-< Process 463 hasn't lived for 18 cycles (CTD -14)
-< Process 462 hasn't lived for 18 cycles (CTD -14)
-< Process 461 hasn't lived for 18 cycles (CTD -14)
-< Process 453 hasn't lived for 8 cycles (CTD -14)
-< Process 448 hasn't lived for 28 cycles (CTD -14)
-< Process 446 hasn't lived for 18 cycles (CTD -14)
-< Process 445 hasn't lived for 18 cycles (CTD -14)
-< Process 440 hasn't lived for 8 cycles (CTD -14)
-< Process 439 hasn't lived for 8 cycles (CTD -14)
-< Process 437 hasn't lived for 28 cycles (CTD -14)
-< Process 436 hasn't lived for 28 cycles (CTD -14)
-< Process 435 hasn't lived for 28 cycles (CTD -14)
-< Process 430 hasn't lived for 18 cycles (CTD -14)
-< Process 429 hasn't lived for 18 cycles (CTD -14)
-< Process 428 hasn't lived for 18 cycles (CTD -14)
-< Process 426 hasn't lived for 8 cycles (CTD -14)
-< Process 425 hasn't lived for 8 cycles (CTD -14)
-< Process 424 hasn't lived for 8 cycles (CTD -14)
-< Process 423 hasn't lived for 8 cycles (CTD -14)
-< Process 418 hasn't lived for 28 cycles (CTD -14)
-< Process 417 hasn't lived for 28 cycles (CTD -14)
-< Process 416 hasn't lived for 28 cycles (CTD -14)
-< Process 415 hasn't lived for 28 cycles (CTD -14)
-< Process 413 hasn't lived for 18 cycles (CTD -14)
-< Process 412 hasn't lived for 18 cycles (CTD -14)
-< Process 411 hasn't lived for 18 cycles (CTD -14)
-< Process 410 hasn't lived for 18 cycles (CTD -14)
-< Process 409 hasn't lived for 18 cycles (CTD -14)
-< Process 404 hasn't lived for 8 cycles (CTD -14)
-< Process 403 hasn't lived for 8 cycles (CTD -14)
-< Process 402 hasn't lived for 8 cycles (CTD -14)
-< Process 401 hasn't lived for 8 cycles (CTD -14)
-< Process 400 hasn't lived for 8 cycles (CTD -14)
-< Process 398 hasn't lived for 28 cycles (CTD -14)
-< Process 397 hasn't lived for 28 cycles (CTD -14)
-< Process 396 hasn't lived for 28 cycles (CTD -14)
-< Process 395 hasn't lived for 28 cycles (CTD -14)
-< Process 394 hasn't lived for 28 cycles (CTD -14)
-< Process 393 hasn't lived for 28 cycles (CTD -14)
-< Process 388 hasn't lived for 18 cycles (CTD -14)
-< Process 387 hasn't lived for 18 cycles (CTD -14)
-< Process 386 hasn't lived for 18 cycles (CTD -14)
-< Process 385 hasn't lived for 18 cycles (CTD -14)
-< Process 384 hasn't lived for 18 cycles (CTD -14)
-< Process 383 hasn't lived for 18 cycles (CTD -14)
-< Process 377 hasn't lived for 28 cycles (CTD -14)
-< Process 372 hasn't lived for 18 cycles (CTD -14)
-< Process 370 hasn't lived for 8 cycles (CTD -14)
-< Process 369 hasn't lived for 8 cycles (CTD -14)
-< Process 364 hasn't lived for 28 cycles (CTD -14)
-< Process 363 hasn't lived for 28 cycles (CTD -14)
-< Process 361 hasn't lived for 18 cycles (CTD -14)
-< Process 360 hasn't lived for 18 cycles (CTD -14)
-< Process 359 hasn't lived for 18 cycles (CTD -14)
-< Process 354 hasn't lived for 8 cycles (CTD -14)
-< Process 353 hasn't lived for 8 cycles (CTD -14)
-< Process 352 hasn't lived for 8 cycles (CTD -14)
-< Process 350 hasn't lived for 28 cycles (CTD -14)
-< Process 349 hasn't lived for 28 cycles (CTD -14)
-< Process 348 hasn't lived for 28 cycles (CTD -14)
-< Process 347 hasn't lived for 28 cycles (CTD -14)
-< Process 342 hasn't lived for 18 cycles (CTD -14)
-< Process 341 hasn't lived for 18 cycles (CTD -14)
-< Process 340 hasn't lived for 18 cycles (CTD -14)
-< Process 339 hasn't lived for 18 cycles (CTD -14)
-< Process 337 hasn't lived for 8 cycles (CTD -14)
-< Process 336 hasn't lived for 8 cycles (CTD -14)
-< Process 335 hasn't lived for 8 cycles (CTD -14)
-< Process 334 hasn't lived for 8 cycles (CTD -14)
-< Process 333 hasn't lived for 8 cycles (CTD -14)
-< Process 328 hasn't lived for 28 cycles (CTD -14)
-< Process 327 hasn't lived for 28 cycles (CTD -14)
-< Process 326 hasn't lived for 28 cycles (CTD -14)
-< Process 325 hasn't lived for 28 cycles (CTD -14)
-< Process 324 hasn't lived for 28 cycles (CTD -14)
-< Process 322 hasn't lived for 18 cycles (CTD -14)
-< Process 321 hasn't lived for 18 cycles (CTD -14)
-< Process 320 hasn't lived for 18 cycles (CTD -14)
-< Process 319 hasn't lived for 18 cycles (CTD -14)
-< Process 318 hasn't lived for 18 cycles (CTD -14)
-< Process 317 hasn't lived for 18 cycles (CTD -14)
-< Process 309 hasn't lived for 18 cycles (CTD -14)
-< Process 304 hasn't lived for 8 cycles (CTD -14)
-< Process 302 hasn't lived for 28 cycles (CTD -14)
-< Process 301 hasn't lived for 28 cycles (CTD -14)
-< Process 296 hasn't lived for 18 cycles (CTD -14)
-< Process 295 hasn't lived for 18 cycles (CTD -14)
-< Process 293 hasn't lived for 8 cycles (CTD -14)
-< Process 292 hasn't lived for 8 cycles (CTD -14)
-< Process 291 hasn't lived for 8 cycles (CTD -14)
-< Process 286 hasn't lived for 28 cycles (CTD -14)
-< Process 285 hasn't lived for 28 cycles (CTD -14)
-< Process 284 hasn't lived for 28 cycles (CTD -14)
-< Process 282 hasn't lived for 18 cycles (CTD -14)
-< Process 281 hasn't lived for 18 cycles (CTD -14)
-< Process 280 hasn't lived for 18 cycles (CTD -14)
-< Process 279 hasn't lived for 18 cycles (CTD -14)
-< Process 274 hasn't lived for 8 cycles (CTD -14)
-< Process 273 hasn't lived for 8 cycles (CTD -14)
-< Process 272 hasn't lived for 8 cycles (CTD -14)
-< Process 271 hasn't lived for 8 cycles (CTD -14)
-< Process 269 hasn't lived for 28 cycles (CTD -14)
-< Process 268 hasn't lived for 28 cycles (CTD -14)
-< Process 267 hasn't lived for 28 cycles (CTD -14)
-< Process 266 hasn't lived for 28 cycles (CTD -14)
-< Process 265 hasn't lived for 28 cycles (CTD -14)
-< Process 260 hasn't lived for 18 cycles (CTD -14)
-< Process 259 hasn't lived for 18 cycles (CTD -14)
-< Process 258 hasn't lived for 18 cycles (CTD -14)
-< Process 257 hasn't lived for 18 cycles (CTD -14)
-< Process 256 hasn't lived for 18 cycles (CTD -14)
-< Process 250 hasn't lived for 8 cycles (CTD -14)
-< Process 245 hasn't lived for 28 cycles (CTD -14)
-< Process 243 hasn't lived for 18 cycles (CTD -14)
-< Process 242 hasn't lived for 18 cycles (CTD -14)
-< Process 237 hasn't lived for 8 cycles (CTD -14)
-< Process 236 hasn't lived for 8 cycles (CTD -14)
-< Process 234 hasn't lived for 28 cycles (CTD -14)
-< Process 233 hasn't lived for 28 cycles (CTD -14)
-< Process 232 hasn't lived for 28 cycles (CTD -14)
-< Process 227 hasn't lived for 18 cycles (CTD -14)
-< Process 226 hasn't lived for 18 cycles (CTD -14)
-< Process 225 hasn't lived for 18 cycles (CTD -14)
-< Process 223 hasn't lived for 8 cycles (CTD -14)
-< Process 222 hasn't lived for 8 cycles (CTD -14)
-< Process 221 hasn't lived for 8 cycles (CTD -14)
-< Process 220 hasn't lived for 8 cycles (CTD -14)
-< Process 215 hasn't lived for 28 cycles (CTD -14)
-< Process 214 hasn't lived for 28 cycles (CTD -14)
-< Process 213 hasn't lived for 28 cycles (CTD -14)
-< Process 212 hasn't lived for 28 cycles (CTD -14)
-< Process 210 hasn't lived for 18 cycles (CTD -14)
-< Process 209 hasn't lived for 18 cycles (CTD -14)
-< Process 208 hasn't lived for 18 cycles (CTD -14)
-< Process 207 hasn't lived for 18 cycles (CTD -14)
-< Process 206 hasn't lived for 18 cycles (CTD -14)
-< Process 198 hasn't lived for 28 cycles (CTD -14)
-< Process 193 hasn't lived for 18 cycles (CTD -14)
-< Process 191 hasn't lived for 8 cycles (CTD -14)
-< Process 190 hasn't lived for 8 cycles (CTD -14)
-< Process 185 hasn't lived for 28 cycles (CTD -14)
-< Process 184 hasn't lived for 28 cycles (CTD -14)
-< Process 182 hasn't lived for 18 cycles (CTD -14)
-< Process 181 hasn't lived for 18 cycles (CTD -14)
-< Process 180 hasn't lived for 18 cycles (CTD -14)
-< Process 175 hasn't lived for 8 cycles (CTD -14)
-< Process 174 hasn't lived for 8 cycles (CTD -14)
-< Process 173 hasn't lived for 8 cycles (CTD -14)
-< Process 171 hasn't lived for 28 cycles (CTD -14)
-< Process 170 hasn't lived for 28 cycles (CTD -14)
-< Process 169 hasn't lived for 28 cycles (CTD -14)
-< Process 168 hasn't lived for 28 cycles (CTD -14)
-< Process 163 hasn't lived for 18 cycles (CTD -14)
-< Process 162 hasn't lived for 18 cycles (CTD -14)
-< Process 161 hasn't lived for 18 cycles (CTD -14)
-< Process 160 hasn't lived for 18 cycles (CTD -14)
-< Process 154 hasn't lived for 18 cycles (CTD -14)
-< Process 149 hasn't lived for 8 cycles (CTD -14)
-< Process 147 hasn't lived for 28 cycles (CTD -14)
-< Process 146 hasn't lived for 28 cycles (CTD -14)
-< Process 141 hasn't lived for 18 cycles (CTD -14)
-< Process 140 hasn't lived for 18 cycles (CTD -14)
-< Process 138 hasn't lived for 8 cycles (CTD -14)
-< Process 137 hasn't lived for 8 cycles (CTD -14)
-< Process 136 hasn't lived for 8 cycles (CTD -14)
-< Process 131 hasn't lived for 28 cycles (CTD -14)
-< Process 130 hasn't lived for 28 cycles (CTD -14)
-< Process 129 hasn't lived for 28 cycles (CTD -14)
-< Process 127 hasn't lived for 18 cycles (CTD -14)
-< Process 126 hasn't lived for 18 cycles (CTD -14)
-< Process 125 hasn't lived for 18 cycles (CTD -14)
-< Process 124 hasn't lived for 18 cycles (CTD -14)
-< Process 116 hasn't lived for 8 cycles (CTD -14)
-< Process 111 hasn't lived for 28 cycles (CTD -14)
-< Process 109 hasn't lived for 18 cycles (CTD -14)
-< Process 108 hasn't lived for 18 cycles (CTD -14)
-< Process 103 hasn't lived for 8 cycles (CTD -14)
-< Process 102 hasn't lived for 8 cycles (CTD -14)
-< Process 100 hasn't lived for 28 cycles (CTD -14)
-< Process 99 hasn't lived for 28 cycles (CTD -14)
-< Process 98 hasn't lived for 28 cycles (CTD -14)
-< Process 93 hasn't lived for 18 cycles (CTD -14)
-< Process 92 hasn't lived for 18 cycles (CTD -14)
-< Process 91 hasn't lived for 18 cycles (CTD -14)
-< Process 85 hasn't lived for 28 cycles (CTD -14)
-< Process 80 hasn't lived for 18 cycles (CTD -14)
-< Process 78 hasn't lived for 8 cycles (CTD -14)
-< Process 77 hasn't lived for 8 cycles (CTD -14)
-< Process 72 hasn't lived for 28 cycles (CTD -14)
-< Process 71 hasn't lived for 28 cycles (CTD -14)
-< Process 69 hasn't lived for 18 cycles (CTD -14)
-< Process 68 hasn't lived for 18 cycles (CTD -14)
-< Process 67 hasn't lived for 18 cycles (CTD -14)
-< Process 59 hasn't lived for 18 cycles (CTD -14)
-< Process 54 hasn't lived for 8 cycles (CTD -14)
-< Process 52 hasn't lived for 28 cycles (CTD -14)
-< Process 51 hasn't lived for 28 cycles (CTD -14)
-< Process 46 hasn't lived for 18 cycles (CTD -14)
-< Process 45 hasn't lived for 18 cycles (CTD -14)
-< Process 39 hasn't lived for 8 cycles (CTD -14)
-< Process 34 hasn't lived for 28 cycles (CTD -14)
-< Process 32 hasn't lived for 18 cycles (CTD -14)
-< Process 31 hasn't lived for 18 cycles (CTD -14)
-< Process 23 hasn't lived for 28 cycles (CTD -14)
-< Process 18 hasn't lived for 18 cycles (CTD -14)
-< Process 12 hasn't lived for 18 cycles (CTD -14)
+> P    4 | zjmp -1 OK
+108185d108157
+< P    4 | zjmp -47 OK
+108192a108165
+> P    4 | zjmp -1 OK
+108288d108260
+< P    4 | live -1
+108398a108371
+> P    4 | zjmp -1 OK
+108510,108511d108482
+< P    4 | sti r4 153 136
+<        | -> store to 153 + 136 = 289 (with pc and mod 626)
+108541a108513
+> Process 4 hasn't lived for 1270 cycles (CTD 636)
+108605d108576
+< P    4 | add r2 r3 r2
+108859,108860d108829
+< P    4 | sti r4 142 140
+<        | -> store to 142 + 140 = 282 (with pc and mod 630)
+108929a108899
+> P    6 | zjmp -1 OK
+108943d108912
+< P    6 | zjmp 880 OK
+108950d108918
+< P    4 | add r2 r3 r2
+108999d108966
+< P    6 | ld 0 r16
+109051d109017
+< P    4 | live -1
+109128d109093
+< P    4 | xor 144 96 r15
+109134a109100
+> P    6 | zjmp -1 OK
+109186d109151
+< P    6 | zjmp -47 OK
+109278d109242
+< P    6 | live -1
+109308d109271
+< P    4 | zjmp -89 FAILED
+109323a109287
+> P    6 | zjmp -1 OK
+109363d109326
+< P    4 | ld 0 r16
+109530a109494
+> P    6 | zjmp -1 OK
+109535,109536d109498
+< P    6 | sti r4 153 96
+<        | -> store to 153 + 96 = 249 (with pc and mod 586)
+109540d109501
+< P    4 | zjmp -47 OK
+109628d109588
+< P    6 | add r2 r3 r2
+109636d109595
+< P    4 | live -1
+109731a109691
+> P    6 | zjmp -1 OK
+109866,109867d109825
+< P    6 | sti r4 142 100
+<        | -> store to 142 + 100 = 242 (with pc and mod 590)
+109893,109894d109850
+< P    4 | sti r4 153 144
+<        | -> store to 153 + 144 = 297 (with pc and mod 634)
+109943a109900
+> P    6 | zjmp -1 OK
+109963d109919
+< P    6 | add r2 r3 r2
+109989d109944
+< P    4 | add r2 r3 r2
+110052d110006
+< P    6 | live -1
+110130d110083
+< P    6 | xor 104 96 r15
+110134a110088
+> P    6 | zjmp -1 OK
+110225,110226d110178
+< P    4 | sti r4 142 148
+<        | -> store to 142 + 148 = 290 (with pc and mod 638)
+110326,110327d110277
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+110339a110290
+> P    6 | zjmp -1 OK
+110390d110340
+< P    6 | ld 0 r16
+110412d110361
+< P    4 | live -1
+110484d110432
+< P    4 | xor 152 96 r15
+110545a110494
+> P    6 | zjmp -1 OK
+110577d110525
+< P    6 | zjmp -47 OK
+110664d110611
+< P    6 | live -1
+110669d110615
+< P    4 | zjmp -89 FAILED
+110717d110662
+< P    4 | ld 0 r16
+110734a110680
+> P    6 | zjmp -1 OK
+110897,110898d110842
+< P    6 | sti r4 153 104
+<        | -> store to 153 + 104 = 257 (with pc and mod 594)
+110900d110843
+< P    4 | zjmp -47 OK
+110953a110897
+> P    6 | zjmp -1 OK
+110990d110933
+< P    6 | add r2 r3 r2
+110998d110940
+< P    4 | live -1
+111157a111100
+> P    6 | zjmp -1 OK
+111240,111241d111182
+< P    6 | sti r4 142 108
+<        | -> store to 142 + 108 = 250 (with pc and mod 598)
+111247,111248d111187
+< P    4 | sti r4 153 152
+<        | -> store to 153 + 152 = 305 (with pc and mod 642)
+111345d111283
+< P    6 | add r2 r3 r2
+111352d111289
+< P    4 | add r2 r3 r2
+111355a111293
+> P    6 | zjmp -1 OK
+111432d111369
+< P    6 | live -1
+111489d111425
+< P    6 | xor 112 96 r15
+111556a111493
+> P    6 | zjmp -1 OK
+111572,111573d111508
+< P    4 | sti r4 142 156
+<        | -> store to 142 + 156 = 298 (with pc and mod 646)
+111671,111672d111605
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+111748d111680
+< P    6 | ld 0 r16
+111763a111696
+> P    6 | zjmp -1 OK
+111776d111708
+< P    4 | live -1
+111838d111769
+< P    4 | xor 160 96 r15
+111935d111865
+< P    6 | zjmp -47 OK
+111958a111889
+> P    6 | zjmp -1 OK
+112026d111956
+< P    6 | live -1
+112030d111959
+< P    4 | zjmp -89 FAILED
+112072d112000
+< P    4 | ld 0 r16
+112166a112095
+> P    6 | zjmp -1 OK
+112253,112254d112181
+< P    6 | sti r4 153 112
+<        | -> store to 153 + 112 = 265 (with pc and mod 602)
+112256d112182
+< P    4 | zjmp -47 OK
+112358d112283
+< P    6 | add r2 r3 r2
+112368c112293
+< P    4 | live -1
 ---
-> It is now cycle 27439
-> Process 2120 hasn't lived for 19 cycles (CTD -14)
-> Process 2109 hasn't lived for 19 cycles (CTD -14)
-> Process 2096 hasn't lived for 19 cycles (CTD -14)
-> Process 2077 hasn't lived for 9 cycles (CTD -14)
-> Process 2076 hasn't lived for 9 cycles (CTD -14)
-> Process 2071 hasn't lived for 29 cycles (CTD -14)
-> Process 2069 hasn't lived for 9 cycles (CTD -14)
-> Process 2068 hasn't lived for 19 cycles (CTD -14)
-> Process 2067 hasn't lived for 19 cycles (CTD -14)
-> Process 2064 hasn't lived for 14 cycles (CTD -14)
-> Process 2062 hasn't lived for 9 cycles (CTD -14)
-> Process 2061 hasn't lived for 9 cycles (CTD -14)
-> Process 2060 hasn't lived for 9 cycles (CTD -14)
-> Process 2059 hasn't lived for 29 cycles (CTD -14)
-> Process 2058 hasn't lived for 29 cycles (CTD -14)
-> Process 2057 hasn't lived for 29 cycles (CTD -14)
-> Process 2054 hasn't lived for 14 cycles (CTD -14)
-> Process 2052 hasn't lived for 19 cycles (CTD -14)
-> Process 2051 hasn't lived for 19 cycles (CTD -14)
-> Process 2050 hasn't lived for 19 cycles (CTD -14)
-> Process 2049 hasn't lived for 9 cycles (CTD -14)
-> Process 2048 hasn't lived for 9 cycles (CTD -14)
-> Process 2047 hasn't lived for 9 cycles (CTD -14)
-> Process 2046 hasn't lived for 9 cycles (CTD -14)
-> Process 2045 hasn't lived for 9 cycles (CTD -14)
-> Process 2042 hasn't lived for 14 cycles (CTD -14)
-> Process 2040 hasn't lived for 29 cycles (CTD -14)
-> Process 2039 hasn't lived for 29 cycles (CTD -14)
-> Process 2038 hasn't lived for 29 cycles (CTD -14)
-> Process 2037 hasn't lived for 29 cycles (CTD -14)
-> Process 2036 hasn't lived for 9 cycles (CTD -14)
-> Process 2035 hasn't lived for 19 cycles (CTD -14)
-> Process 2034 hasn't lived for 19 cycles (CTD -14)
-> Process 2033 hasn't lived for 19 cycles (CTD -14)
-> Process 2032 hasn't lived for 19 cycles (CTD -14)
-> Process 2031 hasn't lived for 19 cycles (CTD -14)
-> Process 1969 hasn't lived for 4 cycles (CTD -14)
-> Process 1966 hasn't lived for 29 cycles (CTD -14)
-> Process 1963 hasn't lived for 4 cycles (CTD -14)
-> Process 1961 hasn't lived for 19 cycles (CTD -14)
-> Process 1959 hasn't lived for 9 cycles (CTD -14)
-> Process 1958 hasn't lived for 9 cycles (CTD -14)
-> Process 1957 hasn't lived for 9 cycles (CTD -14)
-> Process 1955 hasn't lived for 4 cycles (CTD -14)
-> Process 1953 hasn't lived for 29 cycles (CTD -14)
-> Process 1952 hasn't lived for 29 cycles (CTD -14)
-> Process 1950 hasn't lived for 19 cycles (CTD -14)
-> Process 1949 hasn't lived for 19 cycles (CTD -14)
-> Process 1948 hasn't lived for 19 cycles (CTD -14)
-> Process 1947 hasn't lived for 9 cycles (CTD -14)
-> Process 1945 hasn't lived for 4 cycles (CTD -14)
-> Process 1943 hasn't lived for 9 cycles (CTD -14)
-> Process 1942 hasn't lived for 9 cycles (CTD -14)
-> Process 1941 hasn't lived for 9 cycles (CTD -14)
-> Process 1939 hasn't lived for 29 cycles (CTD -14)
-> Process 1938 hasn't lived for 29 cycles (CTD -14)
-> Process 1937 hasn't lived for 29 cycles (CTD -14)
-> Process 1936 hasn't lived for 29 cycles (CTD -14)
-> Process 1935 hasn't lived for 9 cycles (CTD -14)
-> Process 1933 hasn't lived for 4 cycles (CTD -14)
-> Process 1931 hasn't lived for 19 cycles (CTD -14)
-> Process 1930 hasn't lived for 19 cycles (CTD -14)
-> Process 1929 hasn't lived for 19 cycles (CTD -14)
-> Process 1928 hasn't lived for 19 cycles (CTD -14)
-> Process 1859 hasn't lived for 19 cycles (CTD -14)
-> Process 1858 hasn't lived for 19 cycles (CTD -14)
-> Process 1857 hasn't lived for 19 cycles (CTD -14)
-> Process 1856 hasn't lived for 19 cycles (CTD -14)
-> Process 1855 hasn't lived for 19 cycles (CTD -14)
-> Process 1854 hasn't lived for 19 cycles (CTD -14)
-> Process 1853 hasn't lived for 19 cycles (CTD -14)
-> Process 1852 hasn't lived for 19 cycles (CTD -14)
-> Process 1851 hasn't lived for 19 cycles (CTD -14)
-> Process 1850 hasn't lived for 19 cycles (CTD -14)
-> Process 1848 hasn't lived for 9 cycles (CTD -14)
-> Process 1847 hasn't lived for 9 cycles (CTD -14)
-> Process 1846 hasn't lived for 9 cycles (CTD -14)
-> Process 1845 hasn't lived for 9 cycles (CTD -14)
-> Process 1844 hasn't lived for 9 cycles (CTD -14)
-> Process 1843 hasn't lived for 9 cycles (CTD -14)
-> Process 1842 hasn't lived for 9 cycles (CTD -14)
-> Process 1841 hasn't lived for 9 cycles (CTD -14)
-> Process 1840 hasn't lived for 9 cycles (CTD -14)
-> Process 1839 hasn't lived for 9 cycles (CTD -14)
-> Process 1838 hasn't lived for 9 cycles (CTD -14)
-> Process 1833 hasn't lived for 29 cycles (CTD -14)
-> Process 1832 hasn't lived for 29 cycles (CTD -14)
-> Process 1831 hasn't lived for 29 cycles (CTD -14)
-> Process 1830 hasn't lived for 29 cycles (CTD -14)
-> Process 1829 hasn't lived for 29 cycles (CTD -14)
-> Process 1828 hasn't lived for 29 cycles (CTD -14)
-> Process 1827 hasn't lived for 29 cycles (CTD -14)
-> Process 1826 hasn't lived for 29 cycles (CTD -14)
-> Process 1825 hasn't lived for 29 cycles (CTD -14)
-> Process 1824 hasn't lived for 29 cycles (CTD -14)
-> Process 1823 hasn't lived for 29 cycles (CTD -14)
-> Process 1821 hasn't lived for 19 cycles (CTD -14)
-> Process 1820 hasn't lived for 19 cycles (CTD -14)
-> Process 1819 hasn't lived for 19 cycles (CTD -14)
-> Process 1818 hasn't lived for 19 cycles (CTD -14)
-> Process 1817 hasn't lived for 19 cycles (CTD -14)
-> Process 1816 hasn't lived for 19 cycles (CTD -14)
-> Process 1815 hasn't lived for 19 cycles (CTD -14)
-> Process 1814 hasn't lived for 19 cycles (CTD -14)
-> Process 1813 hasn't lived for 19 cycles (CTD -14)
-> Process 1812 hasn't lived for 19 cycles (CTD -14)
-> Process 1811 hasn't lived for 19 cycles (CTD -14)
-> Process 1810 hasn't lived for 19 cycles (CTD -14)
-> Process 1806 hasn't lived for 19 cycles (CTD -14)
-> Process 1802 hasn't lived for 19 cycles (CTD -14)
-> Process 1801 hasn't lived for 19 cycles (CTD -14)
-> Process 1798 hasn't lived for 4 cycles (CTD -14)
-> Process 1797 hasn't lived for 9 cycles (CTD -14)
-> Process 1795 hasn't lived for 29 cycles (CTD -14)
-> Process 1794 hasn't lived for 29 cycles (CTD -14)
-> Process 1793 hasn't lived for 19 cycles (CTD -14)
-> Process 1790 hasn't lived for 4 cycles (CTD -14)
-> Process 1789 hasn't lived for 19 cycles (CTD -14)
-> Process 1788 hasn't lived for 19 cycles (CTD -14)
-> Process 1786 hasn't lived for 9 cycles (CTD -14)
-> Process 1785 hasn't lived for 9 cycles (CTD -14)
-> Process 1784 hasn't lived for 9 cycles (CTD -14)
-> Process 1783 hasn't lived for 19 cycles (CTD -14)
-> Process 1780 hasn't lived for 4 cycles (CTD -14)
-> Process 1779 hasn't lived for 29 cycles (CTD -14)
-> Process 1778 hasn't lived for 29 cycles (CTD -14)
-> Process 1777 hasn't lived for 29 cycles (CTD -14)
-> Process 1775 hasn't lived for 19 cycles (CTD -14)
-> Process 1774 hasn't lived for 19 cycles (CTD -14)
-> Process 1773 hasn't lived for 19 cycles (CTD -14)
-> Process 1772 hasn't lived for 19 cycles (CTD -14)
-> Process 1771 hasn't lived for 19 cycles (CTD -14)
-> Process 1736 hasn't lived for 19 cycles (CTD -14)
-> Process 1735 hasn't lived for 19 cycles (CTD -14)
-> Process 1734 hasn't lived for 19 cycles (CTD -14)
-> Process 1733 hasn't lived for 19 cycles (CTD -14)
-> Process 1732 hasn't lived for 19 cycles (CTD -14)
-> Process 1731 hasn't lived for 19 cycles (CTD -14)
-> Process 1730 hasn't lived for 19 cycles (CTD -14)
-> Process 1725 hasn't lived for 9 cycles (CTD -14)
-> Process 1724 hasn't lived for 9 cycles (CTD -14)
-> Process 1723 hasn't lived for 9 cycles (CTD -14)
-> Process 1722 hasn't lived for 9 cycles (CTD -14)
-> Process 1721 hasn't lived for 9 cycles (CTD -14)
-> Process 1720 hasn't lived for 9 cycles (CTD -14)
-> Process 1719 hasn't lived for 9 cycles (CTD -14)
-> Process 1717 hasn't lived for 29 cycles (CTD -14)
-> Process 1716 hasn't lived for 29 cycles (CTD -14)
-> Process 1715 hasn't lived for 29 cycles (CTD -14)
-> Process 1714 hasn't lived for 29 cycles (CTD -14)
-> Process 1713 hasn't lived for 29 cycles (CTD -14)
-> Process 1712 hasn't lived for 29 cycles (CTD -14)
-> Process 1711 hasn't lived for 29 cycles (CTD -14)
-> Process 1710 hasn't lived for 29 cycles (CTD -14)
-> Process 1705 hasn't lived for 19 cycles (CTD -14)
-> Process 1704 hasn't lived for 19 cycles (CTD -14)
-> Process 1703 hasn't lived for 19 cycles (CTD -14)
-> Process 1702 hasn't lived for 19 cycles (CTD -14)
-> Process 1701 hasn't lived for 19 cycles (CTD -14)
-> Process 1700 hasn't lived for 19 cycles (CTD -14)
-> Process 1699 hasn't lived for 19 cycles (CTD -14)
-> Process 1698 hasn't lived for 19 cycles (CTD -14)
-> Process 1696 hasn't lived for 9 cycles (CTD -14)
-> Process 1695 hasn't lived for 9 cycles (CTD -14)
-> Process 1694 hasn't lived for 9 cycles (CTD -14)
-> Process 1693 hasn't lived for 9 cycles (CTD -14)
-> Process 1692 hasn't lived for 9 cycles (CTD -14)
-> Process 1691 hasn't lived for 9 cycles (CTD -14)
-> Process 1690 hasn't lived for 9 cycles (CTD -14)
-> Process 1689 hasn't lived for 9 cycles (CTD -14)
-> Process 1688 hasn't lived for 9 cycles (CTD -14)
-> Process 1683 hasn't lived for 29 cycles (CTD -14)
-> Process 1682 hasn't lived for 29 cycles (CTD -14)
-> Process 1681 hasn't lived for 29 cycles (CTD -14)
-> Process 1680 hasn't lived for 29 cycles (CTD -14)
-> Process 1679 hasn't lived for 29 cycles (CTD -14)
-> Process 1678 hasn't lived for 29 cycles (CTD -14)
-> Process 1677 hasn't lived for 29 cycles (CTD -14)
-> Process 1676 hasn't lived for 29 cycles (CTD -14)
-> Process 1675 hasn't lived for 29 cycles (CTD -14)
-> Process 1673 hasn't lived for 19 cycles (CTD -14)
-> Process 1672 hasn't lived for 19 cycles (CTD -14)
-> Process 1671 hasn't lived for 19 cycles (CTD -14)
-> Process 1670 hasn't lived for 19 cycles (CTD -14)
-> Process 1669 hasn't lived for 19 cycles (CTD -14)
-> Process 1668 hasn't lived for 19 cycles (CTD -14)
-> Process 1667 hasn't lived for 19 cycles (CTD -14)
-> Process 1666 hasn't lived for 19 cycles (CTD -14)
-> Process 1665 hasn't lived for 19 cycles (CTD -14)
-> Process 1664 hasn't lived for 19 cycles (CTD -14)
-> Process 1659 hasn't lived for 9 cycles (CTD -14)
-> Process 1658 hasn't lived for 9 cycles (CTD -14)
-> Process 1657 hasn't lived for 9 cycles (CTD -14)
-> Process 1656 hasn't lived for 9 cycles (CTD -14)
-> Process 1655 hasn't lived for 9 cycles (CTD -14)
-> Process 1654 hasn't lived for 9 cycles (CTD -14)
-> Process 1653 hasn't lived for 9 cycles (CTD -14)
-> Process 1652 hasn't lived for 9 cycles (CTD -14)
-> Process 1651 hasn't lived for 9 cycles (CTD -14)
-> Process 1650 hasn't lived for 9 cycles (CTD -14)
-> Process 1648 hasn't lived for 29 cycles (CTD -14)
-> Process 1647 hasn't lived for 29 cycles (CTD -14)
-> Process 1646 hasn't lived for 29 cycles (CTD -14)
-> Process 1645 hasn't lived for 29 cycles (CTD -14)
-> Process 1644 hasn't lived for 29 cycles (CTD -14)
-> Process 1643 hasn't lived for 29 cycles (CTD -14)
-> Process 1642 hasn't lived for 29 cycles (CTD -14)
-> Process 1641 hasn't lived for 29 cycles (CTD -14)
-> Process 1640 hasn't lived for 29 cycles (CTD -14)
-> Process 1639 hasn't lived for 29 cycles (CTD -14)
-> Process 1638 hasn't lived for 29 cycles (CTD -14)
-> Process 1633 hasn't lived for 19 cycles (CTD -14)
-> Process 1632 hasn't lived for 19 cycles (CTD -14)
-> Process 1631 hasn't lived for 19 cycles (CTD -14)
-> Process 1630 hasn't lived for 19 cycles (CTD -14)
-> Process 1629 hasn't lived for 19 cycles (CTD -14)
-> Process 1628 hasn't lived for 19 cycles (CTD -14)
-> Process 1627 hasn't lived for 19 cycles (CTD -14)
-> Process 1626 hasn't lived for 19 cycles (CTD -14)
-> Process 1625 hasn't lived for 19 cycles (CTD -14)
-> Process 1624 hasn't lived for 19 cycles (CTD -14)
-> Process 1623 hasn't lived for 19 cycles (CTD -14)
-> Process 1619 hasn't lived for 14 cycles (CTD -14)
-> Process 1617 hasn't lived for 9 cycles (CTD -14)
-> Process 1613 hasn't lived for 14 cycles (CTD -14)
-> Process 1612 hasn't lived for 29 cycles (CTD -14)
-> Process 1610 hasn't lived for 19 cycles (CTD -14)
-> Process 1609 hasn't lived for 19 cycles (CTD -14)
-> Process 1605 hasn't lived for 14 cycles (CTD -14)
-> Process 1604 hasn't lived for 9 cycles (CTD -14)
-> Process 1603 hasn't lived for 9 cycles (CTD -14)
-> Process 1601 hasn't lived for 29 cycles (CTD -14)
-> Process 1600 hasn't lived for 29 cycles (CTD -14)
-> Process 1599 hasn't lived for 29 cycles (CTD -14)
-> Process 1595 hasn't lived for 14 cycles (CTD -14)
-> Process 1594 hasn't lived for 19 cycles (CTD -14)
-> Process 1593 hasn't lived for 19 cycles (CTD -14)
-> Process 1592 hasn't lived for 19 cycles (CTD -14)
-> Process 1577 hasn't lived for 19 cycles (CTD -14)
-> Process 1576 hasn't lived for 19 cycles (CTD -14)
-> Process 1575 hasn't lived for 19 cycles (CTD -14)
-> Process 1574 hasn't lived for 19 cycles (CTD -14)
-> Process 1573 hasn't lived for 19 cycles (CTD -14)
-> Process 1568 hasn't lived for 9 cycles (CTD -14)
-> Process 1567 hasn't lived for 9 cycles (CTD -14)
-> Process 1566 hasn't lived for 9 cycles (CTD -14)
-> Process 1565 hasn't lived for 9 cycles (CTD -14)
-> Process 1564 hasn't lived for 9 cycles (CTD -14)
-> Process 1562 hasn't lived for 29 cycles (CTD -14)
-> Process 1561 hasn't lived for 29 cycles (CTD -14)
-> Process 1560 hasn't lived for 29 cycles (CTD -14)
-> Process 1559 hasn't lived for 29 cycles (CTD -14)
-> Process 1558 hasn't lived for 29 cycles (CTD -14)
-> Process 1557 hasn't lived for 29 cycles (CTD -14)
-> Process 1552 hasn't lived for 19 cycles (CTD -14)
-> Process 1551 hasn't lived for 19 cycles (CTD -14)
-> Process 1550 hasn't lived for 19 cycles (CTD -14)
-> Process 1549 hasn't lived for 19 cycles (CTD -14)
-> Process 1548 hasn't lived for 19 cycles (CTD -14)
-> Process 1547 hasn't lived for 19 cycles (CTD -14)
-> Process 1545 hasn't lived for 9 cycles (CTD -14)
-> Process 1544 hasn't lived for 9 cycles (CTD -14)
-> Process 1543 hasn't lived for 9 cycles (CTD -14)
-> Process 1542 hasn't lived for 9 cycles (CTD -14)
-> Process 1541 hasn't lived for 9 cycles (CTD -14)
-> Process 1540 hasn't lived for 9 cycles (CTD -14)
-> Process 1539 hasn't lived for 9 cycles (CTD -14)
-> Process 1534 hasn't lived for 29 cycles (CTD -14)
-> Process 1533 hasn't lived for 29 cycles (CTD -14)
-> Process 1532 hasn't lived for 29 cycles (CTD -14)
-> Process 1531 hasn't lived for 29 cycles (CTD -14)
-> Process 1530 hasn't lived for 29 cycles (CTD -14)
-> Process 1529 hasn't lived for 29 cycles (CTD -14)
-> Process 1528 hasn't lived for 29 cycles (CTD -14)
-> Process 1526 hasn't lived for 19 cycles (CTD -14)
-> Process 1525 hasn't lived for 19 cycles (CTD -14)
-> Process 1524 hasn't lived for 19 cycles (CTD -14)
-> Process 1523 hasn't lived for 19 cycles (CTD -14)
-> Process 1522 hasn't lived for 19 cycles (CTD -14)
-> Process 1521 hasn't lived for 19 cycles (CTD -14)
-> Process 1520 hasn't lived for 19 cycles (CTD -14)
-> Process 1519 hasn't lived for 19 cycles (CTD -14)
-> Process 1514 hasn't lived for 9 cycles (CTD -14)
-> Process 1513 hasn't lived for 9 cycles (CTD -14)
-> Process 1512 hasn't lived for 9 cycles (CTD -14)
-> Process 1511 hasn't lived for 9 cycles (CTD -14)
-> Process 1510 hasn't lived for 9 cycles (CTD -14)
-> Process 1509 hasn't lived for 9 cycles (CTD -14)
-> Process 1508 hasn't lived for 9 cycles (CTD -14)
-> Process 1507 hasn't lived for 9 cycles (CTD -14)
-> Process 1505 hasn't lived for 29 cycles (CTD -14)
-> Process 1504 hasn't lived for 29 cycles (CTD -14)
-> Process 1503 hasn't lived for 29 cycles (CTD -14)
-> Process 1502 hasn't lived for 29 cycles (CTD -14)
-> Process 1501 hasn't lived for 29 cycles (CTD -14)
-> Process 1500 hasn't lived for 29 cycles (CTD -14)
-> Process 1499 hasn't lived for 29 cycles (CTD -14)
-> Process 1498 hasn't lived for 29 cycles (CTD -14)
-> Process 1497 hasn't lived for 29 cycles (CTD -14)
-> Process 1492 hasn't lived for 19 cycles (CTD -14)
-> Process 1491 hasn't lived for 19 cycles (CTD -14)
-> Process 1490 hasn't lived for 19 cycles (CTD -14)
-> Process 1489 hasn't lived for 19 cycles (CTD -14)
-> Process 1488 hasn't lived for 19 cycles (CTD -14)
-> Process 1487 hasn't lived for 19 cycles (CTD -14)
-> Process 1486 hasn't lived for 19 cycles (CTD -14)
-> Process 1485 hasn't lived for 19 cycles (CTD -14)
-> Process 1484 hasn't lived for 19 cycles (CTD -14)
-> Process 1482 hasn't lived for 9 cycles (CTD -14)
-> Process 1481 hasn't lived for 9 cycles (CTD -14)
-> Process 1480 hasn't lived for 9 cycles (CTD -14)
-> Process 1479 hasn't lived for 9 cycles (CTD -14)
-> Process 1478 hasn't lived for 9 cycles (CTD -14)
-> Process 1477 hasn't lived for 9 cycles (CTD -14)
-> Process 1476 hasn't lived for 9 cycles (CTD -14)
-> Process 1475 hasn't lived for 9 cycles (CTD -14)
-> Process 1474 hasn't lived for 9 cycles (CTD -14)
-> Process 1473 hasn't lived for 9 cycles (CTD -14)
-> Process 1468 hasn't lived for 29 cycles (CTD -14)
-> Process 1467 hasn't lived for 29 cycles (CTD -14)
-> Process 1466 hasn't lived for 29 cycles (CTD -14)
-> Process 1465 hasn't lived for 29 cycles (CTD -14)
-> Process 1464 hasn't lived for 29 cycles (CTD -14)
-> Process 1463 hasn't lived for 29 cycles (CTD -14)
-> Process 1462 hasn't lived for 29 cycles (CTD -14)
-> Process 1461 hasn't lived for 29 cycles (CTD -14)
-> Process 1460 hasn't lived for 29 cycles (CTD -14)
-> Process 1459 hasn't lived for 29 cycles (CTD -14)
-> Process 1457 hasn't lived for 19 cycles (CTD -14)
-> Process 1456 hasn't lived for 19 cycles (CTD -14)
-> Process 1455 hasn't lived for 19 cycles (CTD -14)
-> Process 1454 hasn't lived for 19 cycles (CTD -14)
-> Process 1453 hasn't lived for 19 cycles (CTD -14)
-> Process 1452 hasn't lived for 19 cycles (CTD -14)
-> Process 1451 hasn't lived for 19 cycles (CTD -14)
-> Process 1450 hasn't lived for 19 cycles (CTD -14)
-> Process 1449 hasn't lived for 19 cycles (CTD -14)
-> Process 1448 hasn't lived for 19 cycles (CTD -14)
-> Process 1447 hasn't lived for 19 cycles (CTD -14)
-> Process 1444 hasn't lived for 14 cycles (CTD -14)
-> Process 1439 hasn't lived for 29 cycles (CTD -14)
-> Process 1434 hasn't lived for 19 cycles (CTD -14)
-> Process 1432 hasn't lived for 9 cycles (CTD -14)
-> Process 1431 hasn't lived for 9 cycles (CTD -14)
-> Process 1426 hasn't lived for 29 cycles (CTD -14)
-> Process 1425 hasn't lived for 29 cycles (CTD -14)
-> Process 1423 hasn't lived for 19 cycles (CTD -14)
-> Process 1422 hasn't lived for 19 cycles (CTD -14)
-> Process 1421 hasn't lived for 19 cycles (CTD -14)
-> Process 1416 hasn't lived for 9 cycles (CTD -14)
-> Process 1415 hasn't lived for 9 cycles (CTD -14)
-> Process 1414 hasn't lived for 9 cycles (CTD -14)
-> Process 1412 hasn't lived for 29 cycles (CTD -14)
-> Process 1411 hasn't lived for 29 cycles (CTD -14)
-> Process 1410 hasn't lived for 29 cycles (CTD -14)
-> Process 1409 hasn't lived for 29 cycles (CTD -14)
-> Process 1404 hasn't lived for 19 cycles (CTD -14)
-> Process 1403 hasn't lived for 19 cycles (CTD -14)
-> Process 1402 hasn't lived for 19 cycles (CTD -14)
-> Process 1401 hasn't lived for 19 cycles (CTD -14)
-> Process 1399 hasn't lived for 9 cycles (CTD -14)
-> Process 1398 hasn't lived for 9 cycles (CTD -14)
-> Process 1397 hasn't lived for 9 cycles (CTD -14)
-> Process 1396 hasn't lived for 9 cycles (CTD -14)
-> Process 1395 hasn't lived for 9 cycles (CTD -14)
-> Process 1390 hasn't lived for 29 cycles (CTD -14)
-> Process 1389 hasn't lived for 29 cycles (CTD -14)
-> Process 1388 hasn't lived for 29 cycles (CTD -14)
-> Process 1387 hasn't lived for 29 cycles (CTD -14)
-> Process 1386 hasn't lived for 29 cycles (CTD -14)
-> Process 1384 hasn't lived for 19 cycles (CTD -14)
-> Process 1383 hasn't lived for 19 cycles (CTD -14)
-> Process 1382 hasn't lived for 19 cycles (CTD -14)
-> Process 1381 hasn't lived for 19 cycles (CTD -14)
-> Process 1380 hasn't lived for 19 cycles (CTD -14)
-> Process 1379 hasn't lived for 19 cycles (CTD -14)
-> Process 1375 hasn't lived for 13 cycles (CTD -14)
-> Process 1374 hasn't lived for 9 cycles (CTD -14)
-> Process 1373 hasn't lived for 9 cycles (CTD -14)
-> Process 1372 hasn't lived for 9 cycles (CTD -14)
-> Process 1371 hasn't lived for 9 cycles (CTD -14)
-> Process 1370 hasn't lived for 9 cycles (CTD -14)
-> Process 1369 hasn't lived for 9 cycles (CTD -14)
-> Process 1367 hasn't lived for 29 cycles (CTD -14)
-> Process 1366 hasn't lived for 29 cycles (CTD -14)
-> Process 1365 hasn't lived for 29 cycles (CTD -14)
-> Process 1364 hasn't lived for 29 cycles (CTD -14)
-> Process 1363 hasn't lived for 29 cycles (CTD -14)
-> Process 1362 hasn't lived for 29 cycles (CTD -14)
-> Process 1361 hasn't lived for 29 cycles (CTD -14)
-> Process 1356 hasn't lived for 19 cycles (CTD -14)
-> Process 1355 hasn't lived for 19 cycles (CTD -14)
-> Process 1354 hasn't lived for 19 cycles (CTD -14)
-> Process 1353 hasn't lived for 19 cycles (CTD -14)
-> Process 1352 hasn't lived for 19 cycles (CTD -14)
-> Process 1351 hasn't lived for 19 cycles (CTD -14)
-> Process 1350 hasn't lived for 19 cycles (CTD -14)
-> Process 1348 hasn't lived for 9 cycles (CTD -14)
-> Process 1347 hasn't lived for 9 cycles (CTD -14)
-> Process 1346 hasn't lived for 9 cycles (CTD -14)
-> Process 1345 hasn't lived for 9 cycles (CTD -14)
-> Process 1344 hasn't lived for 9 cycles (CTD -14)
-> Process 1343 hasn't lived for 9 cycles (CTD -14)
-> Process 1342 hasn't lived for 9 cycles (CTD -14)
-> Process 1341 hasn't lived for 9 cycles (CTD -14)
-> Process 1336 hasn't lived for 29 cycles (CTD -14)
-> Process 1335 hasn't lived for 29 cycles (CTD -14)
-> Process 1334 hasn't lived for 29 cycles (CTD -14)
-> Process 1333 hasn't lived for 29 cycles (CTD -14)
-> Process 1332 hasn't lived for 29 cycles (CTD -14)
-> Process 1331 hasn't lived for 29 cycles (CTD -14)
-> Process 1330 hasn't lived for 29 cycles (CTD -14)
-> Process 1329 hasn't lived for 29 cycles (CTD -14)
-> Process 1327 hasn't lived for 19 cycles (CTD -14)
-> Process 1326 hasn't lived for 19 cycles (CTD -14)
-> Process 1325 hasn't lived for 19 cycles (CTD -14)
-> Process 1324 hasn't lived for 19 cycles (CTD -14)
-> Process 1323 hasn't lived for 19 cycles (CTD -14)
-> Process 1322 hasn't lived for 19 cycles (CTD -14)
-> Process 1321 hasn't lived for 19 cycles (CTD -14)
-> Process 1320 hasn't lived for 19 cycles (CTD -14)
-> Process 1319 hasn't lived for 19 cycles (CTD -14)
-> Process 1314 hasn't lived for 9 cycles (CTD -14)
-> Process 1313 hasn't lived for 9 cycles (CTD -14)
-> Process 1312 hasn't lived for 9 cycles (CTD -14)
-> Process 1311 hasn't lived for 9 cycles (CTD -14)
-> Process 1310 hasn't lived for 9 cycles (CTD -14)
-> Process 1309 hasn't lived for 9 cycles (CTD -14)
-> Process 1308 hasn't lived for 9 cycles (CTD -14)
-> Process 1307 hasn't lived for 9 cycles (CTD -14)
-> Process 1306 hasn't lived for 9 cycles (CTD -14)
-> Process 1304 hasn't lived for 29 cycles (CTD -14)
-> Process 1303 hasn't lived for 29 cycles (CTD -14)
-> Process 1302 hasn't lived for 29 cycles (CTD -14)
-> Process 1301 hasn't lived for 29 cycles (CTD -14)
-> Process 1300 hasn't lived for 29 cycles (CTD -14)
-> Process 1299 hasn't lived for 29 cycles (CTD -14)
-> Process 1298 hasn't lived for 29 cycles (CTD -14)
-> Process 1297 hasn't lived for 29 cycles (CTD -14)
-> Process 1296 hasn't lived for 29 cycles (CTD -14)
-> Process 1295 hasn't lived for 29 cycles (CTD -14)
-> Process 1290 hasn't lived for 19 cycles (CTD -14)
-> Process 1289 hasn't lived for 19 cycles (CTD -14)
-> Process 1288 hasn't lived for 19 cycles (CTD -14)
-> Process 1287 hasn't lived for 19 cycles (CTD -14)
-> Process 1286 hasn't lived for 19 cycles (CTD -14)
-> Process 1285 hasn't lived for 19 cycles (CTD -14)
-> Process 1284 hasn't lived for 19 cycles (CTD -14)
-> Process 1283 hasn't lived for 19 cycles (CTD -14)
-> Process 1282 hasn't lived for 19 cycles (CTD -14)
-> Process 1281 hasn't lived for 19 cycles (CTD -14)
-> Process 1275 hasn't lived for 19 cycles (CTD -14)
-> Process 1270 hasn't lived for 9 cycles (CTD -14)
-> Process 1268 hasn't lived for 29 cycles (CTD -14)
-> Process 1267 hasn't lived for 29 cycles (CTD -14)
-> Process 1262 hasn't lived for 19 cycles (CTD -14)
-> Process 1261 hasn't lived for 19 cycles (CTD -14)
-> Process 1259 hasn't lived for 9 cycles (CTD -14)
-> Process 1258 hasn't lived for 9 cycles (CTD -14)
-> Process 1257 hasn't lived for 9 cycles (CTD -14)
-> Process 1252 hasn't lived for 29 cycles (CTD -14)
-> Process 1251 hasn't lived for 29 cycles (CTD -14)
-> Process 1250 hasn't lived for 29 cycles (CTD -14)
-> Process 1248 hasn't lived for 19 cycles (CTD -14)
-> Process 1247 hasn't lived for 19 cycles (CTD -14)
-> Process 1246 hasn't lived for 19 cycles (CTD -14)
-> Process 1245 hasn't lived for 19 cycles (CTD -14)
-> Process 1240 hasn't lived for 9 cycles (CTD -14)
-> Process 1239 hasn't lived for 9 cycles (CTD -14)
-> Process 1238 hasn't lived for 9 cycles (CTD -14)
-> Process 1237 hasn't lived for 9 cycles (CTD -14)
-> Process 1235 hasn't lived for 29 cycles (CTD -14)
-> Process 1234 hasn't lived for 29 cycles (CTD -14)
-> Process 1233 hasn't lived for 29 cycles (CTD -14)
-> Process 1232 hasn't lived for 29 cycles (CTD -14)
-> Process 1231 hasn't lived for 29 cycles (CTD -14)
-> Process 1226 hasn't lived for 19 cycles (CTD -14)
-> Process 1225 hasn't lived for 19 cycles (CTD -14)
-> Process 1224 hasn't lived for 19 cycles (CTD -14)
-> Process 1223 hasn't lived for 19 cycles (CTD -14)
-> Process 1222 hasn't lived for 19 cycles (CTD -14)
-> Process 1220 hasn't lived for 9 cycles (CTD -14)
-> Process 1219 hasn't lived for 9 cycles (CTD -14)
-> Process 1218 hasn't lived for 9 cycles (CTD -14)
-> Process 1217 hasn't lived for 9 cycles (CTD -14)
-> Process 1216 hasn't lived for 9 cycles (CTD -14)
-> Process 1215 hasn't lived for 9 cycles (CTD -14)
-> Process 1210 hasn't lived for 29 cycles (CTD -14)
-> Process 1209 hasn't lived for 29 cycles (CTD -14)
-> Process 1208 hasn't lived for 29 cycles (CTD -14)
-> Process 1207 hasn't lived for 29 cycles (CTD -14)
-> Process 1206 hasn't lived for 29 cycles (CTD -14)
-> Process 1205 hasn't lived for 29 cycles (CTD -14)
-> Process 1203 hasn't lived for 19 cycles (CTD -14)
-> Process 1202 hasn't lived for 19 cycles (CTD -14)
-> Process 1201 hasn't lived for 19 cycles (CTD -14)
-> Process 1200 hasn't lived for 19 cycles (CTD -14)
-> Process 1199 hasn't lived for 19 cycles (CTD -14)
-> Process 1198 hasn't lived for 19 cycles (CTD -14)
-> Process 1197 hasn't lived for 19 cycles (CTD -14)
-> Process 1192 hasn't lived for 9 cycles (CTD -14)
-> Process 1191 hasn't lived for 9 cycles (CTD -14)
-> Process 1190 hasn't lived for 9 cycles (CTD -14)
-> Process 1189 hasn't lived for 9 cycles (CTD -14)
-> Process 1188 hasn't lived for 9 cycles (CTD -14)
-> Process 1187 hasn't lived for 9 cycles (CTD -14)
-> Process 1186 hasn't lived for 9 cycles (CTD -14)
-> Process 1184 hasn't lived for 29 cycles (CTD -14)
-> Process 1183 hasn't lived for 29 cycles (CTD -14)
-> Process 1182 hasn't lived for 29 cycles (CTD -14)
-> Process 1181 hasn't lived for 29 cycles (CTD -14)
-> Process 1180 hasn't lived for 29 cycles (CTD -14)
-> Process 1179 hasn't lived for 29 cycles (CTD -14)
-> Process 1178 hasn't lived for 29 cycles (CTD -14)
-> Process 1177 hasn't lived for 29 cycles (CTD -14)
-> Process 1172 hasn't lived for 19 cycles (CTD -14)
-> Process 1171 hasn't lived for 19 cycles (CTD -14)
-> Process 1170 hasn't lived for 19 cycles (CTD -14)
-> Process 1169 hasn't lived for 19 cycles (CTD -14)
-> Process 1168 hasn't lived for 19 cycles (CTD -14)
-> Process 1167 hasn't lived for 19 cycles (CTD -14)
-> Process 1166 hasn't lived for 19 cycles (CTD -14)
-> Process 1165 hasn't lived for 19 cycles (CTD -14)
-> Process 1163 hasn't lived for 9 cycles (CTD -14)
-> Process 1162 hasn't lived for 9 cycles (CTD -14)
-> Process 1161 hasn't lived for 9 cycles (CTD -14)
-> Process 1160 hasn't lived for 9 cycles (CTD -14)
-> Process 1159 hasn't lived for 9 cycles (CTD -14)
-> Process 1158 hasn't lived for 9 cycles (CTD -14)
-> Process 1157 hasn't lived for 9 cycles (CTD -14)
-> Process 1156 hasn't lived for 9 cycles (CTD -14)
-> Process 1155 hasn't lived for 9 cycles (CTD -14)
-> Process 1150 hasn't lived for 29 cycles (CTD -14)
-> Process 1149 hasn't lived for 29 cycles (CTD -14)
-> Process 1148 hasn't lived for 29 cycles (CTD -14)
-> Process 1147 hasn't lived for 29 cycles (CTD -14)
-> Process 1146 hasn't lived for 29 cycles (CTD -14)
-> Process 1145 hasn't lived for 29 cycles (CTD -14)
-> Process 1144 hasn't lived for 29 cycles (CTD -14)
-> Process 1143 hasn't lived for 29 cycles (CTD -14)
-> Process 1142 hasn't lived for 29 cycles (CTD -14)
-> Process 1140 hasn't lived for 19 cycles (CTD -14)
-> Process 1139 hasn't lived for 19 cycles (CTD -14)
-> Process 1138 hasn't lived for 19 cycles (CTD -14)
-> Process 1137 hasn't lived for 19 cycles (CTD -14)
-> Process 1136 hasn't lived for 19 cycles (CTD -14)
-> Process 1135 hasn't lived for 19 cycles (CTD -14)
-> Process 1134 hasn't lived for 19 cycles (CTD -14)
-> Process 1133 hasn't lived for 19 cycles (CTD -14)
-> Process 1132 hasn't lived for 19 cycles (CTD -14)
-> Process 1131 hasn't lived for 19 cycles (CTD -14)
-> Process 1123 hasn't lived for 9 cycles (CTD -14)
-> Process 1118 hasn't lived for 29 cycles (CTD -14)
-> Process 1116 hasn't lived for 19 cycles (CTD -14)
-> Process 1115 hasn't lived for 19 cycles (CTD -14)
-> Process 1110 hasn't lived for 9 cycles (CTD -14)
-> Process 1109 hasn't lived for 9 cycles (CTD -14)
-> Process 1107 hasn't lived for 29 cycles (CTD -14)
-> Process 1106 hasn't lived for 29 cycles (CTD -14)
-> Process 1105 hasn't lived for 29 cycles (CTD -14)
-> Process 1100 hasn't lived for 19 cycles (CTD -14)
-> Process 1099 hasn't lived for 19 cycles (CTD -14)
-> Process 1098 hasn't lived for 19 cycles (CTD -14)
-> Process 1096 hasn't lived for 9 cycles (CTD -14)
-> Process 1095 hasn't lived for 9 cycles (CTD -14)
-> Process 1094 hasn't lived for 9 cycles (CTD -14)
-> Process 1093 hasn't lived for 9 cycles (CTD -14)
-> Process 1088 hasn't lived for 29 cycles (CTD -14)
-> Process 1087 hasn't lived for 29 cycles (CTD -14)
-> Process 1086 hasn't lived for 29 cycles (CTD -14)
-> Process 1085 hasn't lived for 29 cycles (CTD -14)
-> Process 1083 hasn't lived for 19 cycles (CTD -14)
-> Process 1082 hasn't lived for 19 cycles (CTD -14)
-> Process 1081 hasn't lived for 19 cycles (CTD -14)
-> Process 1080 hasn't lived for 19 cycles (CTD -14)
-> Process 1079 hasn't lived for 19 cycles (CTD -14)
-> Process 1074 hasn't lived for 9 cycles (CTD -14)
-> Process 1073 hasn't lived for 9 cycles (CTD -14)
-> Process 1072 hasn't lived for 9 cycles (CTD -14)
-> Process 1071 hasn't lived for 9 cycles (CTD -14)
-> Process 1070 hasn't lived for 9 cycles (CTD -14)
-> Process 1068 hasn't lived for 29 cycles (CTD -14)
-> Process 1067 hasn't lived for 29 cycles (CTD -14)
-> Process 1066 hasn't lived for 29 cycles (CTD -14)
-> Process 1065 hasn't lived for 29 cycles (CTD -14)
-> Process 1064 hasn't lived for 29 cycles (CTD -14)
-> Process 1063 hasn't lived for 29 cycles (CTD -14)
-> Process 1058 hasn't lived for 19 cycles (CTD -14)
-> Process 1057 hasn't lived for 19 cycles (CTD -14)
-> Process 1056 hasn't lived for 19 cycles (CTD -14)
-> Process 1055 hasn't lived for 19 cycles (CTD -14)
-> Process 1054 hasn't lived for 19 cycles (CTD -14)
-> Process 1053 hasn't lived for 19 cycles (CTD -14)
-> Process 1051 hasn't lived for 9 cycles (CTD -14)
-> Process 1050 hasn't lived for 9 cycles (CTD -14)
-> Process 1049 hasn't lived for 9 cycles (CTD -14)
-> Process 1048 hasn't lived for 9 cycles (CTD -14)
-> Process 1047 hasn't lived for 9 cycles (CTD -14)
-> Process 1046 hasn't lived for 9 cycles (CTD -14)
-> Process 1045 hasn't lived for 9 cycles (CTD -14)
-> Process 1040 hasn't lived for 29 cycles (CTD -14)
-> Process 1039 hasn't lived for 29 cycles (CTD -14)
-> Process 1038 hasn't lived for 29 cycles (CTD -14)
-> Process 1037 hasn't lived for 29 cycles (CTD -14)
-> Process 1036 hasn't lived for 29 cycles (CTD -14)
-> Process 1035 hasn't lived for 29 cycles (CTD -14)
-> Process 1034 hasn't lived for 29 cycles (CTD -14)
-> Process 1032 hasn't lived for 19 cycles (CTD -14)
-> Process 1031 hasn't lived for 19 cycles (CTD -14)
-> Process 1030 hasn't lived for 19 cycles (CTD -14)
-> Process 1029 hasn't lived for 19 cycles (CTD -14)
-> Process 1028 hasn't lived for 19 cycles (CTD -14)
-> Process 1027 hasn't lived for 19 cycles (CTD -14)
-> Process 1026 hasn't lived for 19 cycles (CTD -14)
-> Process 1025 hasn't lived for 19 cycles (CTD -14)
-> Process 1020 hasn't lived for 9 cycles (CTD -14)
-> Process 1019 hasn't lived for 9 cycles (CTD -14)
-> Process 1018 hasn't lived for 9 cycles (CTD -14)
-> Process 1017 hasn't lived for 9 cycles (CTD -14)
-> Process 1016 hasn't lived for 9 cycles (CTD -14)
-> Process 1015 hasn't lived for 9 cycles (CTD -14)
-> Process 1014 hasn't lived for 9 cycles (CTD -14)
-> Process 1013 hasn't lived for 9 cycles (CTD -14)
-> Process 1011 hasn't lived for 29 cycles (CTD -14)
-> Process 1010 hasn't lived for 29 cycles (CTD -14)
-> Process 1009 hasn't lived for 29 cycles (CTD -14)
-> Process 1008 hasn't lived for 29 cycles (CTD -14)
-> Process 1007 hasn't lived for 29 cycles (CTD -14)
-> Process 1006 hasn't lived for 29 cycles (CTD -14)
-> Process 1005 hasn't lived for 29 cycles (CTD -14)
-> Process 1004 hasn't lived for 29 cycles (CTD -14)
-> Process 1003 hasn't lived for 29 cycles (CTD -14)
-> Process 998 hasn't lived for 19 cycles (CTD -14)
-> Process 997 hasn't lived for 19 cycles (CTD -14)
-> Process 996 hasn't lived for 19 cycles (CTD -14)
-> Process 995 hasn't lived for 19 cycles (CTD -14)
-> Process 994 hasn't lived for 19 cycles (CTD -14)
-> Process 993 hasn't lived for 19 cycles (CTD -14)
-> Process 992 hasn't lived for 19 cycles (CTD -14)
-> Process 991 hasn't lived for 19 cycles (CTD -14)
-> Process 990 hasn't lived for 19 cycles (CTD -14)
-> Process 984 hasn't lived for 29 cycles (CTD -14)
-> Process 979 hasn't lived for 19 cycles (CTD -14)
-> Process 977 hasn't lived for 9 cycles (CTD -14)
-> Process 976 hasn't lived for 9 cycles (CTD -14)
-> Process 971 hasn't lived for 29 cycles (CTD -14)
-> Process 970 hasn't lived for 29 cycles (CTD -14)
-> Process 968 hasn't lived for 19 cycles (CTD -14)
-> Process 967 hasn't lived for 19 cycles (CTD -14)
-> Process 966 hasn't lived for 19 cycles (CTD -14)
-> Process 961 hasn't lived for 9 cycles (CTD -14)
-> Process 960 hasn't lived for 9 cycles (CTD -14)
-> Process 959 hasn't lived for 9 cycles (CTD -14)
-> Process 957 hasn't lived for 29 cycles (CTD -14)
-> Process 956 hasn't lived for 29 cycles (CTD -14)
-> Process 955 hasn't lived for 29 cycles (CTD -14)
-> Process 954 hasn't lived for 29 cycles (CTD -14)
-> Process 949 hasn't lived for 19 cycles (CTD -14)
-> Process 948 hasn't lived for 19 cycles (CTD -14)
-> Process 947 hasn't lived for 19 cycles (CTD -14)
-> Process 946 hasn't lived for 19 cycles (CTD -14)
-> Process 944 hasn't lived for 9 cycles (CTD -14)
-> Process 943 hasn't lived for 9 cycles (CTD -14)
-> Process 942 hasn't lived for 9 cycles (CTD -14)
-> Process 941 hasn't lived for 9 cycles (CTD -14)
-> Process 940 hasn't lived for 9 cycles (CTD -14)
-> Process 935 hasn't lived for 29 cycles (CTD -14)
-> Process 934 hasn't lived for 29 cycles (CTD -14)
-> Process 933 hasn't lived for 29 cycles (CTD -14)
-> Process 932 hasn't lived for 29 cycles (CTD -14)
-> Process 931 hasn't lived for 29 cycles (CTD -14)
-> Process 929 hasn't lived for 19 cycles (CTD -14)
-> Process 928 hasn't lived for 19 cycles (CTD -14)
-> Process 927 hasn't lived for 19 cycles (CTD -14)
-> Process 926 hasn't lived for 19 cycles (CTD -14)
-> Process 925 hasn't lived for 19 cycles (CTD -14)
-> Process 924 hasn't lived for 19 cycles (CTD -14)
-> Process 919 hasn't lived for 9 cycles (CTD -14)
-> Process 918 hasn't lived for 9 cycles (CTD -14)
-> Process 917 hasn't lived for 9 cycles (CTD -14)
-> Process 916 hasn't lived for 9 cycles (CTD -14)
-> Process 915 hasn't lived for 9 cycles (CTD -14)
-> Process 914 hasn't lived for 9 cycles (CTD -14)
-> Process 912 hasn't lived for 29 cycles (CTD -14)
-> Process 911 hasn't lived for 29 cycles (CTD -14)
-> Process 910 hasn't lived for 29 cycles (CTD -14)
-> Process 909 hasn't lived for 29 cycles (CTD -14)
-> Process 908 hasn't lived for 29 cycles (CTD -14)
-> Process 907 hasn't lived for 29 cycles (CTD -14)
-> Process 906 hasn't lived for 29 cycles (CTD -14)
-> Process 901 hasn't lived for 19 cycles (CTD -14)
-> Process 900 hasn't lived for 19 cycles (CTD -14)
-> Process 899 hasn't lived for 19 cycles (CTD -14)
-> Process 898 hasn't lived for 19 cycles (CTD -14)
-> Process 897 hasn't lived for 19 cycles (CTD -14)
-> Process 896 hasn't lived for 19 cycles (CTD -14)
-> Process 895 hasn't lived for 19 cycles (CTD -14)
-> Process 893 hasn't lived for 9 cycles (CTD -14)
-> Process 892 hasn't lived for 9 cycles (CTD -14)
-> Process 891 hasn't lived for 9 cycles (CTD -14)
-> Process 890 hasn't lived for 9 cycles (CTD -14)
-> Process 889 hasn't lived for 9 cycles (CTD -14)
-> Process 888 hasn't lived for 9 cycles (CTD -14)
-> Process 887 hasn't lived for 9 cycles (CTD -14)
-> Process 886 hasn't lived for 9 cycles (CTD -14)
-> Process 881 hasn't lived for 29 cycles (CTD -14)
-> Process 880 hasn't lived for 29 cycles (CTD -14)
-> Process 879 hasn't lived for 29 cycles (CTD -14)
-> Process 878 hasn't lived for 29 cycles (CTD -14)
-> Process 877 hasn't lived for 29 cycles (CTD -14)
-> Process 876 hasn't lived for 29 cycles (CTD -14)
-> Process 875 hasn't lived for 29 cycles (CTD -14)
-> Process 874 hasn't lived for 29 cycles (CTD -14)
-> Process 872 hasn't lived for 19 cycles (CTD -14)
-> Process 871 hasn't lived for 19 cycles (CTD -14)
-> Process 870 hasn't lived for 19 cycles (CTD -14)
-> Process 869 hasn't lived for 19 cycles (CTD -14)
-> Process 868 hasn't lived for 19 cycles (CTD -14)
-> Process 867 hasn't lived for 19 cycles (CTD -14)
-> Process 866 hasn't lived for 19 cycles (CTD -14)
-> Process 865 hasn't lived for 19 cycles (CTD -14)
-> Process 864 hasn't lived for 19 cycles (CTD -14)
-> Process 856 hasn't lived for 19 cycles (CTD -14)
-> Process 851 hasn't lived for 9 cycles (CTD -14)
-> Process 849 hasn't lived for 29 cycles (CTD -14)
-> Process 848 hasn't lived for 29 cycles (CTD -14)
-> Process 843 hasn't lived for 19 cycles (CTD -14)
-> Process 842 hasn't lived for 19 cycles (CTD -14)
-> Process 840 hasn't lived for 9 cycles (CTD -14)
-> Process 839 hasn't lived for 9 cycles (CTD -14)
-> Process 838 hasn't lived for 9 cycles (CTD -14)
-> Process 833 hasn't lived for 29 cycles (CTD -14)
-> Process 832 hasn't lived for 29 cycles (CTD -14)
-> Process 831 hasn't lived for 29 cycles (CTD -14)
-> Process 829 hasn't lived for 19 cycles (CTD -14)
-> Process 828 hasn't lived for 19 cycles (CTD -14)
-> Process 827 hasn't lived for 19 cycles (CTD -14)
-> Process 826 hasn't lived for 19 cycles (CTD -14)
-> Process 821 hasn't lived for 9 cycles (CTD -14)
-> Process 820 hasn't lived for 9 cycles (CTD -14)
-> Process 819 hasn't lived for 9 cycles (CTD -14)
-> Process 818 hasn't lived for 9 cycles (CTD -14)
-> Process 816 hasn't lived for 29 cycles (CTD -14)
-> Process 815 hasn't lived for 29 cycles (CTD -14)
-> Process 814 hasn't lived for 29 cycles (CTD -14)
-> Process 813 hasn't lived for 29 cycles (CTD -14)
-> Process 812 hasn't lived for 29 cycles (CTD -14)
-> Process 807 hasn't lived for 19 cycles (CTD -14)
-> Process 806 hasn't lived for 19 cycles (CTD -14)
-> Process 805 hasn't lived for 19 cycles (CTD -14)
-> Process 804 hasn't lived for 19 cycles (CTD -14)
-> Process 803 hasn't lived for 19 cycles (CTD -14)
-> Process 801 hasn't lived for 9 cycles (CTD -14)
-> Process 800 hasn't lived for 9 cycles (CTD -14)
-> Process 799 hasn't lived for 9 cycles (CTD -14)
-> Process 798 hasn't lived for 9 cycles (CTD -14)
-> Process 797 hasn't lived for 9 cycles (CTD -14)
-> Process 796 hasn't lived for 9 cycles (CTD -14)
-> Process 791 hasn't lived for 29 cycles (CTD -14)
-> Process 790 hasn't lived for 29 cycles (CTD -14)
-> Process 789 hasn't lived for 29 cycles (CTD -14)
-> Process 788 hasn't lived for 29 cycles (CTD -14)
-> Process 787 hasn't lived for 29 cycles (CTD -14)
-> Process 786 hasn't lived for 29 cycles (CTD -14)
-> Process 784 hasn't lived for 19 cycles (CTD -14)
-> Process 783 hasn't lived for 19 cycles (CTD -14)
-> Process 782 hasn't lived for 19 cycles (CTD -14)
-> Process 781 hasn't lived for 19 cycles (CTD -14)
-> Process 780 hasn't lived for 19 cycles (CTD -14)
-> Process 779 hasn't lived for 19 cycles (CTD -14)
-> Process 778 hasn't lived for 19 cycles (CTD -14)
-> Process 773 hasn't lived for 9 cycles (CTD -14)
-> Process 772 hasn't lived for 9 cycles (CTD -14)
-> Process 771 hasn't lived for 9 cycles (CTD -14)
-> Process 770 hasn't lived for 9 cycles (CTD -14)
-> Process 769 hasn't lived for 9 cycles (CTD -14)
-> Process 768 hasn't lived for 9 cycles (CTD -14)
-> Process 767 hasn't lived for 9 cycles (CTD -14)
-> Process 765 hasn't lived for 29 cycles (CTD -14)
-> Process 764 hasn't lived for 29 cycles (CTD -14)
-> Process 763 hasn't lived for 29 cycles (CTD -14)
-> Process 762 hasn't lived for 29 cycles (CTD -14)
-> Process 761 hasn't lived for 29 cycles (CTD -14)
-> Process 760 hasn't lived for 29 cycles (CTD -14)
-> Process 759 hasn't lived for 29 cycles (CTD -14)
-> Process 758 hasn't lived for 29 cycles (CTD -14)
-> Process 753 hasn't lived for 19 cycles (CTD -14)
-> Process 752 hasn't lived for 19 cycles (CTD -14)
-> Process 751 hasn't lived for 19 cycles (CTD -14)
-> Process 750 hasn't lived for 19 cycles (CTD -14)
-> Process 749 hasn't lived for 19 cycles (CTD -14)
-> Process 748 hasn't lived for 19 cycles (CTD -14)
-> Process 747 hasn't lived for 19 cycles (CTD -14)
-> Process 746 hasn't lived for 19 cycles (CTD -14)
-> Process 740 hasn't lived for 9 cycles (CTD -14)
-> Process 735 hasn't lived for 29 cycles (CTD -14)
-> Process 733 hasn't lived for 19 cycles (CTD -14)
-> Process 732 hasn't lived for 19 cycles (CTD -14)
-> Process 727 hasn't lived for 9 cycles (CTD -14)
-> Process 726 hasn't lived for 9 cycles (CTD -14)
-> Process 724 hasn't lived for 29 cycles (CTD -14)
-> Process 723 hasn't lived for 29 cycles (CTD -14)
-> Process 722 hasn't lived for 29 cycles (CTD -14)
-> Process 717 hasn't lived for 19 cycles (CTD -14)
-> Process 716 hasn't lived for 19 cycles (CTD -14)
-> Process 715 hasn't lived for 19 cycles (CTD -14)
-> Process 713 hasn't lived for 9 cycles (CTD -14)
-> Process 712 hasn't lived for 9 cycles (CTD -14)
-> Process 711 hasn't lived for 9 cycles (CTD -14)
-> Process 710 hasn't lived for 9 cycles (CTD -14)
-> Process 705 hasn't lived for 29 cycles (CTD -14)
-> Process 704 hasn't lived for 29 cycles (CTD -14)
-> Process 703 hasn't lived for 29 cycles (CTD -14)
-> Process 702 hasn't lived for 29 cycles (CTD -14)
-> Process 700 hasn't lived for 19 cycles (CTD -14)
-> Process 699 hasn't lived for 19 cycles (CTD -14)
-> Process 698 hasn't lived for 19 cycles (CTD -14)
-> Process 697 hasn't lived for 19 cycles (CTD -14)
-> Process 696 hasn't lived for 19 cycles (CTD -14)
-> Process 691 hasn't lived for 9 cycles (CTD -14)
-> Process 690 hasn't lived for 9 cycles (CTD -14)
-> Process 689 hasn't lived for 9 cycles (CTD -14)
-> Process 688 hasn't lived for 9 cycles (CTD -14)
-> Process 687 hasn't lived for 9 cycles (CTD -14)
-> Process 685 hasn't lived for 29 cycles (CTD -14)
-> Process 684 hasn't lived for 29 cycles (CTD -14)
-> Process 683 hasn't lived for 29 cycles (CTD -14)
-> Process 682 hasn't lived for 29 cycles (CTD -14)
-> Process 681 hasn't lived for 29 cycles (CTD -14)
-> Process 680 hasn't lived for 29 cycles (CTD -14)
-> Process 675 hasn't lived for 19 cycles (CTD -14)
-> Process 674 hasn't lived for 19 cycles (CTD -14)
-> Process 673 hasn't lived for 19 cycles (CTD -14)
-> Process 672 hasn't lived for 19 cycles (CTD -14)
-> Process 671 hasn't lived for 19 cycles (CTD -14)
-> Process 670 hasn't lived for 19 cycles (CTD -14)
-> Process 668 hasn't lived for 9 cycles (CTD -14)
-> Process 667 hasn't lived for 9 cycles (CTD -14)
-> Process 666 hasn't lived for 9 cycles (CTD -14)
-> Process 665 hasn't lived for 9 cycles (CTD -14)
-> Process 664 hasn't lived for 9 cycles (CTD -14)
-> Process 663 hasn't lived for 9 cycles (CTD -14)
-> Process 662 hasn't lived for 9 cycles (CTD -14)
-> Process 657 hasn't lived for 29 cycles (CTD -14)
-> Process 656 hasn't lived for 29 cycles (CTD -14)
-> Process 655 hasn't lived for 29 cycles (CTD -14)
-> Process 654 hasn't lived for 29 cycles (CTD -14)
-> Process 653 hasn't lived for 29 cycles (CTD -14)
-> Process 652 hasn't lived for 29 cycles (CTD -14)
-> Process 651 hasn't lived for 29 cycles (CTD -14)
-> Process 649 hasn't lived for 19 cycles (CTD -14)
-> Process 648 hasn't lived for 19 cycles (CTD -14)
-> Process 647 hasn't lived for 19 cycles (CTD -14)
-> Process 646 hasn't lived for 19 cycles (CTD -14)
-> Process 645 hasn't lived for 19 cycles (CTD -14)
-> Process 644 hasn't lived for 19 cycles (CTD -14)
-> Process 643 hasn't lived for 19 cycles (CTD -14)
-> Process 642 hasn't lived for 19 cycles (CTD -14)
-> Process 634 hasn't lived for 29 cycles (CTD -14)
-> Process 629 hasn't lived for 19 cycles (CTD -14)
-> Process 627 hasn't lived for 9 cycles (CTD -14)
-> Process 626 hasn't lived for 9 cycles (CTD -14)
-> Process 621 hasn't lived for 29 cycles (CTD -14)
-> Process 620 hasn't lived for 29 cycles (CTD -14)
-> Process 618 hasn't lived for 19 cycles (CTD -14)
-> Process 617 hasn't lived for 19 cycles (CTD -14)
-> Process 616 hasn't lived for 19 cycles (CTD -14)
-> Process 611 hasn't lived for 9 cycles (CTD -14)
-> Process 610 hasn't lived for 9 cycles (CTD -14)
-> Process 609 hasn't lived for 9 cycles (CTD -14)
-> Process 607 hasn't lived for 29 cycles (CTD -14)
-> Process 606 hasn't lived for 29 cycles (CTD -14)
-> Process 605 hasn't lived for 29 cycles (CTD -14)
-> Process 604 hasn't lived for 29 cycles (CTD -14)
-> Process 599 hasn't lived for 19 cycles (CTD -14)
-> Process 598 hasn't lived for 19 cycles (CTD -14)
-> Process 597 hasn't lived for 19 cycles (CTD -14)
-> Process 596 hasn't lived for 19 cycles (CTD -14)
-> Process 594 hasn't lived for 9 cycles (CTD -14)
-> Process 593 hasn't lived for 9 cycles (CTD -14)
-> Process 592 hasn't lived for 9 cycles (CTD -14)
-> Process 591 hasn't lived for 9 cycles (CTD -14)
-> Process 590 hasn't lived for 9 cycles (CTD -14)
-> Process 585 hasn't lived for 29 cycles (CTD -14)
-> Process 584 hasn't lived for 29 cycles (CTD -14)
-> Process 583 hasn't lived for 29 cycles (CTD -14)
-> Process 582 hasn't lived for 29 cycles (CTD -14)
-> Process 581 hasn't lived for 29 cycles (CTD -14)
-> Process 579 hasn't lived for 19 cycles (CTD -14)
-> Process 578 hasn't lived for 19 cycles (CTD -14)
-> Process 577 hasn't lived for 19 cycles (CTD -14)
-> Process 576 hasn't lived for 19 cycles (CTD -14)
-> Process 575 hasn't lived for 19 cycles (CTD -14)
-> Process 574 hasn't lived for 19 cycles (CTD -14)
-> Process 569 hasn't lived for 9 cycles (CTD -14)
-> Process 568 hasn't lived for 9 cycles (CTD -14)
-> Process 567 hasn't lived for 9 cycles (CTD -14)
-> Process 566 hasn't lived for 9 cycles (CTD -14)
-> Process 565 hasn't lived for 9 cycles (CTD -14)
-> Process 564 hasn't lived for 9 cycles (CTD -14)
-> Process 562 hasn't lived for 29 cycles (CTD -14)
-> Process 561 hasn't lived for 29 cycles (CTD -14)
-> Process 560 hasn't lived for 29 cycles (CTD -14)
-> Process 559 hasn't lived for 29 cycles (CTD -14)
-> Process 558 hasn't lived for 29 cycles (CTD -14)
-> Process 557 hasn't lived for 29 cycles (CTD -14)
-> Process 556 hasn't lived for 29 cycles (CTD -14)
-> Process 551 hasn't lived for 19 cycles (CTD -14)
-> Process 550 hasn't lived for 19 cycles (CTD -14)
-> Process 549 hasn't lived for 19 cycles (CTD -14)
-> Process 548 hasn't lived for 19 cycles (CTD -14)
-> Process 547 hasn't lived for 19 cycles (CTD -14)
-> Process 546 hasn't lived for 19 cycles (CTD -14)
-> Process 545 hasn't lived for 19 cycles (CTD -14)
-> Process 539 hasn't lived for 19 cycles (CTD -14)
-> Process 534 hasn't lived for 9 cycles (CTD -14)
-> Process 532 hasn't lived for 29 cycles (CTD -14)
-> Process 531 hasn't lived for 29 cycles (CTD -14)
-> Process 526 hasn't lived for 19 cycles (CTD -14)
-> Process 525 hasn't lived for 19 cycles (CTD -14)
-> Process 523 hasn't lived for 9 cycles (CTD -14)
-> Process 522 hasn't lived for 9 cycles (CTD -14)
-> Process 521 hasn't lived for 9 cycles (CTD -14)
-> Process 516 hasn't lived for 29 cycles (CTD -14)
-> Process 515 hasn't lived for 29 cycles (CTD -14)
-> Process 514 hasn't lived for 29 cycles (CTD -14)
-> Process 512 hasn't lived for 19 cycles (CTD -14)
-> Process 511 hasn't lived for 19 cycles (CTD -14)
-> Process 510 hasn't lived for 19 cycles (CTD -14)
-> Process 509 hasn't lived for 19 cycles (CTD -14)
-> Process 504 hasn't lived for 9 cycles (CTD -14)
-> Process 503 hasn't lived for 9 cycles (CTD -14)
-> Process 502 hasn't lived for 9 cycles (CTD -14)
-> Process 501 hasn't lived for 9 cycles (CTD -14)
-> Process 499 hasn't lived for 29 cycles (CTD -14)
-> Process 498 hasn't lived for 29 cycles (CTD -14)
-> Process 497 hasn't lived for 29 cycles (CTD -14)
-> Process 496 hasn't lived for 29 cycles (CTD -14)
-> Process 495 hasn't lived for 29 cycles (CTD -14)
-> Process 490 hasn't lived for 19 cycles (CTD -14)
-> Process 489 hasn't lived for 19 cycles (CTD -14)
-> Process 488 hasn't lived for 19 cycles (CTD -14)
-> Process 487 hasn't lived for 19 cycles (CTD -14)
-> Process 486 hasn't lived for 19 cycles (CTD -14)
-> Process 484 hasn't lived for 9 cycles (CTD -14)
-> Process 483 hasn't lived for 9 cycles (CTD -14)
-> Process 482 hasn't lived for 9 cycles (CTD -14)
-> Process 481 hasn't lived for 9 cycles (CTD -14)
-> Process 480 hasn't lived for 9 cycles (CTD -14)
-> Process 479 hasn't lived for 9 cycles (CTD -14)
-> Process 474 hasn't lived for 29 cycles (CTD -14)
-> Process 473 hasn't lived for 29 cycles (CTD -14)
-> Process 472 hasn't lived for 29 cycles (CTD -14)
-> Process 471 hasn't lived for 29 cycles (CTD -14)
-> Process 470 hasn't lived for 29 cycles (CTD -14)
-> Process 469 hasn't lived for 29 cycles (CTD -14)
-> Process 467 hasn't lived for 19 cycles (CTD -14)
-> Process 466 hasn't lived for 19 cycles (CTD -14)
-> Process 465 hasn't lived for 19 cycles (CTD -14)
-> Process 464 hasn't lived for 19 cycles (CTD -14)
-> Process 463 hasn't lived for 19 cycles (CTD -14)
-> Process 462 hasn't lived for 19 cycles (CTD -14)
-> Process 461 hasn't lived for 19 cycles (CTD -14)
-> Process 453 hasn't lived for 9 cycles (CTD -14)
-> Process 448 hasn't lived for 29 cycles (CTD -14)
-> Process 446 hasn't lived for 19 cycles (CTD -14)
-> Process 445 hasn't lived for 19 cycles (CTD -14)
-> Process 440 hasn't lived for 9 cycles (CTD -14)
-> Process 439 hasn't lived for 9 cycles (CTD -14)
-> Process 437 hasn't lived for 29 cycles (CTD -14)
-> Process 436 hasn't lived for 29 cycles (CTD -14)
-> Process 435 hasn't lived for 29 cycles (CTD -14)
-> Process 430 hasn't lived for 19 cycles (CTD -14)
-> Process 429 hasn't lived for 19 cycles (CTD -14)
-> Process 428 hasn't lived for 19 cycles (CTD -14)
-> Process 426 hasn't lived for 9 cycles (CTD -14)
-> Process 425 hasn't lived for 9 cycles (CTD -14)
-> Process 424 hasn't lived for 9 cycles (CTD -14)
-> Process 423 hasn't lived for 9 cycles (CTD -14)
-> Process 418 hasn't lived for 29 cycles (CTD -14)
-> Process 417 hasn't lived for 29 cycles (CTD -14)
-> Process 416 hasn't lived for 29 cycles (CTD -14)
-> Process 415 hasn't lived for 29 cycles (CTD -14)
-> Process 413 hasn't lived for 19 cycles (CTD -14)
-> Process 412 hasn't lived for 19 cycles (CTD -14)
-> Process 411 hasn't lived for 19 cycles (CTD -14)
-> Process 410 hasn't lived for 19 cycles (CTD -14)
-> Process 409 hasn't lived for 19 cycles (CTD -14)
-> Process 404 hasn't lived for 9 cycles (CTD -14)
-> Process 403 hasn't lived for 9 cycles (CTD -14)
-> Process 402 hasn't lived for 9 cycles (CTD -14)
-> Process 401 hasn't lived for 9 cycles (CTD -14)
-> Process 400 hasn't lived for 9 cycles (CTD -14)
-> Process 398 hasn't lived for 29 cycles (CTD -14)
-> Process 397 hasn't lived for 29 cycles (CTD -14)
-> Process 396 hasn't lived for 29 cycles (CTD -14)
-> Process 395 hasn't lived for 29 cycles (CTD -14)
-> Process 394 hasn't lived for 29 cycles (CTD -14)
-> Process 393 hasn't lived for 29 cycles (CTD -14)
-> Process 388 hasn't lived for 19 cycles (CTD -14)
-> Process 387 hasn't lived for 19 cycles (CTD -14)
-> Process 386 hasn't lived for 19 cycles (CTD -14)
-> Process 385 hasn't lived for 19 cycles (CTD -14)
-> Process 384 hasn't lived for 19 cycles (CTD -14)
-> Process 383 hasn't lived for 19 cycles (CTD -14)
-> Process 377 hasn't lived for 29 cycles (CTD -14)
-> Process 372 hasn't lived for 19 cycles (CTD -14)
-> Process 370 hasn't lived for 9 cycles (CTD -14)
-> Process 369 hasn't lived for 9 cycles (CTD -14)
-> Process 364 hasn't lived for 29 cycles (CTD -14)
-> Process 363 hasn't lived for 29 cycles (CTD -14)
-> Process 361 hasn't lived for 19 cycles (CTD -14)
-> Process 360 hasn't lived for 19 cycles (CTD -14)
-> Process 359 hasn't lived for 19 cycles (CTD -14)
-> Process 354 hasn't lived for 9 cycles (CTD -14)
-> Process 353 hasn't lived for 9 cycles (CTD -14)
-> Process 352 hasn't lived for 9 cycles (CTD -14)
-> Process 350 hasn't lived for 29 cycles (CTD -14)
-> Process 349 hasn't lived for 29 cycles (CTD -14)
-> Process 348 hasn't lived for 29 cycles (CTD -14)
-> Process 347 hasn't lived for 29 cycles (CTD -14)
-> Process 342 hasn't lived for 19 cycles (CTD -14)
-> Process 341 hasn't lived for 19 cycles (CTD -14)
-> Process 340 hasn't lived for 19 cycles (CTD -14)
-> Process 339 hasn't lived for 19 cycles (CTD -14)
-> Process 337 hasn't lived for 9 cycles (CTD -14)
-> Process 336 hasn't lived for 9 cycles (CTD -14)
-> Process 335 hasn't lived for 9 cycles (CTD -14)
-> Process 334 hasn't lived for 9 cycles (CTD -14)
-> Process 333 hasn't lived for 9 cycles (CTD -14)
-> Process 328 hasn't lived for 29 cycles (CTD -14)
-> Process 327 hasn't lived for 29 cycles (CTD -14)
-> Process 326 hasn't lived for 29 cycles (CTD -14)
-> Process 325 hasn't lived for 29 cycles (CTD -14)
-> Process 324 hasn't lived for 29 cycles (CTD -14)
-> Process 322 hasn't lived for 19 cycles (CTD -14)
-> Process 321 hasn't lived for 19 cycles (CTD -14)
-> Process 320 hasn't lived for 19 cycles (CTD -14)
-> Process 319 hasn't lived for 19 cycles (CTD -14)
-> Process 318 hasn't lived for 19 cycles (CTD -14)
-> Process 317 hasn't lived for 19 cycles (CTD -14)
-> Process 309 hasn't lived for 19 cycles (CTD -14)
-> Process 304 hasn't lived for 9 cycles (CTD -14)
-> Process 302 hasn't lived for 29 cycles (CTD -14)
-> Process 301 hasn't lived for 29 cycles (CTD -14)
-> Process 296 hasn't lived for 19 cycles (CTD -14)
-> Process 295 hasn't lived for 19 cycles (CTD -14)
-> Process 293 hasn't lived for 9 cycles (CTD -14)
-> Process 292 hasn't lived for 9 cycles (CTD -14)
-> Process 291 hasn't lived for 9 cycles (CTD -14)
-> Process 286 hasn't lived for 29 cycles (CTD -14)
-> Process 285 hasn't lived for 29 cycles (CTD -14)
-> Process 284 hasn't lived for 29 cycles (CTD -14)
-> Process 282 hasn't lived for 19 cycles (CTD -14)
-> Process 281 hasn't lived for 19 cycles (CTD -14)
-> Process 280 hasn't lived for 19 cycles (CTD -14)
-> Process 279 hasn't lived for 19 cycles (CTD -14)
-> Process 274 hasn't lived for 9 cycles (CTD -14)
-> Process 273 hasn't lived for 9 cycles (CTD -14)
-> Process 272 hasn't lived for 9 cycles (CTD -14)
-> Process 271 hasn't lived for 9 cycles (CTD -14)
-> Process 269 hasn't lived for 29 cycles (CTD -14)
-> Process 268 hasn't lived for 29 cycles (CTD -14)
-> Process 267 hasn't lived for 29 cycles (CTD -14)
-> Process 266 hasn't lived for 29 cycles (CTD -14)
-> Process 265 hasn't lived for 29 cycles (CTD -14)
-> Process 260 hasn't lived for 19 cycles (CTD -14)
-> Process 259 hasn't lived for 19 cycles (CTD -14)
-> Process 258 hasn't lived for 19 cycles (CTD -14)
-> Process 257 hasn't lived for 19 cycles (CTD -14)
-> Process 256 hasn't lived for 19 cycles (CTD -14)
-> Process 250 hasn't lived for 9 cycles (CTD -14)
-> Process 245 hasn't lived for 29 cycles (CTD -14)
-> Process 243 hasn't lived for 19 cycles (CTD -14)
-> Process 242 hasn't lived for 19 cycles (CTD -14)
-> Process 237 hasn't lived for 9 cycles (CTD -14)
-> Process 236 hasn't lived for 9 cycles (CTD -14)
-> Process 234 hasn't lived for 29 cycles (CTD -14)
-> Process 233 hasn't lived for 29 cycles (CTD -14)
-> Process 232 hasn't lived for 29 cycles (CTD -14)
-> Process 227 hasn't lived for 19 cycles (CTD -14)
-> Process 226 hasn't lived for 19 cycles (CTD -14)
-> Process 225 hasn't lived for 19 cycles (CTD -14)
-> Process 223 hasn't lived for 9 cycles (CTD -14)
-> Process 222 hasn't lived for 9 cycles (CTD -14)
-> Process 221 hasn't lived for 9 cycles (CTD -14)
-> Process 220 hasn't lived for 9 cycles (CTD -14)
-> Process 215 hasn't lived for 29 cycles (CTD -14)
-> Process 214 hasn't lived for 29 cycles (CTD -14)
-> Process 213 hasn't lived for 29 cycles (CTD -14)
-> Process 212 hasn't lived for 29 cycles (CTD -14)
-> Process 210 hasn't lived for 19 cycles (CTD -14)
-> Process 209 hasn't lived for 19 cycles (CTD -14)
-> Process 208 hasn't lived for 19 cycles (CTD -14)
-> Process 207 hasn't lived for 19 cycles (CTD -14)
-> Process 206 hasn't lived for 19 cycles (CTD -14)
-> Process 198 hasn't lived for 29 cycles (CTD -14)
-> Process 193 hasn't lived for 19 cycles (CTD -14)
-> Process 191 hasn't lived for 9 cycles (CTD -14)
-> Process 190 hasn't lived for 9 cycles (CTD -14)
-> Process 185 hasn't lived for 29 cycles (CTD -14)
-> Process 184 hasn't lived for 29 cycles (CTD -14)
-> Process 182 hasn't lived for 19 cycles (CTD -14)
-> Process 181 hasn't lived for 19 cycles (CTD -14)
-> Process 180 hasn't lived for 19 cycles (CTD -14)
-> Process 175 hasn't lived for 9 cycles (CTD -14)
-> Process 174 hasn't lived for 9 cycles (CTD -14)
-> Process 173 hasn't lived for 9 cycles (CTD -14)
-> Process 171 hasn't lived for 29 cycles (CTD -14)
-> Process 170 hasn't lived for 29 cycles (CTD -14)
-> Process 169 hasn't lived for 29 cycles (CTD -14)
-> Process 168 hasn't lived for 29 cycles (CTD -14)
-> Process 163 hasn't lived for 19 cycles (CTD -14)
-> Process 162 hasn't lived for 19 cycles (CTD -14)
-> Process 161 hasn't lived for 19 cycles (CTD -14)
-> Process 160 hasn't lived for 19 cycles (CTD -14)
-> Process 154 hasn't lived for 19 cycles (CTD -14)
-> Process 149 hasn't lived for 9 cycles (CTD -14)
-> Process 147 hasn't lived for 29 cycles (CTD -14)
-> Process 146 hasn't lived for 29 cycles (CTD -14)
-> Process 141 hasn't lived for 19 cycles (CTD -14)
-> Process 140 hasn't lived for 19 cycles (CTD -14)
-> Process 138 hasn't lived for 9 cycles (CTD -14)
-> Process 137 hasn't lived for 9 cycles (CTD -14)
-> Process 136 hasn't lived for 9 cycles (CTD -14)
-> Process 131 hasn't lived for 29 cycles (CTD -14)
-> Process 130 hasn't lived for 29 cycles (CTD -14)
-> Process 129 hasn't lived for 29 cycles (CTD -14)
-> Process 127 hasn't lived for 19 cycles (CTD -14)
-> Process 126 hasn't lived for 19 cycles (CTD -14)
-> Process 125 hasn't lived for 19 cycles (CTD -14)
-> Process 124 hasn't lived for 19 cycles (CTD -14)
-> Process 116 hasn't lived for 9 cycles (CTD -14)
-> Process 111 hasn't lived for 29 cycles (CTD -14)
-> Process 109 hasn't lived for 19 cycles (CTD -14)
-> Process 108 hasn't lived for 19 cycles (CTD -14)
-> Process 103 hasn't lived for 9 cycles (CTD -14)
-> Process 102 hasn't lived for 9 cycles (CTD -14)
-> Process 100 hasn't lived for 29 cycles (CTD -14)
-> Process 99 hasn't lived for 29 cycles (CTD -14)
-> Process 98 hasn't lived for 29 cycles (CTD -14)
-> Process 93 hasn't lived for 19 cycles (CTD -14)
-> Process 92 hasn't lived for 19 cycles (CTD -14)
-> Process 91 hasn't lived for 19 cycles (CTD -14)
-> Process 85 hasn't lived for 29 cycles (CTD -14)
-> Process 80 hasn't lived for 19 cycles (CTD -14)
-> Process 78 hasn't lived for 9 cycles (CTD -14)
-> Process 77 hasn't lived for 9 cycles (CTD -14)
-> Process 72 hasn't lived for 29 cycles (CTD -14)
-> Process 71 hasn't lived for 29 cycles (CTD -14)
-> Process 69 hasn't lived for 19 cycles (CTD -14)
-> Process 68 hasn't lived for 19 cycles (CTD -14)
-> Process 67 hasn't lived for 19 cycles (CTD -14)
-> Process 59 hasn't lived for 19 cycles (CTD -14)
-> Process 54 hasn't lived for 9 cycles (CTD -14)
-> Process 52 hasn't lived for 29 cycles (CTD -14)
-> Process 51 hasn't lived for 29 cycles (CTD -14)
-> Process 46 hasn't lived for 19 cycles (CTD -14)
-> Process 45 hasn't lived for 19 cycles (CTD -14)
-> Process 39 hasn't lived for 9 cycles (CTD -14)
-> Process 34 hasn't lived for 29 cycles (CTD -14)
-> Process 32 hasn't lived for 19 cycles (CTD -14)
-> Process 31 hasn't lived for 19 cycles (CTD -14)
-> Process 23 hasn't lived for 29 cycles (CTD -14)
-> Process 18 hasn't lived for 19 cycles (CTD -14)
-> Process 12 hasn't lived for 19 cycles (CTD -14)
+> P    6 | zjmp -1 OK
+112559a112485
+> P    6 | zjmp -1 OK
+112608,112609d112533
+< P    6 | sti r4 142 116
+<        | -> store to 142 + 116 = 258 (with pc and mod 606)
+112614,112615d112537
+< P    4 | sti r4 153 160
+<        | -> store to 153 + 160 = 313 (with pc and mod 650)
+112704d112625
+< P    6 | add r2 r3 r2
+112709d112629
+< P    4 | add r2 r3 r2
+112764a112685
+> P    6 | zjmp -1 OK
+112802d112722
+< P    6 | live -1
+112854d112773
+< P    6 | xor 120 96 r15
+112941,112942d112859
+< P    4 | sti r4 142 164
+<        | -> store to 142 + 164 = 306 (with pc and mod 654)
+112975a112893
+> P    6 | zjmp -1 OK
+113030,113031d112947
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+113105d113020
+< P    6 | ld 0 r16
+113128d113042
+< P    4 | live -1
+113194a113109
+> P    6 | zjmp -1 OK
+113202d113116
+< P    4 | xor 168 96 r15
+113286d113199
+< P    6 | zjmp -47 OK
+113378c113291
+< P    6 | live -1
+---
+> P    6 | zjmp -1 OK
+113382d113294
+< P    4 | zjmp -89 FAILED
+113430d113341
+< P    4 | ld 0 r16
+113587a113499
+> P    6 | zjmp -1 OK
+113620,113621d113531
+< P    6 | sti r4 153 120
+<        | -> store to 153 + 120 = 273 (with pc and mod 610)
+113625d113534
+< P    4 | zjmp -47 OK
+113720d113628
+< P    6 | add r2 r3 r2
+113730d113637
+< P    4 | live -1
+113812a113720
+> P    6 | zjmp -1 OK
+113986,113987d113893
+< P    6 | sti r4 142 124
+<        | -> store to 142 + 124 = 266 (with pc and mod 614)
+113991,113992d113896
+< P    4 | sti r4 153 168
+<        | -> store to 153 + 168 = 321 (with pc and mod 658)
+114005a113910
+> P    6 | zjmp -1 OK
+114088d113992
+< P    6 | add r2 r3 r2
+114092d113995
+< P    4 | add r2 r3 r2
+114175d114077
+< P    6 | live -1
+114223a114126,114127
+> P    6 | zjmp -1 OK
+> Process 6 hasn't lived for 1046 cycles (CTD 586)
+114238d114141
+< P    6 | xor 128 96 r15
+114331,114332d114233
+< P    4 | sti r4 142 172
+<        | -> store to 142 + 172 = 314 (with pc and mod 662)
+114432,114433d114332
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+114506d114404
+< P    6 | ld 0 r16
+114529d114426
+< P    4 | live -1
+114599d114495
+< P    4 | xor 176 96 r15
+114700d114595
+< P    6 | zjmp -47 OK
+114795d114689
+< P    6 | live -1
+114799d114692
+< P    4 | zjmp -89 FAILED
+114851d114743
+< P    4 | ld 0 r16
+115026,115027d114917
+< P    6 | sti r4 153 128
+<        | -> store to 153 + 128 = 281 (with pc and mod 618)
+115032d114921
+< P    4 | zjmp -47 OK
+115132d115020
+< P    6 | add r2 r3 r2
+115140d115027
+< P    4 | live -1
+115394,115395d115280
+< P    6 | sti r4 142 132
+<        | -> store to 142 + 132 = 274 (with pc and mod 622)
+115401,115402d115285
+< P    4 | sti r4 153 176
+<        | -> store to 153 + 176 = 329 (with pc and mod 666)
+115490d115372
+< P    6 | add r2 r3 r2
+115494d115375
+< P    4 | add r2 r3 r2
+115597d115477
+< P    6 | live -1
+115652d115531
+< P    6 | xor 136 96 r15
+115741,115742d115619
+< P    4 | sti r4 142 180
+<        | -> store to 142 + 180 = 322 (with pc and mod 670)
+115839,115840d115715
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+115918d115792
+< P    6 | ld 0 r16
+115939d115812
+< P    4 | live -1
+116011d115883
+< P    4 | xor 184 96 r15
+116098d115969
+< P    6 | zjmp -47 OK
+116205d116075
+< P    6 | live -1
+116209d116078
+< P    4 | zjmp -89 FAILED
+116283d116151
+< P    4 | ld 0 r16
+116434,116435d116301
+< P    6 | sti r4 153 136
+<        | -> store to 153 + 136 = 289 (with pc and mod 626)
+116465d116330
+< P    4 | zjmp -47 OK
+116533d116397
+< P    6 | add r2 r3 r2
+116559d116422
+< P    4 | live -1
+116795,116796d116657
+< P    6 | sti r4 142 140
+<        | -> store to 142 + 140 = 282 (with pc and mod 630)
+116802,116803d116662
+< P    4 | sti r4 153 184
+<        | -> store to 153 + 184 = 337 (with pc and mod 674)
+116889d116747
+< P    6 | add r2 r3 r2
+116895d116752
+< P    4 | add r2 r3 r2
+116994d116850
+< P    6 | live -1
+117072d116927
+< P    6 | xor 144 96 r15
+117159,117160d117013
+< P    4 | sti r4 142 188
+<        | -> store to 142 + 188 = 330 (with pc and mod 678)
+117258d117110
+< P    6 | zjmp -89 FAILED
+117260d117111
+< P    4 | add r2 r3 r2
+117315d117165
+< P    6 | ld 0 r16
+117367d117216
+< P    4 | live -1
+117420d117268
+< P    4 | xor 192 96 r15
+117499d117346
+< P    6 | zjmp -47 OK
+117598d117444
+< P    6 | live -1
+117602d117447
+< P    4 | zjmp -89 FAILED
+117686d117530
+< P    4 | ld 0 r16
+117862,117863d117705
+< P    6 | sti r4 153 144
+<        | -> store to 153 + 144 = 297 (with pc and mod 634)
+117870d117711
+< P    4 | zjmp -47 OK
+117962d117802
+< P    6 | add r2 r3 r2
+117970d117809
+< P    4 | live -1
+118204,118205d118042
+< P    6 | sti r4 142 148
+<        | -> store to 142 + 148 = 290 (with pc and mod 638)
+118210,118211d118046
+< P    4 | sti r4 153 192
+<        | -> store to 153 + 192 = 345 (with pc and mod 682)
+118310d118144
+< P    6 | add r2 r3 r2
+118314d118147
+< P    4 | add r2 r3 r2
+118399d118231
+< P    6 | live -1
+118473d118304
+< P    6 | xor 152 96 r15
+118578,118579d118408
+< P    4 | sti r4 142 196
+<        | -> store to 142 + 196 = 338 (with pc and mod 686)
+118664,118665d118492
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+118713d118539
+< P    6 | ld 0 r16
+118773d118598
+< P    4 | live -1
+118820d118644
+< P    4 | xor 200 96 r15
+118903d118726
+< P    6 | zjmp -47 OK
+119004d118826
+< P    6 | live -1
+119010d118831
+< P    4 | zjmp -89 FAILED
+119087d118907
+< P    4 | ld 0 r16
+119260,119261d119079
+< P    6 | sti r4 153 152
+<        | -> store to 153 + 152 = 305 (with pc and mod 642)
+119265d119082
+< P    4 | zjmp -47 OK
+119369d119185
+< P    6 | add r2 r3 r2
+119373d119188
+< P    4 | live -1
+119601,119602d119415
+< P    6 | sti r4 142 156
+<        | -> store to 142 + 156 = 298 (with pc and mod 646)
+119604,119605d119416
+< P    4 | sti r4 153 200
+<        | -> store to 153 + 200 = 353 (with pc and mod 690)
+119705d119515
+< P    6 | add r2 r3 r2
+119710d119519
+< P    4 | add r2 r3 r2
+119812d119620
+< P    6 | live -1
+119876d119683
+< P    6 | xor 160 96 r15
+119978,119979d119784
+< P    4 | sti r4 142 204
+<        | -> store to 142 + 204 = 346 (with pc and mod 694)
+120073,120074d119877
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+120116d119918
+< P    6 | ld 0 r16
+120168d119969
+< P    4 | live -1
+120217d120017
+< P    4 | xor 208 96 r15
+120306d120105
+< P    6 | zjmp -47 OK
+120420d120218
+< P    6 | live -1
+120424d120221
+< P    4 | zjmp -89 FAILED
+120491d120287
+< P    4 | ld 0 r16
+120672,120673d120467
+< P    6 | sti r4 153 160
+<        | -> store to 153 + 160 = 313 (with pc and mod 650)
+120677d120470
+< P    4 | zjmp -47 OK
+120770d120562
+< P    6 | add r2 r3 r2
+120776d120567
+< P    4 | live -1
+121007,121008d120797
+< P    6 | sti r4 142 164
+<        | -> store to 142 + 164 = 306 (with pc and mod 654)
+121012,121013d120800
+< P    4 | sti r4 153 208
+<        | -> store to 153 + 208 = 361 (with pc and mod 698)
+121101d120887
+< P    6 | add r2 r3 r2
+121109d120894
+< P    4 | add r2 r3 r2
+121201d120985
+< P    6 | live -1
+121277d121060
+< P    6 | xor 168 96 r15
+121370,121371d121152
+< P    4 | sti r4 142 212
+<        | -> store to 142 + 212 = 354 (with pc and mod 702)
+121462,121463d121242
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+121510d121288
+< P    6 | ld 0 r16
+121568d121345
+< P    4 | live -1
+121614d121390
+< P    4 | xor 216 96 r15
+121696d121471
+< P    6 | zjmp -47 OK
+121801d121575
+< P    6 | live -1
+121807d121580
+< P    4 | zjmp -89 FAILED
+121882d121654
+< P    4 | ld 0 r16
+122053,122054d121824
+< P    6 | sti r4 153 168
+<        | -> store to 153 + 168 = 321 (with pc and mod 658)
+122058d121827
+< P    4 | zjmp -47 OK
+122155d121923
+< P    6 | add r2 r3 r2
+122162d121929
+< P    4 | live -1
+122384,122385d122150
+< P    6 | sti r4 142 172
+<        | -> store to 142 + 172 = 314 (with pc and mod 662)
+122391,122392d122155
+< P    4 | sti r4 153 216
+<        | -> store to 153 + 216 = 369 (with pc and mod 706)
+122487d122249
+< P    6 | add r2 r3 r2
+122494d122255
+< P    4 | add r2 r3 r2
+122581d122341
+< P    6 | live -1
+122652d122411
+< P    6 | xor 176 96 r15
+122760,122761d122518
+< P    4 | sti r4 142 220
+<        | -> store to 142 + 220 = 362 (with pc and mod 710)
+122849,122850d122605
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+122900d122654
+< P    6 | ld 0 r16
+122951d122704
+< P    4 | live -1
+123026d122778
+< P    4 | xor 224 96 r15
+123083d122834
+< P    6 | zjmp -47 OK
+123187d122937
+< P    6 | live -1
+123224d122973
+< P    4 | zjmp -89 FAILED
+123275d123023
+< P    4 | ld 0 r16
+123443,123444d123190
+< P    6 | sti r4 153 176
+<        | -> store to 153 + 176 = 329 (with pc and mod 666)
+123450d123195
+< P    4 | zjmp -47 OK
+123538d123282
+< P    6 | add r2 r3 r2
+123552d123295
+< P    4 | live -1
+123782,123783d123524
+< P    6 | sti r4 142 180
+<        | -> store to 142 + 180 = 322 (with pc and mod 670)
+123813,123814d123553
+< P    4 | sti r4 153 224
+<        | -> store to 153 + 224 = 377 (with pc and mod 714)
+123881d123619
+< P    6 | add r2 r3 r2
+123913d123650
+< P    4 | add r2 r3 r2
+123979d123715
+< P    6 | live -1
+124050d123785
+< P    6 | xor 184 96 r15
+124146,124147d123880
+< P    4 | sti r4 142 228
+<        | -> store to 142 + 228 = 370 (with pc and mod 718)
+124246,124247d123978
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+124319d124049
+< P    6 | ld 0 r16
+124345d124074
+< P    4 | live -1
+124416d124144
+< P    4 | xor 232 96 r15
+124504d124231
+< P    6 | zjmp -47 OK
+124594d124320
+< P    6 | live -1
+124605d124330
+< P    4 | zjmp -89 FAILED
+124657d124381
+< P    4 | ld 0 r16
+124834,124835d124557
+< P    6 | sti r4 153 184
+<        | -> store to 153 + 184 = 337 (with pc and mod 674)
+124839d124560
+< P    4 | zjmp -47 OK
+124929d124649
+< P    6 | add r2 r3 r2
+124940d124659
+< P    4 | live -1
+125188,125189d124906
+< P    6 | sti r4 142 188
+<        | -> store to 142 + 188 = 330 (with pc and mod 678)
+125195,125196d124911
+< P    4 | sti r4 153 232
+<        | -> store to 153 + 232 = 385 (with pc and mod 722)
+125288d125002
+< P    6 | add r2 r3 r2
+125296d125009
+< P    4 | add r2 r3 r2
+125394d125106
+< P    6 | live -1
+125448d125159
+< P    6 | xor 192 96 r15
+125533,125534d125243
+< P    4 | sti r4 142 236
+<        | -> store to 142 + 236 = 378 (with pc and mod 726)
+125629,125630d125337
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+125712d125418
+< P    6 | ld 0 r16
+125739d125444
+< P    4 | live -1
+125803d125507
+< P    4 | xor 240 96 r15
+125898d125601
+< P    6 | zjmp -47 OK
+125995d125697
+< P    6 | live -1
+126002d125703
+< P    4 | zjmp -89 FAILED
+126045d125745
+< P    4 | ld 0 r16
+126231,126232d125930
+< P    6 | sti r4 153 192
+<        | -> store to 153 + 192 = 345 (with pc and mod 682)
+126237d125934
+< P    4 | zjmp -47 OK
+126337d126033
+< P    6 | add r2 r3 r2
+126348d126043
+< P    4 | live -1
+126596,126597d126290
+< P    6 | sti r4 142 196
+<        | -> store to 142 + 196 = 338 (with pc and mod 686)
+126600,126601d126292
+< P    4 | sti r4 153 240
+<        | -> store to 153 + 240 = 393 (with pc and mod 730)
+126685d126375
+< P    6 | add r2 r3 r2
+126690d126379
+< P    4 | add r2 r3 r2
+126791d126479
+< P    6 | live -1
+126838d126525
+< P    6 | xor 200 96 r15
+126928,126929d126614
+< P    4 | sti r4 142 244
+<        | -> store to 142 + 244 = 386 (with pc and mod 734)
+127025,127026d126709
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+127101d126783
+< P    6 | ld 0 r16
+127125d126806
+< P    4 | live -1
+127187d126867
+< P    4 | xor 248 96 r15
+127281d126960
+< P    6 | zjmp -47 OK
+127386d127064
+< P    6 | live -1
+127392d127069
+< P    4 | zjmp -89 FAILED
+127432d127108
+< P    4 | ld 0 r16
+127606,127607d127281
+< P    6 | sti r4 153 200
+<        | -> store to 153 + 200 = 353 (with pc and mod 690)
+127609d127282
+< P    4 | zjmp -47 OK
+127714d127386
+< P    6 | add r2 r3 r2
+127726d127397
+< P    4 | live -1
+127982,127983d127652
+< P    6 | sti r4 142 204
+<        | -> store to 142 + 204 = 346 (with pc and mod 694)
+127986,127987d127654
+< P    4 | sti r4 153 248
+<        | -> store to 153 + 248 = 401 (with pc and mod 738)
+128077d127743
+< P    6 | add r2 r3 r2
+128083d127748
+< P    4 | add r2 r3 r2
+128172d127836
+< P    6 | live -1
+128219d127882
+< P    6 | xor 208 96 r15
+128316,128317d127978
+< P    4 | sti r4 142 252
+<        | -> store to 142 + 252 = 394 (with pc and mod 742)
+128426,128427d128086
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+128492d128150
+< P    6 | ld 0 r16
+128519d128176
+< P    4 | live -1
+128576d128232
+< P    4 | xor 256 96 r15
+128681d128336
+< P    6 | zjmp -47 OK
+128778d128432
+< P    6 | live -1
+128786d128439
+< P    4 | zjmp -89 FAILED
+128828d128480
+< P    4 | ld 0 r16
+129008,129009d128659
+< P    6 | sti r4 153 208
+<        | -> store to 153 + 208 = 361 (with pc and mod 698)
+129012d128661
+< P    4 | zjmp -47 OK
+129107d128755
+< P    6 | add r2 r3 r2
+129119d128766
+< P    4 | live -1
+129365,129366d129011
+< P    6 | sti r4 142 212
+<        | -> store to 142 + 212 = 354 (with pc and mod 702)
+129371,129372d129015
+< P    4 | sti r4 153 256
+<        | -> store to 153 + 256 = 409 (with pc and mod 746)
+129459d129101
+< P    6 | add r2 r3 r2
+129465d129106
+< P    4 | add r2 r3 r2
+129563d129203
+< P    6 | live -1
+129608d129247
+< P    6 | xor 216 96 r15
+129695,129696d129333
+< P    4 | sti r4 142 5
+<        | -> store to 142 + 5 = 147 (with pc and mod 495)
+129801,129802d129437
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+129873d129507
+< P    6 | ld 0 r16
+129898d129531
+< P    4 | live -1
+129950d129582
+< P    4 | xor 9 96 r15
+130052d129683
+< P    6 | zjmp -47 OK
+130151d129781
+< P    6 | live -1
+130158d129787
+< P    4 | zjmp -89 FAILED
+130218d129846
+< P    4 | ld 0 r16
+130378,130379d130005
+< P    6 | sti r4 153 216
+<        | -> store to 153 + 216 = 369 (with pc and mod 706)
+130410d130035
+< P    4 | zjmp -47 OK
+130481d130105
+< P    6 | add r2 r3 r2
+130509d130132
+< P    4 | live -1
+130744,130745d130366
+< P    6 | sti r4 142 220
+<        | -> store to 142 + 220 = 362 (with pc and mod 710)
+130753,130754d130373
+< P    4 | sti r4 153 9
+<        | -> store to 153 + 9 = 162 (with pc and mod 499)
+130834d130452
+< P    6 | add r2 r3 r2
+130844d130461
+< P    4 | add r2 r3 r2
+130934d130550
+< P    6 | live -1
+131007d130622
+< P    6 | xor 224 96 r15
+131095,131096d130709
+< P    4 | sti r4 142 13
+<        | -> store to 142 + 13 = 155 (with pc and mod 503)
+131202d130814
+< P    6 | zjmp -89 FAILED
+131204d130815
+< P    4 | add r2 r3 r2
+131253d130863
+< P    6 | ld 0 r16
+131306d130915
+< P    4 | live -1
+131342d130950
+< P    4 | xor 17 96 r15
+131432d131039
+< P    6 | zjmp -47 OK
+131530d131136
+< P    6 | live -1
+131538d131143
+< P    4 | zjmp -89 FAILED
+131608d131212
+< P    4 | ld 0 r16
+131786,131787d131389
+< P    6 | sti r4 153 224
+<        | -> store to 153 + 224 = 377 (with pc and mod 714)
+131795d131396
+< P    4 | zjmp -47 OK
+131888d131488
+< P    6 | add r2 r3 r2
+131902d131501
+< P    4 | live -1
+132118,132119d131716
+< P    6 | sti r4 142 228
+<        | -> store to 142 + 228 = 370 (with pc and mod 718)
+132124,132125d131720
+< P    4 | sti r4 153 17
+<        | -> store to 153 + 17 = 170 (with pc and mod 507)
+132220d131814
+< P    6 | add r2 r3 r2
+132229d131822
+< P    4 | add r2 r3 r2
+132315d131907
+< P    6 | live -1
+132385d131976
+< P    6 | xor 232 96 r15
+132486,132487d132076
+< P    4 | sti r4 142 21
+<        | -> store to 142 + 21 = 163 (with pc and mod 511)
+132574,132575d132162
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+132625d132211
+< P    6 | ld 0 r16
+132682d132267
+< P    4 | live -1
+132719d132303
+< P    4 | xor 25 96 r15
+132807d132390
+< P    6 | zjmp -47 OK
+132905d132487
+< P    6 | live -1
+132913d132494
+< P    4 | zjmp -89 FAILED
+132983d132563
+< P    4 | ld 0 r16
+133154,133155d132733
+< P    6 | sti r4 153 232
+<        | -> store to 153 + 232 = 385 (with pc and mod 722)
+133161d132738
+< P    4 | zjmp -47 OK
+133256d132832
+< P    6 | add r2 r3 r2
+133265d132840
+< P    4 | live -1
+133489,133490d133063
+< P    6 | sti r4 142 236
+<        | -> store to 142 + 236 = 378 (with pc and mod 726)
+133493,133494d133065
+< P    4 | sti r4 153 25
+<        | -> store to 153 + 25 = 178 (with pc and mod 515)
+133584d133154
+< P    6 | add r2 r3 r2
+133595d133164
+< P    4 | add r2 r3 r2
+133693d133261
+< P    6 | live -1
+133757d133324
+< P    6 | xor 240 96 r15
+133859,133860d133425
+< P    4 | sti r4 142 29
+<        | -> store to 142 + 29 = 171 (with pc and mod 519)
+133952,133953d133516
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+133994d133556
+< P    6 | ld 0 r16
+134054d133615
+< P    4 | live -1
+134089d133649
+< P    4 | xor 33 96 r15
+134187d133746
+< P    6 | zjmp -47 OK
+134294d133852
+< P    6 | live -1
+134300d133857
+< P    4 | zjmp -89 FAILED
+134357d133913
+< P    4 | ld 0 r16
+134540,134541d134095
+< P    6 | sti r4 153 240
+<        | -> store to 153 + 240 = 393 (with pc and mod 730)
+134546d134099
+< P    4 | zjmp -47 OK
+134630d134182
+< P    6 | add r2 r3 r2
+134639d134190
+< P    4 | live -1
+134863,134864d134413
+< P    6 | sti r4 142 244
+<        | -> store to 142 + 244 = 386 (with pc and mod 734)
+134868,134869d134416
+< P    4 | sti r4 153 33
+<        | -> store to 153 + 33 = 186 (with pc and mod 523)
+134962d134508
+< P    6 | add r2 r3 r2
+134970d134515
+< P    4 | add r2 r3 r2
+135060d134604
+< P    6 | live -1
+135121d134664
+< P    6 | xor 248 96 r15
+135223,135224d134765
+< P    4 | sti r4 142 37
+<        | -> store to 142 + 37 = 179 (with pc and mod 527)
+135324,135325d134864
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+135363d134901
+< P    6 | ld 0 r16
+135432d134969
+< P    4 | live -1
+135460d134996
+< P    4 | xor 41 96 r15
+135541d135076
+< P    6 | zjmp -47 OK
+135654d135188
+< P    6 | live -1
+135662d135195
+< P    4 | zjmp -89 FAILED
+135727d135259
+< P    4 | ld 0 r16
+135908,135909d135439
+< P    6 | sti r4 153 248
+<        | -> store to 153 + 248 = 401 (with pc and mod 738)
+135916d135445
+< P    4 | zjmp -47 OK
+136007d135535
+< P    6 | add r2 r3 r2
+136015d135542
+< P    4 | live -1
+136236,136237d135762
+< P    6 | sti r4 142 252
+<        | -> store to 142 + 252 = 394 (with pc and mod 742)
+136240,136241d135764
+< P    4 | sti r4 153 41
+<        | -> store to 153 + 41 = 194 (with pc and mod 531)
+136346d135868
+< P    6 | add r2 r3 r2
+136355d135876
+< P    4 | add r2 r3 r2
+136434d135954
+< P    6 | live -1
+136490d136009
+< P    6 | xor 256 96 r15
+136603,136604d136121
+< P    4 | sti r4 142 45
+<        | -> store to 142 + 45 = 187 (with pc and mod 535)
+136699,136700d136215
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+136741d136255
+< P    6 | ld 0 r16
+136811d136324
+< P    4 | live -1
+136863d136375
+< P    4 | xor 49 96 r15
+136924d136435
+< P    6 | zjmp -47 OK
+137030d136540
+< P    6 | live -1
+137068d136577
+< P    4 | zjmp -89 FAILED
+137103d136611
+< P    4 | ld 0 r16
+137284,137285d136791
+< P    6 | sti r4 153 256
+<        | -> store to 153 + 256 = 409 (with pc and mod 746)
+137289d136794
+< P    4 | zjmp -47 OK
+137376d136880
+< P    6 | add r2 r3 r2
+137388d136891
+< P    4 | live -1
+137605,137606d137107
+< P    6 | sti r4 142 5
+<        | -> store to 142 + 5 = 147 (with pc and mod 495)
+137633,137634d137133
+< P    4 | sti r4 153 49
+<        | -> store to 153 + 49 = 202 (with pc and mod 539)
+137710d137208
+< P    6 | add r2 r3 r2
+137746d137243
+< P    4 | add r2 r3 r2
+137804d137300
+< P    6 | live -1
+137860d137355
+< P    6 | xor 9 96 r15
+137967,137968d137461
+< P    4 | sti r4 142 53
+<        | -> store to 142 + 53 = 195 (with pc and mod 543)
+138066,138067d137558
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+138126d137616
+< P    6 | ld 0 r16
+138169d137658
+< P    4 | live -1
+138227d137715
+< P    4 | xor 57 96 r15
+138316d137803
+< P    6 | zjmp -47 OK
+138411d137897
+< P    6 | live -1
+138430d137915
+< P    4 | zjmp -89 FAILED
+138458d137942
+< P    4 | ld 0 r16
+138653,138654d138136
+< P    6 | sti r4 153 9
+<        | -> store to 153 + 9 = 162 (with pc and mod 499)
+138659d138140
+< P    4 | zjmp -47 OK
+138744d138224
+< P    6 | add r2 r3 r2
+138758d138237
+< P    4 | live -1
+138993,138994d138471
+< P    6 | sti r4 142 13
+<        | -> store to 142 + 13 = 155 (with pc and mod 503)
+139000,139001d138476
+< P    4 | sti r4 153 57
+<        | -> store to 153 + 57 = 210 (with pc and mod 547)
+139101d138575
+< P    6 | add r2 r3 r2
+139112d138585
+< P    4 | add r2 r3 r2
+139199d138671
+< P    6 | live -1
+139240d138711
+< P    6 | xor 17 96 r15
+139336,139337d138806
+< P    4 | sti r4 142 61
+<        | -> store to 142 + 61 = 203 (with pc and mod 551)
+139433,139434d138901
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+139504d138970
+< P    6 | ld 0 r16
+139544d139009
+< P    4 | live -1
+139599d139063
+< P    4 | xor 65 96 r15
+139693d139156
+< P    6 | zjmp -47 OK
+139795d139257
+< P    6 | live -1
+139810d139271
+< P    4 | zjmp -89 FAILED
+139839d139299
+< P    4 | ld 0 r16
+140013,140014d139472
+< P    6 | sti r4 153 17
+<        | -> store to 153 + 17 = 170 (with pc and mod 507)
+140024d139481
+< P    4 | zjmp -47 OK
+140117d139573
+< P    6 | add r2 r3 r2
+140132d139587
+< P    4 | live -1
+140371,140372d139825
+< P    6 | sti r4 142 21
+<        | -> store to 142 + 21 = 163 (with pc and mod 511)
+140376,140377d139828
+< P    4 | sti r4 153 65
+<        | -> store to 153 + 65 = 218 (with pc and mod 555)
+140458d139908
+< P    6 | add r2 r3 r2
+140468d139917
+< P    4 | add r2 r3 r2
+140562d140010
+< P    6 | live -1
+140604d140051
+< P    6 | xor 25 96 r15
+140700,140701d140146
+< P    4 | sti r4 142 69
+<        | -> store to 142 + 69 = 211 (with pc and mod 559)
+140798,140799d140242
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+140871d140313
+< P    6 | ld 0 r16
+140906d140347
+< P    4 | live -1
+140964d140404
+< P    4 | xor 73 96 r15
+141049d140488
+< P    6 | zjmp -47 OK
+141150d140588
+< P    6 | live -1
+141166d140603
+< P    4 | zjmp -89 FAILED
+141201d140637
+< P    4 | ld 0 r16
+141373,141374d140808
+< P    6 | sti r4 153 25
+<        | -> store to 153 + 25 = 178 (with pc and mod 515)
+141380d140813
+< P    4 | zjmp -47 OK
+141475d140907
+< P    6 | add r2 r3 r2
+141490d140921
+< P    4 | live -1
+141737,141738d141167
+< P    6 | sti r4 142 29
+<        | -> store to 142 + 29 = 171 (with pc and mod 519)
+141744,141745d141172
+< P    4 | sti r4 153 73
+<        | -> store to 153 + 73 = 226 (with pc and mod 563)
+141830d141256
+< P    6 | add r2 r3 r2
+141837d141262
+< P    4 | add r2 r3 r2
+141928d141352
+< P    6 | live -1
+141966d141389
+< P    6 | xor 33 96 r15
+142072,142073d141494
+< P    4 | sti r4 142 77
+<        | -> store to 142 + 77 = 219 (with pc and mod 567)
+142175,142176d141595
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+142233d141651
+< P    6 | ld 0 r16
+142269d141686
+< P    4 | live -1
+142325d141741
+< P    4 | xor 81 96 r15
+142422d141837
+< P    6 | zjmp -47 OK
+142512d141926
+< P    6 | live -1
+142525d141938
+< P    4 | zjmp -89 FAILED
+142558d141970
+< P    4 | ld 0 r16
+142738,142739d142149
+< P    6 | sti r4 153 33
+<        | -> store to 153 + 33 = 186 (with pc and mod 523)
+142747d142156
+< P    4 | zjmp -47 OK
+142839d142247
+< P    6 | add r2 r3 r2
+142851d142258
+< P    4 | live -1
+143094,143095d142500
+< P    6 | sti r4 142 37
+<        | -> store to 142 + 37 = 179 (with pc and mod 527)
+143100,143101d142504
+< P    4 | sti r4 153 81
+<        | -> store to 153 + 81 = 234 (with pc and mod 571)
+143189d142591
+< P    6 | add r2 r3 r2
+143196d142597
+< P    4 | add r2 r3 r2
+143293d142693
+< P    6 | live -1
+143325d142724
+< P    6 | xor 41 96 r15
+143412,143413d142810
+< P    4 | sti r4 142 85
+<        | -> store to 142 + 85 = 227 (with pc and mod 575)
+143525,143526d142921
+< P    6 | zjmp -89 FAILED
+< P    4 | add r2 r3 r2
+143591d142985
+< P    6 | ld 0 r16
+143630d143023
+< P    4 | live -1
+143671d143063
+< P    4 | xor 89 96 r15
+143773d143164
+< P    6 | zjmp -47 OK
+143870d143260
+< P    6 | live -1
+143878d143267
+< P    4 | zjmp -89 FAILED
+143933d143321
+< P    4 | ld 0 r16
+144093,144094d143480
+< P    6 | sti r4 153 41
+<        | -> store to 153 + 41 = 194 (with pc and mod 531)
+144127d143512
+< P    4 | zjmp -47 OK
+144204d143588
+< P    6 | add r2 r3 r2
+144232d143615
+< P    4 | live -1
+144452,144453d143834
+< P    6 | sti r4 142 45
+<        | -> store to 142 + 45 = 187 (with pc and mod 535)
+144463,144464d143843
+< P    4 | sti r4 153 89
+<        | -> store to 153 + 89 = 242 (with pc and mod 579)
+144546d143924
+< P    6 | add r2 r3 r2
+144558d143935
+< P    4 | add r2 r3 r2
+144652d144028
+< P    6 | live -1
+144706d144081
+< P    6 | xor 49 96 r15
+144804,144805d144178
+< P    4 | sti r4 142 93
+<        | -> store to 142 + 93 = 235 (with pc and mod 583)
+144908d144280
+< P    6 | zjmp -89 FAILED
+144910d144281
+< P    4 | add r2 r3 r2
+144943d144313
+< P    6 | ld 0 r16
+145010d144379
+< P    4 | live -1
+145033d144401
+< P    4 | xor 97 96 r15
+145138d144505
+< Process 6 hasn't lived for 48 cycles (CTD 36)
+145140a144508,144509
+> P   95 | ld 0 r16
+> P   94 | ld 0 r16
+145194d144562
+< Process 4 hasn't lived for 13 cycles (CTD -14)

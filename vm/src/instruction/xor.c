@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:25:27 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 08:10:24 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/19 18:43:41 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		ft_xor(t_inf inf, t_process *pros, t_pam arg)
 	{
 		while (i < 4)
 		{
-			a += pros->reg[inf.val[0]][i];
+			a = (a << 8) | (pros->reg[inf.val[0]][i]);
 			i++;
 		}
 		i = 0;
@@ -50,13 +50,15 @@ void		ft_xor(t_inf inf, t_process *pros, t_pam arg)
 	{
 		while (i < 4)
 		{
-			b += pros->reg[inf.val[1]][i];
+			b = (b << 8) | (pros->reg[inf.val[1]][i]);
 			i++;
 		}
 	}
 	else
 		b = inf.val[1];
 	res = a ^ b;
+	if (arg.ver == 14)
+		ft_printf("P%5d | xor %d %d r%d\n", pros->number, a, b, inf.val[2]);
 	pros->val[inf.val[2]] = pros->val[inf.val[0]] ^ pros->val[inf.val[1]];
 	pros->carry = (res == 0) ? 1 : 0;
 	reg_write(pros, res, inf.val[2], REG_SIZE);

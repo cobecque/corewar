@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/19 19:56:07 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/19 21:50:14 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,22 +281,21 @@ void		dump(char *ptr)
 	ft_putchar('\n');
 }
 
-int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
+int			cycle_gestion(t_vm virtual, t_process *pro)
 {
 	int		val;
 	int		check;
-	int		cycle;
 	int		die;
 	int		cycle_d;
 
 	check = 0;
-	cycle = 1;
+	virtual.cycle = 1;
 	cycle_d = 0;
 	val = 0;
 	die = 0;
 	while (42)
 	{
-		if (cycle_d == ctd)
+		if (cycle_d == virtual.ctd)
 		{
 			if (check_alive(virtual.nb_pros, pro) <= 1)
 			{
@@ -304,36 +303,31 @@ int			cycle_gestion(t_vm virtual, t_process *pro, int ctd)
 			}
 			cycle_d = 0;
 			die = count_live(pro);
-			pro = kill_them_all(pro, virtual, cycle, ctd);
+			pro = kill_them_all(pro, virtual, virtual.cycle, virtual.ctd);
 			if (die >= NBR_LIVE || check == 10)
 			{
 				check = 0;
-				ctd -= CYCLE_DELTA;
+				virtual.ctd -= CYCLE_DELTA;
 				if (virtual.arg.ver == 14)
-					ft_printf("Cycle to die is now %d\n", ctd);
-		/*		if (ctd < 0)
-				{
-					if (virtual.arg.ver == 14)
-						ft_printf("It is now cycle %d\n", cycle);
-				}*/
+					ft_printf("Cycle to die is now %d\n", virtual.ctd);
 			}
 			else
 				check++;
 		}
-		pro = gestion_process(pro, cycle, virtual, &val);
-		if (ctd < 0)
+		pro = gestion_process(pro, virtual.cycle, virtual, &val);
+		if (virtual.ctd < 0)
 		{
-			pro = kill_them_all(pro, virtual, cycle, ctd);
+			pro = kill_them_all(pro, virtual, virtual.cycle, virtual.ctd);
 			break ;
 		}
-		if (virtual.arg.dump != 0 && cycle == virtual.arg.dump)
+		if (virtual.arg.dump != 0 && virtual.cycle == virtual.arg.dump)
 		{
 			dump(virtual.addr);
 			break ;
 		}
-		if (cycle == virtual.arg.end)
+		if (virtual.cycle == virtual.arg.end)
 			break ;
-		cycle++;
+		virtual.cycle++;
 		cycle_d++;
 	}
 	return (winner(pro));

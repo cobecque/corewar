@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/16 18:53:10 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/19 21:49:39 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,9 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 		i++;
 	}
 //	gestion_process(ret2, 5, data);
-/*	ft_printf("\n\nEt le gagnant est: %d\n",*/ 
-	i = cycle_gestion(data, ret, CYCLE_TO_DIE);
+/*	ft_printf("\n\nEt le gagnant est: %d\n",*/
+	data.ctd = CYCLE_TO_DIE;
+	i = cycle_gestion(data, ret);
 	//if (i != -1)
 	//	ft_printf("\nAnd the winner is contestant %d: %s !\n", data.play[i].nb, data.play[i].name);
 }

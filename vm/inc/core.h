@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/16 18:57:54 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/19 21:45:55 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,8 @@ typedef struct				s_vm
 	char					*addr;
 	int						error;
 	int						nb_pros;
+	int						cycle;
+	int						ctd;
 	t_pam					arg;
 	t_process				*pros; //*
 	t_champ					play[MAX_PLAYERS];
@@ -135,7 +137,6 @@ void						ft_fork(t_inf inf, t_process *pros, t_pam arg);
 void						ft_lfork(t_inf inf, t_process *pros, t_pam arg);
 t_process					*dup_pros(t_process *src, t_inf inf, t_pam arg);
 t_inf						nb_oct(t_inf srt, int line, int ocp);
-//t_inf						**list_info(t_vm data);
 t_vm						fill_champ(int *fd);
 void						reg_write(t_process *pros, unsigned int val, int reg, int size);
 void						vm_stuff(t_vm data);
@@ -159,7 +160,7 @@ void						cpy_reg(int *tab, int **res);
 t_inf						add_elem(int info, int opc);
 t_process					*gestion_process(t_process *pro, int cycle, t_vm vm, int *val);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
-int							cycle_gestion(t_vm vm, t_process *pro, int ctd);
+int							cycle_gestion(t_vm vm, t_process *pro);
 void						ft_live(t_inf info, t_process *pro, t_pam arg);
 
 static void					(*g_instructab[17])(t_inf, t_process *pros, t_pam arg)=

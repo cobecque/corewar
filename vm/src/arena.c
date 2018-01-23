@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/22 23:22:26 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/23 17:30:49 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,13 +152,9 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	{
 		if (cpy->live != -1)
 		{
-			if (cycle == 10897)
-				ft_printf("Pass one avec %d sur %d de %d\n", cpy->pc, cpy->number, cpy->champ);
 			if (cpy->seek == 0)
 				cpy->line = get_line(*(cpy->pc));
 			i = 0;
-			if (cycle == 10897)
-				ft_printf("Pass two\n");
 			if (cpy->line != -1 && cpy->start_cycle == -1)
 			{
 				cpy->seek = 1;
@@ -187,7 +183,6 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 					}
 					if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
 						return (NULL);
-			//		ft_printf("Pass two\n");
 					while (i < g_op_tab[cpy->line].nb_arg)
 					{
 						p = 0;
@@ -209,9 +204,6 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						cpy->inf.val[i] = a;
 						i++;
 					}
-					if (cycle == 10897)
-						ft_printf("Pass two\n");
-			//		ft_printf("Pass three\n");
 					cpy->seek = 2;
 					g_instructab[cpy->line](cpy->inf, cpy, vm.arg);
 					cpy->start_cycle = -1;

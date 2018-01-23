@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/22 22:37:16 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/23 16:48:32 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ t_vm		input_data(t_vm data, int nb, char **pc_adr)
 	char	*base_addr;
 
 	i = 0;
-	if (data.nb_pros != nb)
-		base_addr = data.addr + MEM_SIZE / data.nb_pros * (data.nb_pros - nb);
-	else
+	if (nb == 1)
 		base_addr = data.addr;
+	else
+		base_addr = data.addr + MEM_SIZE / data.nb_pros * (data.nb_pros - (nb - 1));
 	*pc_adr = base_addr;
 	while (i < data.play[nb - 1].len)
 	{
@@ -140,6 +140,6 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 	data.ctd = CYCLE_TO_DIE;
 	i = cycle_gestion(data, ret);
 	if (i != -1)
-	//	ft_printf("Contestant %d, \"%s\", has won !\n", i, data.play[i].name);
-		ft_printf("\nAnd the winner is contestant %d: %s !\n", i, data.play[i].name);
+		ft_printf("Contestant %d, \"%s\", has won !\n", i, data.play[i].name);
+//		ft_printf("\nAnd the winner is contestant %d: %s !\n", i, data.play[i].name);
 }

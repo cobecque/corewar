@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/22 23:20:32 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/23 17:21:10 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,16 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 		new->ins = src->ins + (inf.val[0] % IDX_MOD);
 	if (new->ins >= inf.min_addr + MEM_SIZE)
 	{
-	//	ft_printf("Pass three.1 avec %d\n", new->ins);
 		while (new->ins >= inf.min_addr + MEM_SIZE)
 			new->ins -= MEM_SIZE;
-//		ft_printf("Pass three.2 avec %d\n", new->ins);
-//		new->ins = new->ins % MEM_SIZE;
-//		new->ins = (new->ins - (inf.min_addr + MEM_SIZE)) + inf.min_addr;
 	}
 	if (new->ins < inf.min_addr)
 	{
-//		ft_printf("Pass four avec %d\n", new->ins);
 		if (new->ins >= 0)
 			new->ins = (inf.min_addr + MEM_SIZE - 1 - (int)new->ins);
 		else
 			new->ins = (int)new->ins + (inf.min_addr + MEM_SIZE - 1);
 	}
-	if (new->number == 222)
-		ft_printf("AU FORK : adr = %d\n", new->ins);
 	new->pc = new->ins;
 	new->next = NULL;
 	tmp->next = new;

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:28:23 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/19 18:02:56 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/21 17:39:54 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void		ft_ldi(t_inf inf, t_process *pros, t_pam arg)
 	res = r1 + r2;
 	adr = pros->ins + (int)res;
 	pros->carry = (adr == 0) ? 1 : 0;
-	if (arg.ver == 14)
+	if (arg.ver_num.op == 1)
 		ft_printf("P%5d | ldi %d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n", pros->number, r1, r2, inf.val[2], r1, r2, res, pros->ins + res - inf.min_addr);
 	i = 0;
 	j = 0;

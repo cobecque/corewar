@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:22:19 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 08:04:07 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/21 18:27:41 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void		ft_and(t_inf inf, t_process *pros, t_pam arg)
 		b = inf.val[1];
 	res = a & b;
 	pros->val[inf.val[2]] = res;
+	if (arg.ver_num.op == 1)
+		ft_printf("P%5d | and %d %d r%d\n", pros->number, inf.val[0], inf.val[1], inf.val[2]);
 	pros->carry = (res == 0) ? 1 : 0;
 	reg_write(pros, res, inf.val[2], REG_SIZE);
 }

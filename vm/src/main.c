@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:29:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/17 19:55:50 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/21 17:52:11 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ t_pam		get_option(int argc, char **argv)
 		}
 		if (ft_strcmp(argv[i], "-help") == 0)
 		{
-			ft_printf("--Help Corewar--\n\t-dump N\t\t: Dumps memory after N cycles then exits\n\t-end N\t\t: End corewar after N cycles then exits\n\t-v N\t\t: Verbosity levels, can be added together to enable several:\n\t\t\t\t- 0 : Show only essentials\n\t\t\t\t- 1 : Show lives\n\t\t\t\t- 2 : Show cycles\n\t\t\t\t- 4 : Show deaths\n\t\t\t\t- 8 : Show PC movements (except for jumps)\n\t-SDL\t\t: Prints memory cycle by cycle with an SDL viewer\n");
+			ft_printf("--Help Corewar--\n\t-dump N\t\t: Dumps memory after N cycles then exits\n\t-end N\t\t: End corewar after N cycles then exits\n\t-v N\t\t: Verbosity levels, can be added together to enable several:\n\t\t\t\t- 0 : Show only essentials\n\t\t\t\t- 1 : Show lives\n\t\t\t\t- 2 : Show cycles\n\t\t\t\t- 4 : Show operations (Params are NOT litteral ...)\n\t\t\t\t- 8 : Show death\n\t\t\t\t- 16 : Show PC movements (except for jumps)\n\t-SDL\t\t: Prints memory cycle by cycle with an SDL viewer\n");
 			pam.patern = ft_strdup("Help");
 		}
 		if (ft_strcmp(argv[i], "-end") == 0)
@@ -117,7 +117,10 @@ t_pam		get_option(int argc, char **argv)
 				if (string_is_digit(argv[i]) == 0)
 					pam.patern = ft_strdup("end's parameters.");
 				else
+				{
 					pam.ver = ft_atoi(argv[i]);
+					pam.ver_num = get_verbose(pam.ver);
+				}
 			}
 			else
 				pam.patern = ft_strdup("end's parameters.");

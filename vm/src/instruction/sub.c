@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:21:06 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/12 08:10:10 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/21 18:29:50 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void		ft_sub(t_inf inf, t_process *pros, t_pam arg)
 	inf.val[1] = pros->reg[inf.val[1]][3];
 	res = inf.val[0] - inf.val[1];
 	pros->carry = (res == 0) ? 1 : 0;
+		if (arg.ver_num.op == 1)
+			ft_printf("P%5d | add r%d r%d r%d\n", pros->number, inf.val[0], inf.val[1], inf.val[2]);
 	reg_write(pros, (unsigned int)res, inf.val[2], REG_SIZE);
 	pros->val[inf.val[2]] = (unsigned int)res;
 }

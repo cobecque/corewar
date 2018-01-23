@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:19:03 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/19 19:18:39 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/21 17:38:44 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void		ft_add(t_inf inf, t_process *pros, t_pam arg)
 		else
 			b = inf.val[1];
 		res = a + b;
-		if (arg.ver == 14)
+		if (arg.ver_num.op == 1)
 			ft_printf("P%5d | add r%d r%d r%d\n", pros->number, inf.val[0], inf.val[1], inf.val[2]);
 		pros->carry = (res == 0) ? 1 : 0;
 		pros->val[inf.val[2]] = (int)res;

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 14:25:54 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/18 00:09:06 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/22 22:41:55 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,9 @@
 
 void		ft_live(t_inf inf, t_process *pro, t_pam arg)
 {
-	//	ft_printf("ins = %d && live = %d %d %d %d\n", *pro->ins, *(pro->ins + 1), *(pro->ins + 2), *(pro->ins + 3), *(pro->ins + 4));
-/*	if (info.val[0] < 0 || info.val[0] > info.nb)
-	{
-//		ft_printf("val[0] = %d et reg = %d\n", info.val[0], pro->reg[1][3]);
-		if (info.val[0] == pro->reg[1][3])
-		{
-//			ft_printf("Le processus %d ce dit en vie\n", pro->reg[1][3]);
-			pro->live++;
-		}
-	}*/
 	int	a;
 	int	b;
 
-/*	a = pro->reg[1][0];
-	ft_printf("%x\n", a);
-	a = (a << 8) | pro->reg[1][1];
-	ft_printf("%x\n", a);
-	a = (a << 8) | pro->reg[1][2];
-	ft_printf("%x\n", a);
-	a = (a << 8) | pro->reg[1][3];
-	ft_printf("%x\n", a);
-	b = inf.val[0];*/
 	a = pro->reg[1][0];
 	b = pro->reg[1][1];
 	a = (a << 8) | (b);
@@ -44,24 +25,25 @@ void		ft_live(t_inf inf, t_process *pro, t_pam arg)
 	b = pro->reg[1][3];
 	a = (a << 8) | (b);
 	b = inf.val[0];
-/*	b = (b << 8) | (inf.val[0] << 8);
-	ft_printf("%d\n", b);
-	b = (b << 8) | (inf.val[0] << 16);
-	ft_printf("%d\n", b);
-	b = (b << 8) | (inf.val[0] << 24);
-	ft_printf("%d\n", b);
-*/	//ft_printf("le process %d\t", pro->number);
-//	if (pro->number == 5)
-//		ft_printf(" au pc %d\t", pro->ins);
-	if (arg.ver == 14)
+	if (arg.ver_num.op == 1)
 		ft_printf("P%5d | live %d\n", pro->number, b);
-//	if (b == a)
-//	{
-//		if (arg.ver == 14)
-//			ft_printf("le process %d vie avec pour valeur a = %d et b = %d\n", pro->number, a, b);
-		pro->live++;
-		pro->last_live = pro->start_cycle + 11;
-//		ft_printf(" a %d live\n", pro->live);
-//	}
-	//ft_printf("le process %d a %d nombre de live\n", pro->number, pro->live);
+	if (b == a)
+	{
+		if (b < MAX_PLAYERS)
+		{
+			pro->live_champ[b]++;
+			if (arg.ver_num.li == 1)
+			{
+				if (b == -1)
+					ft_printf("Player %d (helltrain) is said to be alive\n", -b);
+				if (b == -2)
+					ft_printf("Player %d (helltrain) is said to be alive\n", -b);
+			}
+			pro->last_live[1] = -b;
+		}
+	//	ft_printf("b == %d\n", b);
+	}
+	pro->live++;
+	pro->last_live[0] = pro->start_cycle + 11;
+
 }

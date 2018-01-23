@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:25:27 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/19 18:43:41 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/21 17:44:36 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		ft_xor(t_inf inf, t_process *pros, t_pam arg)
 	else
 		b = inf.val[1];
 	res = a ^ b;
-	if (arg.ver == 14)
+	if (arg.ver_num.op == 1)
 		ft_printf("P%5d | xor %d %d r%d\n", pros->number, a, b, inf.val[2]);
 	pros->val[inf.val[2]] = pros->val[inf.val[0]] ^ pros->val[inf.val[1]];
 	pros->carry = (res == 0) ? 1 : 0;

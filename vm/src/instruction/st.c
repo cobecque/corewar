@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:10:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/19 21:26:05 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/21 17:42:28 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void		ft_st(t_inf inf, t_process *pros, t_pam arg)
 		i = 0;
 		j = 0;
 		arg.ver = arg.ver;
-		if (arg.ver == 14)
+		if (arg.ver_num.op == 1)
 			ft_printf("P%5d | st r%d %d\n", pros->number, inf.val[0], res);
 			//ft_printf("st du process %d sur r%d avec pour valeur %d et pour pc %d et adr min = %d\n", pros->number, inf.val[0], res, pros->ins, inf.min_addr);
 //		if (arg.ver == 14 && pros->number == 12)

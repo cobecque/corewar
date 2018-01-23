@@ -6,30 +6,31 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/19 21:50:14 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/22 23:22:26 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
+//BECARE if last live < kill_them_all --> no Process
 int			winner(t_process *pro)
 {
 	int			winner;
+	int			last;
 	t_process	*cpy;
 
 	winner = -1;
 	cpy = pro;
+	last = 0;
 	while (pro != NULL)
 	{
 		if (pro->live != -1)
 		{
-			if (winner != -1 && winner != pro->champ)
+			if (last <= pro->last_live[0])
 			{
-				winner = -1;
-				break ;
+				winner = pro->last_live[1];
+				//ft_printf("LE DEMON: %d\n", winner);
 			}
-			else
-				winner = pro->champ;
 		}
 		pro = pro->next;
 	}
@@ -82,15 +83,15 @@ t_process	*kill_them_all(t_process *pro, t_vm vm, int cycle, int ctd)
 		{
 			if (cpy->live != -1)
 			{
-				if (vm.arg.ver == 14)
-					ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n", cpy->number, cycle - cpy->last_live + 1, ctd);
+				if (vm.arg.ver_num.de == 1)
+					ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n", cpy->number, cycle - cpy->last_live[0] + 1, ctd);
 				cpy->live = -1;
 			}
 		}
-		else if ((cycle - cpy->last_live - ctd >= 0) && cpy->live != -1)
+		else if ((cycle - cpy->last_live[0] - ctd >= 0) && cpy->live != -1)
 		{
-			if (vm.arg.ver == 14)
-				ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n", cpy->number, cycle - cpy->last_live, ctd);
+			if (vm.arg.ver_num.de == 1)
+				ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n", cpy->number, cycle - cpy->last_live[0], ctd);
 			cpy->live = -1;
 		}
 		cpy = cpy->pre;
@@ -143,7 +144,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	ret = cpy->pc;
 	nb = 0;
 	p = 0;
-	if (vm.arg.ver == 14)
+	if (vm.arg.ver_num.cy == 1)
 		ft_printf("It is now cycle %d\n", cycle);
 	while (cpy->next != NULL)
 		cpy = cpy->next;
@@ -151,9 +152,13 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	{
 		if (cpy->live != -1)
 		{
+			if (cycle == 10897)
+				ft_printf("Pass one avec %d sur %d de %d\n", cpy->pc, cpy->number, cpy->champ);
 			if (cpy->seek == 0)
 				cpy->line = get_line(*(cpy->pc));
 			i = 0;
+			if (cycle == 10897)
+				ft_printf("Pass two\n");
 			if (cpy->line != -1 && cpy->start_cycle == -1)
 			{
 				cpy->seek = 1;
@@ -182,6 +187,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 					}
 					if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
 						return (NULL);
+			//		ft_printf("Pass two\n");
 					while (i < g_op_tab[cpy->line].nb_arg)
 					{
 						p = 0;
@@ -203,6 +209,9 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						cpy->inf.val[i] = a;
 						i++;
 					}
+					if (cycle == 10897)
+						ft_printf("Pass two\n");
+			//		ft_printf("Pass three\n");
 					cpy->seek = 2;
 					g_instructab[cpy->line](cpy->inf, cpy, vm.arg);
 					cpy->start_cycle = -1;
@@ -283,6 +292,7 @@ void		dump(char *ptr)
 
 int			cycle_gestion(t_vm virtual, t_process *pro)
 {
+	int		win;
 	int		val;
 	int		check;
 	int		die;
@@ -293,6 +303,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 	cycle_d = 0;
 	val = 0;
 	die = 0;
+	win = 0;
 	while (42)
 	{
 		if (cycle_d == virtual.ctd)
@@ -308,7 +319,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 			{
 				check = 0;
 				virtual.ctd -= CYCLE_DELTA;
-				if (virtual.arg.ver == 14)
+				if (virtual.arg.ver_num.cy == 1)
 					ft_printf("Cycle to die is now %d\n", virtual.ctd);
 			}
 			else
@@ -317,6 +328,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 		pro = gestion_process(pro, virtual.cycle, virtual, &val);
 		if (virtual.ctd < 0)
 		{
+			win = winner(pro);
 			pro = kill_them_all(pro, virtual, virtual.cycle, virtual.ctd);
 			break ;
 		}
@@ -330,5 +342,5 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 		virtual.cycle++;
 		cycle_d++;
 	}
-	return (winner(pro));
+	return (win);
 }

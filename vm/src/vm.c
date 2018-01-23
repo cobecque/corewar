@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/19 21:49:39 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/22 22:37:16 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,19 @@ t_process	*add_new_process(t_process *srt, int nb)
 	new->ins = NULL;
 	new->carry = 0;
 	new->live = 0;
-	new->last_live = 0;
+	new->last_live[0] = 0;
+	new->last_live[1] = 0;
 	new->start_cycle = -1;
 	new->number = nb;
 	new->champ = nb;
 	new->seek = 0;
 	new->line = -1;
+	i = 0;
+	while (i < MAX_PLAYERS)
+	{
+		new->live_champ[i] = 0;
+		i++;
+	}
 	new->next = NULL;
 	new->pre = NULL;
 	if (!srt)
@@ -132,6 +139,7 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 /*	ft_printf("\n\nEt le gagnant est: %d\n",*/
 	data.ctd = CYCLE_TO_DIE;
 	i = cycle_gestion(data, ret);
-	//if (i != -1)
-	//	ft_printf("\nAnd the winner is contestant %d: %s !\n", data.play[i].nb, data.play[i].name);
+	if (i != -1)
+	//	ft_printf("Contestant %d, \"%s\", has won !\n", i, data.play[i].name);
+		ft_printf("\nAnd the winner is contestant %d: %s !\n", i, data.play[i].name);
 }

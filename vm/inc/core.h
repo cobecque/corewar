@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/19 21:45:55 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/22 20:36:13 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,15 @@
 #define COMMENT_LENGTH		(2048)
 #define COREWAR_EXEC_MAGIC	0xea83f3
 
+typedef struct				s_ver
+{
+	int						li;
+	int						cy;
+	int						op;
+	int						de;
+	int						pc;
+}							t_ver;
+
 typedef struct				s_inf
 {
 	int						nb;
@@ -76,10 +85,11 @@ typedef struct				s_process
 	int						carry;
 	int						line;
 	int						live;
-	int						last_live;
+	int						last_live[2];
 	int						seek;
 	t_inf					inf;
 	int						champ;
+	int						live_champ[MAX_PLAYERS];
 	int						number;
 	struct s_process		*next;
 	struct s_process		*pre;
@@ -95,6 +105,7 @@ typedef struct				s_pam
 	int						dump;
 	int						error;
 	char					*patern;
+	t_ver					ver_num;
 }							t_pam;
 
 typedef struct				s_champ
@@ -162,7 +173,7 @@ t_process					*gestion_process(t_process *pro, int cycle, t_vm vm, int *val);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 int							cycle_gestion(t_vm vm, t_process *pro);
 void						ft_live(t_inf info, t_process *pro, t_pam arg);
-
+t_ver						get_verbose(int nu);
 static void					(*g_instructab[17])(t_inf, t_process *pros, t_pam arg)=
 {
 	&ft_live, &ft_ld, &ft_st, &ft_add, &ft_sub, &ft_and, &ft_or, &ft_xor, 

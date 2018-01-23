@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/23 16:48:32 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/23 20:03:20 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_vm		input_data(t_vm data, int nb, char **pc_adr)
 	if (nb == 1)
 		base_addr = data.addr;
 	else
-		base_addr = data.addr + MEM_SIZE / data.nb_pros * (data.nb_pros - (nb - 1));
+		base_addr = data.addr + MEM_SIZE / data.nb_pros * (nb - 1);
 	*pc_adr = base_addr;
 	while (i < data.play[nb - 1].len)
 	{

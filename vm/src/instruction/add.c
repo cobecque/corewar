@@ -6,11 +6,19 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:19:03 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/23 16:35:59 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/23 20:49:26 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
+
+int			check_r(t_inf inf)
+{
+	if (inf.val[0] <= REG_NUMBER && inf.val[0] > 0 && inf.val[1] <= REG_NUMBER
+			&& inf.val[1] > 0 && inf.val[2] > 0 && inf.val[2] <= REG_NUMBER)
+		return (0);
+	return (1);
+}
 
 void		ft_add(t_inf inf, t_process *pros, t_pam arg)
 {
@@ -19,7 +27,7 @@ void		ft_add(t_inf inf, t_process *pros, t_pam arg)
 	int					a;
 	int					b;
 
-	if (inf.val[0] != 0 && inf.val[1] != 0 && inf.val[2] != 0)
+	if (check_r(inf) == 0)
 	{
 		if (inf.typ[0] == 1)
 		{

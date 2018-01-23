@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2017/11/30 05:37:09 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/23 21:30:46 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int			fill_name(int fd, t_champ *play)
 {
 	char		str[6];
 
+	ft_bzero(play->name, PROG_NAME_LENGTH);
 	if (read(fd, play->name, PROG_NAME_LENGTH) < 0)
 		return (0);
 	if (read(fd, str, 6) <= 0)
@@ -119,7 +120,6 @@ t_vm		fill_champ(int *fd)
 		data.play[i - 1].nb = i;
 		if (data.play[i - 1].len > CHAMP_MAX_SIZE)
 			data.error = 1;
-		//ft_printf("at fd %d, len = %d\n", i - 1, data.play[i - 1].len);
 		close (fd[i]);
 		i++;
 	}

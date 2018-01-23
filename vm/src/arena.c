@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/23 17:30:49 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/23 21:46:06 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,8 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	{
 		if (cpy->live != -1)
 		{
+			if (cpy->pc >= inf.min_addr + MEM_SIZE)
+				cpy->pc = inf.min_addr;
 			if (cpy->seek == 0)
 				cpy->line = get_line(*(cpy->pc));
 			i = 0;

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:29:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/21 17:52:11 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/23 20:32:41 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ int			*get_fd(int argc, char **argv, int arg)
 	if (!(fd_tab = (int *)malloc(sizeof(int) * argc - arg)))
 		return (NULL);
 	fd_tab[0] = argc - arg;
-//	ft_printf("arg = %d\n", arg);
 	while (i < argc - arg)
 	{
 		if ((fd_tab[i] = open(argv[i + arg], O_RDONLY, 0)) <= 0)
 			return (NULL);
-//		ft_printf("%s pour i = %d\n", argv[i + arg], i);
+	//	ft_printf("%s pour i = %d et val = %d\n", argv[i + arg], i, i + arg);
 		i++;
 	}
 	return (fd_tab);

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:21:06 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/23 16:36:36 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/23 20:55:07 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void		ft_sub(t_inf inf, t_process *pros, t_pam arg)
 {
-	int		res;
+	int					res;
 	int					i;
 	int					a;
 	int					b;
 
-	if (inf.val[0] != 0 && inf.val[1] != 0 && inf.val[2] != 0)
+	if (check_r(inf) == 0)
 	{
 		if (inf.typ[0] == 1)
 		{
@@ -50,5 +50,4 @@ void		ft_sub(t_inf inf, t_process *pros, t_pam arg)
 		pros->val[inf.val[2]] = (int)res;
 		reg_write(pros, res, inf.val[2], REG_SIZE);
 	}
-
 }

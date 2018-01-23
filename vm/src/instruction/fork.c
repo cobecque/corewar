@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/18 00:53:47 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/01/20 19:35:50 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,15 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 		new->number = tmp->number + 1;
 	new->champ = src->champ;
 	new->ins = src->ins + (inf.val[0]);
+	while (new->ins >= (inf.min_addr + MEM_SIZE))
+		new->ins = (new->ins - (MEM_SIZE));
+	if (new->ins < inf.min_addr)
+	{
+		if (new->ins < 0)
+			new->ins = (inf.min_addr + MEM_SIZE) + (int)new->ins;
+		else
+			new->ins = (inf.min_addr + MEM_SIZE) - (int)new->ins;
+	}
 	new->pc = new->ins;
 	new->next = NULL;
 	tmp->next = new;

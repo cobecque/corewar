@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/24 00:38:21 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/24 23:44:00 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void		ft_sti(t_inf inf, t_process *pros, t_pam arg)
 		}
 		else if (adr >= inf.min_addr + MEM_SIZE)
 		{
-			bol = (int)adr % MEM_SIZE;
-			adr = (int)bol + inf.min_addr;
+			bol = ((int)adr % MEM_SIZE);
+			adr = (char *)((long)bol - (long)inf.min_addr);
 		}
 		lol = (int)pros->ins + (int)res;
 		if (lol > 4456 || lol < 0)
@@ -95,7 +95,9 @@ void		ft_sti(t_inf inf, t_process *pros, t_pam arg)
 				i = 0;
 			}
 			*(adr + i) = pros->reg[inf.val[0]][j]; //SEGF sur max adr
-			j++;
+		/*	if (pros->start_cycle < 6820)
+				ft_printf("val %d a l'adresse %d\n", pros->reg[inf.val[0]][j], (adr + i));
+		*/	j++;
 			i++;
 		}
 	}

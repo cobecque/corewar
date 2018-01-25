@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/23 20:43:23 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/25 02:44:12 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,7 @@ t_process					*gestion_process(t_process *pro, int cycle, t_vm vm, int *val);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 int							cycle_gestion(t_vm vm, t_process *pro);
 void						ft_live(t_inf info, t_process *pro, t_pam arg);
+int							ocp_valid(int line, int ocp);
 t_ver						get_verbose(int nu);
 static void					(*g_instructab[17])(t_inf, t_process *pros, t_pam arg)=
 {

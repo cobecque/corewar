@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/24 23:27:39 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/25 05:08:47 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	unsigned int	a;
 	unsigned int	b;
 	int			p;
+	int			ocp;
 
 	*val = 0;
 	a = 0;
@@ -144,10 +145,15 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	ret = cpy->pc;
 	nb = 0;
 	p = 0;
+	ocp = 0;
 	if (vm.arg.ver_num.cy == 1)
 		ft_printf("It is now cycle %d\n", cycle);
 	while (cpy->next != NULL)
+	{
+//		if (cycle == 17336)
+//			ft_printf("Process %d\n", cpy->number);
 		cpy = cpy->next;
+	}
 	while (cpy != NULL)
 	{
 		if (cpy->live != -1)
@@ -169,6 +175,8 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 			{
 				if (cpy->seek == 1)
 				{
+					bol = 0;
+					ocp = 0;
 					if (!cpy->pc)
 						break ;
 					cpy->ins = cpy->pc;
@@ -179,35 +187,46 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 					cpy->inf.min_addr = vm.addr;
 					if (have_ocp(cpy->line) == 0)
 					{
+						ocp = *(cpy->pc);
+						bol2 = cpy->line;
+						if (ocp_valid(bol2, ocp) == 0)
+							bol = -1;
 						cpy->pc++;
 						if (cpy->pc >= inf.min_addr + MEM_SIZE)
 							cpy->pc = inf.min_addr;
+						if (bol == -1)
+							cpy->line = -1;
 					}
-					if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
-						return (NULL);
-					while (i < g_op_tab[cpy->line].nb_arg)
+					if (cycle >= 5260 && cycle <= 5476 && cpy->number == 40)
+						ft_printf("cycle %d line = %d et bol = %d addr = %d\n", cycle, cpy->line, bol, cpy->ins);
+					if (bol == 0)
 					{
-						p = 0;
-						a = 0;
-						while (p < cpy->inf.l[i])
+						if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
+							return (NULL);
+						while (i < g_op_tab[cpy->line].nb_arg)
 						{
-							if (p == 0)
-								a = *cpy->pc;
-							else
+							p = 0;
+							a = 0;
+							while (p < cpy->inf.l[i])
 							{
-								b = *cpy->pc << 24;
-								a = (a << 8) | (b >> 24);
+								if (p == 0)
+									a = *cpy->pc;
+								else
+								{
+									b = *cpy->pc << 24;
+									a = (a << 8) | (b >> 24);
+								}
+								cpy->pc++;
+								if (cpy->pc >= inf.min_addr + MEM_SIZE)
+									cpy->pc = inf.min_addr;
+								p++;
 							}
-							cpy->pc++;
-							if (cpy->pc >= inf.min_addr + MEM_SIZE)
-								cpy->pc = inf.min_addr;
-							p++;
+							cpy->inf.val[i] = a;
+							i++;
 						}
-						cpy->inf.val[i] = a;
-						i++;
+						cpy->seek = 2;
+						g_instructab[cpy->line](cpy->inf, cpy, vm.arg);
 					}
-					cpy->seek = 2;
-					g_instructab[cpy->line](cpy->inf, cpy, vm.arg);
 					cpy->start_cycle = -1;
 					cpy->seek = 0;
 				}

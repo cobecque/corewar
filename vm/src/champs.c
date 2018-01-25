@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/23 21:30:46 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/25 04:11:36 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,35 @@ t_vm			init_vm(int nb_pros)
 	return (data);
 }
 
-int			fill_name(int fd, t_champ *play)
+t_champ			fill_name(int fd, t_champ play)
 {
-	char		str[6];
+	char		str[8];
 
-	ft_bzero(play->name, PROG_NAME_LENGTH);
-	if (read(fd, play->name, PROG_NAME_LENGTH) < 0)
-		return (0);
-	if (read(fd, str, 6) <= 0)
-		return (0);
-	return (1);
+	ft_printf("-in name ->%d<-\n", fd);
+	ft_bzero(play.name, PROG_NAME_LENGTH);
+	if (read(fd, play.name, PROG_NAME_LENGTH) < 0)
+		return (play);
+	if (read(fd, str, 8) <= 0)
+		return (play);
+	return (play);
 }
 
-int			fill_comment(int fd, t_champ *play)
+t_champ		fill_comment(int fd, t_champ play)
 {
 	char	str[6];
 
-	if (read(fd, play->comment, COMMENT_LENGTH) < 0)
-		return (0);
+	if (read(fd, play.comment, COMMENT_LENGTH) < 0)
+		return (play);
 	if (read(fd, str, 6) <= 0)
-		return (0);
-	return (1);
+		return (play);
+	return (play);
 }
 
-int			fill_code(int fd, t_champ *play)
+t_champ			fill_code(int fd, t_champ play)
 {
-	if ((play->len = read(fd, play->code, CHAMP_MAX_SIZE)) < 0)
-		return (0);
-	return (1);
+	if ((play.len = read(fd, play.code, CHAMP_MAX_SIZE)) < 0)
+		return (play);
+	return (play);
 }
 
 int			check_magic(int fd)
@@ -79,6 +80,7 @@ int			check_magic(int fd)
 	b = 0xea;
 	c = 0x83;
 	d = 0xf3;
+	ft_printf("-in magic ->%d<-\n", fd);
 	if (COREWAR_EXEC_MAGIC != 15369203)
 	{
 		ft_printf("Not a 42 exec, sorry\n");
@@ -94,17 +96,17 @@ int			check_magic(int fd)
 	return (1);
 }
 
-t_champ		fill_all(int fd, t_champ *play)
+t_champ		fill_all(int fd, t_champ play)
 {
-	if (check_magic(fd) == -1)
-		exit (-1);
-	if (fill_name(fd, play) == 0)
-		exit (-1);
-	if (fill_comment(fd, play) == 0)
-		exit (-1);
-	if (fill_code(fd, play) == 0)
-		exit (-1);
-	return (*play);
+/*	if (*/check_magic(fd);/* == -1)
+		exit (-1);*/
+/*	if ((*/play = fill_name(fd, play);/*) == 0)
+		exit (-1);*/
+/*	if ((*/play = fill_comment(fd, play);/*) == 0)
+		exit (-1);*/
+	/*if ((*/play = fill_code(fd, play);/*() == 0)
+		exit (-1);*/
+	return (play);
 }
 
 t_vm		fill_champ(int *fd)
@@ -116,7 +118,8 @@ t_vm		fill_champ(int *fd)
 	i = 1;
 	while (i < fd[0])
 	{
-		data.play[i - 1] = fill_all(fd[i], &data.play[i]);
+		data.play[i - 1].err = 0;
+		data.play[i - 1] = fill_all(fd[i], data.play[i]);
 		data.play[i - 1].nb = i;
 		if (data.play[i - 1].len > CHAMP_MAX_SIZE)
 			data.error = 1;

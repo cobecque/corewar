@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/29 05:40:33 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/25 03:33:48 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/26 06:29:40 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,24 @@ int		type_param(int ocp, int pos, int line, int *res)
 		*res = 1;
 		return (1);
 	}
-	return (-1);
+	return (0);
+}
+
+int		adv_value(int line, int ocp)
+{
+	int		i;
+	int		res;
+	int		val;
+
+	i = 0;
+	res = 0;
+	val = 0;
+	while (i < g_op_tab[line].nb_arg)
+	{
+		val += type_param(ocp, i, line, &res);
+		i++;
+	}
+	return (val);
 }
 
 t_inf	nb_oct(t_inf srt, int line, int ocp)

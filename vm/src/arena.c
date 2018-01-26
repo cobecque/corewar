@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/25 05:08:47 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/26 08:52:13 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,9 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	unsigned int	a;
 	unsigned int	b;
 	int			p;
+	int			adv;
 	int			ocp;
+	int			yolo;
 
 	*val = 0;
 	a = 0;
@@ -146,6 +148,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	nb = 0;
 	p = 0;
 	ocp = 0;
+	adv = 0;
 	if (vm.arg.ver_num.cy == 1)
 		ft_printf("It is now cycle %d\n", cycle);
 	while (cpy->next != NULL)
@@ -158,8 +161,16 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	{
 		if (cpy->live != -1)
 		{
-			if (cpy->pc >= inf.min_addr + MEM_SIZE)
+			inf.min_addr = vm.addr;
+			if (cpy->pc >= (inf.min_addr + MEM_SIZE))
 				cpy->pc = inf.min_addr;
+			if (cpy->pc < inf.min_addr)
+			{
+				if (cpy->pc < 0)
+					cpy->pc = (char *)((long)cpy->pc + (inf.min_addr + MEM_SIZE));
+				else
+					cpy->pc = (char *)((inf.min_addr + MEM_SIZE) - (long)cpy->pc);
+			}
 			if (cpy->seek == 0)
 				cpy->line = get_line(*(cpy->pc));
 			i = 0;
@@ -175,6 +186,8 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 			{
 				if (cpy->seek == 1)
 				{
+					yolo = 0;
+					adv = 0;
 					bol = 0;
 					ocp = 0;
 					if (!cpy->pc)
@@ -195,14 +208,27 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						if (cpy->pc >= inf.min_addr + MEM_SIZE)
 							cpy->pc = inf.min_addr;
 						if (bol == -1)
+						{
+							adv = adv_value(cpy->line, ocp);
+					//		ft_printf("adv = %d %s %s ", adv + 2, get_hexa(*cpy->ins), get_hexa(ocp));
+							yolo = 0;
+							while (yolo < adv)
+							{
+					//			ft_printf("%s ", get_hexa(*cpy->pc));
+								cpy->pc++;
+								if (cpy->pc + adv >= inf.min_addr + MEM_SIZE)
+									cpy->pc = inf.min_addr;
+								yolo++;
+							}
+					//		ft_printf("\n");
 							cpy->line = -1;
+						}
 					}
-					if (cycle >= 5260 && cycle <= 5476 && cpy->number == 40)
-						ft_printf("cycle %d line = %d et bol = %d addr = %d\n", cycle, cpy->line, bol, cpy->ins);
 					if (bol == 0)
 					{
 						if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
 							return (NULL);
+						i = 0;
 						while (i < g_op_tab[cpy->line].nb_arg)
 						{
 							p = 0;

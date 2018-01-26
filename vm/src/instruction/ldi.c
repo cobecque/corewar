@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:28:23 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/23 23:30:01 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/26 04:33:39 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ void		ft_ldi(t_inf inf, t_process *pros, t_pam arg)
 	res = 0;
 	bol = 0;
 	r1 = 0;
-	if (inf.typ[0] == 1 && (inf.val[0] <= 0 || inf.val[0] > REG_NUMBER))
-		bol = 1;
-	if (inf.typ[1] == 1 && (inf.val[1] <= 0 || inf.val[1] > REG_NUMBER))
-		bol = 1;
 	if (inf.val[2] <= 0 || inf.val[2] > REG_NUMBER)
 		bol = 1;
 	if (bol == 0)

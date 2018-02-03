@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/26 06:37:00 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/03 18:22:15 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ typedef struct				s_vm
 	t_champ					play[MAX_PLAYERS];
 }							t_vm;
 
+void						dump(char *ptr);
 int							check_r(t_inf inf);
 void						ft_fork(t_inf inf, t_process *pros, t_pam arg);
 void						ft_lfork(t_inf inf, t_process *pros, t_pam arg);

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/30 12:40:07 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/03 18:50:57 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,9 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	int			adv;
 	int			ocp;
 	int			yolo;
+	int			len;
 
+	len = 0;
 	*val = 0;
 	a = 0;
 	bol = 0;
@@ -152,11 +154,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 	if (vm.arg.ver_num.cy == 1)
 		ft_printf("It is now cycle %d\n", cycle);
 	while (cpy->next != NULL)
-	{
-//		if (cycle == 17336)
-//			ft_printf("Process %d\n", cpy->number);
 		cpy = cpy->next;
-	}
 	while (cpy != NULL)
 	{
 		if (cpy->live != -1)
@@ -190,6 +188,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 					adv = 0;
 					bol = 0;
 					ocp = 0;
+					nb = 0;
 					if (!cpy->pc)
 						break ;
 					cpy->ins = cpy->pc;
@@ -200,65 +199,135 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 					cpy->inf.min_addr = vm.addr;
 					if (have_ocp(cpy->line) == 0)
 					{
+						nb = 1;
 						ocp = *(cpy->pc);
 						bol2 = cpy->line;
 						if (ocp_valid(bol2, ocp) == 0)
 							bol = -1;
 						cpy->pc++;
-						if (cpy->pc >= inf.min_addr + MEM_SIZE)
+	/*					if (bol != -1)
+						{
+							if (vm.arg.ver_num.pc == 1)
+							{
+								i = 0;
+								adv = 2;
+								while (i < g_op_tab[cpy->line].nb_arg)
+								{
+									adv += cpy->inf.typ[i];
+									i++;
+								}
+								ft_printf("ADV %d (0x%.4x -> 0x%.4x) %s %s", adv, cpy->ins - cpy->inf.min_addr, cpy->ins - cpy->inf.min_addr + adv, get_hexa(*cpy->ins), get_hexa(ocp));
+							}
+						}
+	*/					if (cpy->pc >= inf.min_addr + MEM_SIZE)
 							cpy->pc = inf.min_addr;
 						if (bol == -1)
 						{
 							adv = adv_value(cpy->line, ocp);
-		//					if (cpy->number == 2656 && cycle >= 20444)
 							if (vm.arg.ver_num.pc == 1)
-								ft_printf("ADV %d (%p -> %p) %s %s\n", adv + 2, cpy->ins, cpy->ins + adv + 2, get_hexa(*cpy->ins));
-//								ft_printf("addr = %d Err : %s : adv = %d %s %s ", cycle, g_op_tab[cpy->line].name, adv + 2, get_hexa(*cpy->ins), get_hexa(ocp));
+								ft_printf("ADV %d (0x%.4x -> 0x%.4x) %s %s", adv + 2, cpy->ins - cpy->inf.min_addr, cpy->ins - cpy->inf.min_addr + adv + 2, get_hexa(*cpy->ins), get_hexa(ocp));
 							yolo = 0;
 							while (yolo < adv)
 							{
-		//						if (cpy->number == 2656 && cycle >= 20444)
-		//							ft_printf("%s ", get_hexa(*cpy->pc));
+								if (vm.arg.ver_num.pc == 1)
+									ft_printf(" %s", get_hexa(*cpy->pc));
 								cpy->pc++;
 								if (cpy->pc == inf.min_addr + MEM_SIZE)
 									cpy->pc = inf.min_addr;
 								yolo++;
 							}
-		//					if (cpy->number == 2656 && cycle >= 20444)
-		//						ft_printf("\n");
+							if (vm.arg.ver_num.pc == 1)
+								ft_printf(" \n");
 							cpy->line = -1;
 						}
 					}
-					if (bol == 0)
+/*						if (vm.arg.ver_num.pc == 1)
+						{
+							adv = cpy->inf.typ[0] + 1;
+							ft_printf("ADV %d (0x%.4x -> 0x%.4x) %s", adv + 1, cpy->ins - cpy->inf.min_addr, cpy->ins - cpy->inf.min_addr + adv + 1, get_hexa(*cpy->ins));
+						}
+		*/			if (bol == 0)
 					{
 						if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
 							return (NULL);
 						i = 0;
+						len = 0;
+						adv = 0;
+						yolo = 0;
 						while (i < g_op_tab[cpy->line].nb_arg)
 						{
 							p = 0;
 							a = 0;
+							adv += cpy->inf.l[i];
 							while (p < cpy->inf.l[i])
 							{
 								if (p == 0)
-									a = *cpy->pc;
+									a = *(cpy->pc + len);
 								else
 								{
-									b = *cpy->pc << 24;
+									b = *(cpy->pc + len) << 24;
 									a = (a << 8) | (b >> 24);
 								}
-								cpy->pc++;
-								if (cpy->pc >= inf.min_addr + MEM_SIZE)
+		//						if (vm.arg.ver_num.pc == 1)
+		//							ft_printf(" %s", get_hexa(*cpy->pc));
+							//	cpy->pc++;
+								if ((cpy->pc + len) >= inf.min_addr + MEM_SIZE)
+								{
+									yolo = len;
+									len = 0;
 									cpy->pc = inf.min_addr;
+								}
 								p++;
+								len++;
 							}
 							cpy->inf.val[i] = a;
 							i++;
 						}
 						cpy->seek = 2;
+						len = yolo + len;
 						g_instructab[cpy->line](cpy->inf, cpy, vm.arg);
-						//if (cpy->number == 7055)// && cycle >= 218760)
-						//	ft_printf("P	2656 | ins = %s au cycle %d avec pc %d\n", g_op_tab[cpy->line].name, cycle, cpy->ins);
+						if (vm.arg.ver_num.pc == 1 && cpy->line != 8)
+						{
+							p = 0;
+							i = 0;
+							if (nb == 1)
+								adv += 2;
+							else
+								adv++;
+							ft_printf("ADV %d (0x%.4x -> 0x%.4x) %s", adv, cpy->ins - inf.min_addr, cpy->ins - inf.min_addr + adv, get_hexa(*cpy->ins));
+							if (nb == 1)
+								ft_printf(" %s", get_hexa(*(cpy->ins + 1)));
+							nb++;
+							if ((cpy->ins + p) >= inf.min_addr + MEM_SIZE)
+							{
+								p = 0;
+								cpy->ins = inf.min_addr;
+							}
+							while (i < len)
+							{
+								ft_printf(" %s", get_hexa(*(cpy->ins + p + nb)));
+								p++;
+								i++;
+								if ((cpy->ins + p) >= inf.min_addr + MEM_SIZE)
+								{
+									p = 0;
+									cpy->ins = inf.min_addr;
+								}
+							}
+							if (vm.arg.ver_num.pc == 1)
+								ft_printf(" \n");
+						}
+						i = 0;
+						if (cpy->line != 8)
+						{
+							while (i < len)
+							{
+								cpy->pc++;
+								if (cpy->pc >= inf.min_addr + MEM_SIZE)
+									cpy->pc = inf.min_addr;
+								i++;
+							}
+						}
 					}
 					cpy->start_cycle = -1;
 					cpy->seek = 0;
@@ -330,9 +399,9 @@ void		dump(char *ptr)
 			ft_printf("%x0 : ", p);
 			p += 4;
 		}
-		if (i == 4228 - 256)
-			ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
-		else
+	//	if (i == 4228 - 256)
+	//		ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
+	//	else
 			ft_printf("%s ", get_hexa(ptr[i]));
 		i++;
 	}

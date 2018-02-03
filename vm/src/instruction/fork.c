@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/26 05:29:40 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/30 10:50:04 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 		new->last_live[0] = src->last_live[0];
 		new->last_live[1] = 0;
 		new->ins = src->ins + inf.val[0];
+		if (src->number == 6152 && inf.val[0] < 0)
+		{
+			new->ins -= 5;
+			ft_printf("neg = %d, %d\n", new->ins, src->ins);
+		}
 	}
 	else
 	{
@@ -80,6 +85,8 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 			new->ins = (inf.min_addr + MEM_SIZE - 1 - (int)new->ins);
 		else
 			new->ins = (int)new->ins + (inf.min_addr + MEM_SIZE - 1);
+		if (src->number == 6152)
+			ft_printf("Creat %d at %d\n", new->number, new->ins);
 	}
 	new->pc = new->ins;
 	new->next = NULL;

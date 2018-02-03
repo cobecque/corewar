@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/24 23:44:00 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/30 04:33:36 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void		ft_sti(t_inf inf, t_process *pros, t_pam arg)
 		i = 0;
 		j = 0;
 		if (arg.ver_num.op == 1)
-			ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n", pros->number, inf.val[0], r1, r2, r1, r2, res, lol);
+			ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n", pros->number, inf.val[0], r1, r2, r1, r2, res, lol);// + inf.min_addr);
 		while (j < 4)
 		{
 			if ((adr + j) >= inf.min_addr + MEM_SIZE)
@@ -95,9 +95,9 @@ void		ft_sti(t_inf inf, t_process *pros, t_pam arg)
 				i = 0;
 			}
 			*(adr + i) = pros->reg[inf.val[0]][j]; //SEGF sur max adr
-		/*	if (pros->start_cycle < 6820)
-				ft_printf("val %d a l'adresse %d\n", pros->reg[inf.val[0]][j], (adr + i));
-		*/	j++;
+//			if (pros->start_cycle == 8648)
+//				ft_printf("val %d a l'adresse %d\n", pros->reg[inf.val[0]][j], (adr + i));
+			j++;
 			i++;
 		}
 	}

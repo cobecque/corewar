@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/26 08:52:13 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/01/30 12:40:07 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,17 +210,22 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						if (bol == -1)
 						{
 							adv = adv_value(cpy->line, ocp);
-					//		ft_printf("adv = %d %s %s ", adv + 2, get_hexa(*cpy->ins), get_hexa(ocp));
+		//					if (cpy->number == 2656 && cycle >= 20444)
+							if (vm.arg.ver_num.pc == 1)
+								ft_printf("ADV %d (%p -> %p) %s %s\n", adv + 2, cpy->ins, cpy->ins + adv + 2, get_hexa(*cpy->ins));
+//								ft_printf("addr = %d Err : %s : adv = %d %s %s ", cycle, g_op_tab[cpy->line].name, adv + 2, get_hexa(*cpy->ins), get_hexa(ocp));
 							yolo = 0;
 							while (yolo < adv)
 							{
-					//			ft_printf("%s ", get_hexa(*cpy->pc));
+		//						if (cpy->number == 2656 && cycle >= 20444)
+		//							ft_printf("%s ", get_hexa(*cpy->pc));
 								cpy->pc++;
-								if (cpy->pc + adv >= inf.min_addr + MEM_SIZE)
+								if (cpy->pc == inf.min_addr + MEM_SIZE)
 									cpy->pc = inf.min_addr;
 								yolo++;
 							}
-					//		ft_printf("\n");
+		//					if (cpy->number == 2656 && cycle >= 20444)
+		//						ft_printf("\n");
 							cpy->line = -1;
 						}
 					}
@@ -252,6 +257,8 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						}
 						cpy->seek = 2;
 						g_instructab[cpy->line](cpy->inf, cpy, vm.arg);
+						//if (cpy->number == 7055)// && cycle >= 218760)
+						//	ft_printf("P	2656 | ins = %s au cycle %d avec pc %d\n", g_op_tab[cpy->line].name, cycle, cpy->ins);
 					}
 					cpy->start_cycle = -1;
 					cpy->seek = 0;
@@ -323,7 +330,10 @@ void		dump(char *ptr)
 			ft_printf("%x0 : ", p);
 			p += 4;
 		}
-		ft_printf("%s ", get_hexa(ptr[i]));
+		if (i == 4228 - 256)
+			ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
+		else
+			ft_printf("%s ", get_hexa(ptr[i]));
 		i++;
 	}
 	ft_putchar('\n');

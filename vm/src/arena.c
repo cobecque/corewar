@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/03 18:50:57 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/04 19:04:59 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,21 +205,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						if (ocp_valid(bol2, ocp) == 0)
 							bol = -1;
 						cpy->pc++;
-	/*					if (bol != -1)
-						{
-							if (vm.arg.ver_num.pc == 1)
-							{
-								i = 0;
-								adv = 2;
-								while (i < g_op_tab[cpy->line].nb_arg)
-								{
-									adv += cpy->inf.typ[i];
-									i++;
-								}
-								ft_printf("ADV %d (0x%.4x -> 0x%.4x) %s %s", adv, cpy->ins - cpy->inf.min_addr, cpy->ins - cpy->inf.min_addr + adv, get_hexa(*cpy->ins), get_hexa(ocp));
-							}
-						}
-	*/					if (cpy->pc >= inf.min_addr + MEM_SIZE)
+						if (cpy->pc >= inf.min_addr + MEM_SIZE)
 							cpy->pc = inf.min_addr;
 						if (bol == -1)
 						{
@@ -241,12 +227,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 							cpy->line = -1;
 						}
 					}
-/*						if (vm.arg.ver_num.pc == 1)
-						{
-							adv = cpy->inf.typ[0] + 1;
-							ft_printf("ADV %d (0x%.4x -> 0x%.4x) %s", adv + 1, cpy->ins - cpy->inf.min_addr, cpy->ins - cpy->inf.min_addr + adv + 1, get_hexa(*cpy->ins));
-						}
-		*/			if (bol == 0)
+					if (bol == 0)
 					{
 						if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
 							return (NULL);
@@ -261,6 +242,12 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 							adv += cpy->inf.l[i];
 							while (p < cpy->inf.l[i])
 							{
+								if ((cpy->pc + len) >= inf.min_addr + MEM_SIZE)
+								{
+									yolo = len;
+									len = 0;
+									cpy->pc = inf.min_addr;
+								}
 								if (p == 0)
 									a = *(cpy->pc + len);
 								else
@@ -268,9 +255,6 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 									b = *(cpy->pc + len) << 24;
 									a = (a << 8) | (b >> 24);
 								}
-		//						if (vm.arg.ver_num.pc == 1)
-		//							ft_printf(" %s", get_hexa(*cpy->pc));
-							//	cpy->pc++;
 								if ((cpy->pc + len) >= inf.min_addr + MEM_SIZE)
 								{
 									yolo = len;
@@ -286,31 +270,33 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						cpy->seek = 2;
 						len = yolo + len;
 						g_instructab[cpy->line](cpy->inf, cpy, vm.arg);
-						if (vm.arg.ver_num.pc == 1 && cpy->line != 8)
+						if (vm.arg.ver_num.pc == 1 && (cpy->line != 8 || cpy->carry == 0))
 						{
 							p = 0;
-							i = 0;
 							if (nb == 1)
 								adv += 2;
 							else
 								adv++;
+							i = 0;
 							ft_printf("ADV %d (0x%.4x -> 0x%.4x) %s", adv, cpy->ins - inf.min_addr, cpy->ins - inf.min_addr + adv, get_hexa(*cpy->ins));
 							if (nb == 1)
 								ft_printf(" %s", get_hexa(*(cpy->ins + 1)));
 							nb++;
-							if ((cpy->ins + p) >= inf.min_addr + MEM_SIZE)
-							{
-								p = 0;
-								cpy->ins = inf.min_addr;
-							}
 							while (i < len)
 							{
+								if ((cpy->ins + p + nb) >= inf.min_addr + MEM_SIZE)
+								{
+									nb = 0;
+									p = 0;
+									cpy->ins = inf.min_addr;
+								}
 								ft_printf(" %s", get_hexa(*(cpy->ins + p + nb)));
 								p++;
 								i++;
 								if ((cpy->ins + p) >= inf.min_addr + MEM_SIZE)
 								{
 									p = 0;
+									nb = 0;
 									cpy->ins = inf.min_addr;
 								}
 							}
@@ -318,13 +304,17 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 								ft_printf(" \n");
 						}
 						i = 0;
-						if (cpy->line != 8)
+						if (cpy->line != 8 || cpy->carry == 0)
 						{
+							if (cpy->pc == inf.min_addr && cpy->line != 0)
+								cpy->pc = inf.min_addr - 1;
 							while (i < len)
 							{
-								cpy->pc++;
 								if (cpy->pc >= inf.min_addr + MEM_SIZE)
-									cpy->pc = inf.min_addr;
+									cpy->pc = (inf.min_addr - 1);
+								cpy->pc++;
+							//	if (cpy->number == 1828)
+							//		ft_printf("bug cpy->pc %d et 0x%.4x au cycle %d\n", cpy->pc, cpy->pc - inf.min_addr, cycle);
 								i++;
 							}
 						}
@@ -334,7 +324,11 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 				}
 			}
 			else if (cpy->line == -1)
+			{
+				if (cpy->pc >= inf.min_addr + MEM_SIZE)
+					cpy->pc = inf.min_addr;
 				cpy->pc++;
+			}
 			if (cpy->pc >= inf.min_addr + MEM_SIZE)
 				cpy->pc = inf.min_addr;
 		}

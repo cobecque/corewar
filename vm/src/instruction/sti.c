@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/30 04:33:36 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/04 18:33:11 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void		ft_sti(t_inf inf, t_process *pros, t_pam arg)
 			r2 += inf.val[2];
 		res = r1 + r2;
 		adr = pros->ins + ((int)res % IDX_MOD);
-		if (adr < inf.min_addr)
+	/*	if (adr < inf.min_addr)
 		{
 			if ((int)adr > 0)
 				adr = inf.min_addr + MEM_SIZE - ((int)inf.min_addr - ((int)adr % MEM_SIZE));
@@ -78,15 +78,42 @@ void		ft_sti(t_inf inf, t_process *pros, t_pam arg)
 		{
 			bol = ((int)adr % MEM_SIZE);
 			adr = (char *)((long)bol - (long)inf.min_addr);
+		}*/
+		lol = (int)adr;
+		if (adr < inf.min_addr)
+		{
+			if ((int)adr > 0)
+				adr = inf.min_addr + MEM_SIZE - ((int)inf.min_addr - ((int)adr % MEM_SIZE));
+			else
+				adr = inf.min_addr + MEM_SIZE + (int)adr % MEM_SIZE;
 		}
-		lol = (int)pros->ins + (int)res;
+		else if (adr >= (inf.min_addr + MEM_SIZE))
+		{
+			bol = (int)adr;
+			if (bol >= (int)inf.min_addr + MEM_SIZE)
+			{
+				while (bol > (MEM_SIZE + (int)inf.min_addr))
+				{
+					adr = adr - MEM_SIZE;
+					bol = bol - MEM_SIZE;
+				}
+				if (adr < inf.min_addr)
+				{
+					if (adr < 0)
+					{
+						adr = (int)inf.min_addr + MEM_SIZE + adr;
+					}
+					else
+						adr = (inf.min_addr + MEM_SIZE) - (int)adr;
+				}
+			}
+		}
 		if (lol > 4456 || lol < 0)
 			lol = (int)adr;
-		lol = lol - (int)inf.min_addr;
 		i = 0;
 		j = 0;
 		if (arg.ver_num.op == 1)
-			ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n", pros->number, inf.val[0], r1, r2, r1, r2, res, lol);// + inf.min_addr);
+			ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n", pros->number, inf.val[0], r1, r2, r1, r2, res, lol - 256);// + inf.min_addr);
 		while (j < 4)
 		{
 			if ((adr + j) >= inf.min_addr + MEM_SIZE)

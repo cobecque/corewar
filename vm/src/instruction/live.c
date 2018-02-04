@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 14:25:54 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/22 22:41:55 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/04 15:35:30 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		ft_live(t_inf inf, t_process *pro, t_pam arg)
 	b = inf.val[0];
 	if (arg.ver_num.op == 1)
 		ft_printf("P%5d | live %d\n", pro->number, b);
-	if (b == a)
+	if (b == -1 || b == -2 || b == -3)
 	{
 		if (b < MAX_PLAYERS)
 		{
@@ -38,10 +38,11 @@ void		ft_live(t_inf inf, t_process *pro, t_pam arg)
 					ft_printf("Player %d (helltrain) is said to be alive\n", -b);
 				if (b == -2)
 					ft_printf("Player %d (helltrain) is said to be alive\n", -b);
+				if (b == -3)
+					ft_printf("Player %d (fluttershy) is said to be alive\n", -b);
 			}
 			pro->last_live[1] = -b;
 		}
-	//	ft_printf("b == %d\n", b);
 	}
 	pro->live++;
 	pro->last_live[0] = pro->start_cycle + 11;

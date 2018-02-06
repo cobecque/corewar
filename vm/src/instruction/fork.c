@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/04 19:20:14 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/06 18:50:41 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 		adr = src->ins + (inf.val[0] % IDX_MOD);
 		new->last_live[0] = src->last_live[0];//src->start_cycle + 1;
 		new->last_live[1] = src->last_live[1];
-		new->ins = src->ins + (inf.val[0] % IDX_MOD);
+		new->ins = adr;
 	}
 	if (new->ins >= inf.min_addr + MEM_SIZE)
 	{
@@ -82,11 +82,9 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 	if (new->ins < inf.min_addr)
 	{
 		if (new->ins >= 0)
-			new->ins = (inf.min_addr + MEM_SIZE - 1 - (int)new->ins);
+			new->ins = inf.min_addr + MEM_SIZE - ((int)inf.min_addr - ((int)new->ins % MEM_SIZE));
 		else
 			new->ins = (int)new->ins + (inf.min_addr + MEM_SIZE - 1);
-		//if (src->number == 6152)
-		//	ft_printf("Creat %d at %d\n", new->number, new->ins);
 	}
 	new->pc = new->ins;
 	new->next = NULL;

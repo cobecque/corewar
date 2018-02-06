@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/26 02:39:43 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/06 19:55:42 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,12 @@ t_vm			init_vm(int nb_pros)
 
 t_champ			fill_name(int fd, t_champ play)
 {
-	char		str[8];
+	char		str[6];
 
 	ft_bzero(play.name, PROG_NAME_LENGTH);
-	if (read(fd, play.name, PROG_NAME_LENGTH) < 0)
-		return (play);
-	if (read(fd, str, 6) <= 0)
-		return (play);
+	if (read(fd, play.name, PROG_NAME_LENGTH) <= 0)
+		exit (-1);
+	read(fd, str, 6);
 	return (play);
 }
 
@@ -53,10 +52,9 @@ t_champ		fill_comment(int fd, t_champ play)
 {
 	char	str[6];
 
-	if (read(fd, play.comment, COMMENT_LENGTH) < 0)
-		return (play);
-	if (read(fd, str, 6) <= 0)
-		return (play);
+	if (read(fd, play.comment, COMMENT_LENGTH) <= 0)
+		exit (-1);
+	read(fd, str, 6);
 	return (play);
 }
 

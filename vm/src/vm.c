@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/26 05:28:41 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/06 19:57:45 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ t_process	*add_new_process(t_process *srt, int nb)
 	return (begin);
 }
 
-void		vm_stuff(t_vm data)//, t_inf **ret)
+void		vm_stuff(t_vm data)
 {
 	int			i;
 	int			j;
@@ -112,7 +112,6 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 
 	i = 0;
 	j = 0;
-//	ret = NULL;
 	ret = NULL;
 	cpy = NULL;
 	if (!(data.addr = malloc_vm()))
@@ -121,7 +120,6 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 	while (j < data.nb_pros)
 	{
 	//	ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", data.play[j].nb, data.play[j].len, data.play[j].name, data.play[j].comment);
-		//ft_printf("Player number %d, %s !\n", data.play[j].nb, data.play[j].name);
 		j++;
 	}
 	while (i < data.nb_pros)
@@ -132,14 +130,10 @@ void		vm_stuff(t_vm data)//, t_inf **ret)
 		else
 			cpy = cpy->next;
 		data = input_data(data, i + 1, &(cpy->pc));
-//		ft_printf("\t\t\t-->ICI L'ADDRESSE VAUT %ld pour %ld<--\n", ret2->pc, data.addr);
 		i++;
 	}
-//	gestion_process(ret2, 5, data);
-/*	ft_printf("\n\nEt le gagnant est: %d\n",*/
 	data.ctd = CYCLE_TO_DIE;
 	i = cycle_gestion(data, ret);
 	if (i != -1)
-		ft_printf("Contestant %d, \"%s\", has won !\n", i, data.play[i].name);
-//		ft_printf("\nAnd the winner is contestant %d: %s !\n", i, data.play[i].name);
+		ft_printf("Contestant %d, \"%s\", has won !\n", i, data.play[i - 1].name);
 }

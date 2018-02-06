@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/04 19:04:59 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/06 19:46:11 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,6 +235,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 						len = 0;
 						adv = 0;
 						yolo = 0;
+						bol2 = 0;
 						while (i < g_op_tab[cpy->line].nb_arg)
 						{
 							p = 0;
@@ -268,8 +269,18 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 							i++;
 						}
 						cpy->seek = 2;
-						len = yolo + len;
+						if (nb == 1)
+						{
+							bol2 = 2;
+							len = yolo + len + 2;
+						}
+						else
+						{
+							bol2 = 1;
+							len = yolo + len + 1;
+						}
 						g_instructab[cpy->line](cpy->inf, cpy, vm.arg);
+						cpy->pc = cpy->ins;
 						if (vm.arg.ver_num.pc == 1 && (cpy->line != 8 || cpy->carry == 0))
 						{
 							p = 0;
@@ -282,7 +293,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 							if (nb == 1)
 								ft_printf(" %s", get_hexa(*(cpy->ins + 1)));
 							nb++;
-							while (i < len)
+							while (i < len - bol2)
 							{
 								if ((cpy->ins + p + nb) >= inf.min_addr + MEM_SIZE)
 								{
@@ -304,19 +315,21 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 								ft_printf(" \n");
 						}
 						i = 0;
+						//	if (cpy->number == 2676 && cpy->line == 0 && cycle > 20000)
+						//		ft_printf("pc = %d au cycle %d %d len\n", cpy->pc, cycle, len);
 						if (cpy->line != 8 || cpy->carry == 0)
 						{
-							if (cpy->pc == inf.min_addr && cpy->line != 0)
-								cpy->pc = inf.min_addr - 1;
+							//					if (cpy->pc == inf.min_addr && cpy->line != 0)
+							//						cpy->pc = inf.min_addr - 1;
 							while (i < len)
 							{
-								if (cpy->pc >= inf.min_addr + MEM_SIZE)
-									cpy->pc = (inf.min_addr - 1);
+								if (cpy->pc > inf.min_addr + MEM_SIZE)
+									cpy->pc = (inf.min_addr + 1);
 								cpy->pc++;
-							//	if (cpy->number == 1828)
-							//		ft_printf("bug cpy->pc %d et 0x%.4x au cycle %d\n", cpy->pc, cpy->pc - inf.min_addr, cycle);
 								i++;
 							}
+							if (cpy->pc > inf.min_addr + MEM_SIZE)
+								cpy->pc = inf.min_addr + 1;
 						}
 					}
 					cpy->start_cycle = -1;
@@ -393,10 +406,10 @@ void		dump(char *ptr)
 			ft_printf("%x0 : ", p);
 			p += 4;
 		}
-	//	if (i == 4228 - 256)
-	//		ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
-	//	else
-			ft_printf("%s ", get_hexa(ptr[i]));
+		//	if (i == 4228 - 256)
+		//		ft_printf(C_RED"%s "FC_ALL, get_hexa(ptr[i]));
+		//	else
+		ft_printf("%s ", get_hexa(ptr[i]));
 		i++;
 	}
 	ft_putchar('\n');
@@ -409,8 +422,11 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 	int		check;
 	int		die;
 	int		cycle_d;
+	int		i;
+	t_process	*tmp;
 
 	check = 0;
+	i = 0;
 	virtual.cycle = 1;
 	cycle_d = 0;
 	val = 0;
@@ -418,6 +434,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 	win = 0;
 	while (42)
 	{
+		i = 0;
 		if (cycle_d == virtual.ctd)
 		{
 			if (check_alive(virtual.nb_pros, pro) <= 1)
@@ -426,6 +443,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 			}
 			cycle_d = 0;
 			die = count_live(pro);
+			win = winner(pro);
 			pro = kill_them_all(pro, virtual, virtual.cycle, virtual.ctd);
 			if (die >= NBR_LIVE || check == 10)
 			{
@@ -436,6 +454,17 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 			}
 			else
 				check++;
+			tmp = pro;
+			while (tmp != NULL)
+			{
+				if (tmp->live != -1)
+					i++;
+				tmp = tmp->next;
+			}
+			if (i == 0)
+			{
+				break ;
+			}
 		}
 		pro = gestion_process(pro, virtual.cycle, virtual, &val);
 		if (virtual.ctd < 0)

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/06 19:57:45 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/08 23:36:30 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,10 +116,10 @@ void		vm_stuff(t_vm data)
 	cpy = NULL;
 	if (!(data.addr = malloc_vm()))
 		exit(-1);
-	//ft_printf("Inctroducing contestants...\n");
+	ft_printf("Inctroducing contestants...\n");
 	while (j < data.nb_pros)
 	{
-	//	ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", data.play[j].nb, data.play[j].len, data.play[j].name, data.play[j].comment);
+		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", data.play[j].nb, data.play[j].len, data.play[j].name, data.play[j].comment);
 		j++;
 	}
 	while (i < data.nb_pros)

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/06 19:46:11 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/08 21:28:16 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -315,12 +315,8 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 								ft_printf(" \n");
 						}
 						i = 0;
-						//	if (cpy->number == 2676 && cpy->line == 0 && cycle > 20000)
-						//		ft_printf("pc = %d au cycle %d %d len\n", cpy->pc, cycle, len);
 						if (cpy->line != 8 || cpy->carry == 0)
 						{
-							//					if (cpy->pc == inf.min_addr && cpy->line != 0)
-							//						cpy->pc = inf.min_addr - 1;
 							while (i < len)
 							{
 								if (cpy->pc > inf.min_addr + MEM_SIZE)

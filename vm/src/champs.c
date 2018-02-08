@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/06 19:55:42 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/08 22:40:26 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ t_vm			init_vm(int nb_pros)
 
 t_champ			fill_name(int fd, t_champ play)
 {
-	char		str[6];
+	char		str[8];
 
 	ft_bzero(play.name, PROG_NAME_LENGTH);
 	if (read(fd, play.name, PROG_NAME_LENGTH) <= 0)
 		exit (-1);
-	read(fd, str, 6);
+	if (read(fd, str, 8) <= 0)
+		exit (-1);
 	return (play);
 }
 
@@ -114,7 +115,7 @@ t_vm		fill_champ(int *fd)
 	i = 1;
 	while (i < fd[0])
 	{
-		data.play[i - 1] = fill_all(fd[i], data.play[i]);
+		data.play[i - 1] = fill_all(fd[i], data.play[i - 1]);
 		data.play[i - 1].nb = i;
 		if (data.play[i - 1].len > CHAMP_MAX_SIZE)
 			data.error = 1;

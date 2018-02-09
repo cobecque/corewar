@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/09 01:50:50 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/09 03:42:27 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ t_champ			fill_name(int fd, t_champ play)
 
 t_champ		fill_comment(int fd, t_champ play)
 {
-	char	str[6];
+	char	str[4];
 
 	if (read(fd, play.comment, COMMENT_LENGTH) <= 0)
 		exit (-1);
-	read(fd, str, 6);
+	read(fd, str, 4);
 	return (play);
 }
 

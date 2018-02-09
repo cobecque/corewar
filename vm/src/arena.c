@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/08 21:28:16 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/09 01:59:31 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ int			winner(t_process *pro)
 		if (pro->live != -1)
 		{
 			if (last <= pro->last_live[0])
-			{
 				winner = pro->last_live[1];
-				//ft_printf("LE DEMON: %d\n", winner);
-			}
 		}
 		pro = pro->next;
 	}
@@ -279,7 +276,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm, int *val)
 							bol2 = 1;
 							len = yolo + len + 1;
 						}
-						g_instructab[cpy->line](cpy->inf, cpy, vm.arg);
+						g_instructab[cpy->line](cpy->inf, cpy, vm);
 						cpy->pc = cpy->ins;
 						if (vm.arg.ver_num.pc == 1 && (cpy->line != 8 || cpy->carry == 0))
 						{
@@ -458,9 +455,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 				tmp = tmp->next;
 			}
 			if (i == 0)
-			{
 				break ;
-			}
 		}
 		pro = gestion_process(pro, virtual.cycle, virtual, &val);
 		if (virtual.ctd < 0)

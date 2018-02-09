@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/06 18:50:41 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/09 01:44:04 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
+t_process	*dup_pros(t_process *src, t_inf inf, t_vm vm)
 {
 	t_process	*new;
 	t_process	*tmp;
@@ -122,14 +122,14 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_pam arg)
 	}
 	if ((lol > 4456 || lol < 0) && src->line != 14)
 		lol = (int)adr;
-	if (arg.ver_num.op == 1 && src->line == 11)
+	if (vm.arg.ver_num.op == 1 && src->line == 11)
 		ft_printf("P%5d | fork %d (%d)\n", src->number, inf.val[0], lol - 256);//src->ins - inf.min_addr + inf.val[0]);
-	if (arg.ver_num.op == 1 && src->line == 14)
+	if (vm.arg.ver_num.op == 1 && src->line == 14)
 		ft_printf("P%5d | lfork %d (%d)\n", src->number, inf.val[0], lol - 256);//src->ins - inf.min_addr + inf.val[0]);
 	return (tmp);
 }
 
-void	ft_fork(t_inf inf, t_process *pros, t_pam arg)
+void	ft_fork(t_inf inf, t_process *pros, t_vm vm)
 {
-	pros = dup_pros(pros, inf, arg);
+	pros = dup_pros(pros, inf, vm);
 }

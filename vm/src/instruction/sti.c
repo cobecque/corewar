@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/04 18:33:11 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/09 01:47:53 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			relative(int *adr, int val)
 	return (ret + val);
 }
 
-void		ft_sti(t_inf inf, t_process *pros, t_pam arg)
+void		ft_sti(t_inf inf, t_process *pros, t_vm vm)
 {
 	char			*adr;
 	int				res;
@@ -112,7 +112,7 @@ void		ft_sti(t_inf inf, t_process *pros, t_pam arg)
 			lol = (int)adr;
 		i = 0;
 		j = 0;
-		if (arg.ver_num.op == 1)
+		if (vm.arg.ver_num.op == 1)
 			ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n", pros->number, inf.val[0], r1, r2, r1, r2, res, lol - 256);// + inf.min_addr);
 		while (j < 4)
 		{

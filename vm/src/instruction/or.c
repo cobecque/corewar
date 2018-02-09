@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:23:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/01/23 20:46:36 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/09 01:36:08 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_or(t_inf inf, t_process *pros, t_pam arg)
+void		ft_or(t_inf inf, t_process *pros, t_vm vm)
 {
 	int	res;
 	int	a;
@@ -46,7 +46,7 @@ void		ft_or(t_inf inf, t_process *pros, t_pam arg)
 		else
 			b = inf.val[1];
 		res = a | b;
-		if (arg.ver_num.op == 1)
+		if (vm.arg.ver_num.op == 1)
 			ft_printf("P%5d | or %d %d r%d\n", pros->number, a, b, inf.val[2]);
 		pros->val[inf.val[2]] = pros->val[inf.val[0]] ^ pros->val[inf.val[1]];
 		pros->carry = (res == 0) ? 1 : 0;

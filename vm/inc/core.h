@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/03 18:22:15 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/09 01:56:01 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ typedef struct				s_champ
 {
 	int						nb;
 	int						len;
+	int						r1;
 	char					name[PROG_NAME_LENGTH];
 	char					code[CHAMP_MAX_SIZE];
 	char					comment[COMMENT_LENGTH];
@@ -145,27 +146,27 @@ typedef struct				s_vm
 
 void						dump(char *ptr);
 int							check_r(t_inf inf);
-void						ft_fork(t_inf inf, t_process *pros, t_pam arg);
-void						ft_lfork(t_inf inf, t_process *pros, t_pam arg);
-t_process					*dup_pros(t_process *src, t_inf inf, t_pam arg);
+void						ft_fork(t_inf inf, t_process *pros, t_vm vm);
+void						ft_lfork(t_inf inf, t_process *pros, t_vm vm);
+t_process					*dup_pros(t_process *src, t_inf inf, t_vm vm);
 char						*get_hexa(int val);
 t_inf						nb_oct(t_inf srt, int line, int ocp);
 t_vm						fill_champ(int *fd);
 void						reg_write(t_process *pros, unsigned int val, int reg, int size);
 void						vm_stuff(t_vm data);
-void						ft_add(t_inf inf, t_process *pros, t_pam arg);
-void						ft_aff(t_inf inf, t_process *pros, t_pam arg);
-void						ft_and(t_inf, t_process *pros, t_pam arg);
-void						ft_ld(t_inf inf, t_process *pros, t_pam arg);
-void						ft_ldi(t_inf inf, t_process *pros, t_pam arg);
-void						ft_lld(t_inf inf, t_process *pros, t_pam arg);
-void						ft_lldi(t_inf inf, t_process *pros, t_pam arg);
-void						ft_or(t_inf inf, t_process *pros, t_pam arg);
-void						ft_st(t_inf inf, t_process *pros, t_pam arg);
-void						ft_sti(t_inf inf, t_process *pros, t_pam arg);
-void						ft_sub(t_inf inf, t_process *pros, t_pam arg);
-void						ft_xor(t_inf inf, t_process *pros, t_pam arg);
-void						ft_zjmp(t_inf, t_process *pros, t_pam arg);
+void						ft_add(t_inf inf, t_process *pros, t_vm vm);
+void						ft_aff(t_inf inf, t_process *pros, t_vm vm);
+void						ft_and(t_inf, t_process *pros, t_vm vm);
+void						ft_ld(t_inf inf, t_process *pros, t_vm vm);
+void						ft_ldi(t_inf inf, t_process *pros, t_vm vm);
+void						ft_lld(t_inf inf, t_process *pros, t_vm vm);
+void						ft_lldi(t_inf inf, t_process *pros, t_vm vm);
+void						ft_or(t_inf inf, t_process *pros, t_vm vm);
+void						ft_st(t_inf inf, t_process *pros, t_vm vm);
+void						ft_sti(t_inf inf, t_process *pros, t_vm vm);
+void						ft_sub(t_inf inf, t_process *pros, t_vm vm);
+void						ft_xor(t_inf inf, t_process *pros, t_vm vm);
+void						ft_zjmp(t_inf, t_process *pros, t_vm vm);
 int							have_ocp(int line);
 int							get_line(int opc);
 int							get_ocp(void *addr);
@@ -174,12 +175,12 @@ t_inf						add_elem(int info, int opc);
 t_process					*gestion_process(t_process *pro, int cycle, t_vm vm, int *val);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 int							cycle_gestion(t_vm vm, t_process *pro);
-void						ft_live(t_inf info, t_process *pro, t_pam arg);
+void						ft_live(t_inf info, t_process *pro, t_vm vm);
 int							ocp_valid(int line, int ocp);
 int							adv_value(int line, int ocp);
 t_ver						get_verbose(int nu);
 
-static void					(*g_instructab[17])(t_inf, t_process *pros, t_pam arg)=
+static void					(*g_instructab[17])(t_inf, t_process *pros, t_vm vm)=
 {
 	&ft_live, &ft_ld, &ft_st, &ft_add, &ft_sub, &ft_and, &ft_or, &ft_xor, 
 	&ft_zjmp, &ft_ldi, &ft_sti, &ft_fork, &ft_lld, &ft_lldi, &ft_lfork, 

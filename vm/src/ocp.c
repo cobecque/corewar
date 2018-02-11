@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/29 05:40:33 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/03 14:00:42 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/11 05:49:49 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int		ocp_valid(int line, int ocp)
 	if (line == 10 && (ocp == 84 || ocp == 100 || ocp == 116 || ocp == 120 ||
 				ocp == 104 || ocp == 88 ))
 		return (1);
+	if (line == 15 && (ocp == 64))
+		return (1);
 	return (0);
 }
 
@@ -40,17 +42,12 @@ int		get_line(int opc)
 	i = 0;
 	if (opc > 17 || opc < 1)
 		return (-1);
-	//ft_printf("opc = %d\n", opc);
 	while (i < 17)
 	{
 		if (g_op_tab[i].op_code == opc)
-		{
-	//		ft_printf("name = %s\n", g_op_tab[i].name);
 			return (i);
-		}
 		i++;
 	}
-	//ft_putchar('\n');
 	return (-1);
 }
 
@@ -131,6 +128,11 @@ t_inf	nb_oct(t_inf srt, int line, int ocp)
 	{
 		tab[0] = 2;
 		srt.l[i] = 2;
+	}
+	else if (line == 15)
+	{
+		tab[0] = 1;
+		srt.l[0] = 1;
 	}
 	else
 	{

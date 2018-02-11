@@ -1,6 +1,0 @@
-lire l'instruction
-lire l'ocp
-decoder l'ocp : premier parametre, deuxieme parametre, troisieme parametre
-compter le nombre d'octet a lire pour les parametre(verifier avec le tableau si le direct est sur 2 ou 4 octet)
-garder les valeurs des parametres dans l'ordre
-une fois finis tu arrives sur une nouvelle instruction: reprendre l'etape 1

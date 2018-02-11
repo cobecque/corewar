@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:28:23 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/09 01:54:09 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/11 02:42:56 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void		ft_ldi(t_inf inf, t_process *pros, t_vm vm)
 	bol = 0;
 	r1 = 0;
 	if (inf.val[2] <= 0 || inf.val[2] > REG_NUMBER)
+		bol = 1;
+	if ((inf.typ[0] == 1 && (inf.val[0] <= 0 || inf.val[0] > REG_NUMBER)) || (inf.typ[1] == 1 && (inf.val[1] <= 0 || inf.val[1] > REG_NUMBER)))
 		bol = 1;
 	if (bol == 0)
 	{
@@ -54,7 +56,8 @@ void		ft_ldi(t_inf inf, t_process *pros, t_vm vm)
 		else
 			r2 += inf.val[1];
 		res = r1 + r2;
-		adr = pros->ins + (int)res;
+		adr = pros->ins + (res % IDX_MOD);
+		lol = (int)adr;
 		if (adr < inf.min_addr)
 		{
 			if ((int)adr > 0)
@@ -65,8 +68,6 @@ void		ft_ldi(t_inf inf, t_process *pros, t_vm vm)
 		else if (adr >= (inf.min_addr + MEM_SIZE))
 		{
 			bol = (int)adr;
-//			if (pros->number == 211)
-//				ft_printf("bol = %d\n", bol);
 			if (bol >= (int)inf.min_addr + MEM_SIZE)
 			{
 				while (bol > (MEM_SIZE + (int)inf.min_addr))
@@ -74,7 +75,6 @@ void		ft_ldi(t_inf inf, t_process *pros, t_vm vm)
 					adr = adr - MEM_SIZE;
 					bol = bol - MEM_SIZE;
 				}
-		//			adr = (char *)((long)bol);
 				if (adr < inf.min_addr)
 				{
 					if (adr < 0)
@@ -85,31 +85,25 @@ void		ft_ldi(t_inf inf, t_process *pros, t_vm vm)
 						adr = (inf.min_addr + MEM_SIZE) - (int)adr;
 				}
 			}
-//			if (pros->number == 211)
-//				ft_printf("adr = %d et %d?\n", adr, pros->ins);
-			/*		adr = (char *)((long)bol);// + inf.min_addr);
-			*/	}
-			lol = (int)pros->ins + (int)res;
-			if (lol > 4456 || lol < 0)
-				lol = (int)adr - (int)inf.min_addr;
-			lol = lol - (int)inf.min_addr;
-			pros->carry = (adr == 0) ? 1 : 0;
-			j = 0;
-			i = 0;
-//			if (pros->number == 211)
-//				ft_printf("bug %d\n", *(adr + 256));
-			if (vm.arg.ver_num.op == 1)
-				ft_printf("P%5d | ldi %d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n", pros->number, r1, r2, inf.val[2], r1, r2, res, adr - 256);
-			while (j < 4)
+		}
+		if (lol > 4456 || lol < -80)
+			lol = (int)adr;
+		if (lol < 0 && lol > -80)
+			lol = lol + 256;
+		j = 0;
+		i = 0;
+		if (vm.arg.ver_num.op == 1)
+			ft_printf("P%5d | ldi %d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n", pros->number, r1, r2, inf.val[2], r1, r2, res, lol - 256);
+		while (j < 4)
+		{
+			if ((adr + j) >= inf.min_addr + MEM_SIZE)
 			{
-				if ((adr + j) >= inf.min_addr + MEM_SIZE)
-				{
-					adr = inf.min_addr;
-					i = 0;
-				}
-				pros->reg[inf.val[2]][j] = *(adr + i);
-				i++;
-				j++;
+				adr = inf.min_addr;
+				i = 0;
 			}
+			pros->reg[inf.val[2]][j] = *(adr + i);
+			i++;
+			j++;
+		}
 	}
 }

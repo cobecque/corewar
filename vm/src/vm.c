@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/09 01:52:02 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/11 02:57:06 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void		vm_stuff(t_vm data)
 	cpy = NULL;
 	if (!(data.addr = malloc_vm()))
 		exit(-1);
-	ft_printf("Inctroducing contestants...\n");
+	ft_printf("Introducing contestants...\n");
 	while (j < data.nb_pros)
 	{
 		data.play[j].r1 = -data.play[j].nb;
@@ -135,6 +135,6 @@ void		vm_stuff(t_vm data)
 	}
 	data.ctd = CYCLE_TO_DIE;
 	i = cycle_gestion(data, ret);
-	if (i != -1)
+	if (i != -1 && i != 0)
 		ft_printf("Contestant %d, \"%s\", has won !\n", i, data.play[i - 1].name);
 }

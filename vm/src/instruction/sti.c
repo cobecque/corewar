@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/09 01:47:53 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/11 00:41:15 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,6 @@ void		ft_sti(t_inf inf, t_process *pros, t_vm vm)
 			r2 += inf.val[2];
 		res = r1 + r2;
 		adr = pros->ins + ((int)res % IDX_MOD);
-	/*	if (adr < inf.min_addr)
-		{
-			if ((int)adr > 0)
-				adr = inf.min_addr + MEM_SIZE - ((int)inf.min_addr - ((int)adr % MEM_SIZE));
-			else
-				adr = inf.min_addr + MEM_SIZE + (int)adr % MEM_SIZE;
-		}
-		else if (adr >= inf.min_addr + MEM_SIZE)
-		{
-			bol = ((int)adr % MEM_SIZE);
-			adr = (char *)((long)bol - (long)inf.min_addr);
-		}*/
 		lol = (int)adr;
 		if (adr < inf.min_addr)
 		{
@@ -108,7 +96,7 @@ void		ft_sti(t_inf inf, t_process *pros, t_vm vm)
 				}
 			}
 		}
-		if (lol > 4456 || lol < 0)
+		if (lol > 4650 || lol < 0)
 			lol = (int)adr;
 		i = 0;
 		j = 0;

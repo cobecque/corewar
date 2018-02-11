@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/09 03:40:12 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/11 03:01:48 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ int			winner(t_process *pro)
 	{
 		if (pro->live != -1)
 		{
-			if (last <= pro->last_live[0])
+			if (last <= pro->last_live[0] && pro->last_live[1] != 0)
+			{
+				last = pro->last_live[0];
 				winner = pro->last_live[1];
+			}
 		}
 		pro = pro->next;
 	}
@@ -413,6 +416,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 	int		win;
 	int		val;
 	int		check;
+	int		yolo;
 	int		die;
 	int		cycle_d;
 	int		i;
@@ -425,6 +429,7 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 	val = 0;
 	die = 0;
 	win = 0;
+	yolo = 0;
 	while (42)
 	{
 		i = 0;
@@ -436,7 +441,9 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 			}
 			cycle_d = 0;
 			die = count_live(pro);
-			win = winner(pro);
+			yolo = winner(pro);
+			if (yolo != -1)
+				win = yolo;
 			pro = kill_them_all(pro, virtual, virtual.cycle, virtual.ctd);
 			if (die >= NBR_LIVE || check == 10)
 			{
@@ -460,7 +467,9 @@ int			cycle_gestion(t_vm virtual, t_process *pro)
 		pro = gestion_process(pro, virtual.cycle, virtual, &val);
 		if (virtual.ctd < 0)
 		{
-			win = winner(pro);
+			yolo = winner(pro);
+			if (yolo != -1)
+				win = yolo;
 			pro = kill_them_all(pro, virtual, virtual.cycle, virtual.ctd);
 			break ;
 		}

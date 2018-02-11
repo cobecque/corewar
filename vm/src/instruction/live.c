@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 14:25:54 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/09 01:53:00 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/11 02:53:41 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,11 @@ void		ft_live(t_inf inf, t_process *pro, t_vm vm)
 		{
 			if (vm.arg.ver_num.li == 1)
 				ft_printf("Player %d (%s) is said to be alive\n", vm.play[i].nb, vm.play[i].name);
-			pro->last_live[1] = -b;
+			pro->last_live[1] = vm.play[i].nb;
 			break ;
 		}
+		else
+			pro->last_live[1] = 0;
 		i++;
 	}
 	pro->live++;

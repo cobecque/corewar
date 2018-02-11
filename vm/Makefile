@@ -19,7 +19,7 @@ INC_NAME = ./inc
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
 SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
-		   get_instruction.c	instruction/add.c\
+		   magic.c	option.c	instruction/add.c\
 		   instruction/reg_write.c \
 		   instruction/live.c \
 		   instruction/sti.c\

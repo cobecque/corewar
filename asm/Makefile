@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2017/11/07 16:37:21 by cobecque         ###   ########.fr        #
+#    Updated: 2018/02/12 04:04:08 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,7 @@ NAME = asm
 INC_NAME = ./inc
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
-SRC_NAME = main.c	op.c	struct.c	encodage.c	function_supp.c\
-		   function_ocp.c	function_param.c	function_spec.c\
-		   function_label.c	fill_file.c	function_binair.c
+SRC_NAME = main.c	file.c	op.c	tool.c	inst.c	error.c
 
 LIB_DIR = ./libft
 LIBP_DIR = ./libft/src/printf

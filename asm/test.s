@@ -1,6 +1,28 @@
 .name "test"
 .comment "test"
 
-ld	%0, r2
+try:
+ld	%300, r2
+sti	r2, %4, %4
 st	r2, 4
-sti	r2, %:yolo, %4
+st	r2, 4
+st	r2, -1
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+st	r2, 4
+fork	%:try

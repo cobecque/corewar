@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 23:01:38 by cobecque          #+#    #+#             */
-/*   Updated: 2017/11/07 18:56:22 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/13 03:58:53 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ typedef struct				header_s
 {
 	unsigned int			magic;
 	char					prog_name[PROG_NAME_LENGTH + 1];
-	unsigned int			prog_size;
+	unsigned int			size;
 	char					comment[COMMENT_LENGTH + 1];
 }							header_t;

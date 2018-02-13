@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/11 02:57:06 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/12 04:12:46 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,60 +47,14 @@ t_vm		input_data(t_vm data, int nb, char **pc_adr)
 	return (data);
 }
 
-t_process	*add_new_process(t_process *srt, int nb)
+void		gates_are_open(t_vm data, t_process *lst)
 {
-	int			i;
-	int			j;
-	t_process	*new;
-	t_process	*begin;
+	int		winner;
 
-	i = 0;
-	if (!(new = (t_process *)malloc(sizeof(t_process))))
-		return (NULL);
-	while (i < REG_NUMBER)
-	{
-		j = 0;
-		while (j < REG_SIZE)
-		{
-			new->reg[i][j] = 0;
-			j++;
-		}
-		i++;
-		new->val[i] = 0;
-	}
-	new->val[1] = (unsigned int)nb;
-	//reg_write(new, (unsigned int)nb + 1, 1, 4);
-	new->reg[1][0] = 255;
-	new->reg[1][1] = 255;
-	new->reg[1][2] = 255;
-	new->reg[1][3] = 255 - nb + 1;
-	begin = srt;
-	new->pc = NULL;
-	new->ins = NULL;
-	new->carry = 0;
-	new->live = 0;
-	new->last_live[0] = 0;
-	new->last_live[1] = 0;
-	new->start_cycle = -1;
-	new->number = nb;
-	new->champ = nb;
-	new->seek = 0;
-	new->line = -1;
-	i = 0;
-	while (i < MAX_PLAYERS)
-	{
-		new->live_champ[i] = 0;
-		i++;
-	}
-	new->next = NULL;
-	new->pre = NULL;
-	if (!srt)
-		return (new);
-	while (srt->next != NULL)
-		srt = srt->next;
-	srt->next = new;
-	new->pre = srt;
-	return (begin);
+	data.ctd = CYCLE_TO_DIE;
+	winner = cycle_gestion(data, lst);
+	if (winner != -1 && winner != 0 && data.arg.dump == 0)
+		message_champ(2, winner, data.play[winner - 1]);
 }
 
 void		vm_stuff(t_vm data)
@@ -117,14 +71,10 @@ void		vm_stuff(t_vm data)
 	if (!(data.addr = malloc_vm()))
 		exit(-1);
 	ft_printf("Introducing contestants...\n");
-	while (j < data.nb_pros)
-	{
-		data.play[j].r1 = -data.play[j].nb;
-		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", data.play[j].nb, data.play[j].len, data.play[j].name, data.play[j].comment);
-		j++;
-	}
 	while (i < data.nb_pros)
 	{
+		data.play[i].r1 = -data.play[i].nb;
+		message_champ(1, 0, data.play[i]);
 		ret = add_new_process(ret, i + 1);
 		if (cpy == NULL)
 			cpy = ret;
@@ -133,8 +83,5 @@ void		vm_stuff(t_vm data)
 		data = input_data(data, i + 1, &(cpy->pc));
 		i++;
 	}
-	data.ctd = CYCLE_TO_DIE;
-	i = cycle_gestion(data, ret);
-	if (i != -1 && i != 0)
-		ft_printf("Contestant %d, \"%s\", has won !\n", i, data.play[i - 1].name);
+	gates_are_open(data, ret);
 }

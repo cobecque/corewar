@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/09 01:56:01 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/13 08:24:39 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,12 @@ void						ft_live(t_inf info, t_process *pro, t_vm vm);
 int							ocp_valid(int line, int ocp);
 int							adv_value(int line, int ocp);
 t_ver						get_verbose(int nu);
+void						message(int nb);
+t_pam						get_option(int argc, char **argv);
+int							check_magic(int fd);
+int							string_is_digit(char *str);
+t_inf						nb_oct(t_inf srt, int line, int ocp);
+int							type_param(int ocp, int pos, int line, int *res);
 
 static void					(*g_instructab[17])(t_inf, t_process *pros, t_vm vm)=
 {

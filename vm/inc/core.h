@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/13 08:24:39 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/13 10:09:06 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,8 @@ int							check_magic(int fd);
 int							string_is_digit(char *str);
 t_inf						nb_oct(t_inf srt, int line, int ocp);
 int							type_param(int ocp, int pos, int line, int *res);
+void						message_champ(int nb, int winner, t_champ champ);
+t_process					*add_new_process(t_process *src, int nb);
 
 static void					(*g_instructab[17])(t_inf, t_process *pros, t_vm vm)=
 {

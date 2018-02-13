@@ -37,7 +37,9 @@ SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
 		   instruction/sub.c \
 		   instruction/st.c \
 		   verbose.c \
-		   octet.c
+		   octet.c \
+		   add_process.c \
+		   message.c
 
 
 

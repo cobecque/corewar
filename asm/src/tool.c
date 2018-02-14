@@ -6,81 +6,17 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 01:54:32 by cobecque          #+#    #+#             */
-/*   Updated: 2018/02/13 08:22:38 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/14 09:30:15 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int			label_range(t_inst *ins, char *label, int pos, int len)
+void		ft_putchar_fd_size(char c, char c2, char c3, int fd)
 {
-	t_inst	*tmp;
-	int		i;
-
-	i = 0;
-	tmp = ins;
-	while (tmp != NULL)
-	{
-		if (tmp->label != NULL && ft_strcmp(tmp->label, label) == 0)
-		{
-			if (tmp->nb_ins < pos)
-				i += len;
-			break ;
-		}
-		if (tmp->label == NULL)
-		{
-			i++;
-			if (tmp->ocp != 0)
-				i++;
-			i += tmp->len;
-		}
-		tmp = tmp->next;
-	}
-	return (i);
-}
-
-char		*have_label(char *par)
-{
-	char	*tmp;
-
-	if (par[0] == '%' && par[1] == ':')
-		tmp = ft_strsub(par, 2, ft_strlen(par) - 2);
-	else
-		return (NULL);
-	return (tmp);
-}
-
-t_inst			*find_label(t_inst *ins)
-{
-	t_inst		*tmp;
-
-	tmp = ins;
-	while (tmp != NULL)
-	{
-		if (tmp->label == NULL)
-		{
-			if (tmp->bol != 0)
-			{
-				tmp->val[0] += check_label(ins, tmp->label1, ins->nb_ins);
-				tmp->val[1] += check_label(ins, tmp->label2, ins->nb_ins);
-				tmp->val[2] += check_label(ins, tmp->label3, ins->nb_ins);
-			}
-		}
-		tmp = tmp->next;
-	}
-	return (ins);
-}
-
-int			check_label(t_inst *ins, char *label, int line)
-{
-	int			pos;
-	int			len;
-
-	pos = line;
-	len = 1;
-	if (label != NULL)
-		return (label_range(ins, label, pos, len));
-	return (0);
+	ft_putchar_fd(c, fd);
+	ft_putchar_fd(c2, fd);
+	ft_putchar_fd(c3, fd);
 }
 
 int			ft_sep(char *s, int i, int *count)
@@ -96,61 +32,31 @@ int			ft_sep(char *s, int i, int *count)
 	return (i);
 }
 
-char		**ft_cut(char *s, char c)
+int			line_size(char *line, int i)
 {
-	char	**tab;
-	int		i;
-	int		count;
-	int		let;
-	int		j;
-	int		tmp;
+	int			j;
 
-	i = 0;
-	tmp = 0;
-	count = 0;
-	c = 'a';
-	if (s)
+	j = 0;
+	while (line[i] != '\0')
 	{
-		while (s[i] != '\0')
+		while (line[i] != '\0' && line[i] != '"')
 		{
-			i = ft_sep(s, i, &count);
+			if (line[i] != ' ' && line[i] != '\t')
+				j++;
 			i++;
 		}
-		if (count == 0 && s[i - 1])
-			count = 1;
-		else
-			count++;
-		if (!(tab = (char **)malloc(sizeof(char *) * (count + 1))))
-			return (NULL);
-		j = 0;
-		i = 0;
-		let = 0;
-		while (j < count)
+		if (line[i] == '"')
 		{
-			let = 0;
-			while (s[i] != '\0')
+			i++;
+			j++;
+			while (line[i] != '\0' && line[i] != '"')
 			{
-				if (s[i] == ' ' || s[i] == '\t')
-				{
-					while (s[i] == ' ' || s[i] == '\t')
-						i++;
-					j++;
-					break ;
-				}
-				else
-				{
-					if (s[i] != ',')
-						let++;
-					i++;
-				}
-			}
-			if (s[i] == '\0')
+				i++;
 				j++;
-			tab[j - 1] = ft_strsub(s, tmp, let);
-			tmp = i;
+			}
 		}
-		tab[count] = NULL;
-		return (tab);
+		if (line != '\0')
+			i++;
 	}
-	return (NULL);
+	return (j);
 }

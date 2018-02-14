@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 01:05:23 by cobecque          #+#    #+#             */
-/*   Updated: 2018/02/13 08:29:33 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/14 09:59:38 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ t_inst		*find_param(char *line, int i, t_inst *ins)
 
 	j = 0;
 	ocp = 0;
-	par = ft_cut(line, ',');
+	par = ft_cut(line, 0, 0, 0);
 	while (par[j] != NULL)
 	{
 		if (j > 0)
 		{
 			ins->val[j - 1] = find_val(par[j]);
 			ins->typ[j - 1] = find_typ(par[j], i);
-			ocp = (ocp << 2) | find_ocp(par[j]);
+			ocp = (ocp << 2) | find_ocp(par[j], i);
 		}
 		j++;
 	}
@@ -36,32 +36,7 @@ t_inst		*find_param(char *line, int i, t_inst *ins)
 	while (j++ < 4)
 		ocp = ocp << 2;
 	ins->ocp = ocp;
-	j = 0;
-	while (par[j] != NULL)
-	{
-		if (j > 0)
-		{
-			if (j == 1)
-			{
-				ins->label1 = have_label(par[j]);
-				if (ins->label1 != NULL)
-					ins->bol = 1;
-			}
-			if (j == 2)
-			{
-				ins->label2 = have_label(par[j]);
-				if (ins->label2 != NULL)
-					ins->bol = 1;
-			}
-			if (j == 3)
-			{
-				ins->label3 = have_label(par[j]);
-				if (ins->label3 != NULL)
-					ins->bol = 1;
-			}
-		}
-		j++;
-	}
+	ins = label_param(par, ins);
 	return (ins);
 }
 
@@ -78,9 +53,6 @@ t_inst		*add_inst(t_inst *ins, int i, char *line)
 	new->ocp = 0;
 	new->nb_ins = 1;
 	new->label = NULL;
-	new->label1 = NULL;
-	new->label2 = NULL;
-	new->label3 = NULL;
 	new->typ[0] = 0;
 	new->typ[1] = 0;
 	new->typ[2] = 0;
@@ -97,44 +69,49 @@ t_inst		*add_inst(t_inst *ins, int i, char *line)
 	return (ins);
 }
 
-t_file		instruction(t_file file, char *line)
+t_file		instruction(t_file file, char *l)
 {
+	t_inst	*tmp;
 	int		i;
-	int		len;
+	int		j;
 
 	i = 0;
 	while (i < 16)
 	{
-		len = ft_strlen(g_op_tab[i].name);
-		if (line[0] != '\0')
+		j = ft_strlen(g_op_tab[i].name);
+		if (l[0] != '\0' && ft_strncmp(l, g_op_tab[i].name, j) == 0 &&
+				(l[j] == '\t' || l[j] == ' ') && j < (int)ft_strlen(l))
 		{
-			if (ft_strncmp(line, g_op_tab[i].name, len) == 0)
-			{
-				file.ins = add_inst(file.ins, i, line);
-				break ;
-			}
+			file.ins = add_inst(file.ins, i, l);
+			break ;
 		}
 		i++;
 	}
-	if (i == 16)
+	if (i == 16 && l && l[0] != '\n' && l[0] != '\0')
 	{
-		ft_printf("passage\n");
-		if (line && line[0] != '\n' && line[0] != '\0')
-		{
-			file.ins = add_inst(file.ins, i, line);
-			file.ins->label = ft_strsub(line, 0, ft_strlen(line) - 1);
-		}
+		file.ins = add_inst(file.ins, i, l);
+		tmp = file.ins;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->label = ft_strsub(l, 0, ft_strlen(l) - 1);
 	}
 	return (file);
 }
 
 t_file		fill_file(t_file file, char *line)
 {
+	line = cut_start(line);
 	if (ft_strncmp(line, ".name", 5) == 0 && file.name == NULL)
-		file.name = ft_strsub(line, 7, ft_strlen(line) - 8);
+	{
+		line = cut_middle(line);
+		file.name = ft_strsub(line, 6, ft_strlen(line) - 7);
+	}
 	else if (ft_strncmp(line, ".comment", 8) == 0 && file.comment == NULL)
-		file.comment = ft_strsub(line, 10, ft_strlen(line) - 11);
-	else
+	{
+		line = cut_middle(line);
+		file.comment = ft_strsub(line, 9, ft_strlen(line) - 10);
+	}
+	else if (line[0] != '#')
 		file = (instruction(file, line));
 	return (file);
 }

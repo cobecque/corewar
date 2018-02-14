@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 14:02:34 by rostroh           #+#    #+#             */
-/*   Updated: 2017/10/14 03:20:34 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/14 10:12:46 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-# define	C_RED "\e[31;m"
-# define	C_GRN "\e[32;m"
-# define	C_YEL "\e[33;m"
-# define	C_BLU "\e[34;m"
-# define	C_MAG "\e[35;m"
-# define	C_CYA "\e[36;m"
-# define	FC_ALL "\e[0m"
+# define C_RED "\e[31;m"
+# define C_GRN "\e[32;m"
+# define C_YEL "\e[33;m"
+# define C_BLU "\e[34;m"
+# define C_MAG "\e[35;m"
+# define C_CYA "\e[36;m"
+# define FC_ALL "\e[0m"
 
 typedef struct	s_arg
 {

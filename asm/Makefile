@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2018/02/13 03:49:35 by cobecque         ###   ########.fr        #
+#    Updated: 2018/02/14 10:02:44 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,13 @@ NAME = asm
 INC_NAME = ./inc
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
-SRC_NAME = main.c	file.c	op.c	tool.c	inst.c	error.c	header.c
+SRC_NAME = main.c	file.c	op.c	tool.c	inst.c	error.c	header.c\
+		   gestion_str.c	label_file.c
 
 LIB_DIR = ./libft
 LIBP_DIR = ./libft/src/printf
 SRC_DIR = ./src
-OBJ_DIR = ./mdr
+OBJ_DIR = ./asm_obj
 
 LIB_PATH = $(addprefix $(LIB_DIR)/,$(LIB_NAME))
 LIBP_PATH = $(addprefix $(LIBP_DIR)/,$(LIBP_NAME))
@@ -37,7 +38,7 @@ all :
 	@make -C $(LIBP_DIR)
 	@printf "\n"
 	@printf $(CN_YEL) "=== ->  Compil corewar  <- ==="
-	@mkdir -p mdr
+	@mkdir -p asm_obj
 	@$(MAKE) $(NAME)
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
@@ -53,7 +54,7 @@ clean :
 	@printf "\n"
 	@make clean -C $(LIBP_DIR)
 	@/bin/rm -f $(OBJ_PATH)
-	@rm -rf ./mdr
+	@rm -rf ./asm_obj/
 	@printf $(C_RED) " [ ✔ ] deleted objects path"
 	@printf "\n"
 

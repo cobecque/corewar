@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/13 10:09:06 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/14 11:03:50 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,17 @@
 #define COMMENT_LENGTH		(2048)
 #define COREWAR_EXEC_MAGIC	0xea83f3
 
+typedef struct				s_cycle
+{
+	int						i;
+	int						die;
+	int						win;
+	int						val;
+	int						yolo;
+	int						check;
+	int						cycle_d;
+}							t_cycle;
+
 typedef struct				s_ver
 {
 	int						li;
@@ -80,8 +91,8 @@ typedef struct				s_process
 	int						start_cycle;
 	int						val[REG_NUMBER];
 	int						reg[REG_NUMBER][REG_SIZE];
-	char					*pc;						//
-	char					*ins;						//
+	char					*pc;
+	char					*ins;
 	int						carry;
 	int						line;
 	int						live;
@@ -140,7 +151,7 @@ typedef struct				s_vm
 	int						cycle;
 	int						ctd;
 	t_pam					arg;
-	t_process				*pros; //*
+	t_process				*pros;
 	t_champ					play[MAX_PLAYERS];
 }							t_vm;
 
@@ -172,9 +183,9 @@ int							get_line(int opc);
 int							get_ocp(void *addr);
 void						cpy_reg(int *tab, int **res);
 t_inf						add_elem(int info, int opc);
-t_process					*gestion_process(t_process *pro, int cycle, t_vm vm, int *val);
+t_process					*gestion_process(t_process *pro, int cy, t_vm vm);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
-int							cycle_gestion(t_vm vm, t_process *pro);
+int							cycle_gestion(t_vm vm, t_process *pro, t_cycle cy);
 void						ft_live(t_inf info, t_process *pro, t_vm vm);
 int							ocp_valid(int line, int ocp);
 int							adv_value(int line, int ocp);
@@ -187,8 +198,12 @@ t_inf						nb_oct(t_inf srt, int line, int ocp);
 int							type_param(int ocp, int pos, int line, int *res);
 void						message_champ(int nb, int winner, t_champ champ);
 t_process					*add_new_process(t_process *src, int nb);
+t_process					*kill_them_all(t_process *p, t_vm v, int cy, int c);
+int							count_live(t_process *pro);
+int							winner(t_process *pro);
+t_cycle						init_cycle(void);
 
-static void					(*g_instructab[17])(t_inf, t_process *pros, t_vm vm)=
+static void					(*g_instructab[17])(t_inf, t_process *pros, t_vm vm) =
 {
 	&ft_live, &ft_ld, &ft_st, &ft_add, &ft_sub, &ft_and, &ft_or, &ft_xor, 
 	&ft_zjmp, &ft_ldi, &ft_sti, &ft_fork, &ft_lld, &ft_lldi, &ft_lfork, 

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/11 06:45:39 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/21 18:13:51 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_vm		fill_champ(int *fd)
 	i = 1;
 	while (i < fd[0])
 	{
+		data.play[i - 1].addr = NULL;
 		if (check_magic(fd[i]) == -1)
 		{
 			data.error = 2;

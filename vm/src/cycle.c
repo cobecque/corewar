@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 09:46:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/20 12:15:54 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:30:20 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int				cycle_gestion(t_vm virtual, t_process *pro, t_cycle cy)
 				break ;
 		}
 		pro = gestion_process(pro, virtual.cycle, virtual);
+		ft_ncurses(pro, virtual);
 		if (virtual.ctd < 0)
 		{
 			cy.yolo = winner(pro);

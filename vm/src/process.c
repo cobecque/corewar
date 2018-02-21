@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:00:17 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/20 13:17:46 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/21 14:00:14 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,20 +124,20 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 					cpy = init_inf(cpy, vm, &nb, &bol);
 					if (have_ocp(cpy->line) == 0)
 					{
-						nb = 1;
+						nb = 1;//norme
 						cpy->ocp = *(cpy->pc);
 						if (ocp_valid(cpy->line, cpy->ocp) == 0)
 							bol = -1;
 						cpy->pc++;
 						if (cpy->pc >= cpy->inf.min_addr + MEM_SIZE)
-							cpy->pc = cpy->inf.min_addr;
+							cpy->pc = cpy->inf.min_addr;//fin norme
 						if (vm.arg.ver_num.pc == 1 && bol == -1)
 							bol = -2;
 						cpy = ocp_invalid(cpy, &bol, &len);
 					}
 					if (bol == 0)
 					{
-						if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))
+						if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))//norme
 							return (NULL);
 						len = 0;
 						adv = 0;
@@ -150,12 +150,12 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 							len += 2;
 						}
 						else
-							len += 1;
+							len += 1;//fin norme
 						g_instructab[cpy->line](cpy->inf, cpy, vm);
 						cpy->pc = cpy->ins;
 						if (vm.arg.ver_num.pc == 1 && (cpy->line != 8 ||
 									cpy->carry == 0))
-						{
+						{//norme
 							adv++;
 							if (nb == 1)
 								adv++;
@@ -169,7 +169,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 							cpy = adv_printf(cpy, len - bol, nb);
 							if (vm.arg.ver_num.pc == 1)
 								ft_printf(" \n");
-						}
+						}//fin norme
 						cpy = move_pc(cpy, len);
 						free(cpy->inf.val);
 					}
@@ -177,14 +177,14 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 					cpy->seek = 0;
 				}
 			}
-			else if (cpy->line == -1)
+			else if (cpy->line == -1)//norme
 			{
 				if (cpy->pc >= cpy->inf.min_addr + MEM_SIZE)
 					cpy->pc = cpy->inf.min_addr;
 				cpy->pc++;
 			}
 			if (cpy->pc >= cpy->inf.min_addr + MEM_SIZE)
-				cpy->pc = cpy->inf.min_addr;
+				cpy->pc = cpy->inf.min_addr;//fin norme
 		}
 		cpy = cpy->pre;
 	}

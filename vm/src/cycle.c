@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 09:46:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/26 15:25:31 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 17:34:25 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,6 @@ void			ft_is_dump(t_vm virtual)
 
 int				cycle_gestion(t_vm virtual, t_process *pro, t_cycle cy)
 {
-	int			i;
-	int			j;
-
 	while (42)
 	{
 		cy.i = 0;
@@ -86,6 +83,8 @@ int				cycle_gestion(t_vm virtual, t_process *pro, t_cycle cy)
 				break ;
 		}
 		pro = gestion_process(pro, virtual.cycle, &virtual);
+		if (virtual.arg.sdl == 1)
+			virtual = ft_ncurses(pro, virtual);
 		if (virtual.ctd < 0)
 		{
 			cy.yolo = winner(pro);
@@ -100,33 +99,5 @@ int				cycle_gestion(t_vm virtual, t_process *pro, t_cycle cy)
 		virtual.cycle++;
 		cy.cycle_d++;
 	}
-	i = 0;
-	j = 0;
-	ft_printf("         ");
-	while (i < 64)
-	{
-		if (i < 10)
-			ft_putchar('0');
-		ft_printf("%d ", i);
-		i++;
-	}
-	ft_putstr("\n\n");//
-	i = 0;
-	while (i < MEM_SIZE)
-	{
-		if (i % 64 == 0 && i != 0)
-			ft_putchar('\n');
-		if (i % 64 == 0)
-		{
-			ft_putstr("0x0");
-			if (j < 16)
-				ft_putchar('0');
-			ft_printf("%x0 : ", j);
-			j += 4;
-		}
-		ft_printf("0%d ", virtual.color[i]);
-		i++;
-	}
-	ft_putstr("\n\n");
 	return (cy.win);
 }

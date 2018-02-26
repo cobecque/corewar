@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:29:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/11 06:40:04 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 17:04:54 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int			string_is_digit(char *str)
 	return (1);
 }
 
-void		start_init(int *fd, t_pam arg)
+void		start_init(int *fd, t_pam arg, struct timespec speed)
 {
 	t_vm		data;
 
@@ -60,16 +60,19 @@ void		start_init(int *fd, t_pam arg)
 	data.arg = arg;
 	if (check_error(data.error) == 1)
 		exit(-1);
-	vm_stuff(data);
+	vm_stuff(data, speed);
 }
 
 int			main(int argc, char **argv)
 {
-	int			i;
-	int			*fd;
-	t_pam		arg;
+	int				i;
+	int				*fd;
+	t_pam			arg;
+	struct timespec	speed;
 
 	i = 0;
+	speed.tv_sec = 0;
+	speed.tv_nsec = 1000000000 / SPEED;
 	fd = NULL;
 	if (argc == 1)
 		message(1);
@@ -87,7 +90,7 @@ int			main(int argc, char **argv)
 			ft_printf("Error occured while malloc or open\n");
 			return (0);
 		}
-		start_init(fd, arg);
+		start_init(fd, arg, speed);
 	}
 	return (0);
 }

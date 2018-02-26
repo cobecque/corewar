@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/26 15:29:12 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 19:54:27 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 # include "libft.h"
 # include "ft_printf.h"
+# include <time.h>
+# include <ncurses.h>
 
+# define SPEED				80
 # define IND_SIZE			2
 # define REG_SIZE			4
 # define DIR_SIZE			REG_SIZE
@@ -42,7 +45,7 @@
 
 # define REG_NUMBER			16
 
-# define CYCLE_TO_DIE		1536
+# define CYCLE_TO_DIE		1586
 
 # define CYCLE_DELTA		50
 # define NBR_LIVE			21
@@ -165,6 +168,7 @@ typedef struct				s_vm
 	int						ctd;
 	t_pam					arg;
 	t_process				*pros;
+	struct timespec			speed;
 	t_champ					play[MAX_PLAYERS];
 }							t_vm;
 
@@ -200,6 +204,7 @@ t_ver						get_verbose(int nu);
 t_pam						get_option(int argc, char **argv);
 
 t_vm						fill_champ(int *fd);
+t_vm						ft_ncurses(t_process *pro, t_vm vm);
 
 void						reg_write(t_process *pros, unsigned int val,
 		int reg, int size);
@@ -221,9 +226,13 @@ void						ft_or(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_st(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_ld(t_inf inf, t_process *pros, t_vm *vm);
 void						cpy_reg(int *tab, int **res);
-void						vm_stuff(t_vm data);
+void						vm_stuff(t_vm data, struct timespec speed);
 void						dump(char *ptr);
 void						message(int nb);
+void						ft_menu(WINDOW *m, t_vm vm, int nb);
+void						ft_init_ncurses(t_process *pro, t_vm vm);
+void						ft_quit_ncurses(void);
+
 
 char						*get_hexa(int val);
 

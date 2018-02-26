@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/26 15:40:59 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 17:33:25 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_vm		input_data(t_vm data, int nb, char **pc_adr)
 	return (data);
 }
 
-void		gates_are_open(t_vm data, t_process *lst)
+void		gates_are_open(t_vm data, t_process *lst, struct timespec speed)
 {
 	int			winner;
 	t_cycle		cy;
@@ -56,13 +56,17 @@ void		gates_are_open(t_vm data, t_process *lst)
 	cy = init_cycle();
 	data.ctd = CYCLE_TO_DIE;
 	data.cycle = 1;
+	data.speed = speed;
+	if (data.arg.sdl == 1)
+		ft_init_ncurses(lst, data);
 	winner = cycle_gestion(data, lst, cy);
-	ft_printf("%d\n", winner);
+	if (data.arg.sdl == 1)
+		ft_quit_ncurses();
 	if (winner != -1 && winner != 0)
 		message_champ(2, winner, data.play[winner - 1]);
 }
 
-void		vm_stuff(t_vm data)
+void		vm_stuff(t_vm data, struct timespec speed)
 {
 	int			i;
 	int			j;
@@ -88,34 +92,5 @@ void		vm_stuff(t_vm data)
 		data = input_data(data, i + 1, &(cpy->pc));
 		i++;
 	}
-	gates_are_open(data, ret);
-/*	ft_printf("-->%d<--\n", data.color[1602]);
-	i = 0;
-	j = 0;
-	ft_printf("         ");
-	while (i < 64)
-	{
-		if (i < 10)
-			ft_putchar('0');
-		ft_printf("%d ", i);
-		i++;
-	}
-	ft_putstr("\n\n");//
-	i = 0;
-	while (i < MEM_SIZE)
-	{
-		if (i % 64 == 0 && i != 0)
-			ft_putchar('\n');
-		if (i % 64 == 0)
-		{
-			ft_putstr("0x0");
-			if (j < 16)
-				ft_putchar('0');
-			ft_printf("%x0 : ", j);
-			j += 4;
-		}
-		ft_printf("0%d ", data.color[i]);
-		i++;
-	}
-	ft_putstr("\n\n");*/
+	gates_are_open(data, ret, speed);
 }

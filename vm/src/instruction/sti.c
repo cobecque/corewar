@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/11 00:41:15 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/24 18:15:56 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			relative(int *adr, int val)
 	return (ret + val);
 }
 
-void		ft_sti(t_inf inf, t_process *pros, t_vm vm)
+void		ft_sti(t_inf inf, t_process *pros, t_vm *vm)
 {
 	char			*adr;
 	int				res;
@@ -100,8 +100,8 @@ void		ft_sti(t_inf inf, t_process *pros, t_vm vm)
 			lol = (int)adr;
 		i = 0;
 		j = 0;
-		if (vm.arg.ver_num.op == 1)
-			ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n", pros->number, inf.val[0], r1, r2, r1, r2, res, lol - 256);// + inf.min_addr);
+		if (vm->arg.ver_num.op == 1)
+			ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n", pros->number, inf.val[0], r1, r2, r1, r2, res, lol - 256);
 		while (j < 4)
 		{
 			if ((adr + j) >= inf.min_addr + MEM_SIZE)
@@ -109,9 +109,8 @@ void		ft_sti(t_inf inf, t_process *pros, t_vm vm)
 				adr = inf.min_addr;
 				i = 0;
 			}
-			*(adr + i) = pros->reg[inf.val[0]][j]; //SEGF sur max adr
-//			if (pros->start_cycle == 8648)
-//				ft_printf("val %d a l'adresse %d\n", pros->reg[inf.val[0]][j], (adr + i));
+			*(adr + i) = pros->reg[inf.val[0]][j];
+			vm->color[i] = pros->champ;
 			j++;
 			i++;
 		}

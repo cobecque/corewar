@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/20 13:17:17 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/24 18:19:20 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,26 @@
 # define IND_CODE			3
 
 # define MAX_ARGS_NUMBERS	4
-# define MAX_PLAYERS			4
+# define MAX_PLAYERS		4
 # define MEM_SIZE			(4 * 1024)
-# define IDX_MOD				(MEM_SIZE / 8)
+# define IDX_MOD			(MEM_SIZE / 8)
 # define CHAMP_MAX_SIZE		(MEM_SIZE / 6)
 
 # define COMMENT_CHAR		'#'
 # define LABEL_CHAR			':'
-# define DIRECT_CHAR			'%'
+# define DIRECT_CHAR		'%'
 # define SEPARATOR_CHAR		','
 
-# define LABEL_CHARS			"abcdefghijklmnopqrstuvwxyz_0123456789"
+# define LABEL_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789"
 
-# define NAME_CMD_STRING		".name"
+# define NAME_CMD_STRING	".name"
 # define COMMENT_CMD_STRIG	".comment"
 
 # define REG_NUMBER			16
 
 # define CYCLE_TO_DIE		1536
 
-# define CYCLE_DELTA			50
+# define CYCLE_DELTA		50
 # define NBR_LIVE			21
 # define MAX_CHECK			10
 
@@ -88,6 +88,14 @@ typedef struct				s_inf
 	char					*name;
 	char					*min_addr;
 }							t_inf;
+
+typedef struct				s_var
+{
+	int						nb;
+	int						bol;
+	int						adv;
+	int						len;
+}							t_var;
 
 typedef struct				s_process
 {
@@ -150,6 +158,7 @@ extern t_op					g_op_tab[];
 typedef struct				s_vm
 {
 	char					*addr;
+	char					color[MEM_SIZE];
 	int						error;
 	int						nb_pros;
 	int						cycle;
@@ -165,12 +174,20 @@ t_process					*kill_them_all(t_process *p, t_vm v, int cy, int c);
 t_process					*gestion_process(t_process *pro, int cy, t_vm vm);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 t_process					*ocp_invalid(t_process *c, int *bol, int *len);
-t_process					*dup_pros(t_process *src, t_inf inf, t_vm vm);
+t_process					*dup_pros(t_process *src, t_inf inf, t_vm *vm);
 t_process					*find_val(t_process *cpy, int *adv, int *len);
 t_process					*start_gestion(t_process *c, t_vm vm, int cy);
 t_process					*adv_printf(t_process *cpy, int len, int nb);
 t_process					*add_new_process(t_process *src, int nb);
 t_process					*move_pc(t_process *cpy, int len);
+t_process					*check_ocp(t_process *p, int *n, int *b, t_vm vm);
+t_process					*calc_len(t_process *p, int *l, int *bol, int nb);
+t_process					*calc_val(int *adv, int *nb, t_process *c);
+t_process					*get_adr(t_process *cpy);
+t_process					*reverse_list(int cy, int cycle, t_process *pro);
+t_process					*call_instru(t_process *cpy, t_var *var, t_vm vm);
+t_process					*if_must_be_call(t_process *cpy, t_var *var, t_vm vm);
+t_process					*init_inf(t_process *cpy, t_vm vm, int *nb, int *bol);
 
 t_cycle						init_cycle(void);
 
@@ -187,22 +204,22 @@ t_vm						fill_champ(int *fd);
 void						reg_write(t_process *pros, unsigned int val,
 		int reg, int size);
 void						message_champ(int nb, int winner, t_champ champ);
-void						ft_lfork(t_inf inf, t_process *pros, t_vm vm);
-void						ft_lldi(t_inf inf, t_process *pros, t_vm vm);
-void						ft_fork(t_inf inf, t_process *pros, t_vm vm);
-void						ft_live(t_inf info, t_process *pro, t_vm vm);
-void						ft_zjmp(t_inf inf, t_process *pros, t_vm vm);
-void						ft_add(t_inf inf, t_process *pros, t_vm vm);
-void						ft_aff(t_inf inf, t_process *pros, t_vm vm);
-void						ft_ldi(t_inf inf, t_process *pros, t_vm vm);
-void						ft_lld(t_inf inf, t_process *pros, t_vm vm);
-void						ft_sti(t_inf inf, t_process *pros, t_vm vm);
-void						ft_sub(t_inf inf, t_process *pros, t_vm vm);
-void						ft_xor(t_inf inf, t_process *pros, t_vm vm);
-void						ft_and(t_inf inf, t_process *pros, t_vm vm);
-void						ft_or(t_inf inf, t_process *pros, t_vm vm);
-void						ft_st(t_inf inf, t_process *pros, t_vm vm);
-void						ft_ld(t_inf inf, t_process *pros, t_vm vm);
+void						ft_lfork(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_lldi(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_fork(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_live(t_inf info, t_process *pro, t_vm *vm);
+void						ft_zjmp(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_add(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_aff(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_ldi(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_lld(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_sti(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_sub(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_xor(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_and(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_or(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_st(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_ld(t_inf inf, t_process *pros, t_vm *vm);
 void						cpy_reg(int *tab, int **res);
 void						vm_stuff(t_vm data);
 void						dump(char *ptr);
@@ -223,7 +240,7 @@ int							have_ocp(int line);
 int							check_r(t_inf inf);
 int							get_line(int opc);
 
-static void					(*g_instructab[17])(t_inf, t_process *pros, t_vm vm) =
+static void				(*g_instructab[17])(t_inf i, t_process *p, t_vm *v) =
 {
 	&ft_live, &ft_ld, &ft_st, &ft_add, &ft_sub, &ft_and, &ft_or, &ft_xor, 
 	&ft_zjmp, &ft_ldi, &ft_sti, &ft_fork, &ft_lld, &ft_lldi, &ft_lfork, 

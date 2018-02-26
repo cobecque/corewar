@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:00:17 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/21 14:00:14 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/24 15:14:44 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,92 +99,22 @@ t_process	*init_inf(t_process *cpy, t_vm vm, int *nb, int *bol)
 t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
 {
 	t_process		*cpy;
-	int				nb;
-	int				bol;
-	int				adv;
-	int				len;
+	t_var			var;
 
-	cpy = pro;
-	if (vm.arg.ver_num.cy == 1)
-		ft_printf("It is now cycle %d\n", cycle);
-	while (cpy->next != NULL)
-		cpy = cpy->next;
+	cpy = reverse_list(vm.arg.ver_num.cy, cycle, pro);
 	while (cpy != NULL)
 	{
 		if (cpy->live != -1)
 		{
 			cpy = start_gestion(cpy, vm, cycle);
+			cpy = get_adr(cpy);
 			if (cpy->start_cycle + g_op_tab[cpy->line].cycle == cycle &&
-					cpy->line <= 17 && cpy->line >= 0)
+					cpy->line <= 17 && cpy->line >= 0 && cpy->seek == 1)
 			{
-				if (cpy->seek == 1)
-				{
-					if (!cpy->pc)
-						break ;
-					cpy = init_inf(cpy, vm, &nb, &bol);
-					if (have_ocp(cpy->line) == 0)
-					{
-						nb = 1;//norme
-						cpy->ocp = *(cpy->pc);
-						if (ocp_valid(cpy->line, cpy->ocp) == 0)
-							bol = -1;
-						cpy->pc++;
-						if (cpy->pc >= cpy->inf.min_addr + MEM_SIZE)
-							cpy->pc = cpy->inf.min_addr;//fin norme
-						if (vm.arg.ver_num.pc == 1 && bol == -1)
-							bol = -2;
-						cpy = ocp_invalid(cpy, &bol, &len);
-					}
-					if (bol == 0)
-					{
-						if (!(cpy->inf.val = (int *)malloc(sizeof(int) * 3)))//norme
-							return (NULL);
-						len = 0;
-						adv = 0;
-						bol = 1;
-						find_val(cpy, &adv, &len);
-						cpy->seek = 2;
-						if (nb == 1)
-						{
-							bol = 2;
-							len += 2;
-						}
-						else
-							len += 1;//fin norme
-						g_instructab[cpy->line](cpy->inf, cpy, vm);
-						cpy->pc = cpy->ins;
-						if (vm.arg.ver_num.pc == 1 && (cpy->line != 8 ||
-									cpy->carry == 0))
-						{//norme
-							adv++;
-							if (nb == 1)
-								adv++;
-							ft_printf("ADV %d (0x%.4x -> 0x%.4x) %s", adv,
-									cpy->ins - cpy->inf.min_addr, cpy->ins -
-									cpy->inf.min_addr + adv,
-									get_hexa(*cpy->ins));
-							if (nb == 1)
-								ft_printf(" %s", get_hexa(*(cpy->ins + 1)));
-							nb++;
-							cpy = adv_printf(cpy, len - bol, nb);
-							if (vm.arg.ver_num.pc == 1)
-								ft_printf(" \n");
-						}//fin norme
-						cpy = move_pc(cpy, len);
-						free(cpy->inf.val);
-					}
-					cpy->start_cycle = -1;
-					cpy->seek = 0;
-				}
+				if (!cpy->pc)
+					break ;
+				cpy = if_must_be_call(cpy, &var, vm);
 			}
-			else if (cpy->line == -1)//norme
-			{
-				if (cpy->pc >= cpy->inf.min_addr + MEM_SIZE)
-					cpy->pc = cpy->inf.min_addr;
-				cpy->pc++;
-			}
-			if (cpy->pc >= cpy->inf.min_addr + MEM_SIZE)
-				cpy->pc = cpy->inf.min_addr;//fin norme
 		}
 		cpy = cpy->pre;
 	}

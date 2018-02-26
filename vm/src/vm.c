@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/14 11:04:28 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/24 17:44:36 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ t_vm		input_data(t_vm data, int nb, char **pc_adr)
 	else
 		base_addr = data.addr + MEM_SIZE / data.nb_pros * (nb - 1);
 	*pc_adr = base_addr;
-	while (i < data.play[nb - 1].len)
+	while (i < data.play[nb - 1].len/* - 4 * nb*/)
 	{
 		*(base_addr + i) = data.play[nb - 1].code[i];
+		data.color[(int)(base_addr - data.addr) + i] = nb;
 		i++;
 	}
 	return (data);
@@ -87,4 +88,32 @@ void		vm_stuff(t_vm data)
 		i++;
 	}
 	gates_are_open(data, ret);
+	i = 0;
+	j = 0;
+	ft_printf("         ");
+	while (i < 64)
+	{
+		if (i < 10)
+			ft_putchar('0');
+		ft_printf("%d ", i);
+		i++;
+	}
+	ft_putstr("\n\n");//
+	i = 0;
+	while (i < MEM_SIZE)
+	{
+		if (i % 64 == 0 && i != 0)
+			ft_putchar('\n');
+		if (i % 64 == 0)
+		{
+			ft_putstr("0x0");
+			if (j < 16)
+				ft_putchar('0');
+			ft_printf("%x0 : ", j);
+			j += 4;
+		}
+		ft_printf("0%d ", data.color[i]);
+		i++;
+	}
+	ft_putstr("\n\n");
 }

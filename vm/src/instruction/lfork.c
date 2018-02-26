@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 14:06:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/09 01:43:37 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/24 18:12:52 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void	ft_lfork(t_inf inf, t_process *pros, t_vm vm)
+void	ft_lfork(t_inf inf, t_process *pros, t_vm *vm)
 {
 	t_process	*cpy;
 

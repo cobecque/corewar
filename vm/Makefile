@@ -43,7 +43,9 @@ SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
 		   process.c \
 		   murder.c \
 		   cycle.c \
-		   adv.c
+		   adv.c \
+		   process2.c \
+		   process3.c
 
 LIB_DIR = ../asm/libft
 LIBP_DIR = ../asm/libft/src/printf

@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:10:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/09 01:47:45 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/24 18:26:51 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_st(t_inf inf, t_process *pros, t_vm vm)
+void		ft_st(t_inf inf, t_process *pros, t_vm *vm)
 {
 	char			*adr;
 	int				i;
@@ -51,7 +51,7 @@ void		ft_st(t_inf inf, t_process *pros, t_vm vm)
 			adr = adr - (inf.min_addr + MEM_SIZE) + inf.min_addr;
 		i = 0;
 		j = 0;
-		if (vm.arg.ver_num.op == 1)
+		if (vm->arg.ver_num.op == 1)
 			ft_printf("P%5d | st r%d %d\n", pros->number, inf.val[0], res);
 		while (j < 4)
 		{
@@ -60,7 +60,9 @@ void		ft_st(t_inf inf, t_process *pros, t_vm vm)
 				adr = inf.min_addr;
 				i = 0;
 			}
-			*(adr + i) = pros->reg[inf.val[0]][j]; //SEGF sur max adr
+			*(adr + i) = pros->reg[inf.val[0]][j];
+			vm->color[i + (int)adr - (int)inf.min_addr] = pros->champ;
+		//	ft_printf("%d pour %d \n", i + adr - inf.min_addr, i);
 			j++;
 			i++;
 		}

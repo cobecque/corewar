@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 14:25:54 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/11 02:53:41 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/24 18:17:36 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_live(t_inf inf, t_process *pro, t_vm vm)
+void		ft_live(t_inf inf, t_process *pro, t_vm *vm)
 {
 	int	a;
 	int	b;
@@ -27,7 +27,7 @@ void		ft_live(t_inf inf, t_process *pro, t_vm vm)
 	b = pro->reg[1][3];
 	a = (a << 8) | (b);
 	b = inf.val[0];
-	if (vm.arg.ver_num.op == 1)
+	if (vm->arg.ver_num.op == 1)
 		ft_printf("P%5d | live %d\n", pro->number, b);
 	/*if (b == -1 || b == -2 || b == -3)
 	{
@@ -46,13 +46,13 @@ void		ft_live(t_inf inf, t_process *pro, t_vm vm)
 			pro->last_live[1] = -b;
 		}
 	}*/
-	while (i < vm.nb_pros)
+	while (i < vm->nb_pros)
 	{
-		if (b == vm.play[i].r1)
+		if (b == vm->play[i].r1)
 		{
-			if (vm.arg.ver_num.li == 1)
-				ft_printf("Player %d (%s) is said to be alive\n", vm.play[i].nb, vm.play[i].name);
-			pro->last_live[1] = vm.play[i].nb;
+			if (vm->arg.ver_num.li == 1)
+				ft_printf("Player %d (%s) is said to be alive\n", vm->play[i].nb, vm->play[i].name);
+			pro->last_live[1] = vm->play[i].nb;
 			break ;
 		}
 		else

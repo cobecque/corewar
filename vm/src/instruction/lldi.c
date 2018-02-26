@@ -6,13 +6,13 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 14:02:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/11 05:33:32 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/02/24 18:14:01 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-void		ft_lldi(t_inf inf, t_process *pros, t_vm vm)
+void		ft_lldi(t_inf inf, t_process *pros, t_vm *vm)
 {
 	int				res;
 	char			*adr;
@@ -92,7 +92,7 @@ void		ft_lldi(t_inf inf, t_process *pros, t_vm vm)
 			lol = lol + 256;
 		j = 0;
 		i = 0;
-		if (vm.arg.ver_num.op == 1)
+		if (vm->arg.ver_num.op == 1)
 			ft_printf("P%5d | lldi %d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n", pros->number, r1, r2, inf.val[2], r1, r2, res, lol - 256);
 		while (j < 4)
 		{

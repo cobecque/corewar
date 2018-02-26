@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:00:17 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/24 15:14:44 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 15:27:32 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,17 @@ t_process	*init_inf(t_process *cpy, t_vm vm, int *nb, int *bol)
 	return (cpy);
 }
 
-t_process	*gestion_process(t_process *pro, int cycle, t_vm vm)
+t_process	*gestion_process(t_process *pro, int cycle, t_vm *vm)
 {
 	t_process		*cpy;
 	t_var			var;
 
-	cpy = reverse_list(vm.arg.ver_num.cy, cycle, pro);
+	cpy = reverse_list(vm->arg.ver_num.cy, cycle, pro);
 	while (cpy != NULL)
 	{
 		if (cpy->live != -1)
 		{
-			cpy = start_gestion(cpy, vm, cycle);
+			cpy = start_gestion(cpy, *vm, cycle);
 			cpy = get_adr(cpy);
 			if (cpy->start_cycle + g_op_tab[cpy->line].cycle == cycle &&
 					cpy->line <= 17 && cpy->line >= 0 && cpy->seek == 1)

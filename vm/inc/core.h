@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/24 18:19:20 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 15:29:12 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ typedef struct				s_vm
 t_process					*calcul_val(t_process *c, int *y, unsigned int *a,
 		int *p);
 t_process					*kill_them_all(t_process *p, t_vm v, int cy, int c);
-t_process					*gestion_process(t_process *pro, int cy, t_vm vm);
+t_process					*gestion_process(t_process *pro, int cy, t_vm *vm);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 t_process					*ocp_invalid(t_process *c, int *bol, int *len);
 t_process					*dup_pros(t_process *src, t_inf inf, t_vm *vm);
@@ -185,8 +185,8 @@ t_process					*calc_len(t_process *p, int *l, int *bol, int nb);
 t_process					*calc_val(int *adv, int *nb, t_process *c);
 t_process					*get_adr(t_process *cpy);
 t_process					*reverse_list(int cy, int cycle, t_process *pro);
-t_process					*call_instru(t_process *cpy, t_var *var, t_vm vm);
-t_process					*if_must_be_call(t_process *cpy, t_var *var, t_vm vm);
+t_process					*call_instru(t_process *cpy, t_var *var, t_vm *vm);
+t_process					*if_must_be_call(t_process *cpy, t_var *var, t_vm *vm);
 t_process					*init_inf(t_process *cpy, t_vm vm, int *nb, int *bol);
 
 t_cycle						init_cycle(void);

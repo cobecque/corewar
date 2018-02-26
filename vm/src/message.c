@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 04:04:15 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/24 15:41:54 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 15:39:22 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void			message_champ(int nb, int i, t_champ champ)
 {
+	ft_printf("blblblb nb%d\n", nb);
 	if (nb == 1)
 		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", \
 				champ.nb, champ.len, champ.name, champ.comment);

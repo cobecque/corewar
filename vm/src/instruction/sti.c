@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/24 18:15:56 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 15:31:26 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void		ft_sti(t_inf inf, t_process *pros, t_vm *vm)
 				i = 0;
 			}
 			*(adr + i) = pros->reg[inf.val[0]][j];
-			vm->color[i] = pros->champ;
+			vm->color[i + (int)adr - (int)inf.min_addr] = pros->champ;
 			j++;
 			i++;
 		}

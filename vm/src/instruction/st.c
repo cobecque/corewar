@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:10:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/24 18:26:51 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 15:35:56 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void		ft_st(t_inf inf, t_process *pros, t_vm *vm)
 			}
 			*(adr + i) = pros->reg[inf.val[0]][j];
 			vm->color[i + (int)adr - (int)inf.min_addr] = pros->champ;
-		//	ft_printf("%d pour %d \n", i + adr - inf.min_addr, i);
+		//	ft_printf("%d pour %d avec %d\n", i + (int)adr - (int)inf.min_addr, i, pros->champ);
 			j++;
 			i++;
 		}

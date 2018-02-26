@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/24 17:44:36 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/02/26 15:40:59 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void		gates_are_open(t_vm data, t_process *lst)
 	data.ctd = CYCLE_TO_DIE;
 	data.cycle = 1;
 	winner = cycle_gestion(data, lst, cy);
-	if (winner != -1 && winner != 0 && data.arg.dump == 0)
+	ft_printf("%d\n", winner);
+	if (winner != -1 && winner != 0)
 		message_champ(2, winner, data.play[winner - 1]);
 }
 
@@ -88,6 +89,7 @@ void		vm_stuff(t_vm data)
 		i++;
 	}
 	gates_are_open(data, ret);
+/*	ft_printf("-->%d<--\n", data.color[1602]);
 	i = 0;
 	j = 0;
 	ft_printf("         ");
@@ -115,5 +117,5 @@ void		vm_stuff(t_vm data)
 		ft_printf("0%d ", data.color[i]);
 		i++;
 	}
-	ft_putstr("\n\n");
+	ft_putstr("\n\n");*/
 }

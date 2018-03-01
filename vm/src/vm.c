@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/27 16:39:56 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/01 15:37:01 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,24 @@ void		gates_are_open(t_vm data, t_process *lst)
 {
 	int			winner;
 	t_cycle		cy;
+	int			i;
 
+	i = 0;
+	while (i < data.nb_pros)
+	{
+		data.inf_v.last_live[i] = 0;
+		data.inf_v.nb_live[i] = 0;
+		data.inf_v.nb_pro_c[i] = 0;
+		i++;
+	}
 	cy = init_cycle();
 	data.ctd = CYCLE_TO_DIE;
 	data.cycle = 1;
+	if (data.arg.sdl == 1)
+		ft_init_ncurses(lst, data);
 	winner = cycle_gestion(data, lst, cy);
+	if (data.arg.sdl == 1)
+		ft_quit_ncurses();
 	if (winner != -1 && winner != 0)
 		message_champ(2, winner, data.play[winner - 1]);
 }

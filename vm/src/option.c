@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 05:26:30 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/13 10:11:03 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/01 15:28:35 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,11 @@ t_pam			get_end_sdl(t_pam pam, int argc, char **argv, int i)
 		else
 			pam.patern = ft_strdup("option -end  have no parameter");
 	}
-	if (ft_strcmp(argv[i], "-SDL") == 0)
+	if (ft_strcmp(argv[i], "-nc") == 0)
+	{
+		pam.nb++;
 		pam.sdl = 1;
+	}
 	return (pam);
 }
 

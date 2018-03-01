@@ -48,7 +48,8 @@ SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
 		   cycle.c \
 		   adv.c \
 		   process2.c \
-		   process3.c
+		   process3.c \
+		   ncurses.c
 
 LIB_DIR = ../asm/libft
 LIBP_DIR = ../asm/libft/src/printf
@@ -78,7 +79,7 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
 	@printf $(C_BLU) "        [ ✔ ] $<"
 
 $(NAME): $(OBJ_PATH)
-	@$(CC) $(FLAGS) $(OBJ_PATH) $(LIB_PATH) $(LIBP_PATH) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ_PATH) $(LIB_PATH) $(LIBP_PATH) -o $(NAME) -lncurses
 	@printf $(C_CYA) "        [ ✔ ] compiled → $(NAME)"
 	@printf "\n"
 

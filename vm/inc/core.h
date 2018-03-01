@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/27 15:09:58 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/01 15:42:59 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include "ft_printf.h"
+# include <ncurses.h>
 
 # define IND_SIZE			2
 # define REG_SIZE			4
@@ -162,6 +163,13 @@ typedef struct				s_op
 
 extern t_op					g_op_tab[];
 
+typedef struct				s_inf_V
+{
+	int						last_live[4];
+	int						nb_live[4];
+	int						nb_pro_c[4];
+}							t_inf_v;
+
 typedef struct				s_vm
 {
 	char					*addr;
@@ -173,6 +181,7 @@ typedef struct				s_vm
 	t_pam					arg;
 	t_process				*pros;
 	t_champ					play[MAX_PLAYERS];
+	t_inf_v					inf_v;
 }							t_vm;
 
 t_process					*calcul_val(t_process *c, int *y, unsigned int *a,
@@ -207,6 +216,7 @@ t_ver						get_verbose(int nu);
 t_pam						get_option(int argc, char **argv);
 
 t_vm						fill_champ(int *fd);
+t_vm						ft_ncurses(t_process *pro, t_vm vm);
 
 void						reg_write(t_process *pros, unsigned int val,
 		int reg, int size);
@@ -231,6 +241,8 @@ void						cpy_reg(int *tab, int **res);
 void						vm_stuff(t_vm data);
 void						dump(char *ptr);
 void						message(int nb);
+void						ft_init_ncurses(t_process *pro, t_vm vm);
+void						ft_quit_ncurses(void);
 
 char						*get_hexa(int val);
 char						*get_relative(char *adr, t_inf inf);

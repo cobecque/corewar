@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 15:56:34 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/01 15:43:24 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/01 17:03:57 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,6 @@ void			ft_init_game(t_process *pro, WINDOW *game, t_vm vm)
 	y = 1;
 	nb = 5;
 	c = 0;
-	pro->carry = 0;
 	while (i < 64)
 	{
 		j = 0;

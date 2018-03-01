@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 09:46:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 15:42:45 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/01 18:22:04 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,20 @@ void			ft_is_dump(t_vm virtual)
 
 int				cycle_gestion(t_vm virtual, t_process *pro, t_cycle cy)
 {
+	int		i;
+
 	while (42)
 	{
+		i = 0;
 		cy.i = 0;
 		if (cy.cycle_d == virtual.ctd)
 		{
 			pro = cycle_to_die(pro, &cy, &virtual);
+			while (i < virtual.nb_pros)
+			{
+				virtual.inf_v.nb_live[i] = 0;
+				i++;
+			}
 			if (count_alive(pro) == 0)
 				break ;
 		}

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 15:42:59 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/01 19:11:49 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "libft.h"
 # include "ft_printf.h"
 # include <ncurses.h>
+# include <sys/types.h>
+# include <signal.h>
 
 # define IND_SIZE			2
 # define REG_SIZE			4
@@ -58,6 +60,7 @@
 # define COMMENT_LENGTH		(2048)
 # define COREWAR_EXEC_MAGIC	0xea83f3
 
+int							STATUS;
 typedef struct				s_cycle
 {
 	int						i;
@@ -127,6 +130,7 @@ typedef struct				s_pam
 	int						sdl;
 	int						ver;
 	int						dump;
+	int						music;
 	int						error;
 	char					*patern;
 	t_ver					ver_num;

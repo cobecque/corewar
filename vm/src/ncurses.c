@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 15:56:34 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/01 17:03:57 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/02 19:23:44 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,6 +270,7 @@ t_vm			ft_ncurses(t_process *pro, t_vm vm)
 				free(menu);
 				free(game);
 				endwin();
+				kill(0, SIGKILL);
 				exit(-1);
 			}
 		}
@@ -282,6 +283,7 @@ t_vm			ft_ncurses(t_process *pro, t_vm vm)
 		free(menu);
 		free(game);
 		endwin();
+		kill(0, SIGKILL);
 		exit(-1);
 	}
 	ch = getch();
@@ -300,7 +302,10 @@ void			ft_quit_ncurses(void)
 	while (1)
 	{
 		if (getch() == 27)
+		{
+			kill(0, SIGKILL);
 			break ;
+		}
 	}
 	endwin();
 }

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 15:37:01 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/02 19:23:16 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,48 @@ t_vm		input_data(t_vm data, int nb, char **pc_adr)
 	return (data);
 }
 
+char		*get_afplay(t_vm vm)
+{
+	int			i;
+
+	i = 0;
+	while (i < vm.nb_pros)
+	{
+		if (ft_strcmp(vm.play[i].name, "Yandere-chan") == 0)
+			return ("afplay ./sound_bank/yuki.mp3");
+		i++;
+	}
+	if (vm.nb_pros == 1)
+		return ("afplay ./sound_bank/arcade.mp3");
+	if (vm.nb_pros == 2)
+		return ("afplay ./sound_bank/red_theme.mp3");
+	if (vm.nb_pros == 3)
+		return ("afplay ./sound_bank/necrodancer.mp3");
+	if (vm.nb_pros == 4)
+		return ("afplay ./sound_bank/megalovania.mp3");
+	return ("afplay ./sound_bank/ascenseur.mp3");
+}
+
+void		play_music(t_vm vm, pid_t son)
+{
+	char	*to_play;
+
+	to_play = get_afplay(vm);
+	while (42)
+		system(to_play);
+		//system("afplay ./sound_bank/megalovania.mp3");
+	kill(son, SIGKILL);
+}
+
 void		gates_are_open(t_vm data, t_process *lst)
 {
 	int			winner;
 	t_cycle		cy;
 	int			i;
+	pid_t		father;
 
 	i = 0;
+	father = 0;
 	while (i < data.nb_pros)
 	{
 		data.inf_v.last_live[i] = 0;
@@ -67,11 +102,24 @@ void		gates_are_open(t_vm data, t_process *lst)
 	data.cycle = 1;
 	if (data.arg.sdl == 1)
 		ft_init_ncurses(lst, data);
-	winner = cycle_gestion(data, lst, cy);
-	if (data.arg.sdl == 1)
-		ft_quit_ncurses();
-	if (winner != -1 && winner != 0)
-		message_champ(2, winner, data.play[winner - 1]);
+	if (data.arg.music == 1)
+		father = fork();
+	if (father == 0 && data.arg.music == 1)
+		play_music(data, father);
+	else
+	{
+		ft_printf("father %d\n", father);
+		winner = cycle_gestion(data, lst, cy);
+		if (data.arg.music == 1)
+		{
+			ft_putstr("Rekt get\n");
+			kill(0, SIGKILL);
+		}
+		if (data.arg.sdl == 1)
+			ft_quit_ncurses();
+		if (winner != -1 && winner != 0)
+			message_champ(2, winner, data.play[winner - 1]);
+	}
 }
 
 void		vm_stuff(t_vm data)

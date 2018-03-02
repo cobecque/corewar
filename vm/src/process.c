@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:00:17 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/26 15:27:32 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/02 18:41:33 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ t_process	*start_gestion(t_process *cpy, t_vm vm, int cycle)
 		cpy->pc = cpy->inf.min_addr;
 	if (cpy->pc < cpy->inf.min_addr)
 	{
-		if (cpy->pc < 0)
-			cpy->pc = (char *)((long)cpy->pc + (cpy->inf.min_addr +
-						MEM_SIZE));
+		if ((int)cpy->pc < 0)
+			cpy->pc = cpy->pc + (cpy->inf.min_addr +
+						MEM_SIZE - cpy->inf.min_addr);
 		else
 			cpy->pc = (char *)((cpy->inf.min_addr + MEM_SIZE) -
 					(long)cpy->pc);

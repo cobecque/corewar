@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 16:55:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/27 12:20:40 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/01 22:39:55 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ char		*if_uper_max(char *adr, t_inf inf)
 		}
 		if (adr < inf.min_addr)
 		{
-			if (adr < 0)
-				adr = (int)inf.min_addr + MEM_SIZE + adr;
+			if (tmp < 0)
+				adr = inf.min_addr + (MEM_SIZE - (int)inf.min_addr - (int)inf.min_addr + (int)adr);
 			else
-				adr = (inf.min_addr + MEM_SIZE) - (int)adr;
+				adr = inf.min_addr + MEM_SIZE - ((int)inf.min_addr - (int)adr);
 		}
 	}
 	return (adr);
@@ -37,13 +37,19 @@ char		*if_uper_max(char *adr, t_inf inf)
 
 char		*get_relative(char *adr, t_inf inf)
 {
+	int		tmp;
+
+	tmp = (int)adr;
 	if (adr < inf.min_addr)
 	{
-		if ((int)adr > 0)
+		if (tmp >= 0)
 			adr = inf.min_addr + MEM_SIZE - ((int)inf.min_addr -
-					((int)adr % MEM_SIZE));
+					((int)adr));
 		else
-			adr = inf.min_addr + MEM_SIZE + (int)adr % MEM_SIZE;
+		{
+			tmp = (tmp % MEM_SIZE);
+			adr = inf.min_addr + (MEM_SIZE - (int)inf.min_addr + tmp);
+		}
 	}
 	else if (adr >= (inf.min_addr + MEM_SIZE))
 		adr = if_uper_max(adr, inf);

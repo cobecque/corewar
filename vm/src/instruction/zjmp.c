@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:26:36 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 21:43:58 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/02 19:32:37 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		ft_zjmp(t_inf inf, t_process *pros, t_vm *vm)
 		{
 			value = (int)pros->ins;
 			if (value >= 0)
-				pros->ins = (inf.min_addr + MEM_SIZE - 1 - (int)pros->ins);
+				pros->ins = inf.min_addr + (MEM_SIZE - ((int)inf.min_addr - (int)pros->ins));
 			else
 				pros->ins = inf.min_addr + (MEM_SIZE - (int)inf.min_addr + (int)pros->ins);
 		}

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 14:12:48 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 23:06:22 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/02 18:00:04 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_process		*check_ocp(t_process *cpy, int *nb, int *bol, t_vm vm)
 	cpy->ocp = *(cpy->pc);
 	if (ocp_valid(cpy->line, cpy->ocp) == 0)
 		*bol = -1;
-	ft_printf("le ocp pas bon olala %d pour pros %d\n", *bol, cpy->number);
 	cpy->pc++;
 	if (cpy->pc >= cpy->inf.min_addr + MEM_SIZE)
 		cpy->pc = cpy->inf.min_addr;

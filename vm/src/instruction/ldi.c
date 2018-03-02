@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:28:23 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 18:56:06 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/02 18:47:47 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void				ft_ldi(t_inf inf, t_process *pros, t_vm *vm)
 			ft_printf("P%5d | ldi %d %d r%d\n       |", pros->number, r.r1,
 					r.r2, inf.val[2]);
 			ft_printf(" -> load from %d + %d = %d (with pc and mod %d)\n", r.r1,
-					r.r2, r.res, lol - 256);
+					r.r2, r.res, adr - inf.min_addr);
 		}
 		pros = s_fill_reg(pros, adr, inf);
 	}

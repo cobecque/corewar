@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:33:00 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/27 16:11:02 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/02 18:47:52 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void			ft_sti(t_inf inf, t_process *pros, t_vm *vm)
 			ft_printf("P%5d | sti r%d %d %d\n       ", pros->number,
 					inf.val[0], r.r1, r.r2);
 			ft_printf("| -> store to %d + %d = %d (with pc and mod %d)\n",
-					r.r1, r.r2, r.res, lol - 256);
+					r.r1, r.r2, r.res, adr - inf.min_addr);
 		}
 		adr = fill_adr(pros, adr, inf, vm);
 	}

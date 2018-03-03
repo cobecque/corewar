@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/02 19:23:16 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/03 01:23:07 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,13 +108,9 @@ void		gates_are_open(t_vm data, t_process *lst)
 		play_music(data, father);
 	else
 	{
-		ft_printf("father %d\n", father);
 		winner = cycle_gestion(data, lst, cy);
 		if (data.arg.music == 1)
-		{
-			ft_putstr("Rekt get\n");
 			kill(0, SIGKILL);
-		}
 		if (data.arg.sdl == 1)
 			ft_quit_ncurses();
 		if (winner != -1 && winner != 0)
@@ -148,5 +144,6 @@ void		vm_stuff(t_vm data)
 		data = input_data(data, i + 1, &(cpy->pc));
 		i++;
 	}
+	data.number = data.nb_pros;
 	gates_are_open(data, ret);
 }

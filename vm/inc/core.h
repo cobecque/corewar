@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 19:11:49 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/02 20:54:58 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,7 @@ typedef struct				s_vm
 	int						nb_pros;
 	int						cycle;
 	int						ctd;
+	int						number;
 	t_pam					arg;
 	t_process				*pros;
 	t_champ					play[MAX_PLAYERS];

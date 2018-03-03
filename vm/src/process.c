@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:00:17 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/02 18:41:33 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/02 22:18:44 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_process	*start_gestion(t_process *cpy, t_vm vm, int cycle)
 	{
 		if ((int)cpy->pc < 0)
 			cpy->pc = cpy->pc + (cpy->inf.min_addr +
-						MEM_SIZE - cpy->inf.min_addr);
+					MEM_SIZE - cpy->inf.min_addr);
 		else
 			cpy->pc = (char *)((cpy->inf.min_addr + MEM_SIZE) -
 					(long)cpy->pc);
@@ -104,17 +104,14 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm *vm)
 	cpy = reverse_list(vm->arg.ver_num.cy, cycle, pro);
 	while (cpy != NULL)
 	{
-		if (cpy->live != -1)
+		cpy = start_gestion(cpy, *vm, cycle);
+		cpy = get_adr(cpy);
+		if (cpy->start_cycle + g_op_tab[cpy->line].cycle == cycle &&
+				cpy->line <= 17 && cpy->line >= 0 && cpy->seek == 1)
 		{
-			cpy = start_gestion(cpy, *vm, cycle);
-			cpy = get_adr(cpy);
-			if (cpy->start_cycle + g_op_tab[cpy->line].cycle == cycle &&
-					cpy->line <= 17 && cpy->line >= 0 && cpy->seek == 1)
-			{
-				if (!cpy->pc)
-					break ;
-				cpy = if_must_be_call(cpy, &var, vm);
-			}
+			if (!cpy->pc)
+				break ;
+			cpy = if_must_be_call(cpy, &var, vm);
 		}
 		cpy = cpy->pre;
 	}

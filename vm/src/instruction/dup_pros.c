@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 22:19:09 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/02 23:32:08 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_process	*init_new(t_process *new, t_process *src)
 	return (new);
 }
 
-t_process	*keep_in(t_process *new, t_process *tmp, t_process *src, int nb)
+t_process	*keep_in(t_process *new)
 {
 	int		i;
 
@@ -51,10 +51,6 @@ t_process	*keep_in(t_process *new, t_process *tmp, t_process *src, int nb)
 		new->live_champ[i] = 0;
 		i++;
 	}
-	if (nb == 0 && src->number == 0)
-		new->number = 1;
-	else
-		new->number = tmp->number + 1;
 	return (new);
 }
 
@@ -104,11 +100,13 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_vm *vm)
 	if (!(new = (t_process *)malloc(sizeof(t_process))))
 		return (NULL);
 	new = init_new(new, src);
-	new = keep_in(new, tmp, src, nb);
+	new = keep_in(new);
 	new = fork_lf(new, src, inf, &adr);
 	new->ins = get_relative(new->ins, inf);
 	new->pc = new->ins;
 	tmp->next = new;
+	new->number = vm->number + 1;
+	vm->number++;
 	new->pre = tmp;
 	tmp = src;
 	s_print(adr, vm, inf, src);

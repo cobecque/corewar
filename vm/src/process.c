@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:00:17 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 05:51:09 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/06 00:32:01 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ t_process	*calcul_val(t_process *cpy, int *yolo, unsigned int *a, int *p)
 	if (*p == 0)
 		*a = *(cpy->pc + (*yolo));
 	else
-		//*a = ((*a) << 8) | ((unsigned int)(*(cpy->pc + (*yolo)) << 24) >> 24);
 		*a = ((*a) << 8) | (*(cpy->pc + (*yolo)) & 0xFF);
 	return (cpy);
 }

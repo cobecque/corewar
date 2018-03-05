@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:44:01 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 03:26:15 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/06 00:31:36 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int			final_murder(t_process *cpy, t_vm vm, int cycle, int ctd)
 {
 	if (vm.arg.ver_num.de == 1)
-		ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n"
-				, cpy->number, cycle - cpy->last_live[0] + 1,
+		ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n",
+				cpy->number, cycle - cpy->last_live[0] + 1,
 				ctd);
 	return (-1);
 }
@@ -50,10 +50,9 @@ t_process	*kill_dat_process(t_process *pro, t_vm *vm)
 	if (pro->next == NULL && pro->pre == NULL)
 	{
 		vm->start_l = NULL;
-		free(pro);
-		return (NULL);
+		tmp = NULL;
 	}
-	if (pro->next != NULL)
+	else if (pro->next != NULL)
 	{
 		tmp = pro->next;
 		tmp->pre = pro->pre;
@@ -80,7 +79,7 @@ void		print_dead(t_vm *vm, t_process *cpy, int ctd, int cycle)
 		bol = 1;
 	if (vm->arg.ver_num.de == 1)
 		ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n",
-				cpy->number, cycle - bol - cpy->last_live[0] , ctd);
+				cpy->number, cycle - bol - cpy->last_live[0], ctd);
 }
 
 t_process	*kill_them_all(t_process *pro, t_vm *vm, int cycle, int ctd)

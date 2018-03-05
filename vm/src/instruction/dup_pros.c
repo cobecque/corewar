@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 04:40:04 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/06 00:27:34 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,11 @@ static void	s_print(char *adr, t_vm *vm, t_inf inf, t_process *src)
 	if ((lol > 4456 || lol < 0) && src->line != 14)
 		lol = (int)adr;
 	if (vm->arg.ver_num.op == 1 && src->line == 11)
-		ft_printf("P%5d | fork %d (%d)\n", src->number, inf.val[0], adr - inf.min_addr);
+		ft_printf("P%5d | fork %d (%d)\n", src->number, inf.val[0],
+				adr - inf.min_addr);
 	if (vm->arg.ver_num.op == 1 && src->line == 14)
-		ft_printf("P%5d | lfork %d (%d)\n", src->number, inf.val[0], adr - inf.min_addr);
+		ft_printf("P%5d | lfork %d (%d)\n", src->number, inf.val[0],
+				adr - inf.min_addr);
 }
 
 t_process	*dup_pros(t_process *src, t_inf inf, t_vm *vm)

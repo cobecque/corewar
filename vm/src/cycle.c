@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 09:46:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 18:22:04 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 01:44:02 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_process		*cycle_to_die(t_process *pro, t_cycle *cy, t_vm *vm)
 	cy->yolo = winner(pro);
 	if (cy->yolo != -1)
 		cy->win = cy->yolo;
-	pro = kill_them_all(pro, *vm, vm->cycle, vm->ctd);
+	pro = kill_them_all(pro, vm, vm->cycle, vm->ctd);
 	if (cy->die >= NBR_LIVE || cy->check == 10)
 	{
 		cy->check = 0;
@@ -46,22 +46,6 @@ t_process		*cycle_to_die(t_process *pro, t_cycle *cy, t_vm *vm)
 	return (pro);
 }
 
-int				count_alive(t_process *pro)
-{
-	int			i;
-	t_process	*tmp;
-
-	i = 0;
-	tmp = pro;
-	while (tmp != NULL)
-	{
-		if (tmp->live != -1)
-			i++;
-		tmp = tmp->next;
-	}
-	return (i);
-}
-
 void			ft_is_dump(t_vm virtual)
 {
 	if (virtual.arg.dump != 0 && virtual.cycle == virtual.arg.dump)
@@ -71,23 +55,22 @@ void			ft_is_dump(t_vm virtual)
 	}
 }
 
+void			prep_die(t_cycle *cy, t_process *pro)
+{
+	cy->yolo = winner(pro);
+	if (cy->yolo != -1)
+		cy->win = cy->yolo;
+}
+
 int				cycle_gestion(t_vm virtual, t_process *pro, t_cycle cy)
 {
-	int		i;
-
 	while (42)
 	{
-		i = 0;
 		cy.i = 0;
 		if (cy.cycle_d == virtual.ctd)
 		{
 			pro = cycle_to_die(pro, &cy, &virtual);
-			while (i < virtual.nb_pros)
-			{
-				virtual.inf_v.nb_live[i] = 0;
-				i++;
-			}
-			if (count_alive(pro) == 0)
+			if (virtual.alive == 0)
 				break ;
 		}
 		pro = gestion_process(pro, virtual.cycle, &virtual);
@@ -95,10 +78,8 @@ int				cycle_gestion(t_vm virtual, t_process *pro, t_cycle cy)
 			virtual = ft_ncurses(pro, virtual);
 		if (virtual.ctd < 0)
 		{
-			cy.yolo = winner(pro);
-			if (cy.yolo != -1)
-				cy.win = cy.yolo;
-			pro = kill_them_all(pro, virtual, virtual.cycle, virtual.ctd);
+			prep_die(&cy, pro);
+			pro = kill_them_all(pro, &virtual, virtual.cycle, virtual.ctd);
 			break ;
 		}
 		ft_is_dump(virtual);

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/02 20:54:58 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 01:49:13 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # include <ncurses.h>
 # include <sys/types.h>
 # include <signal.h>
+# include <time.h>
 
+# define SPEED				1000
 # define IND_SIZE			2
 # define REG_SIZE			4
 # define DIR_SIZE			REG_SIZE
@@ -182,16 +184,18 @@ typedef struct				s_vm
 	int						nb_pros;
 	int						cycle;
 	int						ctd;
+	int						alive;
 	int						number;
 	t_pam					arg;
 	t_process				*pros;
+	t_process				*end_l;
 	t_champ					play[MAX_PLAYERS];
 	t_inf_v					inf_v;
 }							t_vm;
 
 t_process					*calcul_val(t_process *c, int *y, unsigned int *a,
 		int *p);
-t_process					*kill_them_all(t_process *p, t_vm v, int cy, int c);
+t_process					*kill_them_all(t_process *p, t_vm *v, int cy, int c);
 t_process					*gestion_process(t_process *pro, int cy, t_vm *vm);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 t_process					*ocp_invalid(t_process *c, int *bol, int *len);
@@ -205,7 +209,7 @@ t_process					*check_ocp(t_process *p, int *n, int *b, t_vm vm);
 t_process					*calc_len(t_process *p, int *l, int *bol, int nb);
 t_process					*calc_val(int *adv, int *nb, t_process *c);
 t_process					*get_adr(t_process *cpy);
-t_process					*reverse_list(int cy, int cycle, t_process *pro);
+t_process					*reverse_list(int cy, int cycle, t_vm *vm);
 t_process					*call_instru(t_process *cpy, t_var *var, t_vm *vm);
 t_process					*if_must_be_call(t_process *cpy, t_var *var, t_vm *vm);
 t_process					*init_inf(t_process *cpy, t_vm vm, int *nb, int *bol);
@@ -248,9 +252,15 @@ void						dump(char *ptr);
 void						message(int nb);
 void						ft_init_ncurses(t_process *pro, t_vm vm);
 void						ft_quit_ncurses(void);
+void						ft_init_game(t_process *p, WINDOW *game, t_vm vm);
+void						ft_catch_event(WINDOW *menu, WINDOW *game, int ch);
+void						get_col(t_process *pro, t_vm vm, int y, int *p);
+void						ft_menu(WINDOW *m, t_vm *vm, int nb, t_process *p);
+void						play_music(t_vm vm, pid_t son);
 
 char						*get_hexa(int val);
 char						*get_relative(char *adr, t_inf inf);
+char						*get_afplay(t_vm vm);
 
 int							cycle_gestion(t_vm vm, t_process *pro, t_cycle cy);
 int							type_param(int ocp, int pos, int line, int *res);

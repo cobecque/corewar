@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:34:49 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/02 23:32:08 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/04 23:01:30 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,16 +87,9 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_vm *vm)
 {
 	t_process	*new;
 	t_process	*tmp;
-	int			nb;
 	char		*adr;
 
-	nb = 0;
 	tmp = src;
-	while (tmp->next != NULL)
-	{
-		nb++;
-		tmp = tmp->next;
-	}
 	if (!(new = (t_process *)malloc(sizeof(t_process))))
 		return (NULL);
 	new = init_new(new, src);
@@ -104,10 +97,12 @@ t_process	*dup_pros(t_process *src, t_inf inf, t_vm *vm)
 	new = fork_lf(new, src, inf, &adr);
 	new->ins = get_relative(new->ins, inf);
 	new->pc = new->ins;
-	tmp->next = new;
+	vm->end_l->next = new;
 	new->number = vm->number + 1;
 	vm->number++;
-	new->pre = tmp;
+	vm->alive++;
+	new->pre = vm->end_l;
+	vm->end_l = new;
 	tmp = src;
 	s_print(adr, vm, inf, src);
 	return (tmp);

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 15:42:09 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/02 18:49:28 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/04 23:06:39 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_process		*call_instru(t_process *cpy, t_var *var, t_vm *vm)
 	}
 	cpy = move_pc(cpy, var->len);
 	free(cpy->inf.val);
+	free(cpy->inf.l);
+	free(cpy->inf.typ);
 	return (cpy);
 }
 

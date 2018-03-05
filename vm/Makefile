@@ -49,7 +49,10 @@ SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
 		   adv.c \
 		   process2.c \
 		   process3.c \
-		   ncurses.c
+		   ncurses.c \
+		   init_nc.c \
+		   spec_nc.c \
+		   music.c
 
 LIB_DIR = ../asm/libft
 LIBP_DIR = ../asm/libft/src/printf

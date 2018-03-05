@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 16:55:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 22:39:55 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 01:49:57 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ char		*if_uper_max(char *adr, t_inf inf)
 		if (adr < inf.min_addr)
 		{
 			if (tmp < 0)
-				adr = inf.min_addr + (MEM_SIZE - (int)inf.min_addr - (int)inf.min_addr + (int)adr);
+				adr = inf.min_addr + (MEM_SIZE - (int)inf.min_addr -
+						(int)inf.min_addr + (int)adr);
 			else
 				adr = inf.min_addr + MEM_SIZE - ((int)inf.min_addr - (int)adr);
 		}

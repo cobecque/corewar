@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/03 01:23:07 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 01:48:20 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,58 +48,33 @@ t_vm		input_data(t_vm data, int nb, char **pc_adr)
 	return (data);
 }
 
-char		*get_afplay(t_vm vm)
+void		init_visu_info(t_vm *vm, t_cycle *cy)
 {
 	int			i;
 
 	i = 0;
-	while (i < vm.nb_pros)
+	while (i < vm->nb_pros)
 	{
-		if (ft_strcmp(vm.play[i].name, "Yandere-chan") == 0)
-			return ("afplay ./sound_bank/yuki.mp3");
+		vm->inf_v.last_live[i] = 0;
+		vm->inf_v.nb_live[i] = 0;
+		vm->inf_v.nb_pro_c[i] = 0;
 		i++;
 	}
-	if (vm.nb_pros == 1)
-		return ("afplay ./sound_bank/arcade.mp3");
-	if (vm.nb_pros == 2)
-		return ("afplay ./sound_bank/red_theme.mp3");
-	if (vm.nb_pros == 3)
-		return ("afplay ./sound_bank/necrodancer.mp3");
-	if (vm.nb_pros == 4)
-		return ("afplay ./sound_bank/megalovania.mp3");
-	return ("afplay ./sound_bank/ascenseur.mp3");
-}
-
-void		play_music(t_vm vm, pid_t son)
-{
-	char	*to_play;
-
-	to_play = get_afplay(vm);
-	while (42)
-		system(to_play);
-		//system("afplay ./sound_bank/megalovania.mp3");
-	kill(son, SIGKILL);
+	*cy = init_cycle();
+	vm->alive = vm->nb_pros;
+	vm->number = vm->nb_pros;
+	vm->ctd = CYCLE_TO_DIE;
+	vm->cycle = 1;
 }
 
 void		gates_are_open(t_vm data, t_process *lst)
 {
 	int			winner;
 	t_cycle		cy;
-	int			i;
 	pid_t		father;
 
-	i = 0;
 	father = 0;
-	while (i < data.nb_pros)
-	{
-		data.inf_v.last_live[i] = 0;
-		data.inf_v.nb_live[i] = 0;
-		data.inf_v.nb_pro_c[i] = 0;
-		i++;
-	}
-	cy = init_cycle();
-	data.ctd = CYCLE_TO_DIE;
-	data.cycle = 1;
+	init_visu_info(&data, &cy);
 	if (data.arg.sdl == 1)
 		ft_init_ncurses(lst, data);
 	if (data.arg.music == 1)
@@ -121,12 +96,10 @@ void		gates_are_open(t_vm data, t_process *lst)
 void		vm_stuff(t_vm data)
 {
 	int			i;
-	int			j;
 	t_process	*ret;
 	t_process	*cpy;
 
 	i = 0;
-	j = 0;
 	ret = NULL;
 	cpy = NULL;
 	if (!(data.addr = malloc_vm()))
@@ -142,8 +115,9 @@ void		vm_stuff(t_vm data)
 		else
 			cpy = cpy->next;
 		data = input_data(data, i + 1, &(cpy->pc));
+		data.end_l = cpy;
 		i++;
 	}
-	data.number = data.nb_pros;
 	gates_are_open(data, ret);
+	free(data.addr);
 }

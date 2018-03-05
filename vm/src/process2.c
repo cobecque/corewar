@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 14:12:48 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/02 18:00:04 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/04 22:50:05 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,12 @@ t_process		*calc_val(int *adv, int *nb, t_process *cpy)
 	return (cpy);
 }
 
-t_process		*reverse_list(int cy, int cycle, t_process *pro)
+t_process		*reverse_list(int cy, int cycle, t_vm *vm)
 {
 	t_process	*cpy;
 
-	cpy = pro;
+	cpy = vm->end_l;
 	if (cy == 1)
 		ft_printf("It is now cycle %d\n", cycle);
-	while (cpy->next != NULL)
-		cpy = cpy->next;
 	return (cpy);
 }

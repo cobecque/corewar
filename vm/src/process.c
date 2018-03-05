@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:00:17 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/02 22:18:44 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/04 22:46:33 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ t_process	*gestion_process(t_process *pro, int cycle, t_vm *vm)
 	t_process		*cpy;
 	t_var			var;
 
-	cpy = reverse_list(vm->arg.ver_num.cy, cycle, pro);
+	cpy = reverse_list(vm->arg.ver_num.cy, cycle, vm);
 	while (cpy != NULL)
 	{
 		cpy = start_gestion(cpy, *vm, cycle);

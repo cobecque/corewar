@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 01:22:07 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/05 01:24:14 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 06:01:04 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ void			ft_quit_ncurses(void)
 	{
 		if (getch() == 27)
 		{
+			endwin();
 			kill(0, SIGKILL);
 			break ;
 		}
 	}
-	endwin();
 }

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 02:58:10 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/20 12:13:00 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 03:29:11 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_process	*init_new_process(t_process *new, int nb)
 	new->carry = 0;
 	new->live = 0;
 	new->last_live[0] = 0;
-	new->last_live[1] = 0;
+	new->last_live[1] = nb;
 	new->start_cycle = -1;
 	new->number = nb;
 	new->champ = nb;

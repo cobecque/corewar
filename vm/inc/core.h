@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 01:49:13 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 05:26:22 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <signal.h>
 # include <time.h>
 
-# define SPEED				1000
+# define SPEED				800
 # define IND_SIZE			2
 # define REG_SIZE			4
 # define DIR_SIZE			REG_SIZE
@@ -62,7 +62,6 @@
 # define COMMENT_LENGTH		(2048)
 # define COREWAR_EXEC_MAGIC	0xea83f3
 
-int							STATUS;
 typedef struct				s_cycle
 {
 	int						i;
@@ -169,7 +168,7 @@ typedef struct				s_op
 
 extern t_op					g_op_tab[];
 
-typedef struct				s_inf_V
+typedef struct				s_inf_v
 {
 	int						last_live[4];
 	int						nb_live[4];
@@ -189,30 +188,32 @@ typedef struct				s_vm
 	t_pam					arg;
 	t_process				*pros;
 	t_process				*end_l;
+	t_process				*start_l;
 	t_champ					play[MAX_PLAYERS];
 	t_inf_v					inf_v;
 }							t_vm;
 
 t_process					*calcul_val(t_process *c, int *y, unsigned int *a,
 		int *p);
-t_process					*kill_them_all(t_process *p, t_vm *v, int cy, int c);
+t_process					*kill_them_all(t_process *p, t_vm *v, int cy,
+		int c);
+t_process					*if_must_be_call(t_process *c, t_var *v, t_vm *vm);
+t_process					*call_instru(t_process *cpy, t_var *var, t_vm *vm);
 t_process					*gestion_process(t_process *pro, int cy, t_vm *vm);
+t_process					*init_inf(t_process *c, t_vm vm, int *nb, int *b);
+t_process					*calc_len(t_process *p, int *l, int *bol, int nb);
+t_process					*check_ocp(t_process *p, int *n, int *b, t_vm vm);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 t_process					*ocp_invalid(t_process *c, int *bol, int *len);
 t_process					*dup_pros(t_process *src, t_inf inf, t_vm *vm);
 t_process					*find_val(t_process *cpy, int *adv, int *len);
 t_process					*start_gestion(t_process *c, t_vm vm, int cy);
 t_process					*adv_printf(t_process *cpy, int len, int nb);
+t_process					*calc_val(int *adv, int *nb, t_process *c);
+t_process					*reverse_list(int cy, int cycle, t_vm *vm);
 t_process					*add_new_process(t_process *src, int nb);
 t_process					*move_pc(t_process *cpy, int len);
-t_process					*check_ocp(t_process *p, int *n, int *b, t_vm vm);
-t_process					*calc_len(t_process *p, int *l, int *bol, int nb);
-t_process					*calc_val(int *adv, int *nb, t_process *c);
 t_process					*get_adr(t_process *cpy);
-t_process					*reverse_list(int cy, int cycle, t_vm *vm);
-t_process					*call_instru(t_process *cpy, t_var *var, t_vm *vm);
-t_process					*if_must_be_call(t_process *cpy, t_var *var, t_vm *vm);
-t_process					*init_inf(t_process *cpy, t_vm vm, int *nb, int *bol);
 
 t_cycle						init_cycle(void);
 
@@ -229,7 +230,11 @@ t_vm						ft_ncurses(t_process *pro, t_vm vm);
 
 void						reg_write(t_process *pros, unsigned int val,
 		int reg, int size);
+void						ft_menu(WINDOW *m, t_vm *vm, int nb, t_process *p);
+void						ft_catch_event(WINDOW *menu, WINDOW *game, int ch);
+void						ft_init_game(t_process *p, WINDOW *game, t_vm vm);
 void						message_champ(int nb, int winner, t_champ champ);
+void						get_col(t_process *pro, t_vm vm, int y, int *p);
 void						ft_lfork(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_lldi(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_fork(t_inf inf, t_process *pros, t_vm *vm);
@@ -246,25 +251,23 @@ void						ft_and(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_or(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_st(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_ld(t_inf inf, t_process *pros, t_vm *vm);
+void						ft_init_ncurses(t_process *pro, t_vm vm);
+void						play_music(t_vm vm, pid_t son);
 void						cpy_reg(int *tab, int **res);
+void						ft_quit_ncurses(void);
 void						vm_stuff(t_vm data);
 void						dump(char *ptr);
 void						message(int nb);
-void						ft_init_ncurses(t_process *pro, t_vm vm);
-void						ft_quit_ncurses(void);
-void						ft_init_game(t_process *p, WINDOW *game, t_vm vm);
-void						ft_catch_event(WINDOW *menu, WINDOW *game, int ch);
-void						get_col(t_process *pro, t_vm vm, int y, int *p);
-void						ft_menu(WINDOW *m, t_vm *vm, int nb, t_process *p);
-void						play_music(t_vm vm, pid_t son);
 
-char						*get_hexa(int val);
 char						*get_relative(char *adr, t_inf inf);
+char						*get_hexa(int val);
 char						*get_afplay(t_vm vm);
 
 int							cycle_gestion(t_vm vm, t_process *pro, t_cycle cy);
 int							type_param(int ocp, int pos, int line, int *res);
 int							catch_reg_val(int nb, t_inf inf, t_process *pros);
+int							catch_ind_val(t_process *pro, int nb);
+int							is_reg_good(t_inf inf, int line);
 int							ocp_valid(int line, int ocp);
 int							adv_value(int line, int ocp);
 int							string_is_digit(char *str);
@@ -278,8 +281,8 @@ int							get_line(int opc);
 
 static void				(*g_instructab[17])(t_inf i, t_process *p, t_vm *v) =
 {
-	&ft_live, &ft_ld, &ft_st, &ft_add, &ft_sub, &ft_and, &ft_or, &ft_xor, 
-	&ft_zjmp, &ft_ldi, &ft_sti, &ft_fork, &ft_lld, &ft_lldi, &ft_lfork, 
+	&ft_live, &ft_ld, &ft_st, &ft_add, &ft_sub, &ft_and, &ft_or, &ft_xor,
+	&ft_zjmp, &ft_ldi, &ft_sti, &ft_fork, &ft_lld, &ft_lldi, &ft_lfork,
 	&ft_aff, NULL
 };
 

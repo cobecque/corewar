@@ -57,7 +57,7 @@ SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
 LIB_DIR = ../asm/libft
 LIBP_DIR = ../asm/libft/src/printf
 SRC_DIR = ./src
-OBJ_DIR = ./mdr
+OBJ_DIR = ./obj_vm
 
 LIB_PATH = $(addprefix $(LIB_DIR)/,$(LIB_NAME))
 LIBP_PATH = $(addprefix $(LIBP_DIR)/,$(LIBP_NAME))
@@ -65,19 +65,18 @@ SRC_PATH = $(addprefix $(SRC_DIR)/,$(SRC_NAME))
 OBJ_PATH = $(addprefix $(OBJ_DIR)/,$(SRC_NAME:.c=.o))
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -fsanitize=address
-#FLAGS = -Wextra
+FLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
 all :
 	@printf $(CN_MAG) "=== ->  Compil all libs  <- ==="
 	@make -C $(LIBP_DIR)
 	@printf "\n"
 	@printf $(CN_YEL) "=== ->  Compil corewar  <- ==="
-	@mkdir -p mdr
-	@mkdir -p mdr/instruction
+	@mkdir -p obj_vm
+	@mkdir -p obj_vm/instruction
 	@$(MAKE) $(NAME)
 
-$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c ./inc/core.h
 	@$(CC) $(FLAGS) -I $(INC_NAME) -o $@ -c $<
 	@printf $(C_BLU) "        [ ✔ ] $<"
 
@@ -90,7 +89,7 @@ clean :
 	@printf "\n"
 	@make clean -C $(LIBP_DIR)
 	@/bin/rm -f $(OBJ_PATH)
-	@rm -rf ./mdr
+	@rm -rf ./obj_vm
 	@printf $(C_RED) " [ ✔ ] deleted objects path"
 	@printf "\n"
 

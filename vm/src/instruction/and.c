@@ -6,21 +6,37 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:22:19 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/26 19:10:06 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/05 02:59:52 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
+
+int			is_reg_good(t_inf inf, int line)
+{
+	int		i;
+
+	i = 0;
+	while (i < g_op_tab[line].nb_arg)
+	{
+		if (inf.typ[i] == 1 && (inf.val[i] <= 0 || inf.val[i] > REG_NUMBER))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 void		ft_and(t_inf inf, t_process *pros, t_vm *vm)
 {
 	int	res;
 	int	a;
 	int	b;
+	int	bol;
 
 	a = 0;
 	b = 0;
-	if (check_r(inf) == 0)
+	bol = is_reg_good(inf, pros->line);
+	if (bol == 1)
 	{
 		a = catch_reg_val(0, inf, pros);
 		b = catch_reg_val(1, inf, pros);

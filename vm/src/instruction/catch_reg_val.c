@@ -6,11 +6,26 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 18:52:51 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/03 02:08:49 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 05:04:02 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
+
+int			catch_ind_val(t_process *pro, int nb)
+{
+	int		i;
+	int		res;
+
+	i = 0;
+	res = 0;
+	while (i < 4)
+	{
+		res = (res << 8) | (*(pro->ins + nb + i) & 0xFF);
+		i++;
+	}
+	return (res);
+}
 
 int			catch_reg_val(int nb, t_inf inf, t_process *pros)
 {

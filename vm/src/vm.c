@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 01:48:20 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 02:27:52 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void		gates_are_open(t_vm data, t_process *lst)
 
 	father = 0;
 	init_visu_info(&data, &cy);
+	data.start_l = lst;
 	if (data.arg.sdl == 1)
 		ft_init_ncurses(lst, data);
 	if (data.arg.music == 1)

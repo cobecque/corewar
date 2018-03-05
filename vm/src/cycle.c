@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 09:46:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 01:44:02 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 03:29:26 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_cycle			init_cycle(void)
 	cy.die = 0;
 	cy.win = 0;
 	cy.yolo = 0;
-	cy.check = 0;
+	cy.check = 1;
 	cy.cycle_d = 0;
 	return (cy);
 }
@@ -36,7 +36,7 @@ t_process		*cycle_to_die(t_process *pro, t_cycle *cy, t_vm *vm)
 	pro = kill_them_all(pro, vm, vm->cycle, vm->ctd);
 	if (cy->die >= NBR_LIVE || cy->check == 10)
 	{
-		cy->check = 0;
+		cy->check = 1;
 		vm->ctd -= CYCLE_DELTA;
 		if (vm->arg.ver_num.cy == 1)
 			ft_printf("Cycle to die is now %d\n", vm->ctd);
@@ -70,7 +70,7 @@ int				cycle_gestion(t_vm virtual, t_process *pro, t_cycle cy)
 		if (cy.cycle_d == virtual.ctd)
 		{
 			pro = cycle_to_die(pro, &cy, &virtual);
-			if (virtual.alive == 0)
+			if (virtual.alive == 0 && cy.win != -1)
 				break ;
 		}
 		pro = gestion_process(pro, virtual.cycle, &virtual);

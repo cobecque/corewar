@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:25:27 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/26 19:11:02 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/05 02:59:16 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ void		ft_xor(t_inf inf, t_process *pros, t_vm *vm)
 	int			a;
 	int			b;
 	int			res;
+	int			bol;
 
 	a = 0;
 	b = 0;
-	if (check_r(inf) == 0)
+	bol = is_reg_good(inf, pros->line);
+	if (bol == 1)
 	{
 		a = catch_reg_val(0, inf, pros);
 		b = catch_reg_val(1, inf, pros);

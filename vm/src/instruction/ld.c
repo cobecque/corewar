@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 12:00:11 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/01 22:24:54 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/05 04:37:25 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ void		ft_ld(t_inf inf, t_process *pros, t_vm *vm)
 	if (bol == 0)
 	{
 		pros->carry = inf.val[0] == 0 ? 1 : 0;
-		res = inf.val[0];
+		if (inf.typ[0] == 3)
+			res = catch_ind_val(pros, inf.val[0]);
+		else
+			res = inf.val[0];
 		if (vm->arg.ver_num.op == 1)
-			ft_printf("P%5d | ld %d r%d\n", pros->number, inf.val[0],
+			ft_printf("P%5d | ld %d r%d\n", pros->number, res,
 					inf.val[1]);
 		pros->val[inf.val[1]] = (int)res;
 		reg_write(pros, res, inf.val[1], REG_SIZE);

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:23:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/26 19:11:36 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/05 02:59:30 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void		ft_or(t_inf inf, t_process *pros, t_vm *vm)
 {
 	int	res;
 	int	a;
+	int	bol;
 	int	b;
 
+	bol = is_reg_good(inf, pros->line);
 	a = 0;
 	b = 0;
-	if (check_r(inf) == 0)
+	if (bol == 1)
 	{
 		a = catch_reg_val(0, inf, pros);
 		b = catch_reg_val(1, inf, pros);

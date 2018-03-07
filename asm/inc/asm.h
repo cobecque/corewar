@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 00:51:56 by cobecque          #+#    #+#             */
-/*   Updated: 2018/02/14 10:16:10 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/07 07:22:37 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_inst				*find_param(char *line, int i, t_inst *ins);
 t_inst				*find_label(t_inst *ins);
 
 char				**ft_cut(char *line, int i, int j, int count);
+char				*cut_label(char *line, int size);
 char				*cut_middle(char *line);
 char				*cut_start(char *line);
 char				*have_label(char *par);
@@ -89,6 +90,7 @@ int					line_size(char *line, int i);
 int					find_ocp(char *line, int i);
 int					spec_ocp(int i, char *line);
 int					find_typ(char *par, int i);
+int					ft_size_label(char *line);
 int					check_error(t_file file);
 int					size_champ(t_file file);
 int					error_val(t_file file);

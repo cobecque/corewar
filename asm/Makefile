@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2018/02/14 10:02:44 by cobecque         ###   ########.fr        #
+#    Updated: 2018/03/07 07:23:33 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ all :
 	@mkdir -p asm_obj
 	@$(MAKE) $(NAME)
 
-$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c ./inc/asm.h
 	@$(CC) $(FLAGS) -I $(INC_NAME) -o $@ -c $<
 	@printf $(C_BLU) "        [ ✔ ] $<"
 

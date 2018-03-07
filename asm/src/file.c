@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 01:05:23 by cobecque          #+#    #+#             */
-/*   Updated: 2018/02/14 09:59:38 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/07 07:37:38 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_inst		*find_param(char *line, int i, t_inst *ins)
 	par = ft_cut(line, 0, 0, 0);
 	while (par[j] != NULL)
 	{
+		ft_printf("pour %d %s\t", j, par[j]);
 		if (j > 0)
 		{
 			ins->val[j - 1] = find_val(par[j]);
@@ -31,6 +32,7 @@ t_inst		*find_param(char *line, int i, t_inst *ins)
 		}
 		j++;
 	}
+	ft_printf("\n");
 	ins->len = j - 1;
 	j = ins->len;
 	while (j++ < 4)
@@ -71,11 +73,14 @@ t_inst		*add_inst(t_inst *ins, int i, char *line)
 
 t_file		instruction(t_file file, char *l)
 {
+	char	*inst;
 	t_inst	*tmp;
 	int		i;
 	int		j;
 
 	i = 0;
+	if (l == NULL)
+		return (file);
 	while (i < 16)
 	{
 		j = ft_strlen(g_op_tab[i].name);
@@ -93,7 +98,9 @@ t_file		instruction(t_file file, char *l)
 		tmp = file.ins;
 		while (tmp->next != NULL)
 			tmp = tmp->next;
-		tmp->label = ft_strsub(l, 0, ft_strlen(l) - 1);
+		tmp->label = ft_strsub(l, 0, ft_size_label(l));
+		inst = cut_label(l, ft_size_label(l));
+		instruction(file, inst);
 	}
 	return (file);
 }

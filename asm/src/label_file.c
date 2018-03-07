@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 09:22:58 by cobecque          #+#    #+#             */
-/*   Updated: 2018/02/14 09:56:52 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/07 07:33:17 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ char		*have_label(char *par)
 
 	if (par[0] == '%' && par[1] == ':')
 		tmp = ft_strsub(par, 2, ft_strlen(par) - 2);
+	else if (par[0] == ':')
+		tmp = ft_strsub(par, 1, ft_strlen(par) - 1);
 	else
 		return (NULL);
 	return (tmp);

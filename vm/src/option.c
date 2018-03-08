@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 05:26:30 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 08:38:39 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 12:27:54 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,10 @@ t_pam			get_v(t_pam pam, int argc, char **argv, int i)
 	return (pam);
 }
 
-t_pam			get_option(int argc, char **argv)
+t_pam			get_option(int argc, char **argv, int i)
 {
-	int			i;
 	t_pam		pam;
 
-	i = 0;
 	pam.sdl = 0;
 	pam.end = -1;
 	pam.a = 0;

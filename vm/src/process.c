@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:00:17 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/06 00:32:01 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:23:43 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,13 @@ t_process	*start_gestion(t_process *cpy, t_vm vm, int cycle)
 			cpy->pc = cpy->pc + (cpy->inf.min_addr +
 					MEM_SIZE - cpy->inf.min_addr);
 		else
-			cpy->pc = (char *)((cpy->inf.min_addr + MEM_SIZE) -
-					(long)cpy->pc);
+			cpy->pc = cpy->inf.min_addr + (MEM_SIZE -
+					(int)cpy->pc);
 	}
 	if (cpy->seek == 0)
+	{
 		cpy->line = get_line(*(cpy->pc));
+	}
 	if (cpy->line != -1 && cpy->start_cycle == -1)
 	{
 		cpy->seek = 1;

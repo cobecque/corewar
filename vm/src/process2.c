@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 14:12:48 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 10:07:50 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 12:59:21 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,14 @@ t_process		*calc_val(int *adv, int *nb, t_process *cpy)
 	(*adv)++;
 	if (*nb == 1)
 		(*adv)++;
-	ft_printf("ADV %d (0x%.4x -> 0x%.4x)", *adv, cpy->ins -
+	ft_printf("ADV %d (0x%.4x -> 0x%.4x) ", *adv, cpy->ins -
 			cpy->inf.min_addr, cpy->ins - cpy->inf.min_addr + *adv);
 	get_hexa(*cpy->ins, 0);
 	if (*nb == 1)
+	{
+		ft_putchar(' ');
 		get_hexa(*(cpy->ins + 1), 0);
+	}
 	(*nb)++;
 	return (cpy);
 }

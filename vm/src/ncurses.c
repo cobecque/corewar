@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 15:56:34 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/08 10:19:44 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 12:32:30 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,5 @@ t_vm			ft_ncurses(t_process *pro, t_vm vm)
 	free(game);
 	speed.tv_sec = 0;
 	speed.tv_nsec = 1000000000 / SPEED;
-//	nanosleep(&speed, &speed);
 	return (vm);
 }

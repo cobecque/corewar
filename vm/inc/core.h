@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 10:11:35 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 15:16:15 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,14 @@
 # define PROG_NAME_LENGTH	(128)
 # define COMMENT_LENGTH		(2048)
 # define COREWAR_EXEC_MAGIC	0xea83f3
+
+typedef struct				s_fd
+{
+	int						i;
+	int						n;
+	int						tmp;
+	int						len;
+}							t_fd;
 
 typedef struct				s_cycle
 {
@@ -205,6 +213,7 @@ t_process					*gestion_process(t_process *pro, int cy, t_vm *vm);
 t_process					*init_inf(t_process *c, t_vm vm, int *nb, int *b);
 t_process					*calc_len(t_process *p, int *l, int *bol, int nb);
 t_process					*check_ocp(t_process *p, int *n, int *b, t_vm vm);
+t_process					*sound_and_reset(t_process *pro, t_vm *vm, int t);
 t_process					*call_tree(t_inf truc, t_process *pros, t_vm vm);
 t_process					*ocp_invalid(t_process *c, int *bol, int *len);
 t_process					*dup_pros(t_process *src, t_inf inf, t_vm *vm);
@@ -214,6 +223,7 @@ t_process					*adv_printf(t_process *cpy, int len, int nb);
 t_process					*calc_val(int *adv, int *nb, t_process *c);
 t_process					*reverse_list(int cy, int cycle, t_vm *vm);
 t_process					*add_new_process(t_process *src, int nb);
+t_process					*re_init_live(t_process *pro, t_vm *vm);
 t_process					*move_pc(t_process *cpy, int len);
 t_process					*get_adr(t_process *cpy);
 
@@ -225,7 +235,7 @@ t_inf						add_elem(int info, int opc);
 
 t_ver						get_verbose(int nu);
 
-t_pam						get_option(int argc, char **argv);
+t_pam						get_option(int argc, char **argv, int i);
 
 t_vm						fill_champ(int *fd);
 t_vm						ft_ncurses(t_process *pro, t_vm vm);
@@ -235,6 +245,7 @@ void						reg_write(t_process *pros, unsigned int val,
 void						ft_menu(WINDOW *m, t_vm *vm, int nb, t_process *p);
 void						ft_catch_event(WINDOW *menu, WINDOW *game, int ch);
 void						ft_init_game(t_process *p, WINDOW *game, t_vm vm);
+void						print_dead(t_vm *vm, t_process *p, int c, int cy);
 void						message_champ(int nb, int winner, t_champ champ);
 void						get_col(t_process *pro, t_vm vm, int y, int *p);
 void						ft_lfork(t_inf inf, t_process *pros, t_vm *vm);
@@ -270,11 +281,13 @@ int							type_param(int ocp, int pos, int line, int *res);
 int							catch_reg_val(int nb, t_inf inf, t_process *pros);
 int							catch_ind_val(t_process *pro, int nb);
 int							is_reg_good(t_inf inf, int line);
+int							error_nb_champ(t_vm vm, int *fd);
 int							ocp_valid(int line, int ocp);
 int							adv_value(int line, int ocp);
 int							string_is_digit(char *str);
 int							count_live(t_process *pro);
 int							winner(t_process *pro);
+int							check_error(t_vm vm);
 int							get_ocp(void *addr);
 int							check_magic(int fd);
 int							have_ocp(int line);

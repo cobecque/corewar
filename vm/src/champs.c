@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/06 01:34:52 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 13:55:03 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_champ		fill_comment(int fd, t_champ play)
 
 t_champ		fill_code(int fd, t_champ play)
 {
-	if ((play.len = read(fd, play.code, CHAMP_MAX_SIZE)) < 0)
+	if ((play.len = read(fd, play.code, CHAMP_MAX_SIZE + 1)) < 0)
 		return (play);
 	return (play);
 }

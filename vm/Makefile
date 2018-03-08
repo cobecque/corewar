@@ -52,7 +52,8 @@ SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
 		   ncurses.c \
 		   init_nc.c \
 		   spec_nc.c \
-		   music.c
+		   music.c \
+		   tool_file.c
 
 LIB_DIR = ../asm/libft
 LIBP_DIR = ../asm/libft/src/printf
@@ -65,7 +66,7 @@ SRC_PATH = $(addprefix $(SRC_DIR)/,$(SRC_NAME))
 OBJ_PATH = $(addprefix $(OBJ_DIR)/,$(SRC_NAME:.c=.o))
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra #-fsanitize=address
+FLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 all :
 	@printf $(CN_MAG) "=== ->  Compil all libs  <- ==="

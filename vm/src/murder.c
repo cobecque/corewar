@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:44:01 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 09:33:14 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 15:23:27 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,41 +61,41 @@ t_process	*kill_dat_process(t_process *pro, t_vm *vm)
 	return (tmp);
 }
 
-int			final_murder(t_process *cpy, t_vm *vm, int cycle, int ctd)
+int			final_murder(t_vm *vm, int cycle, int ctd)
 {
 	t_process	*tmp;
 	int			bol;
 
 	bol = 0;
 	tmp = vm->end_l;
-	if (vm->arg.ver_num.de == 1)
-		ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n",
-				cpy->number, cycle - cpy->last_live[0] + 1,
-				ctd);
 	while (tmp != NULL)
 	{
+		if (vm->arg.ver_num.de == 1)
+			ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n",
+				tmp->number, cycle - tmp->last_live[0] + 1,
+				ctd);
 		if (tmp->next == NULL)
 		{
-			vm->end_l = cpy->pre;
+			vm->end_l = tmp->pre;
 			bol = 1;
 		}
 		tmp = kill_dat_process(tmp, vm);
-		if (bol == 0)
+		if (bol == 0 && vm->start_l != NULL)
 			tmp = tmp->pre;
 	}
 	return (-1);
 }
 
-void		print_dead(t_vm *vm, t_process *cpy, int ctd, int cycle)
+t_process	*more_kills(t_process *cpy, t_vm *vm, int *bol)
 {
-	int		bol;
-
-	bol = 0;
-	if (cpy->last_live[0] == 0)
-		bol = 1;
-	if (vm->arg.ver_num.de == 1)
-		ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n",
-				cpy->number, cycle - bol - cpy->last_live[0], ctd);
+	if (cpy->next == NULL)
+	{
+		vm->end_l = cpy->pre;
+		*bol = 1;
+	}
+	vm->alive--;
+	cpy = kill_dat_process(cpy, vm);
+	return (cpy);
 }
 
 t_process	*kill_them_all(t_process *pro, t_vm *vm, int cycle, int ctd)
@@ -111,26 +111,18 @@ t_process	*kill_them_all(t_process *pro, t_vm *vm, int cycle, int ctd)
 		bol = 0;
 		if (ctd < 0)
 		{
-			cpy->live = final_murder(cpy, vm, cycle, ctd);
+			final_murder(vm, cycle, ctd);
 			break ;
 		}
 		else if ((cycle - cpy->last_live[0] - ctd >= 0))
 		{
 			truc = 1;
 			print_dead(vm, cpy, ctd, cycle);
-			if (cpy->next == NULL)
-			{
-				vm->end_l = cpy->pre;
-				bol = 1;
-			}
-			vm->alive--;
-			cpy = kill_dat_process(cpy, vm);
+			cpy = more_kills(cpy, vm, &bol);
 		}
 		if (bol == 0)
 			cpy = cpy->pre;
 	}
-	if (truc == 1 && vm->arg.sdl == 1 && vm->arg.music == 1)
-		system("afplay sound_bank/wilhelm.mp3");
-	pro = re_init_live(vm->start_l, vm);
+	pro = sound_and_reset(pro, vm, truc);
 	return (pro);
 }

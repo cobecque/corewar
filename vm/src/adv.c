@@ -6,11 +6,20 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 13:09:56 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/08 10:07:30 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 12:57:48 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
+
+static void	s_message(t_process *cpy, int adv)
+{
+	ft_printf("ADV %d (0x%.4x -> 0x%.4x) ", adv + 2, cpy->ins -
+			cpy->inf.min_addr, cpy->ins - cpy->inf.min_addr + adv + 2);
+	get_hexa(*cpy->ins, 0);
+	ft_putchar(' ');
+	get_hexa(cpy->ocp, 0);
+}
 
 t_process	*ocp_invalid(t_process *cpy, int *bol, int *len)
 {
@@ -20,18 +29,15 @@ t_process	*ocp_invalid(t_process *cpy, int *bol, int *len)
 	{
 		adv = adv_value(cpy->line, cpy->ocp);
 		if (*bol == -2)
-		{
-			ft_printf("ADV %d (0x%.4x -> 0x%.4x)",
-					adv + 2, cpy->ins - cpy->inf.min_addr,
-					cpy->ins - cpy->inf.min_addr + adv + 2);
-			get_hexa(*cpy->ins, 0);
-			get_hexa(cpy->ocp, 0);
-		}
+			s_message(cpy, adv);
 		*len = 0;
 		while (*len < adv)
 		{
 			if (*bol == -2)
+			{
+				ft_putchar(' ');
 				get_hexa(*cpy->pc, 0);
+			}
 			cpy->pc++;
 			if (cpy->pc == cpy->inf.min_addr + MEM_SIZE)
 				cpy->pc = cpy->inf.min_addr;
@@ -59,6 +65,7 @@ t_process	*adv_printf(t_process *cpy, int len, int nb)
 			p = 0;
 			cpy->ins = cpy->inf.min_addr;
 		}
+		ft_putchar(' ');
 		get_hexa(*(cpy->ins + p + nb), 0);
 		p++;
 		i++;

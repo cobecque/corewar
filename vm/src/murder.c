@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:44:01 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/06 00:31:36 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 06:50:50 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ t_process	*kill_them_all(t_process *pro, t_vm *vm, int cycle, int ctd)
 {
 	t_process	*cpy;
 	int			bol;
+	int			truc;
 
+	truc = 0;
 	cpy = vm->end_l;
 	while (cpy != NULL)
 	{
@@ -95,6 +97,7 @@ t_process	*kill_them_all(t_process *pro, t_vm *vm, int cycle, int ctd)
 			cpy->live = final_murder(cpy, *vm, cycle, ctd);
 		else if ((cycle - cpy->last_live[0] - ctd >= 0))
 		{
+			truc = 1;
 			print_dead(vm, cpy, ctd, cycle);
 			if (cpy->next == NULL)
 			{
@@ -107,6 +110,8 @@ t_process	*kill_them_all(t_process *pro, t_vm *vm, int cycle, int ctd)
 		if (bol == 0)
 			cpy = cpy->pre;
 	}
+	if (truc == 1 && vm->arg.sdl == 1 && vm->arg.music == 1)
+		system("afplay sound_bank/wilhelm.mp3");
 	pro = re_init_live(vm->start_l, vm);
 	return (pro);
 }

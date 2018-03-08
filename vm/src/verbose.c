@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 15:44:43 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/14 09:18:30 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 07:54:40 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char			*get_hexa(int val)
 
 	if (val == 0)
 		return ("00");
-	str = (char *)malloc(sizeof(char) * 3);
+	if (!(str = (char *)malloc(sizeof(char) * 3)))
+		return (NULL);
 	str[2] = '\0';
 	if (val < 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 01:47:08 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/05 01:49:21 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/06 07:44:32 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char		*get_afplay(t_vm vm)
 	while (i < vm.nb_pros)
 	{
 		if (ft_strcmp(vm.play[i].name, "Yandere-chan") == 0)
-			return ("afplay ./sound_bank/yuki.mp3");
+			return ("afplay ./sound_bank/yuki9min.mp3");
 		i++;
 	}
 	if (vm.nb_pros == 1)

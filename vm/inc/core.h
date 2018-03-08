@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/06 07:06:34 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 06:51:59 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,11 @@ typedef struct				s_process
 
 typedef struct				s_pam
 {
+	int						a;
+	int						n[MAX_PLAYERS];
 	int						nb;
 	int						end;
+	int						n_o;
 	int						help;
 	int						sdl;
 	int						ver;

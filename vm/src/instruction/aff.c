@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 14:10:27 by rostroh           #+#    #+#             */
-/*   Updated: 2018/02/26 15:17:52 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/06 09:19:17 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void		ft_aff(t_inf inf, t_process *pros, t_vm *vm)
 	i = 0;
 	res = 0;
 	bol = 0;
-	vm->arg.ver = vm->arg.ver;
 	if (inf.val[0] <= 0 || inf.val[0] > REG_NUMBER)
 		bol = 1;
 	if (bol == 0)
@@ -32,6 +31,7 @@ void		ft_aff(t_inf inf, t_process *pros, t_vm *vm)
 			i++;
 		}
 		res = res % 256;
-		ft_printf("Aff : %c\n", res);
+		if (vm->arg.a == 1)
+			ft_printf("Aff : %c\n", res);
 	}
 }

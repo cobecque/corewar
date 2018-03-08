@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 16:57:08 by rostroh           #+#    #+#             */
-/*   Updated: 2017/02/10 12:00:29 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 11:46:59 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ t_arg	set_params(t_arg params)
 	{
 		params.neg = 1;
 		params.pos = 0;
+		//ft_putchar(params.letter);
 		params.str = abs_string(params.str);
+		//free(cpy);
 	}
 	if (params.pos != 0 || params.neg != 0)
 		params.brt = 0;

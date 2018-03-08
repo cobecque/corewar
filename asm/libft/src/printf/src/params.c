@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 17:36:41 by rostroh           #+#    #+#             */
-/*   Updated: 2017/02/10 20:03:36 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 11:52:44 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ int			get_params2(const char ***format, va_list ap, t_arg params)
 			params.pos = 0;
 	}
 	get_printed = print_shit(params);
-	if (params.str && params.letter != 's')
-		free(params.str);
 	return (get_printed);
 }
 

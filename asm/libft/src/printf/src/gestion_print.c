@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 14:07:03 by rostroh           #+#    #+#             */
-/*   Updated: 2017/02/11 10:44:25 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 11:52:10 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,7 @@ int		print_shit(t_arg p)
 		free(p.wstr);
 	if (!(p.letter == 'i' || p.letter == 'd' || p.letter == 'D'))
 		p.pos = 0;
+	if (p.str && p.letter != 's')
+		free(p.str);
 	return (get_printed + p.pos);
 }

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 15:32:00 by rostroh           #+#    #+#             */
-/*   Updated: 2017/02/10 12:52:24 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 12:01:06 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,25 @@ char	*char_to_pointer(char c)
 
 char	*abs_string(char *str)
 {
-	char	*cpy;
+	int		i;
+	int		j;
 	char	*to_return;
 
-	to_return = (char *)malloc(sizeof(char) * ft_strlen(str));
+	i = 0;
+	j = 0;
+	to_return = (char *)malloc(sizeof(char) * ft_strlen(str) + 1);
 	if (!to_return)
 		return (NULL);
-	cpy = to_return;
-	if (*str == '-')
-		str++;
-	while (*str)
+	if (str[0] == '-')
+		i++;
+	while (str[i] != '\0')
 	{
-		*cpy = *str;
-		str++;
-		cpy++;
+		to_return[j] = str[i];
+		i++;
+		j++;
 	}
-	*cpy = '\0';
+	to_return[j] = '\0';
+	if (str[0] == '-')
+		free(str);
 	return (to_return);
 }

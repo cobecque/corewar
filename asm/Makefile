@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2017/11/07 16:37:21 by cobecque         ###   ########.fr        #
+#    Updated: 2018/03/08 07:23:06 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,13 @@ NAME = asm
 INC_NAME = ./inc
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
-SRC_NAME = main.c	op.c	struct.c	encodage.c	function_supp.c\
-		   function_ocp.c	function_param.c	function_spec.c\
-		   function_label.c	fill_file.c	function_binair.c
+SRC_NAME = main.c	file.c	op.c	tool.c	inst.c	error.c	header.c\
+		   gestion_str.c	label_file.c	init.c
 
 LIB_DIR = ./libft
 LIBP_DIR = ./libft/src/printf
 SRC_DIR = ./src
-OBJ_DIR = ./mdr
+OBJ_DIR = ./asm_obj
 
 LIB_PATH = $(addprefix $(LIB_DIR)/,$(LIB_NAME))
 LIBP_PATH = $(addprefix $(LIBP_DIR)/,$(LIBP_NAME))
@@ -32,17 +31,17 @@ SRC_PATH = $(addprefix $(SRC_DIR)/,$(SRC_NAME))
 OBJ_PATH = $(addprefix $(OBJ_DIR)/,$(SRC_NAME:.c=.o))
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
+FLAGS = -Wall -Werror -Wextra #-fsanitize=address -g3
 
 all :
 	@printf $(CN_MAG) "=== ->  Compil all libs  <- ==="
 	@make -C $(LIBP_DIR)
 	@printf "\n"
 	@printf $(CN_YEL) "=== ->  Compil corewar  <- ==="
-	@mkdir -p mdr
+	@mkdir -p asm_obj
 	@$(MAKE) $(NAME)
 
-$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c ./inc/asm.h
 	@$(CC) $(FLAGS) -I $(INC_NAME) -o $@ -c $<
 	@printf $(C_BLU) "        [ ✔ ] $<"
 
@@ -55,7 +54,7 @@ clean :
 	@printf "\n"
 	@make clean -C $(LIBP_DIR)
 	@/bin/rm -f $(OBJ_PATH)
-	@rm -rf ./mdr
+	@rm -rf ./asm_obj/
 	@printf $(C_RED) " [ ✔ ] deleted objects path"
 	@printf "\n"
 

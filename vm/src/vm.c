@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 07:22:21 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 02:27:52 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 09:42:44 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void		gates_are_open(t_vm data, t_process *lst)
 		if (data.arg.music == 1)
 			kill(0, SIGKILL);
 		if (data.arg.sdl == 1)
-			ft_quit_ncurses();
+			ft_quit_ncurses(data, winner);
 		if (winner != -1 && winner != 0)
 			message_champ(2, winner, data.play[winner - 1]);
 	}

@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:26:36 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 01:50:11 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 08:25:41 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void		ft_zjmp(t_inf inf, t_process *pros, t_vm *vm)
 {
 	int		value;
 
+	value = 0;
 	if (vm->arg.ver_num.op == 1 && pros->carry == 0)
 		ft_printf("P%5d | zjmp %d FAILED\n", pros->number, inf.val[0]);
 	if (pros->carry == 1)

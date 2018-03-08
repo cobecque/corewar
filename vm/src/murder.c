@@ -6,20 +6,11 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:44:01 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 06:50:50 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 09:33:14 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
-
-int			final_murder(t_process *cpy, t_vm vm, int cycle, int ctd)
-{
-	if (vm.arg.ver_num.de == 1)
-		ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n",
-				cpy->number, cycle - cpy->last_live[0] + 1,
-				ctd);
-	return (-1);
-}
 
 t_process	*re_init_live(t_process *pro, t_vm *vm)
 {
@@ -70,6 +61,31 @@ t_process	*kill_dat_process(t_process *pro, t_vm *vm)
 	return (tmp);
 }
 
+int			final_murder(t_process *cpy, t_vm *vm, int cycle, int ctd)
+{
+	t_process	*tmp;
+	int			bol;
+
+	bol = 0;
+	tmp = vm->end_l;
+	if (vm->arg.ver_num.de == 1)
+		ft_printf("Process %d hasn't lived for %d cycles (CTD %d)\n",
+				cpy->number, cycle - cpy->last_live[0] + 1,
+				ctd);
+	while (tmp != NULL)
+	{
+		if (tmp->next == NULL)
+		{
+			vm->end_l = cpy->pre;
+			bol = 1;
+		}
+		tmp = kill_dat_process(tmp, vm);
+		if (bol == 0)
+			tmp = tmp->pre;
+	}
+	return (-1);
+}
+
 void		print_dead(t_vm *vm, t_process *cpy, int ctd, int cycle)
 {
 	int		bol;
@@ -94,7 +110,10 @@ t_process	*kill_them_all(t_process *pro, t_vm *vm, int cycle, int ctd)
 	{
 		bol = 0;
 		if (ctd < 0)
-			cpy->live = final_murder(cpy, *vm, cycle, ctd);
+		{
+			cpy->live = final_murder(cpy, vm, cycle, ctd);
+			break ;
+		}
 		else if ((cycle - cpy->last_live[0] - ctd >= 0))
 		{
 			truc = 1;

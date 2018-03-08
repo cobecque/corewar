@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 01:22:07 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/05 06:01:04 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 10:40:29 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,13 @@ void			ft_init_ncurses(t_process *pro, t_vm vm)
 	free(game);
 }
 
-void			ft_quit_ncurses(void)
+void			ft_quit_ncurses(t_vm vm, int winner)
 {
+	if (winner != -1)
+	{
+		move(60, 260);
+		printw("AND THE WINNER IS : %s\n", vm.play[winner - 1].name);
+	}
 	while (1)
 	{
 		if (getch() == 27)

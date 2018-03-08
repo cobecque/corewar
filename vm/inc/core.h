@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 06:51:59 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 10:11:35 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,15 +254,15 @@ void						ft_or(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_st(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_ld(t_inf inf, t_process *pros, t_vm *vm);
 void						ft_init_ncurses(t_process *pro, t_vm vm);
+void						ft_quit_ncurses(t_vm vm, int w);
 void						play_music(t_vm vm, pid_t son);
 void						cpy_reg(int *tab, int **res);
-void						ft_quit_ncurses(void);
+void						get_hexa(int val, int bol);
 void						vm_stuff(t_vm data);
 void						dump(char *ptr);
 void						message(int nb);
 
 char						*get_relative(char *adr, t_inf inf);
-char						*get_hexa(int val);
 char						*get_afplay(t_vm vm);
 
 int							cycle_gestion(t_vm vm, t_process *pro, t_cycle cy);

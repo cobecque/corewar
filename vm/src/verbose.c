@@ -6,21 +6,22 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 15:44:43 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 07:54:40 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 10:13:42 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-char			*get_hexa(int val)
+void			get_hexa(int val, int bol)
 {
-	char	*str;
+	char	str[3];
 
-	if (val == 0)
-		return ("00");
-	if (!(str = (char *)malloc(sizeof(char) * 3)))
-		return (NULL);
 	str[2] = '\0';
+	if (val == 0)
+	{
+		str[0] = '0';
+		str[1] = '0';
+	}
 	if (val < 0)
 	{
 		val = 256 + val;
@@ -33,7 +34,10 @@ char			*get_hexa(int val)
 		str[0] = val / 16 + 'a' - 10;
 	if (val / 16 < 10)
 		str[0] = val / 16 + '0';
-	return (str);
+	if (bol == 0)
+		ft_putstr(str);
+	else
+		printw("%s", str);
 }
 
 void			dump(char *ptr)
@@ -55,7 +59,8 @@ void			dump(char *ptr)
 			ft_printf("%x0 : ", p);
 			p += 4;
 		}
-		ft_printf("%s ", get_hexa(ptr[i]));
+		get_hexa(ptr[i], 0);
+		ft_putchar(' ');
 		i++;
 	}
 	ft_putchar('\n');
@@ -66,6 +71,7 @@ t_ver			get_verbose(int nu)
 	t_ver		ver;
 
 	ver.li = 0;
+	ver.op = 0;
 	ver.cy = 0;
 	ver.de = 0;
 	ver.pc = 0;

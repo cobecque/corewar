@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 13:09:56 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/05 02:52:12 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 10:07:30 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@ t_process	*ocp_invalid(t_process *cpy, int *bol, int *len)
 	{
 		adv = adv_value(cpy->line, cpy->ocp);
 		if (*bol == -2)
-			ft_printf("ADV %d (0x%.4x -> 0x%.4x) %s %s",
+		{
+			ft_printf("ADV %d (0x%.4x -> 0x%.4x)",
 					adv + 2, cpy->ins - cpy->inf.min_addr,
-					cpy->ins - cpy->inf.min_addr + adv + 2,
-					get_hexa(*cpy->ins), get_hexa(cpy->ocp));
+					cpy->ins - cpy->inf.min_addr + adv + 2);
+			get_hexa(*cpy->ins, 0);
+			get_hexa(cpy->ocp, 0);
+		}
 		*len = 0;
 		while (*len < adv)
 		{
 			if (*bol == -2)
-				ft_printf(" %s", get_hexa(*cpy->pc));
+				get_hexa(*cpy->pc, 0);
 			cpy->pc++;
 			if (cpy->pc == cpy->inf.min_addr + MEM_SIZE)
 				cpy->pc = cpy->inf.min_addr;
@@ -56,7 +59,7 @@ t_process	*adv_printf(t_process *cpy, int len, int nb)
 			p = 0;
 			cpy->ins = cpy->inf.min_addr;
 		}
-		ft_printf(" %s", get_hexa(*(cpy->ins + p + nb)));
+		get_hexa(*(cpy->ins + p + nb), 0);
 		p++;
 		i++;
 		if ((cpy->ins + p) >= cpy->inf.min_addr + MEM_SIZE)

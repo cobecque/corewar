@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 15:42:09 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 02:48:27 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/08 08:44:31 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ t_process		*call_instru(t_process *cpy, t_var *var, t_vm *vm)
 	}
 	cpy = move_pc(cpy, var->len);
 	free(cpy->inf.val);
-	free(cpy->inf.l);
-	free(cpy->inf.typ);
 	return (cpy);
 }
 
@@ -50,5 +48,7 @@ t_process		*if_must_be_call(t_process *cpy, t_var *var, t_vm *vm)
 		cpy = call_instru(cpy, var, vm);
 	cpy->start_cycle = -1;
 	cpy->seek = 0;
+	free(cpy->inf.l);
+	free(cpy->inf.typ);
 	return (cpy);
 }

@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 01:22:31 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/06 10:00:33 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 10:06:56 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			get_col(t_process *pro, t_vm vm, int y, int *p)
 		attron(COLOR_PAIR(check_color(vm, vm.addr + *p)));
 		if (is_pc(vm.addr + *p, pro) == 1)
 			attron(A_STANDOUT);
-		printw("%s", get_hexa(*(vm.addr + *p)));
+		get_hexa(*(vm.addr + *p), 1);
 		attroff(A_STANDOUT);
 		x += 4;
 		j++;

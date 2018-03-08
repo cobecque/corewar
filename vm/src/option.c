@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 05:26:30 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/06 10:11:53 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/08 08:38:39 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ t_pam			get_option(int argc, char **argv)
 	pam.nb = 0;
 	pam.help = 0;
 	pam.ver = -1;
+	pam.ver_num = get_verbose(0);
 	pam.n_o = 0;
 	pam.dump = -1;
 	pam.error = 0;

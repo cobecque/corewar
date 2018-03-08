@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 18:52:51 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 05:04:02 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/06 01:41:40 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 int			catch_ind_val(t_process *pro, int nb)
 {
+	char	*adr;
 	int		i;
 	int		res;
 
 	i = 0;
 	res = 0;
+	adr = pro->ins + nb;
 	while (i < 4)
 	{
-		res = (res << 8) | (*(pro->ins + nb + i) & 0xFF);
+		adr = get_relative(adr, pro->inf);
+		res = (res << 8) | (*(adr) & 0xFF);
 		i++;
 	}
 	return (res);

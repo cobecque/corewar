@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/05 05:26:22 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/06 07:06:34 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ typedef struct				s_inf
 	int						*l;
 	int						*val;
 	int						length;
-	char					*name;
 	char					*min_addr;
 }							t_inf;
 

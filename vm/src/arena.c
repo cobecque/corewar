@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 14:14:38 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/04 23:18:27 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/06 05:02:51 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ int			winner(t_process *pro)
 	winner = -1;
 	cpy = pro;
 	last = 0;
-	while (pro != NULL)
+	while (cpy->next != NULL)
+		cpy = cpy->next;
+	while (cpy != NULL)
 	{
-		if (last <= pro->last_live[0] && pro->last_live[1] != 0)
+		if (last <= cpy->last_live[0] && cpy->last_live[1] != 0)
 		{
-			last = pro->last_live[0];
-			winner = pro->last_live[1];
+			last = cpy->last_live[0];
+			winner = cpy->last_live[1];
 		}
-		pro = pro->next;
+		cpy = cpy->pre;
 	}
 	return (winner);
 }

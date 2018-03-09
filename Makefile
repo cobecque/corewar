@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 15:33:03 by cobecque          #+#    #+#              #
-#    Updated: 2018/03/09 16:07:55 by cobecque         ###   ########.fr        #
+#    Updated: 2018/03/09 16:12:08 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,9 @@ clean:
 	@make clean -C $(CORE_PATH)
 	@make clean -C $(ASM_PATH)
 
-fclean: clean
+fclean:
+	@make fclean -C $(CORE_PATH)
+	@make fclean -C $(ASM_PATH)
 	@rm -rf $(CORE_NAME)
 	@rm -rf $(ASM_NAME)
 

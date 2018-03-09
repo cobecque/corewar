@@ -1,13 +1,12 @@
-#
-#**************************************************************************** #
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2017/10/22 22:10:16 by rostroh          ###   ########.fr        #
+#    Created: 2018/03/09 15:33:03 by cobecque          #+#    #+#              #
+#    Updated: 2018/03/09 16:06:04 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +14,7 @@
 
 NAME = corewar
 
-INC_NAME = ./inc
+INC_NAME = ./../includes
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
 SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
@@ -55,8 +54,8 @@ SRC_NAME = main.c	champs.c	vm.c	op.c	ocp.c	arena.c\
 		   music.c \
 		   tool_file.c
 
-LIB_DIR = ../asm/libft
-LIBP_DIR = ../asm/libft/src/printf
+LIB_DIR = ../libft
+LIBP_DIR = ../libft/src/printf
 SRC_DIR = ./src
 OBJ_DIR = ./obj_vm
 
@@ -69,6 +68,7 @@ CC = gcc
 FLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 all :
+	@clear
 	@printf $(CN_MAG) "=== ->  Compil all libs  <- ==="
 	@make -C $(LIBP_DIR)
 	@printf "\n"
@@ -77,7 +77,7 @@ all :
 	@mkdir -p obj_vm/instruction
 	@$(MAKE) $(NAME)
 
-$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c ./inc/core.h
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c ./../includes/core.h
 	@$(CC) $(FLAGS) -I $(INC_NAME) -o $@ -c $<
 	@printf $(C_BLU) "        [ ✔ ] $<"
 
@@ -85,9 +85,11 @@ $(NAME): $(OBJ_PATH)
 	@$(CC) $(FLAGS) $(OBJ_PATH) $(LIB_PATH) $(LIBP_PATH) -o $(NAME) -lncurses
 	@printf $(C_CYA) "        [ ✔ ] compiled → $(NAME)"
 	@printf "\n"
+	@mv $(NAME) ../
 
 clean :
 	@printf "\n"
+	@printf $(CN_YEL) "================= COREWAR ================="
 	@make clean -C $(LIBP_DIR)
 	@/bin/rm -f $(OBJ_PATH)
 	@rm -rf ./obj_vm
@@ -97,6 +99,7 @@ clean :
 fclean : clean
 	@printf "\n"
 	@rm -f $(LIBP_PATH)
+	@rm -f $(LIB_PATH)
 	@/bin/rm -f $(NAME)
 	@printf $(C_RED) " [ ✔ ] deleted binary file → $(NAME)"
 	@printf "\n"

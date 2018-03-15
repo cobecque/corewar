@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 15:33:03 by cobecque          #+#    #+#              #
-#    Updated: 2018/03/09 16:12:08 by cobecque         ###   ########.fr        #
+#    Updated: 2018/03/15 19:24:08 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,7 +104,7 @@ fclean:
 	@rm -rf $(CORE_NAME)
 	@rm -rf $(ASM_NAME)
 
-re: fclean all
+re: fclean corewar asm
 
 # color
 C_RED = "\e[31;m%s\e[0m\n"

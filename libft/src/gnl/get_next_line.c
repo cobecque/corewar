@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 22:44:02 by cobecque          #+#    #+#             */
-/*   Updated: 2017/08/14 01:27:29 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/15 20:08:55 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,6 @@ int				get_next_line(int fd, char **line)
 	if ((tmp = ft_get_line(line, fd, lst_fd)) != 0)
 		return (tmp);
 	free(lst_tmp->content);
-	lst_tmp->content = 0;
+	free(lst_tmp);
 	return (boolean);
 }

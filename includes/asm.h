@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 00:51:56 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/08 06:36:06 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/15 20:50:21 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct		s_inst
 {
 	int				nb_ins;
 	int				bol;
+	int				error;
 	char			*label;
 	char			*label1;
 	char			*label2;
@@ -54,16 +55,16 @@ typedef struct		s_file
 
 extern t_op			g_op_tab[];
 
-unsigned int		find_val(char *par);
+unsigned int		find_val(char *par, t_inst *ins);
 
 t_file				instruction(t_file file, char *line);
 t_file				fill_file(t_file file, char *line);
 t_file				init_file(void);
 
-t_inst				*add_inst(t_inst *ins, int i, char *line);
-t_inst				*label_param(char **par, t_inst *ins);
 t_inst				*find_param(char *line, int i, t_inst *ins);
-t_inst				*find_label(t_inst *ins);
+t_inst				*add_inst(t_inst *ins, int i, char *line, t_file file);
+t_inst				*label_param(char **par, t_inst *ins);
+t_inst				*find_label(t_inst *ins, t_file file);
 
 char				**ft_cut(char *line, int i, int j, int count);
 char				*cut_label(char *line, int size);
@@ -79,13 +80,16 @@ void				write_binary(t_file file, int fd);
 void				write_spec(t_inst *ins, int fd);
 void				fill_magic(int fd, t_header h);
 void				clear_file(t_file file);
+void				ft_close_error(int fd);
+void				free_tab(char **tab);
 void				spec_typ(int *typ);
 
-int					check_label(t_inst *ins, char *label, int line);
+int					check_label(t_inst *ins, char *label, int line, t_file f);
 int					ft_letter(char *str, int *i, int *j, int *let);
 int					label_range(t_inst *ins, char *label, int pos);
 int					ocp_calc(t_inst *ins, int i, int neg);
 int					ft_sep(char *line, int i, int *count);
+int					is_not_value(char *par, char *tmp);
 int					bad_typ(int typ, int line, int j);
 int					line_size(char *line, int i);
 int					find_ocp(char *line, int i);
@@ -97,6 +101,9 @@ int					size_champ(t_file file);
 int					error_val(t_file file);
 int					error_typ(t_file file);
 int					error_len(t_file file);
+int					is_true_label(char *l);
+int					is_not_label(char *label, t_inst *ins);
+int					is_label_char(char c);
 int					error_open(int fd);
 int					have_ocp(int i);
 

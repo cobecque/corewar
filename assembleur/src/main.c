@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 00:55:32 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/08 07:27:06 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/15 20:48:59 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ int				main(int argc, char **argv)
 			file = fill_file(file, line);
 			free(line);
 		}
+		free(line);
 		if (check_error(file) == -1)
 			return (0);
-		file.ins = find_label(file.ins);
+		file.ins = find_label(file.ins, file);
 		create_file(argv[1], file);
-		if (close(fd) == -1)
-			ft_printf("Error : Close file\n");
+		ft_close_error(fd);
 		clear_file(file);
 	}
 	return (0);
@@ -100,6 +100,7 @@ void			create_file(char *argv, t_file file)
 	fill_magic(fd, h);
 	fill_champ(fd, file, h);
 	write_binary(file, fd);
+	ft_printf("Writting ouptut program to %s\n", name);
 	free(name);
 	if (close(fd) == -1)
 		ft_printf("close error\n");

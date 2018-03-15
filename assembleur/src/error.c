@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 03:40:24 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/08 06:35:52 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/15 19:28:29 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ int		check_error(t_file file)
 	if (error_len(file) == -1 || error_typ(file) == -1 || error_val(file) == -1)
 	{
 		clear_file(file);
+		return (-1);
+	}
+	if (file.ins == NULL)
+	{
+		clear_file(file);
+		ft_printf("Empty file, this champ have only a name and a comment\n");
 		return (-1);
 	}
 	return (0);

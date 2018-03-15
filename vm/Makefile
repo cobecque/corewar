@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 15:33:03 by cobecque          #+#    #+#              #
-#    Updated: 2018/03/09 16:53:37 by cobecque         ###   ########.fr        #
+#    Updated: 2018/03/15 20:22:01 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ SRC_PATH = $(addprefix $(SRC_DIR)/,$(SRC_NAME))
 OBJ_PATH = $(addprefix $(OBJ_DIR)/,$(SRC_NAME:.c=.o))
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -fsanitize=address
+FLAGS = -Wall -Werror -Wextra #-fsanitize=address -g3
 
 all :
 	@clear

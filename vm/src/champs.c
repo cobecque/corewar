@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/15 18:51:51 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/15 20:48:02 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ t_champ		fill_comment(int fd, t_champ play)
 
 	if (read(fd, s2, 2) <= 0)
 		exit(-1);
-	//play.length = s2[0] * 256 + s2[1];
 	play.length = (((unsigned int)s2[0] << 8) | ((unsigned int)s2[1] & 0xFF));
 	ft_printf(">>>>>%d pour %d %d\n", play.length, s2[0], s2[1]);
 	if (read(fd, play.comment, COMMENT_LENGTH) <= 0)

@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 01:54:32 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/08 06:44:05 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/15 18:43:17 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,6 @@ char		*cut_label(char *line, int size)
 	while (line[j] != '\0')
 		j++;
 	if (line[i] != '\0')
-		res = ft_strsub(line, i, j);
+		res = ft_strsub(line, i, j - i);
 	return (res);
 }

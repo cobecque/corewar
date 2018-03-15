@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 01:05:23 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/08 06:53:20 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/15 20:05:15 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_inst		*find_param(char *line, int i, t_inst *ins)
 	{
 		if (j > 0)
 		{
-			ins->val[j - 1] = find_val(par[j]);
+			ins->val[j - 1] = find_val(par[j], ins);
 			ins->typ[j - 1] = find_typ(par[j], i);
 			ocp = (ocp << 2) | find_ocp(par[j], i);
 		}
@@ -59,7 +59,14 @@ t_file		add_label(t_file file, char *l, int i)
 	char		*inst;
 	t_inst		*tmp;
 
-	file.ins = add_inst(file.ins, i, l);
+	if (is_true_label(l) == 0)
+	{
+		ft_printf("Bad instruction in the file\n");
+		clear_file(file);
+		free(l);
+		exit(-1);
+	}
+	file.ins = add_inst(file.ins, i, l, file);
 	tmp = file.ins;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
@@ -84,7 +91,7 @@ t_file		instruction(t_file file, char *l)
 		if (l[0] != '\0' && ft_strncmp(l, g_op_tab[i].name, j) == 0 &&
 				(l[j] == '\t' || l[j] == ' ') && j < (int)ft_strlen(l))
 		{
-			file.ins = add_inst(file.ins, i, l);
+			file.ins = add_inst(file.ins, i, l, file);
 			break ;
 		}
 		i++;

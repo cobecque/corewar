@@ -6,7 +6,7 @@
 #    By: cobecque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/10 18:52:38 by cobecque          #+#    #+#              #
-#    Updated: 2018/03/09 16:07:36 by cobecque         ###   ########.fr        #
+#    Updated: 2018/03/15 19:24:47 by cobecque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ INC_NAME = ./../includes
 LIBP_NAME = libftprintf.a
 LIB_NAME = libft.a
 SRC_NAME = main.c	file.c	op.c	tool.c	inst.c	error.c	header.c\
-		   gestion_str.c	label_file.c	init.c
+		   gestion_str.c	label_file.c	init.c	check_error.c
 
 LIB_DIR = ./../libft
 LIBP_DIR = ./../libft/src/printf
@@ -31,7 +31,7 @@ SRC_PATH = $(addprefix $(SRC_DIR)/,$(SRC_NAME))
 OBJ_PATH = $(addprefix $(OBJ_DIR)/,$(SRC_NAME:.c=.o))
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
+FLAGS = -Wall -Werror -Wextra #-fsanitize=address -g3
 
 all :
 	@clear

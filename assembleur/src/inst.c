@@ -6,7 +6,7 @@
 /*   By: cobecque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 01:38:39 by cobecque          #+#    #+#             */
-/*   Updated: 2018/03/08 06:15:54 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/15 19:40:00 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int				have_ocp(int i)
 	return (0);
 }
 
-unsigned int	find_val(char *par)
+unsigned int	find_val(char *par, t_inst *ins)
 {
 	unsigned int	nb;
 	char			*tmp;
@@ -31,6 +31,11 @@ unsigned int	find_val(char *par)
 		tmp = ft_strsub(par, 1, ft_strlen(par) - 1);
 	else
 		tmp = ft_strdup(par);
+	if (is_not_value(par, tmp) == 1)
+	{
+		ft_printf("Bad value in the file\n");
+		ins->error = 1;
+	}
 	i = ft_atoi(tmp);
 	nb = (unsigned int)i;
 	free(tmp);

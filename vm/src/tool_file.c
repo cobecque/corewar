@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 15:06:02 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 15:07:58 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/15 18:53:31 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,10 @@ int			check_error(t_vm data)
 		return (1);
 	if (data.error == 0)
 		return (0);
+	if (data.error == 3)
+	{
+		ft_printf("Error in the file\n");
+		exit(-1);
+	}
 	return (1);
 }

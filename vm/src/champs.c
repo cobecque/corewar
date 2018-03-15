@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 00:38:02 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 13:55:03 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/15 18:51:51 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_champ		fill_name(int fd, t_champ play)
 	ft_bzero(play.name, PROG_NAME_LENGTH);
 	if (read(fd, play.name, PROG_NAME_LENGTH) <= 0)
 		exit(-1);
-	if (read(fd, str, 8) <= 0)
+	if (read(fd, str, 6) <= 0)
 		exit(-1);
 	return (play);
 }
@@ -27,10 +27,17 @@ t_champ		fill_name(int fd, t_champ play)
 t_champ		fill_comment(int fd, t_champ play)
 {
 	char	str[4];
+	char	s2[2];
 
+	if (read(fd, s2, 2) <= 0)
+		exit(-1);
+	//play.length = s2[0] * 256 + s2[1];
+	play.length = (((unsigned int)s2[0] << 8) | ((unsigned int)s2[1] & 0xFF));
+	ft_printf(">>>>>%d pour %d %d\n", play.length, s2[0], s2[1]);
 	if (read(fd, play.comment, COMMENT_LENGTH) <= 0)
 		exit(-1);
-	read(fd, str, 4);
+	if (read(fd, str, 4) <= 0)
+		exit(-1);
 	return (play);
 }
 
@@ -49,10 +56,9 @@ t_champ		fill_all(int fd, t_champ play)
 	return (play);
 }
 
-t_vm		fill_champ(int *fd)
+t_vm		fill_champ(int *fd, t_vm data)
 {
 	int			i;
-	t_vm		data;
 
 	data.nb_pros = fd[0] - 1;
 	data.error = 0;
@@ -65,6 +71,8 @@ t_vm		fill_champ(int *fd)
 			return (data);
 		}
 		data.play[i - 1] = fill_all(fd[i], data.play[i - 1]);
+		if (data.play[i - 1].length == 0)
+			data.error = 3;
 		data.play[i - 1].nb = i;
 		if (data.play[i - 1].len > CHAMP_MAX_SIZE)
 			data.error = 1;

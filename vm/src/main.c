@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 17:29:39 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 15:07:46 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/15 17:30:15 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void		start_init(int *fd, t_pam arg)
 {
 	t_vm		data;
 
+	ft_bzero(&data, sizeof(t_vm));
 	if (arg.n_o == 1)
 		fd = sort_fd(fd, arg);
 	data.arg = arg;
@@ -102,7 +103,7 @@ void		start_init(int *fd, t_pam arg)
 		ft_putstr("Error at -n parameters\n");
 		exit(-1);
 	}
-	data = fill_champ(fd);
+	data = fill_champ(fd, data);
 	if (check_error(data) != 0)
 	{
 		ft_putstr("Champion too big\n");

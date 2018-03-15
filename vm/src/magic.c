@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 06:44:27 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/08 13:37:00 by rostroh          ###   ########.fr       */
+/*   Updated: 2018/03/09 16:50:15 by cobecque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int			check_magic(int fd)
 	if (COREWAR_EXEC_MAGIC != 15369203)
 	{
 		ft_printf("Not a 42 exec, sorry\n");
-		return (-1);
+		exit(-1);
 	}
 	if ((read(fd, str, 4) < 0))
 		return (-1);
 	if (a != str[0] || b != str[1] || c != str[2] || d != str[3])
 	{
 		ft_printf("Not a 42 exec, sorry\n");
-		return (-1);
+		exit(-1);
 	}
 	return (1);
 }

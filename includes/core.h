@@ -6,7 +6,7 @@
 /*   By: rostroh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:40:59 by rostroh           #+#    #+#             */
-/*   Updated: 2018/03/09 15:30:54 by cobecque         ###   ########.fr       */
+/*   Updated: 2018/03/15 17:45:26 by rostroh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ typedef struct				s_champ
 	int						nb;
 	int						len;
 	int						r1;
+	int						length;
 	char					name[PROG_NAME_LENGTH];
 	char					code[CHAMP_MAX_SIZE];
 	char					comment[COMMENT_LENGTH];
@@ -237,7 +238,7 @@ t_ver						get_verbose(int nu);
 
 t_pam						get_option(int argc, char **argv, int i);
 
-t_vm						fill_champ(int *fd);
+t_vm						fill_champ(int *fd, t_vm vm);
 t_vm						ft_ncurses(t_process *pro, t_vm vm);
 
 void						reg_write(t_process *pros, unsigned int val,
